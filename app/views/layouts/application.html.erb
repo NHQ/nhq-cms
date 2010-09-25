@@ -2,16 +2,22 @@
 <html>
   <head>
     <title><%= yield(:title) || "Untitled" %></title>
-    <%= stylesheet_link_tag "application", "formtastic", "nhq" %>
-    <%= javascript_include_tag :defaults %>
+		<%= javascript_include_tag "jquery-1.4.2.min", "rails" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
+	  <% javascript_tag do %>
+	    <%= yield(:jstemplates) %>
+	  <% end -%>
+    <%= stylesheet_link_tag "application", "formtastic", "nhq" %>
   </head>
   <body>
     <div id="container">
 			<ul class="hmenu">
 			  <%= render 'devise/menu/registration_items' %>
 			  <%= render 'devise/menu/login_items' %>
+			</ul>
+			<ul class="nav">
+				<li><%= link_to 'Events', :events %></li>
 			</ul>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>

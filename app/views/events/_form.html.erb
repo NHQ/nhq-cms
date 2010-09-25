@@ -1,8 +1,21 @@
-<% semantic_form_for @event do |form| %>
-	<% form.inputs do %>
-		<%= form.input :title, :required => true %>
-		<%= form.input :description, :as => :text %>
-		<%= form.input :tags, :hint => "separate tags by commas" %>
-	<% end %>
-  <%= form.buttons :commit %>
+<%= form_for @event, :html => {:multipart => true} do |f| %>		
+	<%= f.label :title %>
+	<%= f.text_field :title, :required => true %>
+	<%= f.label :description %>
+	<%= f.text_area :description, :as => :text %>
+	<%= f.label :tags %>
+	<%= f.text_field :tags, :hint => "separate tags by commas" %>
+	<%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.label :venue_name %>
+  <%= f.text_field :venue_name %>
+  <%= f.label :street %>
+  <%= f.text_field :street %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>	
+  <%= f.submit "Submit" %>
 <% end %>

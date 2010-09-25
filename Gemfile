@@ -6,15 +6,17 @@ gem 'mongo', '1.0.7'
 gem 'bson_ext', '1.0.7'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'nifty-generators'
 gem 'formtastic', '~> 1.1.0'
 gem 'mongoid_taggable'
+gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
+gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 gem 'devise', '1.1.2'
 gem 'haml', '3.0.18'
 gem 'haml-rails', '0.2', :group => :development
  # the folowing gems are used to generate Devise views for Haml
 gem 'hpricot', '0.8.2', :group => :development
 gem 'ruby_parser', '2.0.5', :group => :development
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

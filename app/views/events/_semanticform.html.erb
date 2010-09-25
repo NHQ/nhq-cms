@@ -1,0 +1,8 @@
+<% semantic_form_for (@event, :html => {:multipart => true}) do |event| %>
+	<% event.inputs do %>
+		<%= event.input :title, :required => true %>
+		<%= event.input :description, :as => :text %>
+		<%= event.input :tags, :hint => "separate tags by commas" %>
+	<% end %>
+  <%= event.buttons :commit %>
+<% end %>

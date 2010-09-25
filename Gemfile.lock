@@ -9,6 +9,20 @@ GIT
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
 
+GIT
+  remote: git://github.com/jnicklas/carrierwave.git
+  revision: 6d07f75edacb2ab526b34d6e3bc6e166e69c9996
+  specs:
+    carrierwave (0.5.0)
+      activesupport (~> 3.0)
+
+GIT
+  remote: git://github.com/probablycorey/mini_magick.git
+  revision: 99fcb46b08a7352950906cb8890b4ee73adb5c47
+  specs:
+    mini_magick (2.1)
+      subexec (~> 0.0.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -72,7 +86,6 @@ GEM
     mongo (1.0.7)
       bson (>= 1.0.4)
     mongoid_taggable (0.1.1)
-    nifty-generators (0.4.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -97,6 +110,7 @@ GEM
     ruby_parser (2.0.5)
       sexp_processor (~> 3.0)
     sexp_processor (3.0.5)
+    subexec (0.0.4)
     thor (0.14.1)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
@@ -110,6 +124,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext (= 1.0.7)
+  carrierwave!
   devise (= 1.1.2)
   formtastic (~> 1.1.0)
   haml (= 3.0.18)
@@ -117,9 +132,9 @@ DEPENDENCIES
   has_scope
   hpricot (= 0.8.2)
   inherited_resources
+  mini_magick!
   mongo (= 1.0.7)
   mongoid!
   mongoid_taggable
-  nifty-generators
   rails (= 3.0.0)
   ruby_parser (= 2.0.5)

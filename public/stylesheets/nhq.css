@@ -19,3 +19,28 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+label {
+	display: block;
+}
+.label {
+	color: #666;
+}
+.inputs input {
+	display: inline;
+}
+.hmenu {
+	float: right;
+	margin-top: -2em;
+}
+div.ui-datepicker {
+	font-size: 12px;
+}
+.right {
+	float: right;
+}
+#map_canvas {
+/*	width: 320px; 
+	height: 280px;*/
+	width: 160px; 
+	height: 140px;
+}
