@@ -1,0 +1,80 @@
+== NHQ-CMS
+
+NHQ-CMS is a rails3-mongoid content management system and event planning web application.  It uses:
+
+==== MongoDB for no-sql storage
+==== Mongoid for data persistence and querying
+==== Inherited Resources for DRY restful controllers
+==== Devise for user authentication
+==== CarrierWave for image uploading/processing
+
+Here is the event model:
+
+			class Event
+			  include Mongoid::Document
+			  include Mongoid::Taggable
+			  include Mongoid::Timestamps
+
+			  field :title
+			  field :description
+			  field :venue_name
+			  field :street
+			  field :city
+			  field :state
+			  field :zip
+
+			  mount_uploader :image, ImageUploader
+    
+			  embeds_many :showdates
+
+			  validates_presence_of :title
+  
+			  def map_string
+			    [self.street, self.city, self.state, self.zip].join(" ").split(' ').join("+")
+			  end
+  
+			end
+			
+			
+The plan is to add models/collections (:for => { shows, workshops }), as well as support for storing venues (and their related fields) in their own model/collection, and embedding them in the event model much like showdates.  
+
+
+==created with
+
+=== Inherited Resources 
+
+Inherited Resources speeds up development by making your controllers inherit
+all restful actions so you just have to focus on what is important. It makes
+your controllers more powerful and cleaner at the same time.
+
+http://github.com/josevalim/inherited_resources
+
+=== Devise
+
+Devise is a flexible authentication solution for Rails based on Warden.
+
+http://github.com/plataformatec/devise
+
+==== Here's my gemfile:
+
+gem 'rails', '3.0.0'
+gem 'mongoid', :git => 'git://github.com/cherring/mongoid.git'  
+gem 'mongo', '1.0.7'
+gem 'bson_ext', '1.0.7'
+gem 'nifty-generators'
+gem 'inherited_resources'
+gem 'has_scope'
+gem 'formtastic', '~> 1.1.0'
+gem 'mongoid_taggable'
+gem 'mongoid_slug'
+gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
+gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
+gem 'devise', '1.1.2'
+gem 'haml', '3.0.18'
+gem 'haml-rails', '0.2', :group => :development
+# the folowing gems are used to generate Devise views for Haml
+gem 'hpricot', '0.8.2', :group => :development
+gem 'ruby_parser', '2.0.5', :group => :development
+
+Copyright (c) 2010 National Headquarters, LLC
+See the attached MIT License.
