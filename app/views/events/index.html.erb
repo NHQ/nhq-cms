@@ -12,12 +12,11 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.title %></td>
+    <td><%= link_to event.title, event %></td>
     <td><%= event.venue_name %></td>
 		<% if user_signed_in? -%>
     <td><%= event.created_at.to_s(:short) %></td>
     <td><%= time_ago_in_words(event.updated_at) %> ago</td>
-    <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
 		<% end -%>
