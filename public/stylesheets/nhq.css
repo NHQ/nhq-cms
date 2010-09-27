@@ -32,6 +32,15 @@ label {
 	float: right;
 	margin-top: -2em;
 }
+#menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#menu li {
+	display: inline;
+	padding: 0 0.5em;
+}
 div.ui-datepicker {
 	font-size: 12px;
 }
@@ -43,4 +52,7 @@ div.ui-datepicker {
 	height: 280px;*/
 	width: 160px; 
 	height: 140px;
+}
+.welcome {
+	text-align: right;
 }

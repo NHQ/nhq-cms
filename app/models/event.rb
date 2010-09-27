@@ -1,9 +1,8 @@
-require 'carrierwave/orm/mongoid'
-
 class Event
   include Mongoid::Document
   include Mongoid::Taggable
   include Mongoid::Timestamps
+
   field :title
   field :description
   field :venue_name
@@ -13,9 +12,7 @@ class Event
   field :zip
 
   mount_uploader :image, ImageUploader
-  
-  
-  
+    
   embeds_many :showdates
 
   validates_presence_of :title

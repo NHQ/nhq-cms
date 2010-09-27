@@ -1,48 +1,37 @@
-<% content_for :head do -%>
-	<%= javascript_include_tag "jquery-ui-1.8.5.min", "http://maps.google.com/maps/api/js?sensor=false", "googlemaps" %>
-	<%= stylesheet_link_tag "ui-lightness/jquery-ui-1.8.5.custom.css", "googlemaps" %>
+<% title @event.title %>
+
+<%= image_tag(@event.image.url, :class => "right") if @event.image? %>
+<%= image_tag(@event.image.url(:medium), :class => "right") if @event.image? %>
+<%= image_tag(@event.image.url(:thumb), :class => "right") if @event.image? %>
+<div class="description"><%= @event.description.html_safe %></div>
+<div class="tags"> Tags: <%= @event.tags_array.inspect %></div>
+
+<!-- When -->
+<h3 class="showdates">Show Dates:</h3>
+<ul class="date-list">
+	<% @showdates.each do |d| -%>
+		<li>
+			<%= d.start_date.to_s %> 
+			<% if user_signed_in? -%>
+				<%= link_to('Destroy', event_showdate_path(@event, d), :method => :delete) %>
+			<% end -%>
+		</li>											
+	<% end -%>
+</ul>
+<% if user_signed_in? -%>
+	<%= render 'showdate' %>
 <% end -%>
 
-<h1 class="title"><%= @event.title %></h1>
-<%= image_tag @event.image.url, :class => "right" %>
-<%= image_tag @event.image.url(:thumb), :class => "right" %>
-<div class="description"><%= @event.description %></div>
-<div class="tags"> Tags: <%= @event.tags_array.inspect %></div>
+<!-- Where -->
 <h2 class="venue"><span class="label">Venue: </span> <%= @event.venue_name %></h2>
-<div class="address"><%= @event.street %>, <%= @event.city %>, <%= @event.state %> <%= @event.zip %></div>
-
+<div class="address"><%= @event.street %><br /><%= @event.city %>, <%= @event.state %> <%= @event.zip %></div>
 <% unless @event.map_string.length < 5 %>
+<% javascript "http://maps.google.com/maps/api/js?sensor=false", "googlemaps" %>
+<% stylesheet "googlemaps" %>
 <input id="address" type="hidden" value="<%= @event.map_string %>"> 
 <div id="map_canvas"></div>
 <% end %>
 
-<h3 class="showdates">Show Dates:</h3>
-<ul class="date-list">
-	<% @event.showdates.each do |d| %>
-		<li><%= d.start_date.to_s %> <%= link_to('Destroy', event_showdate_path(@event, d), :method => :delete) %></li>
-	<% end %>
-</ul>
-<% if user_signed_in? %>
-	<% form_for :showdate, @showdate, :url => {:controller => "showdates", :action => "create"}, :html => {:multipart => true, :class => "formtastic"} do |f| %>
-		<%= hidden_field_tag 'event_id', @event.id %>
-		<input id="datepicker" class="datepicker" name="showdate[start_date]" size="30" type="text" />
-	  <%= submit_tag "Add Date" %>
-	<% end %>
-
-	<%= javascript_tag " 
-	$.datepicker.setDefaults({
-	   showOn: 'both',
-		 dateFormat: 'yy-mm-dd',
-		 showOtherMonths: true,
-		 selectOtherMonths: true,
-	   buttonImageOnly: true,
-	   buttonImage: '/images/calendar.gif',
-	   buttonText: 'Calendar' });
-
-	$('.datepicker').datepicker();"
-	%>
-
-<% end %>
-
-
-<p class="admin"><%= link_to('Edit', edit_event_path(@event)) + ' | ' + link_to('Back', events_path) %></p>
+<% if user_signed_in? -%>
+	<p class="admin"><%= link_to('Edit', edit_event_path(@event)) + ' | ' + link_to('Back', events_path) %></p>
+<% end -%>

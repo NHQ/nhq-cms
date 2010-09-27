@@ -85,6 +85,8 @@ GEM
     mime-types (1.16)
     mongo (1.0.7)
       bson (>= 1.0.4)
+    mongoid_slug (0.4.6)
+      mongoid (~> 2.0.0.beta)
     mongoid_taggable (0.1.1)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -135,6 +137,7 @@ DEPENDENCIES
   mini_magick!
   mongo (= 1.0.7)
   mongoid!
+  mongoid_slug
   mongoid_taggable
   rails (= 3.0.0)
   ruby_parser (= 2.0.5)

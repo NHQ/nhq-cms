@@ -1,21 +1,20 @@
-<%= form_for @event, :html => {:multipart => true} do |f| %>		
-	<%= f.label :title %>
-	<%= f.text_field :title, :required => true %>
-	<%= f.label :description %>
-	<%= f.text_area :description, :as => :text %>
-	<%= f.label :tags %>
-	<%= f.text_field :tags, :hint => "separate tags by commas" %>
-	<%= f.label :image %>
-  <%= f.file_field :image %>
-  <%= f.label :venue_name %>
-  <%= f.text_field :venue_name %>
-  <%= f.label :street %>
-  <%= f.text_field :street %>
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  <%= f.label :state %>
-  <%= f.text_field :state %>
-  <%= f.label :zip %>
-  <%= f.text_field :zip %>	
-  <%= f.submit "Submit" %>
+<%= semantic_form_for @event, :html => { :multipart => true } do |form| %>
+
+  <% form.inputs do %>
+    <%= form.input :title, :required => true, :label => "Event Title" %>
+    <%= form.input :description, :as => :text %>
+    <%= form.input :tags, :hint => "Example: comedy, tragedy, classic" %>
+		<%= image_tag(@event.image.url(:thumb)) if @event.image? %>
+    <%= form.input :image %>
+    <%= form.input :venue_name %>
+    <%= form.input :street, :required => false %>
+    <%= form.input :city, :required => false %>
+    <%= form.input :state, :required => false %>
+    <%= form.input :zip, :required => false %>
+  <% end %>
+
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+
 <% end %>

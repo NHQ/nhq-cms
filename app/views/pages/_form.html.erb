@@ -1,0 +1,14 @@
+<%= semantic_form_for @page, :html => { :multipart => true } do |form| %>
+
+  <% form.inputs do %>
+    <%= form.input :title, :required => true %>
+		<%= form.input :hide_title, :as => :boolean, :label => "Hide title?" %>
+    <%= form.input :body, :as => :text %>
+    <%= form.input :slug, :hint => "If left blank, slug will be created automatically from title." %>
+  <% end %>
+
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+
+<% end %>

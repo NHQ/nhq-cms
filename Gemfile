@@ -8,6 +8,7 @@ gem 'inherited_resources'
 gem 'has_scope'
 gem 'formtastic', '~> 1.1.0'
 gem 'mongoid_taggable'
+gem 'mongoid_slug'
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 gem 'devise', '1.1.2'
