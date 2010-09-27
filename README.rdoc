@@ -82,4 +82,4 @@ http://github.com/plataformatec/devise
 * facebook API integration
 
 
-Copyright (c) 2010 National Headquarters, LLC &amp; Waking Web, LLC
+Copyright (c) 2010 National Headquarters, LLC & Waking Web, LLC

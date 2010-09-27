@@ -1,4 +1,4 @@
-<% semantic_form_for (@event, :html => {:multipart => true}) do |event| %>
+<% semantic_form_for (@event) do |event| %>
 	<% event.inputs do %>
 		<%= event.input :title, :required => true %>
 		<%= event.input :description, :as => :text %>
