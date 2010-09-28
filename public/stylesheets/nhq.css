@@ -76,7 +76,24 @@ div.ui-datepicker {
 	padding-right: 0.5em
 }
 
+/* ADMIN stuff */
+li .edit,
+li .destroy {
+	display: inline;
+}
+
 /* EVENTS */
+.event-list {
+	padding: 0;
+}
+.event-list li {
+	list-style: none;
+	padding-bottom: 1em;
+}
+.event-list .title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
 .location {
 	margin-top: 1em;
 }

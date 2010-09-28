@@ -1,16 +1,16 @@
 !!!
 %html
-%head
-  %title= yield_for(:title, 'Welcome') + ' - 500 Clown'
-  %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")
-  %meta(name="description"){:content => yield_for(:description, 'Life is worth the risk')}
-  %meta(name="keywords" content="")
-  = javascript_include_tag "jquery-1.4.2.min", "jquery.rails"
-  = csrf_meta_tag
-  = yield(:head)
-  -# - javascript_tag do<
-  -#   = yield(:jstemplates)<
-  = stylesheet_link_tag "application", "formtastic", "nhq"
+  %head
+    %title= yield_for(:title, 'Welcome') + ' - 500 Clown'
+    %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")
+    %meta(name="description"){:content => yield_for(:description, 'Life is worth the risk')}
+    %meta(name="keywords" content="")
+    = javascript_include_tag "jquery-1.4.2.min", "jquery.rails"
+    = csrf_meta_tag
+    = yield(:head)
+    -# - javascript_tag do<
+    -#   = yield(:jstemplates)<
+    = stylesheet_link_tag "application", "formtastic", "nhq"
 
   %body{:id => yield_for(:body_id, params[:controller])}
     #container
@@ -22,7 +22,7 @@
         = render 'devise/menu/login_items'
 
       = render 'navigation/menu'
-      
+    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
 
