@@ -89,10 +89,10 @@ li .destroy {
 .event-list li {
 	list-style: none;
 	padding-bottom: 1em;
+	clear: both;
 }
 .event-list .title {
-	font-size: 1.3em;
-	font-weight: bold;
+	font-size: 1.5em;
 }
 .location {
 	margin-top: 1em;
@@ -102,6 +102,10 @@ li .destroy {
 }
 .address {
 	padding-bottom: 0.5em;
+}
+.created,
+.updated {
+	display: inline;
 }
 
 /* SHOWS */
