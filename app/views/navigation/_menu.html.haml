@@ -2,7 +2,7 @@
   %li= link_to 'Home', '/'
   %li= link_to 'Shows', :shows
   %li= link_to 'Events', :events
-  %li= link_to 'Workshops', '#' 
+  %li= link_to 'Workshops', :workshops
   - Page.all.each do |page|
     %li= link_to(page.title.titleize, '/pages/' + page.slug)
   - if user_signed_in?

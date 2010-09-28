@@ -1,3 +1,3 @@
-class ShowsController < InheritedResources::Base
+class WorkshopsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
 end

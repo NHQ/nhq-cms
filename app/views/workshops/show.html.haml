@@ -1,0 +1,8 @@
+%h1.title= @workshop.title
+.left= image_tag(@workshop.image.url(:large)) if @workshop.image?
+.description= @workshop.description
+.tags= 'Tags: ' + @workshop.tags_array.inspect
+
+= link_to 'Edit', edit_workshop_path(@workshop)
+\|
+= link_to 'Back', workshops_path

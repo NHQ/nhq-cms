@@ -10,40 +10,10 @@ th {
 	font-weight: bold;
 	padding: 1em 0;
 }
-ul.hmenu {
-  list-style: none;	
-  margin: 0 0 2em;
-  padding: 0;
-}
 
-ul.hmenu li {
-  display: inline;  
-}
-label {
-	display: block;
-}
-.label {
-	color: #666;
-}
-.inputs input {
-	display: inline;
-}
-.hmenu {
-	float: right;
-	margin-top: -2em;
-}
-#menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-#menu li {
-	display: inline;
-	padding: 0 0.5em;
-}
-div.ui-datepicker {
-	font-size: 12px;
-}
+
+
+/* Floats */
 .right,
 .left {
 	padding-bottom: 10px;
@@ -56,37 +26,64 @@ div.ui-datepicker {
 	float: left;
 	padding-right: 10px;
 }
-#map_canvas {
-/*	width: 320px; 
-	height: 280px;*/
-	width: 160px; 
-	height: 140px;
-}
-.welcome {
-	text-align: right;
-}
-.showdates {
-	clear: both;
-}
-.tag-cloud {
+
+
+
+/* Navigation */
+.hmenu {
 	float: right;
-	width: 250px;
+	margin-top: -2em;
+  list-style: none;	
+  margin: 0 0 2em;
+  padding: 0;
 }
-.tag-cloud span {
-	padding-right: 0.5em
+ul.hmenu li {
+  display: inline;  
+}
+#menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#menu li {
+	display: inline;
+	padding: 0 0.5em;
 }
 
+
 /* ADMIN stuff */
+label {
+	display: block;
+}
+.label {
+	color: #666;
+}
+.inputs input {
+	display: inline;
+}
+div.ui-datepicker {
+	font-size: 12px;
+}
 li .edit,
 li .destroy {
 	display: inline;
 }
+.created,
+.updated {
+	display: inline;
+}
+.welcome {
+	text-align: right;
+}
+
 
 /* EVENTS */
-.event-list {
+.event-list,
+.workshop-list {
 	padding: 0;
 }
-.event-list li {
+.event-list li,
+.workshop-list li {
 	list-style: none;
 	padding-bottom: 1em;
 	clear: both;
@@ -103,13 +100,26 @@ li .destroy {
 .address {
 	padding-bottom: 0.5em;
 }
-.created,
-.updated {
-	display: inline;
+#map_canvas {
+/*	width: 320px; 
+	height: 280px;*/
+	width: 160px; 
+	height: 140px;
+}
+.showdates {
+	clear: both;
+}
+.tag-cloud {
+	float: right;
+	width: 250px;
+}
+.tag-cloud span {
+	padding-right: 0.5em
 }
 
+
 /* SHOWS */
-#shows-list {
+#show-list {
 	text-align: center;
 	height: 500px;
 	margin-top: 20px;
@@ -119,7 +129,7 @@ li .destroy {
 	padding-right: 10px;
 	padding-bottom: 10px;
 }
-#shows-list .title,
-#shows-list .admin {
+#show-list .title,
+#show-list .admin {
 	margin: 0;
 }

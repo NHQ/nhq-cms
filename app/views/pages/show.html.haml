@@ -1,6 +1,8 @@
 - content_for :title, "Events" 
 
-%h1.title= @page.title
+- unless @page.hide_title
+  %h1.title= @page.title
+
 .body= @page.body.html_safe
 
 - if user_signed_in?

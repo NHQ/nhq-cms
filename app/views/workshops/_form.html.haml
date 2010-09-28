@@ -1,0 +1,11 @@
+= semantic_form_for @workshop, :html => { :multipart => true } do |form|
+
+  = form.inputs do
+    = form.input :title, :required => true, :label => "Workshop Title"
+    = form.input :description, :as => :text
+    = form.input :tags, :hint => "Example: performance, improv, dance"
+    = image_tag(@workshop.image.url(:thumb)) if @workshop.image?
+    = form.input :image
+
+  = form.buttons do
+    = form.commit_button

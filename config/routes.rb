@@ -1,5 +1,7 @@
 Clown::Application.routes.draw do  
 
+  resources :workshops
+
   resources :shows
 
   devise_for :users

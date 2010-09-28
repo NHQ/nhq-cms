@@ -1,11 +1,11 @@
 - content_for :title, "Shows"
 
-%h1 SHOWS
+%h1 Shows
 
 -if user_signed_in?
   = link_to 'New show', new_show_path
 
-#shows-list
+#show-list
 
   - @shows.each do |show|
     %div.showblock
