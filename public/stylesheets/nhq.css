@@ -80,6 +80,9 @@ div.ui-datepicker {
 .location {
 	margin-top: 1em;
 }
+.venue {
+	font-weight: bold;
+}
 .address {
 	padding-bottom: 0.5em;
 }

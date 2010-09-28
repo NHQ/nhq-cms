@@ -1,7 +1,7 @@
 <% javascript('jquery-ui-1.8.5.min.js', 'flickr') %>
 <% stylesheet('flickr') %>
 
-<%= semantic_form_for @event, :html => { :multipart => true, :id => "eventform" } do |form| %>
+<%= semantic_form_for @event, :html => { :remote => true, :id => "eventform" } do |form| %>
 
   <% form.inputs do %>
     <%= form.input :title, :required => true, :label => "Event Title" %>
@@ -35,10 +35,10 @@ $('#showme').click(function(){
 	$('ul').show('fast', function(){
 	});
 });	
-// $('#edit_event_4ca13db1a871718e51000017').live('submit',function() {
-//     alert($(this).serialize());
-//     return false;
-// });
+$('#eventform').live('submit',function() {
+    alert($(this).serialize());
+    return false;
+});
 
 // $('#edit_event_4c9effaea87171671b00000b').submit(function() {
 //     alert($(this).serialize());

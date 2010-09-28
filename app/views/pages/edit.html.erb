@@ -1,4 +1,6 @@
-<% title('Editing page')%>
+<%=h content_for :title, "Editing " + @page.title + " page" %>
+
+<h1>Editing <%= @page.title %> page</h1>
 
 <%= render 'form' %>
 

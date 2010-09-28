@@ -1,4 +1,4 @@
-<% title @event.title, false %>
+<%=h content_for :title, @event.title %>
 
 <h1><%= @event.title %> <span class="label">at</span> <span class="venue_name"><%= @event.venue_name %></span></h1>
 
