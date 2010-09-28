@@ -1,0 +1,9 @@
+/*body {background:#fff;width:976px;}*/
+photosets {width:150px;}
+ul {list-style-type:none;display:none}
+.images {width:210px;left:175px}
+.images img {max-width:200px; padding:1em}
+/*form {width="250px"}*/
+/*input[type="checkbox"] {display:none}*/
+.newB {background-color:green}
+/*input[type="submit"] {position:fixed;left:250px}*/

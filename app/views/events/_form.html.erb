@@ -1,8 +1,12 @@
+<% javascript('jquery-ui-1.8.5.min.js', 'flickr') %>
+<% stylesheet('flickr') %>
+
 <%= semantic_form_for @event, :html => { :multipart => true } do |form| %>
 
   <% form.inputs do %>
     <%= form.input :title, :required => true, :label => "Event Title" %>
     <%= form.input :description, :as => :text %>
+		<%= form.input :event_type, :as => :select, :collection => ["Performance", "Workshop", "Fundraiser"] %>
     <%= form.input :tags, :hint => "Example: comedy, tragedy, classic" %>
 		<%= image_tag(@event.image.url(:thumb)) if @event.image? %>
     <%= form.input :image %>
@@ -13,8 +17,36 @@
     <%= form.input :zip, :required => false %>
   <% end %>
 
+	<div class="images">
+	</div>
+	
   <% form.buttons do %>
     <%= form.commit_button %>
   <% end %>
 
 <% end %>
+
+<div id="showme">Click Here To Show Photosets
+</div>
+
+<ul class="flickr-list">
+</ul>
+
+
+<script type="text/javascript">
+$('#showme').click(function(){
+	$('ul').show('fast', function(){
+	});
+});	
+// $('#edit_event_4ca13db1a871718e51000017').live('submit',function() {
+//     alert($(this).serialize());
+//     return false;
+// });
+
+// $('#edit_event_4c9effaea87171671b00000b').submit(function() {
+//     alert($(this).serialize());
+//     return false;
+// });
+
+//$('form').bind('submit',function(){});
+</script>

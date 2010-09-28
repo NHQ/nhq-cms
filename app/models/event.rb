@@ -5,6 +5,7 @@ class Event
 
   field :title
   field :description
+  field :event_type
   field :venue_name
   field :street
   field :city

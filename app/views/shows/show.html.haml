@@ -1,0 +1,8 @@
+%h1.title= @show.title
+.right= image_tag(@show.image.url, :class => "right") if @show.image?
+.description= @show.description
+.tags= 'Tags: ' + @show.tags_array.inspect
+
+= link_to 'Edit', edit_show_path(@show)
+\|
+= link_to 'Back', shows_path

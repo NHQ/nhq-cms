@@ -1,5 +1,7 @@
 Clown::Application.routes.draw do  
 
+  resources :shows
+
   devise_for :users
 
   resources :users, :only => :show

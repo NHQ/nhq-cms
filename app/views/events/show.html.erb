@@ -1,10 +1,9 @@
 <% title @event.title %>
 
 <%= image_tag(@event.image.url, :class => "right") if @event.image? %>
-<%= image_tag(@event.image.url(:medium), :class => "right") if @event.image? %>
-<%= image_tag(@event.image.url(:thumb), :class => "right") if @event.image? %>
 <div class="description"><%= @event.description.html_safe %></div>
 <div class="tags"> Tags: <%= @event.tags_array.inspect %></div>
+<div class="event_type"> Event Type: <%= @event.event_type %></div>
 
 <!-- When -->
 <h3 class="showdates">Show Dates:</h3>
