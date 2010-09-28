@@ -2,17 +2,16 @@
 
 %h1 SHOWS
 
-%ul.shows-list
-
-  - @shows.each do |show|
-    %li
-      %span.photo= link_to image_tag(show.image.url(:boxy)), show
-      %span.title= link_to show.title, show
-      -if user_signed_in?
-        %span.admin= link_to 'Edit', edit_show_path(show)
-        %span.admin= link_to 'Destroy', show, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
 -if user_signed_in?
   = link_to 'New show', new_show_path
+
+#shows-list
+
+  - @shows.each do |show|
+    %div.showblock
+      %span.photo= link_to image_tag(show.image.url(:boxy)), show
+      %p.title= link_to show.title, show
+      -if user_signed_in?
+        %p.admin
+          = link_to 'Edit', edit_show_path(show)
+          = link_to 'Destroy', show, :confirm => 'Are you sure?', :method => :delete

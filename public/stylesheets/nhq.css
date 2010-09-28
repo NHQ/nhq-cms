@@ -88,24 +88,17 @@ div.ui-datepicker {
 }
 
 /* SHOWS */
-.shows-list {
-	list-style: none;
+#shows-list {
 	text-align: center;
-	width: 630px;
+	height: 500px;
+	margin-top: 20px;
 }
-.shows-list li {
-	display: block;
-	width: 200px;
+.showblock {
+	float: left;
 	padding-right: 10px;
 	padding-bottom: 10px;
-	float: left;
 }
-.shows-list .photo {
-
-}
-.shows-list .title {
-	clear: both;
-}
-.shows-list .admin {
-	display: block;
+#shows-list .title,
+#shows-list .admin {
+	margin: 0;
 }

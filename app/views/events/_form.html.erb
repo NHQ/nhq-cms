@@ -1,7 +1,7 @@
 <% javascript('jquery-ui-1.8.5.min.js', 'flickr') %>
 <% stylesheet('flickr') %>
 
-<%= semantic_form_for @event, :html => { :remote => true, :id => "eventform" } do |form| %>
+<%= semantic_form_for @event, :html => { :id => "eventform" } do |form| %>
 
   <% form.inputs do %>
     <%= form.input :title, :required => true, :label => "Event Title" %>
@@ -29,21 +29,3 @@
 <div id="showme">Click Here To Show Photosets</div>
 
 <ul class="flickr-list"></ul>
-
-<script type="text/javascript">
-$('#showme').click(function(){
-	$('ul').show('fast', function(){
-	});
-});	
-$('#eventform').live('submit',function() {
-    alert($(this).serialize());
-    return false;
-});
-
-// $('#edit_event_4c9effaea87171671b00000b').submit(function() {
-//     alert($(this).serialize());
-//     return false;
-// });
-
-//$('form').bind('submit',function(){});
-</script>
