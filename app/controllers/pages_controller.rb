@@ -1,6 +1,10 @@
 class PagesController < InheritedResources::Base
   before_filter :find_page, :except => [ :index, :new, :create ]
 
+  def home
+    @upcoming_events = Event.where(:title => /^F/)
+  end
+
   def show
   end
   
@@ -21,7 +25,6 @@ class PagesController < InheritedResources::Base
     flash[:notice] = "Successfully destroyed page."
     redirect_to pages_url
   end
-
   
   private 
   

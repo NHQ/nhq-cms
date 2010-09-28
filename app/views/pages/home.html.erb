@@ -1,3 +1,8 @@
 <h1>500 Clown</h1>
 <h2>Life is worth the risk.</h2>
+<%= image_tag 'frankenstein1.jpg' %>
 <%= image_tag 'ear.gif' %>
+<h3>Upcoming events:</h3>
+<% @upcoming_events.each do |event| %>
+	<%= content_tag :div, event.title, :class => "title" %>
+<% end %>

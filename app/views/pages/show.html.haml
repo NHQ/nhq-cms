@@ -1,0 +1,7 @@
+- content_for :title, "Events" 
+
+%h1.title= @page.title
+.body= @page.body.html_safe
+
+- if user_signed_in?
+  .admin= link_to('Edit', edit_page_path(@page)) + ' | ' + link_to('Back', pages_path)

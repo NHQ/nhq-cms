@@ -1,0 +1,21 @@
+- content_for :title, "Pages" 
+
+%h1.title Pages
+
+%table
+  %tr
+    %th Title
+    %th Created
+    %th Modified
+  - @pages.each do |page|
+    %tr
+      %td= page.title
+      %td= page.created_at.to_s(:short)
+      %td= time_ago_in_words(page.updated_at) + ' ago'
+      %td= link_to 'Show', page
+      %td= link_to 'Edit', edit_page_path(page) 
+      %td= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete 
+
+%br/
+
+= link_to 'New Page', new_page_path

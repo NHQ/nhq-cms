@@ -1,7 +1,7 @@
 <% javascript('jquery-ui-1.8.5.min.js', 'flickr') %>
 <% stylesheet('flickr') %>
 
-<%= semantic_form_for @event, :html => { :multipart => true } do |form| %>
+<%= semantic_form_for @event, :html => { :multipart => true, :id => "eventform" } do |form| %>
 
   <% form.inputs do %>
     <%= form.input :title, :required => true, :label => "Event Title" %>
@@ -26,12 +26,9 @@
 
 <% end %>
 
-<div id="showme">Click Here To Show Photosets
-</div>
+<div id="showme">Click Here To Show Photosets</div>
 
-<ul class="flickr-list">
-</ul>
-
+<ul class="flickr-list"></ul>
 
 <script type="text/javascript">
 $('#showme').click(function(){

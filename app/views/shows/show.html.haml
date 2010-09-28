@@ -1,5 +1,5 @@
 %h1.title= @show.title
-.right= image_tag(@show.image.url, :class => "right") if @show.image?
+.right= image_tag(@show.image.url(:large), :class => "right") if @show.image?
 .description= @show.description
 .tags= 'Tags: ' + @show.tags_array.inspect
 

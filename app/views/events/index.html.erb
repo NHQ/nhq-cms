@@ -1,4 +1,13 @@
-<% title('Event Listing') %>
+<%=h content_for :title, "Events" %>
+
+<h1>Events</h1>
+
+<div class="tag-cloud">
+  <span class="label">TAG CLOUD:</span>
+<% Event.tags_with_weight.each do |key, value| %>
+	<%= content_tag :span, key, :style => "font-size: #{0.6 + value/2}em;"%>
+<% end %>
+</div>
 
 <table>
   <tr>
