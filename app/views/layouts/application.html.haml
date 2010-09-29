@@ -5,10 +5,12 @@
     %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")
     %meta(name="description"){:content => yield_for(:description, 'Life is worth the risk')}
     %meta(name="keywords" content="")
+    %meta(name="viewport" content="initial-scale=1.0, user-scalable=no")
     = csrf_meta_tag
-    = stylesheet_link_tag "application", "nhq", "formtastic"
-    = javascript_include_tag "jquery-1.4.2.min", "jquery.rails"
+    = javascript_include_tag "jquery-1.4.2.min", "jquery-ui-1.8.5.min"
     = yield(:head)
+    = javascript_include_tag "jquery.rails"
+    = stylesheet_link_tag "application", "nhq"
     -# - javascript_tag do<
     -#   = yield(:jstemplates)<
 

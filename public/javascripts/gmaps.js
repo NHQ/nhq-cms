@@ -1,20 +1,15 @@
-$(document).ready(function () {
-	initialize();
-});
-
-var map;
 var geocoder;
+var map;
 
 function initialize() {
-	geocoder = new google.maps.Geocoder();
+  geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(-34.397, 150.644);
   var myOptions = {
-    zoom: 13,
+    zoom: 8,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+  }
   map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	codeAddress();
 }
 
 function codeAddress() {
@@ -27,8 +22,12 @@ function codeAddress() {
           position: results[0].geometry.location
       });
     } else {
-      /* alert("Geocode was not successful for the following reason: " + status); */
-			$("#map_canvas").css("display","none");
+      alert("Geocode was not successful for the following reason: " + status);
     }
   });
 }
+
+$(function() {
+	initialize();
+	codeAddress();	
+});

@@ -1,5 +1,5 @@
-<% javascript('jquery-ui-1.8.5.min.js', 'flickr') %>
-<% stylesheet('flickr') %>
+<% javascript "flickr" %>
+<% stylesheet "flickr", "formtastic" %>
 
 <%= semantic_form_for @event, :html => { :multipart => true, :id => "eventform" } do |form| %>
 

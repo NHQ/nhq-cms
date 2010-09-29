@@ -101,10 +101,8 @@ li .destroy {
 	padding-bottom: 0.5em;
 }
 #map_canvas {
-/*	width: 320px; 
-	height: 280px;*/
-	width: 160px; 
-	height: 140px;
+	width: 240px; 
+	height: 210px;
 }
 .showdates {
 	clear: both;
