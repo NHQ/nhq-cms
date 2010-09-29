@@ -1,5 +1,6 @@
-<% javascript "flickr" %>
-<% stylesheet "flickr", "formtastic" %>
+<% #javascript "flickr" %>
+<% #stylesheet "flickr" %>
+<% stylesheet "formtastic" %>
 
 <%= semantic_form_for @event, :html => { :multipart => true, :id => "eventform" } do |form| %>
 
@@ -25,7 +26,3 @@
   <% end %>
 
 <% end %>
-
-<div id="showme">Click Here To Show Photosets</div>
-
-<ul class="flickr-list"></ul>
