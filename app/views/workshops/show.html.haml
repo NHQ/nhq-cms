@@ -3,6 +3,7 @@
 .description= @workshop.description
 .tags= 'Tags: ' + @workshop.tags_array.inspect
 
-= link_to 'Edit', edit_workshop_path(@workshop)
-\|
-= link_to 'Back', workshops_path
+- if user_signed_in?
+  .admin= link_to('Edit', edit_workshop_path(@workshop)) + ' | ' + link_to('Back', workshops_path)
+- else
+  .nav= link_to('Back', workshops_path)

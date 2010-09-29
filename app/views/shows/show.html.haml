@@ -3,6 +3,7 @@
 .description= @show.description
 .tags= 'Tags: ' + @show.tags_array.inspect
 
-= link_to 'Edit', edit_show_path(@show)
-\|
-= link_to 'Back', shows_path
+- if user_signed_in?
+  .admin= link_to('Edit', edit_show_path(@show)) + ' | ' + link_to('Back', shows_path)
+- else
+  .nav= link_to('Back', shows_path)
