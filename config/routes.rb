@@ -18,6 +18,7 @@ Clown::Application.routes.draw do
 
   match '/:slug' => 'pages#show'
   
+  
   root :to => "pages#home"
 
   # The priority is based upon order of creation:

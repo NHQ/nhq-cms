@@ -7,5 +7,5 @@
     %li= link_to(page.title.titleize, '/pages/' + page.slug)
   - if user_signed_in?
     %li#admin= link_to 'Pages', :pages
-    #admin= render 'devise/menu/registration_items'
+    / #admin= render 'devise/menu/registration_items'
     #admin= render 'devise/menu/login_items'

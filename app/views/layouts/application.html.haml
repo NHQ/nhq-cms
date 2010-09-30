@@ -10,7 +10,7 @@
     = javascript_include_tag "jquery-1.4.2.min", "jquery-ui-1.8.5.min"
     = yield(:head)
     = javascript_include_tag "jquery.rails"
-    = stylesheet_link_tag "application", "nhq"
+    = stylesheet_link_tag "application", "nhq", "admin"
     -# - javascript_tag do<
     -#   = yield(:jstemplates)<
 
@@ -19,11 +19,10 @@
       .g160= render 'navigation/menu'
       - if user_signed_in?
 
-      %ul.ml880.hmenu
-        = render 'devise/menu/registration_items'
-        = render 'devise/menu/login_items'
+      .ml880.hmenu
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
     	
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
+
 
       .ml240.g720= yield
