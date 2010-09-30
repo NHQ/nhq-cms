@@ -1,75 +1,50 @@
-body {
-  background-color: #4B7399;
-  font-family:  Verdana, Helvetica, Arial;
-  font-size: 13px;
-}
+html,body,div{border:0;margin:0;padding:0;font-family:Helvetica,sans-serif;color:#000;}
+#container{width:970px;padding-top:10px;margin:0 auto;}
+.g160,.g320,.g480,.g640,.g800,.g960,.g80,.g240,.g400,.g560,.g720,.g880,.g960{float:left;display:inline;margin-left:10px;}
+.g160{width:150px;}
+.g320{width:310px;}
+.g480{width:470px;}
+.g640{width:630px;}
+.g800{width:790px;}
+.g960{width:950px;}
+.g80{width:70px;}
+.g240{width:230px;}
+.g400{width:390px;}
+.g560{width:550px;}
+.g720{width:710px;}
+.g880{width:870px;}
+.ml80{margin-left:90px;}
+.ml160{margin-left:170px;}
+.ml240{margin-left:250px;}
+.ml320{margin-left:330px;}
+.ml400{margin-left:410px;}
+.ml480{margin-left:490px;}
+.ml560{margin-left:560px;}
+.ml640{margin-left:650px;}
+.ml720{margin-left:730px;}
+.ml800{margin-left:810px;}
+.ml880{margin-left:890px;}
+.ml960{margin-left:970px;}
+.inside{margin-left:0;}
+p.grid{padding-left:10px;}
+.clear{clear:both;}
+.clearfix:after,#container:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clearfix,.main{display:block;}
 
-a img {
-  border: none;
-}
+#menu {font-size:120%;color:#aaa;position:fixed;}
+#menu ul {list-style:none;}
+#menu li{width:160px;display:block;padding:3px;margin:6px 0;}
+#menu li:hover{}
+#menu li a{text-decoration:none;color:#000;}
+#menu li a:visited{color:#000}
+#menu li a:hover{color:#fff;text-shadow: #000 0 0 .5em}
 
-a {
-  color: #0000FF;
-}
+#admin {color:#bb0000;}
+#admin li{width:160px;display:block;padding:3px;margin:6px 0;}
+#admin li:hover{}
+#admin li a{text-decoration:none;color:#bb0000;}
+#admin li a:visited{color:#bb0000}
+#admin li a:hover{color:#ccc;text-shadow: #bb0000 .05em .05em;}
 
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
-}
-
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
-}
-
-#flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
-}
-
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
-}
-
-#flash_error, #flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
-
-.fieldWithErrors {
-  display: inline;
-}
-
-.error_messages {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  font-size: 12px;
-}
-
-.error_messages h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 10px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
-}
-
-.error_messages p {
-  margin: 8px 10px;
-}
-
-.error_messages ul {
-  margin: 0;
-}
+.hmenu {float: right;position:fixed;padding: 0;}
+.hmenu li {list-style: none;}

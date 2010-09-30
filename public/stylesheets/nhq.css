@@ -30,7 +30,7 @@ th {
 
 
 /* Navigation */
-.hmenu {
+/*.hmenu {
 	float: right;
   margin: 0 0 2em;
   padding: 0;
@@ -38,7 +38,7 @@ th {
 .hmenu li {
 	list-style: none;	
 }
-#menu {
+//*#menu {
 	list-style: none;
 	margin: 0;
 	padding: 0;

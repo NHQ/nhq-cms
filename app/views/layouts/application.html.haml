@@ -15,17 +15,15 @@
     -#   = yield(:jstemplates)<
 
   %body{:id => yield_for(:body_id, params[:controller])}
-    #container
+    #container	
+      .g160= render 'navigation/menu'
       - if user_signed_in?
-        .welcome= 'Welcome, ' + current_user.name
 
-      %ul.hmenu
+      %ul.ml880.hmenu
         = render 'devise/menu/registration_items'
         = render 'devise/menu/login_items'
-
-      = render 'navigation/menu'
-    
+    	
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
 
-      = yield
+      .ml240.g720= yield

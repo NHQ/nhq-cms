@@ -1,11 +1,12 @@
 - stylesheet "formtastic"
+- stylesheet "formtastic-changes"
 
 = semantic_form_for @show, :html => { :multipart => true } do |form|
 
   = form.inputs do
     = form.input :title, :required => true, :label => "Show Title"
-    = form.input :description, :as => :text
-    = form.input :tags, :hint => "Example: comedy, tragedy, classic"
+    #wysiwyg= form.input :description, :as => :text
+    = form.input :tags, :hint => "I.e. people, places and things"
     = image_tag(@show.image.url(:thumb)) if @show.image?
     = form.input :image
 
