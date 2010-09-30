@@ -2,10 +2,10 @@
 
 %h1 Events
 
-.tag-cloud
-  %span.label TAG CLOUD
-  - Event.tags_with_weight.each do |key, value|
-    = content_tag :span, key, :style => "font-size: #{0.6 + value/2}em;"
+/ .tag-cloud
+/   %span.label TAG CLOUD
+/   - Event.tags_with_weight.each do |key, value|
+/     = content_tag :span, key, :style => "font-size: #{0.6 + value/2}em;"
 
 - if user_signed_in?
   = link_to 'New Event', new_event_path

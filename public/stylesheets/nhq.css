@@ -87,7 +87,8 @@ li .destroy {
 	padding-bottom: 1em;
 	clear: both;
 }
-.event-list .title {
+.event-list .title,
+.workshop-list .title {
 	font-size: 1.5em;
 }
 .location {
