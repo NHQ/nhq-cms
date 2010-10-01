@@ -5,8 +5,7 @@
   %li= link_to 'Workshops', :workshops
   - Page.all.each do |page|
     %li= link_to(page.title.titleize, '/pages/' + page.slug)
-
-- if user_signed_in?
-  %ul#admin
-    = render '/navigation/admin_items'
-    = render 'devise/menu/login_items'
+  - if user_signed_in?
+    #admin
+      = render '/navigation/admin_items'
+      = render 'devise/menu/login_items'

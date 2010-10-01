@@ -51,6 +51,20 @@ th {
 
 
 /* ADMIN stuff */
+ol li {
+	list-style: none;
+	padding: 10px 0;
+}
+fieldset {
+	border: none;
+}
+.inline-errors {
+	color: #900;
+}
+.inline-hints {
+	font-size: 0.9em;
+	color: #666;
+}
 label {
 	display: block;
 }
