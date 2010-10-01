@@ -7,8 +7,8 @@
 /   - Event.tags_with_weight.each do |key, value|
 /     = content_tag :span, key, :style => "font-size: #{0.6 + value/2}em;"
 
-- if user_signed_in?
-  = link_to 'New Event', new_event_path
+/ - if user_signed_in?
+/   = link_to 'New Event', new_event_path
 
 %ul.event-list
   - @events.each do |event|

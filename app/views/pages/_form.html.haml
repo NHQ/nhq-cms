@@ -1,3 +1,5 @@
+- stylesheet "formtastic"
+
 = semantic_form_for @page, :html => { :multipart => true } do |form|
 
   - form.inputs do
@@ -6,7 +8,7 @@
     %br.clear/
     %br.clear/
     = form.input :body, :as => :text
-    = form.input :slug, :hint => "If left blank, slug will be created automatically from title."
+    = form.input :slug, :hint => "Created automatically if left blank"
 
   - form.buttons do
     = form.commit_button

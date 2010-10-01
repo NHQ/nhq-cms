@@ -1,3 +1,6 @@
+- javascript "jquery.wysiwyg"
+- javascript "wysiwyg"
+- stylesheet "jwysiwyg/jquery.wysiwyg"
 - stylesheet "formtastic"
 - stylesheet "formtastic-changes"
 
@@ -5,7 +8,7 @@
 
   = form.inputs do
     = form.input :title, :required => true, :label => "Show Title"
-    #wysiwyg= form.input :description, :as => :text
+    = form.input :description, :as => :text, :input_html => { :class => 'wysiwyg' }
     = form.input :tags, :hint => "I.e. people, places and things"
     = image_tag(@show.image.url(:thumb)) if @show.image?
     = form.input :image

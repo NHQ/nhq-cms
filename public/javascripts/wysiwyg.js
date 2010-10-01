@@ -1,4 +1,4 @@
 $(function()
 {
-    $('#event_description').wysiwyg();
+    $('.wysiwyg').wysiwyg();
 });
