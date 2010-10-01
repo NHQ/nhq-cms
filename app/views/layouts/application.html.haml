@@ -16,13 +16,9 @@
 
   %body{:id => yield_for(:body_id, params[:controller])}
     #container	
-      .g160= render 'navigation/menu'
-      - if user_signed_in?
+      .g240= render 'navigation/menu'
 
-      .ml880.hmenu
+      .ml240.g640
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
-    	
-
-
-      .ml160.g720= yield
+        = yield
