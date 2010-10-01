@@ -6,6 +6,7 @@ class Event
   field :title
   field :description
   field :event_type
+  field :event_duration
   field :venue_name
   field :street
   field :city
@@ -15,6 +16,7 @@ class Event
   mount_uploader :image, ImageUploader
     
   embeds_many :showdates
+  accepts_nested_attributes_for :showdates
 
   validates_presence_of :title
   
