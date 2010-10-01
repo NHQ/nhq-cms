@@ -2,8 +2,8 @@
 
 %h1 Workshops
 
--if user_signed_in?
-  = link_to 'New workshop', new_workshop_path
+/ -if user_signed_in?
+/   = link_to 'New workshop', new_workshop_path
 
 %ul.workshop-list
   - @workshops.each do |workshop|

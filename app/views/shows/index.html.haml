@@ -2,15 +2,15 @@
 
 %h1 Shows
 
--if user_signed_in?
-  = link_to 'New show', new_show_path
+/ -if user_signed_in?
+/   = link_to 'New show', new_show_path
 
 .g880.m160#show-list
 
   - @shows.each do |show|
-    %div.showblock
-      %span.photo= link_to image_tag(show.image.url(:boxy)), show
-      %p.title= link_to show.title, show
+    %div.g240.showblock
+      %h2.title= link_to show.title, show
+      .photo= link_to image_tag(show.image.url(:boxy)), show
       -if user_signed_in?
         %p.admin
           = link_to 'Edit', edit_show_path(show)

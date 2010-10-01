@@ -1,3 +1,8 @@
+/ - stylesheet "formtastic"
+- javascript "jquery.wysiwyg"
+- javascript "wysiwyg"
+- stylesheet "jwysiwyg/jquery.wysiwyg"
+
 = semantic_form_for @page, :html => { :multipart => true } do |form|
 
   - form.inputs do
@@ -5,8 +10,8 @@
     = form.input :hide_title, :as => :boolean
     %br.clear/
     %br.clear/
-    = form.input :body, :as => :text
-    = form.input :slug, :hint => "If left blank, slug will be created automatically from title."
+    = form.input :body, :as => :text, :input_html => { :class => 'wysiwyg' }
+    = form.input :slug, :hint => "Created automatically if left blank"
 
   - form.buttons do
     = form.commit_button
