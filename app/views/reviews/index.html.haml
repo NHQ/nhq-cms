@@ -9,7 +9,7 @@
 
   - @reviews.each do |review|
     %li
-      .photo.left= link_to image_tag(review.image.url(:thumb)), review
+      .photo.left= link_to(image_tag(review.image.url(:thumb)), review) if review.image?
       .title= link_to review.title, review
       .description= review.description
       .url= link_to(review.url, review.url) if review.url?

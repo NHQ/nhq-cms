@@ -1,5 +1,5 @@
 %p
-  = image_tag @review.image.url(:medium)
+  = image_tag @review.image.url(:medium) if @review.image?
 
 %p
   %b Title:

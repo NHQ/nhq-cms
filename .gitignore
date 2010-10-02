@@ -8,3 +8,4 @@ public/uploads
 _dev
 config/*.yml
 public/upload
+config/deploy.rb

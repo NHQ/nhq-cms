@@ -9,4 +9,6 @@ class Review
   
   referenced_in :show
   referenced_in :workshop
+  
+  validates_presence_of :title
 end
