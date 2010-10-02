@@ -8,7 +8,8 @@
 %ul.workshop-list
   - @workshops.each do |workshop|
     %li.workshopblock
-      %span.left= link_to image_tag(workshop.image.url(:thumb)), workshop
+      - if workshop.image?
+        %span.left= link_to image_tag(workshop.image.url(:thumb)), workshop
       %p.title= link_to workshop.title, workshop
       -if user_signed_in?
         %p.admin

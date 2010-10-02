@@ -7,7 +7,8 @@
   - @shows.each do |show|
     %div.showblock
       %h2.title= link_to show.title, show
-      .photo= link_to image_tag(show.image.url(:boxy)), show
+      - if show.image?
+        .photo= link_to image_tag(show.image.url(:boxy)), show
       -if user_signed_in?
         %p.admin
           = link_to 'Edit', edit_show_path(show)

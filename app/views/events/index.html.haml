@@ -13,7 +13,8 @@
 %ul.event-list
   - @events.each do |event|
     %li
-      .left= image_tag event.image.url(:thumb)
+      - if event.image?
+        .left= image_tag event.image.url(:thumb)
       .title= link_to event.title, event 
       .venue= event.venue_name
       - if user_signed_in?
