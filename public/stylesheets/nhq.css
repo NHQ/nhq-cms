@@ -12,7 +12,6 @@ th {
 }
 
 
-
 /* Floats */
 .right,
 .left {
@@ -25,77 +24,6 @@ th {
 .left {
 	float: left;
 	padding-right: 10px;
-}
-
-
-
-/* Navigation */
-/*.hmenu {
-	float: right;
-  margin: 0 0 2em;
-  padding: 0;
-}
-.hmenu li {
-	list-style: none;	
-}
-//*#menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-#menu li,
-.hmenu li {
-	display: inline;
-	padding: 0 0.5em;
-}
-
-
-/* ADMIN stuff */
-ol li {
-	list-style: none;
-	padding: 10px 0;
-}
-fieldset {
-	border: none;
-}
-.inline-errors {
-	color: #900;
-}
-.inline-hints {
-	font-size: 0.9em;
-	color: #666;
-}
-label {
-	display: block;
-}
-.label {
-	color: #666;
-}
-.inputs input {
-	display: inline;
-}
-div.ui-datepicker {
-	font-size: 12px;
-}
-li .edit,
-li .destroy {
-	display: inline;
-}
-.created,
-.updated {
-	display: inline;
-}
-.welcome {
-	text-align: right;
-}
-ul#admin {
-	position: absolute;
-	top: 0;
-	margin: 0 auto;
-}
-ul#admin li {
-	display: inline;
-	padding: 0 1em;
 }
 
 
@@ -153,4 +81,18 @@ ul#admin li {
 #show-list .title,
 #show-list .admin {
 	margin: 0;
+}
+
+/* PRESS */
+#review-list {
+	list-style: none;
+}
+#review-list .title {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.reference {
+	font-size: 0.8em;
+	font-weight: bold;
+	padding: 0 0 1em 0;
 }

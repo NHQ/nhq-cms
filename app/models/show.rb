@@ -5,8 +5,9 @@ class Show
 
   field :title
   field :description
-
   mount_uploader :image, ImageUploader
+
+  references_many :reviews
 
   validates_presence_of :title
 end

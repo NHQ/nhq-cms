@@ -14,7 +14,7 @@ gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 gem 'devise', '1.1.2'
 gem 'haml', '3.0.18'
 gem 'haml-rails', '0.2', :group => :development
- # the folowing gems are used to generate Devise views for Haml
+ # the following gems are used to generate Devise views for Haml
 gem 'hpricot', '0.8.2', :group => :development
 gem 'ruby_parser', '2.0.5', :group => :development
 

@@ -1,0 +1,25 @@
+%p
+  = image_tag @review.image.url(:medium)
+
+%p
+  %b Title:
+  = @review.title
+%p
+  %b Description:
+  = @review.description
+%p
+  %b Url:
+  = @review.url
+
+- if @review.show
+  .reference
+    about our show: 
+    = link_to(@review.show.title, @review.show) 
+- if @review.workshop
+  .reference
+    about our workshop: 
+    = link_to(@review.workshop.title, @review.workshop)
+
+= link_to 'Edit', edit_review_path(@review)
+\|
+= link_to 'Back', reviews_path

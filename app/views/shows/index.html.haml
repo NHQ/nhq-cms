@@ -2,13 +2,10 @@
 
 %h1 Shows
 
-/ -if user_signed_in?
-/   = link_to 'New show', new_show_path
-
-.g880.m160#show-list
+#show-list
 
   - @shows.each do |show|
-    %div.g240.showblock
+    %div.showblock
       %h2.title= link_to show.title, show
       .photo= link_to image_tag(show.image.url(:boxy)), show
       -if user_signed_in?

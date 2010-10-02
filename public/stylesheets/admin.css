@@ -12,3 +12,52 @@
   background-color: #FCC;
   border: solid 1px #C66;
 }
+
+fieldset {
+	border: none;
+}
+fieldset, ol {
+	margin: 0;
+	padding: 0;
+}
+ol li {
+	list-style: none;
+	padding: 10px 0;
+}
+.inline-errors {
+	color: #900;
+}
+.inline-hints {
+	font-size: 0.9em;
+	color: #666;
+}
+label {
+	display: block;
+}
+.label {
+	color: #666;
+}
+.inputs input {
+	display: inline;
+}
+div.ui-datepicker {
+	font-size: 12px;
+}
+li .edit,
+li .destroy {
+	display: inline;
+}
+.created,
+.updated {
+	display: inline;
+}
+.welcome {
+	text-align: right;
+}
+.admin a {
+	padding: 0 0.4em;
+	color: #C60;
+}
+#menu .admin a {
+	padding: 0;
+}

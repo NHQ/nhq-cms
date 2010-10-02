@@ -1,5 +1,7 @@
 Clown::Application.routes.draw do  
 
+  resources :reviews
+
   resources :workshops
 
   resources :shows

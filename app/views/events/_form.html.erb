@@ -14,7 +14,7 @@
     <%= form.input :title, :required => true, :label => "Event Title" %>
     <%= form.input :description, :as => :text,  :input_html => { :class => 'wysiwyg' } %>
 		<%= form.input :event_type, :as => :select, :collection => ["Performance", "Workshop", "Fundraiser"] %>
-    <%= form.input :tags, :hint => "Example: comedy, tragedy, classic" %>
+    <%= form.input :tags, :hint => "(e.g. comedy, tragedy, classic)" %>
 		<%= image_tag(@event.image.url(:thumb)) if @event.image? %>
     <%= form.input :image %>
     <%= form.input :venue_name %>

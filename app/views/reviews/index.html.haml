@@ -1,0 +1,27 @@
+- content_for :title, "Shows"
+
+%h1 Press Reviews
+
+/ -if user_signed_in?
+/   = link_to 'New review', new_review_path
+
+#review-list
+
+  - @reviews.each do |review|
+    %li
+      .photo.left= link_to image_tag(review.image.url(:thumb)), review
+      .title= link_to review.title, review
+      .description= review.description
+      .url= link_to(review.url, review.url) if review.url?
+      - if review.show
+        .reference
+          about our show: 
+          = link_to(review.show.title, review.show) 
+      - if review.workshop
+        .reference
+          about our workshop: 
+          = link_to(review.workshop.title, review.workshop)
+      - if user_signed_in?
+        %p.admin
+          = link_to 'Edit', edit_review_path(review)
+          = link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete

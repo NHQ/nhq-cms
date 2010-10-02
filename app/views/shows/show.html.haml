@@ -1,12 +1,11 @@
 %p
 %h1.title= @show.title
-.left= image_tag(@show.image.url(:large)) if @show.image?
+.right= image_tag(@show.image.url(:medium)) if @show.image?
 .description= @show.description
 .tags= 'Tags: ' + @show.tags_array.inspect
 
 - if user_signed_in?
-  .admin= link_to('Edit', edit_show_path(@show)) + ' | ' + link_to('Back', shows_path)
+  .admin= link_to('Edit', edit_show_path(@show)) + ' | ' + link_to('Back', shows_path) + ' | ' + link_to('New show', new_show_path)
 - else
   .nav= link_to('Back', shows_path)
--if user_signed_in?
-  = link_to 'Create New Show', new_show_path
+  
