@@ -1,6 +1,5 @@
 Clown::Application.routes.draw do  
 
-
   devise_for :users
 
   resources :users, :only => :show
@@ -25,7 +24,6 @@ Clown::Application.routes.draw do
   resources :pages
 
   match '/:slug' => 'pages#show'
-  
   
   root :to => "pages#home"
 
