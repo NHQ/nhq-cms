@@ -1,8 +1,17 @@
 %p
   = image_tag @review.image.url(:medium) if @review.image?
 
+- if @review.show
+  .reference
+    show: 
+    = link_to(@review.show.title, @review.show) 
+- if @review.workshop
+  .reference
+    workshop: 
+    = link_to(@review.workshop.title, @review.workshop)
+
 %p
-  %b Title:
+  %b Review Title:
   = @review.title
 %p
   %b Description:
@@ -10,15 +19,7 @@
 %p
   %b Url:
   = @review.url
-
-- if @review.show
-  .reference
-    about our show: 
-    = link_to(@review.show.title, @review.show) 
-- if @review.workshop
-  .reference
-    about our workshop: 
-    = link_to(@review.workshop.title, @review.workshop)
+  
 
 = link_to 'Edit', edit_review_path(@review)
 \|

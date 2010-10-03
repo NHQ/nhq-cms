@@ -44,12 +44,24 @@ h2{font-size:120%;text-align:left;padding-left:10px;}
 #menu li a:visited{color:#000}
 #menu li a:hover{color:#fff;text-shadow: #000 0 0 1em}
 
-#admin {color:#bb0000;}
-#admin li{width:160px;display:block;padding:3px;margin:6px 0;}
-#admin li:hover{}
-#admin li a{text-decoration:none;color:#bb0000;}
-#admin li a:visited{color:#bb0000}
-#admin li a:hover{color:#ccc;text-shadow: #000 0 0 1em;}
+#menu li.admin { font-size: 0.8em;}
+#menu li.admin a{color:#C63;}
+#menu li.admin a:visited{color:#C63}
+#menu li.admin a:hover{color:#fff;}
+
+#menu .admin a,
+#menu .admin a:hover,
+#menu .admin a:visited {
+	padding: 0;
+}
+.admin a,
+.admin a:visited,
+.admin a:hover
+  {
+	padding: 0 0.5em;
+	color: #C63;
+}
+.admin a:hover { color: #FFF }
 
 .hmenu {float: right;position:fixed;padding: 0;}
 .hmenu li {list-style: none;}

@@ -12,8 +12,13 @@
     = form.input :url, :label => "LINK", :hint => '(e.g. http://herald.com/article)'
     = image_tag(@review.image.url(:thumb)) if @review.image?
     = form.input :image
-    = form.input :show, :as => :select, :collection => Show.find(:all)
-    = form.input :workshop, :as => :select, :collection => Workshop.find(:all)
+    / = form.input :show, :as => :select, :collection => Show.find(:all), @show
+    / = form.input :workshop, :as => :select, :collection => Workshop.find(:all), @workshop
+    - if @show
+      <input type="hidden" name="show_id" value="#{params[:show_id]}" />
+    - if @workshop
+      <input type="hidden" name="workshop_id" value="#{params[:workshop_id]}" />
+
 
   = form.buttons do
     = form.commit_button

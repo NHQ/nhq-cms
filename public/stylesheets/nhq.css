@@ -42,6 +42,16 @@ th {
 .workshop-list .title {
 	font-size: 1.5em;
 }
+.date_list,
+.review_list {
+	margin: 0;
+	padding: 0;
+}
+.date_list li,
+.review_list li {
+	list-style: none;
+	padding: 0 0 0.5em 0;
+}
 .location {
 	margin-top: 1em;
 }
@@ -50,6 +60,9 @@ th {
 }
 .address {
 	padding-bottom: 0.5em;
+}
+.address p {
+	margin: 0;
 }
 #map_canvas {
 	width: 240px; 
@@ -91,8 +104,14 @@ th {
 	font-weight: bold;
 	font-size: 1.2em;
 }
-.reference {
-	font-size: 0.8em;
+.reference,
+.event_type {
+	font-size: 0.75em;
+	color: #888;
+	text-transform: uppercase;
 	font-weight: bold;
-	padding: 0 0 1em 0;
+	padding: 0.5em;
+}
+.url {
+	font-size: 0.8em;
 }

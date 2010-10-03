@@ -28,8 +28,9 @@ ol li {
 	color: #900;
 }
 .inline-hints {
-	font-size: 0.9em;
+	font-size: 0.8em;
 	color: #666;
+	font-style: italic;
 }
 label {
 	display: block;
@@ -50,14 +51,8 @@ li .destroy {
 .created,
 .updated {
 	display: inline;
+	font-size: 0.8em;
 }
 .welcome {
 	text-align: right;
-}
-.admin a {
-	padding: 0 0.4em;
-	color: #C60;
-}
-#menu .admin a {
-	padding: 0;
 }

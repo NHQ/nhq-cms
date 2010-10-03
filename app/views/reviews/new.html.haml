@@ -1,4 +1,12 @@
-%h1 New review
+%h1
+  New review
+  - if @show
+    for 
+    = @show.title
+  - if @workshop
+    for 
+    = @workshop.title
+
 
 = render 'form'
 

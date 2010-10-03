@@ -1,14 +1,20 @@
 Clown::Application.routes.draw do  
 
-  resources :reviews
-
-  resources :workshops
-
-  resources :shows
 
   devise_for :users
 
   resources :users, :only => :show
+
+
+  resources :workshops do
+    resources :reviews
+  end
+
+  resources :shows do
+    resources :reviews
+  end
+  
+  resources :reviews
 
   resources :events do
     resources :showdates

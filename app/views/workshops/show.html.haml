@@ -1,7 +1,21 @@
 %h1.title= @workshop.title
-.left= image_tag(@workshop.image.url(:large)) if @workshop.image?
+- if @workshop.image?
+  .right= image_tag(@workshop.image.url(:medium))
 .description= @workshop.description
 .tags= 'Tags: ' + @workshop.tags_array.inspect
+
+- unless @workshop.reviews.empty?
+  %h3.reviews= content_tag :h3, 'Reviews:'
+  %ul.review_list
+    - @workshop.reviews.each do |review|
+      %li
+        = link_to review.title, workshop_review_path(@workshop, review)
+        - if user_signed_in?
+          %span.admin= link_to('Destroy', review_path(review), :method => :delete)
+
+- if user_signed_in?
+  %p.admin= link_to('+ Add new review', new_workshop_review_path(@workshop))
+
 
 - if user_signed_in?
   .admin= link_to('Edit', edit_workshop_path(@workshop)) + ' | ' + link_to('Back', workshops_path)

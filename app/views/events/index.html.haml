@@ -14,13 +14,16 @@
   - @events.each do |event|
     %li
       - if event.image?
-        .left= image_tag event.image.url(:thumb)
+        .left= link_to image_tag(event.image.url(:thumb)), event
       .title= link_to event.title, event 
-      .venue= event.venue_name
+      .venue
+        at 
+        = event.venue_name
       - if user_signed_in?
         .timestamps
-          .created= 'created ' + event.created_at.to_s(:short) 
-          .updated= 'updated ' + time_ago_in_words(event.updated_at) + ' ago'
+          %span.created= 'created ' + event.created_at.to_s(:short)
+          , 
+          %span.updated= 'updated ' + time_ago_in_words(event.updated_at) + ' ago'
         .admin
           .edit= link_to 'Edit', edit_event_path(event)
           .destroy= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete

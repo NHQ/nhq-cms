@@ -12,16 +12,16 @@
       - if review.image?
         .photo.left= link_to(image_tag(review.image.url(:thumb)), review)
       .title= link_to review.title, review
-      .description= review.description
-      .url= link_to(review.url, review.url) if review.url?
       - if review.show
         .reference
-          about our show: 
+          show: 
           = link_to(review.show.title, review.show) 
       - if review.workshop
         .reference
-          about our workshop: 
+          workshop: 
           = link_to(review.workshop.title, review.workshop)
+      .description= review.description
+      .url= link_to(review.url, review.url) if review.url?
       - if user_signed_in?
         %p.admin
           = link_to 'Edit', edit_review_path(review)
