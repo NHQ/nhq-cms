@@ -1,3 +1,5 @@
+- content_for :title, @review.title + " - 500 Clown"
+
 %p
   = image_tag @review.image.url(:medium) if @review.image?
 

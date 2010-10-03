@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= yield_for(:title, 'Welcome') + ' - 500 Clown'
+    %title= yield_for(:title, '500 Clown')
     %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")
     %meta(name="description"){:content => yield_for(:description, 'Life is worth the risk')}
     %meta(name="keywords" content="")
@@ -11,8 +11,6 @@
     = yield(:head)
     = javascript_include_tag "jquery.rails"
     = stylesheet_link_tag "application", "nhq", "admin"
-    -# - javascript_tag do<
-    -#   = yield(:jstemplates)<
 
   %body{:id => yield_for(:body_id, params[:controller])}
     #container	

@@ -1,3 +1,5 @@
+- content_for :title, @show.title + " - 500 Clown"
+
 %h1.title= @show.title
 .right= image_tag(@show.image.url(:medium)) if @show.image?
 .description= @show.description
