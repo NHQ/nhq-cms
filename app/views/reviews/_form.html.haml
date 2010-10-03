@@ -6,6 +6,8 @@
 
 = semantic_form_for @review, :html => { :multipart => true } do |form|
 
+  = form.error_messages
+
   - form.inputs do
     = form.input :title, :required => true, :label => "Review Title"
     = form.input :description, :as => :text, :input_html => { :class => 'wysiwyg' }

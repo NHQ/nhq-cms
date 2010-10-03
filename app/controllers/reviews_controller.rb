@@ -18,7 +18,14 @@ class ReviewsController < InheritedResources::Base
         redirect_to @review
       end
     else
-      render :action => 'show'
+      flash[:error] = "Review must have a title."
+      if @show
+        redirect_to @show
+      elsif @workshop
+        redirect_to @workshop
+      else
+        redirect_to @review
+      end
     end
   end
 
