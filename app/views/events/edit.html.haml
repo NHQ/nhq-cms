@@ -1,0 +1,11 @@
+= content_for :title, "Editing " + @event.title
+
+%h1
+  = @event.title
+  %span.label at
+  %span.venue_name= @event.venue_name
+  - if user_signed_in?
+    %span.admin
+      = link_to 'Show', @event
+
+= render 'form'

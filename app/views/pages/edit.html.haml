@@ -1,9 +1,7 @@
-= content_for :title, "Editing " + @page.title + " page"
+= content_for :title, "Editing " + @page.title + " Page"
 
-%h1 Editing page
+%h1
+  = @page.title 
+  %span.admin= link_to('Show', @page)
 
 = render 'form'
-
-= link_to('Show', @page)
-\ |
-= link_to('Back', pages_path)

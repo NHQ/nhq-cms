@@ -8,8 +8,6 @@
   - form.inputs do
     = form.input :title, :required => true
     = form.input :hide_title, :as => :boolean
-    %br.clear/
-    %br.clear/
     = form.input :body, :as => :text, :input_html => { :class => 'wysiwyg' }
     = form.input :slug, :hint => "Created automatically if left blank"
 

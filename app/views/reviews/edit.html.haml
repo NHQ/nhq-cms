@@ -1,7 +1,5 @@
-%h1 Editing review
+%h1
+  Editing review
+  %span.admin= link_to 'Show', @review
 
 = render 'form'
-
-= link_to 'Show', @review
-\|
-= link_to 'Back', reviews_path

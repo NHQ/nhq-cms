@@ -1,23 +1,16 @@
-= content_for :title, "Events"
+- content_for :title, "Events - 500 Clown"
 
 %h1 Events
-
-/ .tag-cloud
-/   %span.label TAG CLOUD
-/   - Event.tags_with_weight.each do |key, value|
-/     = content_tag :span, key, :style => "font-size: #{0.6 + value/2}em;"
-
-/ - if user_signed_in?
-/   = link_to 'New Event', new_event_path
 
 %ul.event-list
   - @events.each do |event|
     %li
       - if event.image?
         .left= link_to image_tag(event.image.url(:thumb)), event
-      .title= link_to event.title, event 
+      .title
+        = link_to event.title, event 
       .venue
-        at 
+        %span.label at 
         = event.venue_name
       - if user_signed_in?
         .timestamps

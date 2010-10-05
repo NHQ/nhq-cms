@@ -1,9 +1,11 @@
-- content_for :title, @page.title
+- content_for :title, @page.title + ' - 500 Clown'
 
 - unless @page.hide_title
-  %h1.title= @page.title
+  %h1.title
+    = @page.title
+    - if user_signed_in?
+      %span.admin
+        = link_to('Edit', edit_page_path(@page))
+        = link_to 'Destroy', @page, :confirm => 'Are you sure?', :method => :delete 
 
 .body= @page.body.html_safe
-
-- if user_signed_in?
-  .admin= link_to('Edit', edit_page_path(@page)) + ' | ' + link_to('Back', pages_path)

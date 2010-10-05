@@ -1,4 +1,4 @@
-- content_for :title, "Shows"
+- content_for :title, "Reviews - 500 Clown"
 
 %h1 Press Reviews
 
@@ -10,8 +10,7 @@
   - @reviews.each do |review|
     %li
       - if review.image?
-        .photo.left= link_to(image_tag(review.image.url(:thumb)), review)
-      .title= link_to review.title, review
+        .photo.right= link_to(image_tag(review.image.url(:thumb)), review)
       - if review.show
         .reference
           show: 
@@ -20,9 +19,11 @@
         .reference
           workshop: 
           = link_to(review.workshop.title, review.workshop)
-      .description= review.description
+      .title
+        = link_to review.title, review
+        - if user_signed_in?
+          %span.admin
+            = link_to 'Edit', edit_review_path(review)
+            = link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete
+      .description= review.description.html_safe
       .url= link_to(review.url, review.url) if review.url?
-      - if user_signed_in?
-        %p.admin
-          = link_to 'Edit', edit_review_path(review)
-          = link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete

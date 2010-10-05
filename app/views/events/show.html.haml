@@ -4,18 +4,22 @@
   = @event.title
   %span.label at
   %span.venue_name= @event.venue_name
+  - if user_signed_in?
+    %span.admin
+      = link_to('Edit', edit_event_path(@event))
+
+.event_type
+  Event Type:
+  = @event.event_type
 
 - if @event.image?
   = image_tag(@event.image.url, :class => "right") if @event.image?
 .description= @event.description.html_safe
 .tags
-  Tags:
-  = @event.tags_array.inspect
-.event_type
-  Event Type:
-  = @event.event_type
+  tags:
+  = @event.tags.gsub(/,/, ", ")
   
-%h3.showdates Show Dates:
+.event_dates Event Dates:
 %ul.date_list
   - if @showdates.count 
     - @showdates.each do |d|
@@ -44,12 +48,3 @@
     - javascript "gmaps.js"
     %input#address{ :name => "address", :type => "hidden", :value => @event.map_string}/
     %div#map_canvas
-
-- if user_signed_in?
-  %p.admin
-    = link_to('Edit', edit_event_path(@event))
-    | 
-    = link_to('Back', events_path)
-- else
-  %p.admin
-    = link_to('Back', events_path)

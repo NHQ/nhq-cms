@@ -1,0 +1,107 @@
+
+body { 
+  font:75%/1.5em Arial, Helvetica, sans-serif;
+  font-size-adjust:none;
+  font-style:normal;
+  font-variant:normal;
+  font-weight:normal;
+  color: #666;
+}
+
+p {
+  font-size: 1.1em;
+  padding:0 0 1.5em 0;
+  margin-right: 2em;
+  color:#333; 
+  word-spacing:0.04em;   
+  letter-spacing:0.01em; 
+	line-height: 1.5em;
+}
+p img { 
+  float: left; 
+  margin: 0 1em 1em 0; 
+  padding: 0; 
+}
+p img.right { 
+  float: right; 
+  margin: 0 0 1em 1em;  
+}
+
+h1,h2 {  
+  font-family: Helvetica, Arial, sans-serif;
+}
+h3,h4,h5,h6 { 
+  font-weight: normal; 
+  font-family: Helvetica, Arial, sans-serif; 
+  color: #999999; 
+}
+h1 { 
+  font-weight:normal;
+  font-size: 2.3em;  
+  line-height: 1em;
+  margin-bottom: 0.682em;
+  text-align: center;
+}
+h2 {
+  font-weight:bold;
+  color: #333;
+  font-size: 1.7em;  
+  margin-bottom: 1.79em;  
+}
+h3 {
+  color: #666;
+  font-size: 1.5em; 
+  margin-bottom: 0.5em;
+}
+h4 {
+  font-size: 1.7em;  
+  margin-bottom: 1em;
+  margin-left: 1.1em; 
+  margin-top: 0.3em; 
+}
+h5 {
+  color: #666666;
+  font-size: 1.4em;
+  margin-left: 1.4em;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+li ul, 
+li ol  { margin:0 1.5em; }
+ul, ol { margin: 0 1.5em 1.5em 1.5em; }
+
+
+dl { margin: 0 0 1.5em 0; }
+dl dt { font-weight: bold; }
+dl dd { margin-left: 1.5em; }
+
+a { color: #369; text-decoration: none; }
+a:hover { color: #C60; text-decoration: underline; }
+
+p a { color: #369; text-decoration: underline; }
+p a:hover { color: #C60; }
+
+
+table {  margin-bottom: 1.5em; border-collapse: collapse; }
+th {font-weight: bold; }
+tr, th, td { margin:0; padding:0 1.5em 0 1em; height:18px; }
+tfoot { font-style: italic;  }
+caption { text-align:center; font-family:Georgia, serif;  }
+
+
+abbr, acronym { border-bottom: 1px dotted #000; }
+address { margin-top: 1.5em; font-style: italic; }
+del { color: #000; }
+
+
+blockquote { padding-left:1.5em; margin: 1.5em; border-left:3px solid #ccc; font-style:italic;  }
+strong { font-weight: bold; }
+em, dfn { font-style: italic; }
+dfn { font-weight: bold; }
+pre, code { margin: 1.5em 0; white-space: pre; }
+pre, code, tt { font: 1em monospace; line-height: 1.5; } 
+tt { display: block; margin: 1.5em 0; }
+hr {margin-bottom:1.5em;}
+
+

@@ -1,8 +1,11 @@
-%h1.title= @workshop.title
+%h1.title
+  = @workshop.title
+  - if user_signed_in?
+    %span.admin= link_to('Edit', edit_workshop_path(@workshop))
 - if @workshop.image?
   .right= image_tag(@workshop.image.url(:medium))
-.description= @workshop.description
-.tags= 'Tags: ' + @workshop.tags_array.inspect
+.description= @workshop.description.html_safe
+.tags= 'tags: ' + @workshop.tags.gsub(/,/, ", ")
 
 - unless @workshop.reviews.empty?
   %h3.reviews= content_tag :h3, 'Reviews:'
@@ -15,9 +18,3 @@
 
 - if user_signed_in?
   %p.admin= link_to('+ Add new review', new_workshop_review_path(@workshop))
-
-
-- if user_signed_in?
-  .admin= link_to('Edit', edit_workshop_path(@workshop)) + ' | ' + link_to('Back', workshops_path)
-- else
-  .nav= link_to('Back', workshops_path)

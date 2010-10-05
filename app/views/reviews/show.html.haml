@@ -1,8 +1,5 @@
 - content_for :title, @review.title + " - 500 Clown"
 
-%p
-  = image_tag @review.image.url(:medium) if @review.image?
-
 - if @review.show
   .reference
     show: 
@@ -15,14 +12,15 @@
 %p
   %b Review Title:
   = @review.title
+  - if user_signed_in?
+    %span.admin= link_to 'Edit', edit_review_path(@review)
 %p
   %b Description:
-  = @review.description
-%p
-  %b Url:
-  = @review.url
+  = @review.description.html_safe
+- unless @review.url.empty?
+  %p
+    %b Link:
+    = link_to @review.url
   
-
-= link_to 'Edit', edit_review_path(@review)
-\|
-= link_to 'Back', reviews_path
+%p
+  = image_tag @review.image.url(:medium) if @review.image?

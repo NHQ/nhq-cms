@@ -1,7 +1,5 @@
-%h1 Editing workshop
+%h1 
+  = @workshop.title
+  %span.admin= link_to 'Show', @workshop
 
 = render 'form'
-
-= link_to 'Show', @workshop
-\|
-= link_to 'Back', workshops_path

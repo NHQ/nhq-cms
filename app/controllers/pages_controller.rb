@@ -3,7 +3,8 @@ class PagesController < InheritedResources::Base
   before_filter :find_page, :except => [ :index, :new, :create ]
 
   def home
-    @upcoming_events = Event.where(:title => /^F/)
+#    @upcoming_events = Event.where(:title => /^F/)
+    @upcoming_events = Event.limit(2)
   end
 
   def show

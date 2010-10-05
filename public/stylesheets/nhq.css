@@ -6,11 +6,19 @@ th {
 	text-align: left;
 }
 .tags {
-	font-size: 0.8em;
-	font-weight: bold;
+	color: #555;
 	padding: 1em 0;
 }
-
+#container {
+	margin-top: 1em;
+}
+#home .description {
+	font-size: 1.8em; 
+	color: rgb(7, 7, 7); 
+	font-family: Baskerville, 'Times New Roman', Times, serif; 
+	line-height: 16px;
+	font-style: italic;
+}
 
 /* Floats */
 .right,
@@ -31,6 +39,7 @@ th {
 .event-list,
 .workshop-list {
 	padding: 0;
+	margin: 0;
 }
 .event-list li,
 .workshop-list li {
@@ -42,6 +51,12 @@ th {
 .workshop-list .title {
 	font-size: 1.5em;
 }
+.event_dates {
+	padding: 1em 0 0.5em 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #060;
+}
 .date_list,
 .review_list {
 	margin: 0;
@@ -51,6 +66,9 @@ th {
 .review_list li {
 	list-style: none;
 	padding: 0 0 0.5em 0;
+}
+.description {
+	font-size: 1.2em;
 }
 .location {
 	margin-top: 1em;
@@ -63,6 +81,7 @@ th {
 }
 .address p {
 	margin: 0;
+	padding: 0;
 }
 #map_canvas {
 	width: 240px; 
@@ -71,34 +90,40 @@ th {
 .showdates {
 	clear: both;
 }
-.tag-cloud {
-	float: right;
-	width: 250px;
-}
-.tag-cloud span {
-	padding-right: 0.5em
-}
+
 
 
 /* SHOWS */
 #show-list {
-	text-align: center;
-	height: 500px;
-	margin-top: 20px;
+	margin: 1em 0 0 0;
+	padding: 0;
 }
 .showblock {
 	float: left;
-	padding-right: 10px;
-	padding-bottom: 10px;
 }
-#show-list .title,
-#show-list .admin {
-	margin: 0;
+.showblock .title {
+	font-size: 1.5em;
 }
+#show-list li {
+	list-style: none;
+	padding: 1em 2em 1em 0;
+}
+
+
+/* WORKSHOPS */
+#workshop-list {
+	
+}
+
+
 
 /* PRESS */
 #review-list {
 	list-style: none;
+}
+#review-list li {
+	padding: 0.5em 0 1.5em 0;
+	clear: both;
 }
 #review-list .title {
 	font-weight: bold;
@@ -106,12 +131,15 @@ th {
 }
 .reference,
 .event_type {
-	font-size: 0.75em;
+	font-size: 0.9em;
 	color: #888;
 	text-transform: uppercase;
 	font-weight: bold;
-	padding: 0.5em;
 }
-.url {
+.reference {
+	padding-bottom: 0.5em;
+}
+#review-list .url {
 	font-size: 0.8em;
+	padding-top: 0.5em;
 }

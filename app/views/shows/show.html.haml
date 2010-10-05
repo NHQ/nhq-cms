@@ -1,25 +1,21 @@
 - content_for :title, @show.title + " - 500 Clown"
 
-%h1.title= @show.title
+%h1.title
+  = @show.title
+  - if user_signed_in?
+    %span.admin= link_to('Edit', edit_show_path(@show))
 .right= image_tag(@show.image.url(:medium)) if @show.image?
 .description= @show.description.html_safe
-.tags= 'Tags: ' + @show.tags_array.inspect
+.tags= 'tags: ' + @show.tags.gsub(/,/, ", ")
 
 - unless @show.reviews.empty?
-  %h3.reviews= content_tag :h3, 'Reviews:'
+  %h3.reviews
+    Reviews:
+    - if user_signed_in?
+      %span.admin= link_to('+ Add new review', new_show_review_path(@show))
   %ul.review_list
     - @show.reviews.each do |review|
       %li
         = link_to review.title, show_review_path(@show, review)
         - if user_signed_in?
           %span.admin= link_to('Destroy', review_path(review), :method => :delete)
-
-- if user_signed_in?
-  %p.admin= link_to('+ Add new review', new_show_review_path(@show))
-
-
-- if user_signed_in?
-  .admin= link_to('Edit', edit_show_path(@show)) + ' | ' + link_to('Back', shows_path) + ' | ' + link_to('New show', new_show_path)
-- else
-  .nav= link_to('Back', shows_path)
-  

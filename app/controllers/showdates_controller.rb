@@ -11,7 +11,7 @@ class ShowdatesController < InheritedResources::Base
 
     if @event.save
       flash[:notice] = "Date added."
-      redirect_to parent_url
+      render parent_url
     else
       render parent_url
     end

@@ -1,9 +1,7 @@
-- content_for :title, "Editing " + @show.title + " - 500 Clown"
+= content_for :title, "Editing " + @show.title
 
-%h1 Editing show
+%h1
+  = @show.title
+  %span.admin= link_to 'Show', @show
 
 = render 'form'
-
-= link_to 'Show', @show
-\|
-= link_to 'Back', shows_path

@@ -20,6 +20,9 @@ fieldset, ol {
 	margin: 0;
 	padding: 0;
 }
+textarea {
+	width: 520px;
+}
 ol li {
 	list-style: none;
 	padding: 10px 0;
@@ -51,8 +54,15 @@ li .destroy {
 .created,
 .updated {
 	display: inline;
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 .welcome {
 	text-align: right;
+}
+#show_credits_input label,
+#show_credits_input input {
+	display: inline;
+}
+.inline {
+	display: inline;
 }

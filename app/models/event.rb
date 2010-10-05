@@ -18,6 +18,8 @@ class Event
   embeds_many :showdates
   accepts_nested_attributes_for :showdates
 
+  attr_accessible :title
+
   validates_presence_of :title
   
   def map_string

@@ -1,6 +1,7 @@
 %h1 500 Clown
-%h2 Life is worth the risk.
-= image_tag 'ear.gif'
-%h3 Upcoming events:
-- @upcoming_events.each do |event|
-  = content_tag :div, event.title, :class => "title"
+#home
+  .description Life is worth the risk.
+  = image_tag 'ear.gif'
+  %h2 Upcoming events:
+  - @upcoming_events.each do |event|
+    .title= link_to event.title, event
