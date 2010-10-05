@@ -14,7 +14,8 @@
       = link_to('+ Create new review', new_workshop_review_path(@workshop))
       = form_for @workshop do |r|
         %select{:id => "review_id", :name => "review_id"}
-          = options_from_collection_for_select(Review.excludes(:workshop_id => @workshop.id), :id, :title)
+          - reviews_array = Review.excludes(:workshop_id => @workshop.id).map { |review| [truncate(review.title), review.id] }
+          = options_for_select(reviews_array)
         = r.submit "Add existing review"
       
 - if @workshop.reviews.empty?
