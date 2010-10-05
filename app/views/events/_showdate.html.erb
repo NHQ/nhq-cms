@@ -41,7 +41,7 @@
 %>
 <% stylesheet("timepicker.css") %>
 
-<%= semantic_form_for :showdate, @showdate, :remote => true, :url => {:controller => "showdates", :action => "create"}, :html => {:multipart => true} do |f| %>
+<%= semantic_form_for :showdate, @showdate, :url => {:controller => "showdates", :action => "create"}, :html => {:multipart => true} do |f| %>
 	<%= hidden_field_tag 'event_id', @event.id %>
 	<input id="datepick" class="datepick" name="showdate[start_date]" size="12" type="text" />
   <label style="display: inline;">start time:</label> 
