@@ -8,14 +8,16 @@
 .description= @show.description.html_safe
 .tags= 'tags: ' + @show.tags.gsub(/,/, ", ")
 
-- unless @show.reviews.empty?
-  %h3.reviews
-    Reviews:
-    - if user_signed_in?
-      %span.admin= link_to('+ Add new review', new_show_review_path(@show))
+%h3.reviews
+  Reviews:
+  - if user_signed_in?
+    %span.admin= link_to('+ Add new review', new_show_review_path(@show))
+- if @show.reviews.empty?
+  There are currently no reviews.
+- else
   %ul.review_list
     - @show.reviews.each do |review|
       %li
         = link_to review.title, show_review_path(@show, review)
         - if user_signed_in?
-          %span.admin= link_to('Destroy', review_path(review), :method => :delete)
+          %span.admin= link_to('Destroy', review_path(review), :method => :delete)  
