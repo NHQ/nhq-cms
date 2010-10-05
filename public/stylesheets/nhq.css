@@ -103,10 +103,14 @@ th {
 }
 .showblock .title {
 	font-size: 1.5em;
+	font-weight: bold;
 }
 #show-list li {
 	list-style: none;
 	padding: 1em 2em 1em 0;
+}
+.reviews {
+	padding: 1em 0 0 0;
 }
 
 

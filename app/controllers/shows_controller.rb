@@ -4,6 +4,33 @@ class ShowsController < InheritedResources::Base
   def show
     @show = Show.find(params[:id])
     @reviews = @show.reviews
+    @review = Review.new
+  end
+  
+  def update
+    @show = Show.find(params[:id])
+    if params[:review_id]
+      @review = Review.find(params[:review_id])
+      @show.reviews << @review
+      flash[:notice] = "Successfully added review."
+      redirect_to @show      
+    elsif @show.update_attributes(params[:show])
+      flash[:notice] = "Successfully updated show."
+      redirect_to @show
+    else
+      render :action => 'edit'
+    end
+  end
+  
+  def add_review
+    @show = Show.find(params[:id])
+    @review = Review.find(params[:review_id])
+    if @show.reviews << @review
+      flash[:notice] = "Successfully added review."
+      redirect_to @show
+    else
+      redirect_to @show
+    end
   end
   
 end

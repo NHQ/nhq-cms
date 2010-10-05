@@ -29,6 +29,7 @@ class ReviewsController < InheritedResources::Base
     end
   end
 
+
   private
   
   def find_show

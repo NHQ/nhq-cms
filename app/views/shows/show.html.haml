@@ -11,7 +11,13 @@
 %h3.reviews
   Reviews:
   - if user_signed_in?
-    %span.admin= link_to('+ Add new review', new_show_review_path(@show))
+    %span.admin
+      = link_to('+ Create new review', new_show_review_path(@show))
+      = form_for @show do |r|
+        %select{:id => "review_id", :name => "review_id"}
+          = options_from_collection_for_select(Review.excludes(:show_id => @show.id), :id, :title)
+        = r.submit "Add existing review"
+      
 - if @show.reviews.empty?
   There are currently no reviews.
 - else
@@ -20,4 +26,4 @@
       %li
         = link_to review.title, show_review_path(@show, review)
         - if user_signed_in?
-          %span.admin= link_to('Destroy', review_path(review), :method => :delete)  
+          %span.admin= link_to('Destroy', review_path(review), :method => :delete)

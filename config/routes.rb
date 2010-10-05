@@ -26,6 +26,8 @@ Clown::Application.routes.draw do
   match '/:slug' => 'pages#show'
   
   root :to => "pages#home"
+  
+  match ':controller/:action/:id/:review_id'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

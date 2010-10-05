@@ -7,14 +7,22 @@
 .description= @workshop.description.html_safe
 .tags= 'tags: ' + @workshop.tags.gsub(/,/, ", ")
 
-- unless @workshop.reviews.empty?
-  %h3.reviews= content_tag :h3, 'Reviews:'
+%h3.reviews
+  Reviews:
+  - if user_signed_in?
+    %span.admin
+      = link_to('+ Create new review', new_workshop_review_path(@workshop))
+      = form_for @workshop do |r|
+        %select{:id => "review_id", :name => "review_id"}
+          = options_from_collection_for_select(Review.excludes(:workshop_id => @workshop.id), :id, :title)
+        = r.submit "Add existing review"
+      
+- if @workshop.reviews.empty?
+  There are currently no reviews.
+- else
   %ul.review_list
     - @workshop.reviews.each do |review|
       %li
         = link_to review.title, workshop_review_path(@workshop, review)
         - if user_signed_in?
           %span.admin= link_to('Destroy', review_path(review), :method => :delete)
-
-- if user_signed_in?
-  %p.admin= link_to('+ Add new review', new_workshop_review_path(@workshop))

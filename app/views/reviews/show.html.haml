@@ -9,18 +9,13 @@
     workshop: 
     = link_to(@review.workshop.title, @review.workshop)
 
-%p
-  %b Review Title:
+%h1.title
   = @review.title
   - if user_signed_in?
     %span.admin= link_to 'Edit', edit_review_path(@review)
-%p
-  %b Description:
-  = @review.description.html_safe
+.description= @review.description.html_safe
 - unless @review.url.empty?
-  %p
-    %b Link:
-    = link_to @review.url
+  .url= link_to @review.url
   
 %p
   = image_tag @review.image.url(:medium) if @review.image?
