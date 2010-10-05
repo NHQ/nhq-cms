@@ -18,9 +18,8 @@ class Event
   embeds_many :showdates
   accepts_nested_attributes_for :showdates
 
-  attr_accessible :title
-
   validates_presence_of :title
+  validates_presence_of :description
   
   def map_string
     [self.street, self.city, self.state, self.zip].join(" ").split(' ').join("+")

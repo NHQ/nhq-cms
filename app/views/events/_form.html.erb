@@ -32,25 +32,3 @@
   <% end %>
 
 <% end %>
-
-<%= javascript_tag " 
-/*
-$.datepicker.setDefaults({
-   showOn: 'both',
-   dateFormat: 'yy-mm-dd',
-   gotoCurrent: true,
-   showOtherMonths: true,
-   selectOtherMonths: true,
-   buttonImage: '/images/calendar.gif',
-   buttonText: 'Calendar' });
-
-$('.datepicker').datepicker();
-*/
-
-$('.datepicker').datetimepicker({
-  dateFormat: 'yy-mm-dd',
-  timeFormat: 'hh:mm:ss',
-	stepHour: 1,
-	stepMinute: 15
-});"
-%>

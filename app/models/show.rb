@@ -12,4 +12,5 @@ class Show
   references_many :reviews
 
   validates_presence_of :title
+  validates_presence_of :description
 end
