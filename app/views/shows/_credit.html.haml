@@ -1,7 +1,7 @@
-= semantic_form_for :credit, @credit, :remote => true, :url => {:controller => "credits", :action => "create"}, :html => {:multipart => true} do |f|
+= semantic_form_for :credit, @credit, :url => {:controller => "credits", :action => "create"} do |f|
 	= hidden_field_tag 'show_id', @show.id
-  <label style="display: inline;">Title:</label> 
-	<input id="datepick" class="datepick" name="credit[title]" size="12" type="text" />
-  <label style="display: inline;">Name:</label> 
-  <input id="credit_start_time" type="text" value="12:00" name="credit[name]" style="width:80px" />
-  = submit_tag "Add Credit"
+	<label for="credit_title" style="display: inline;">Title:</label>
+	<input id="credit_title" name="credit[title]" size="12" type="text" />
+	<label for="credit_name" style="display: inline;">Name:</label> 
+	<input id="credit_name" name="credit[name]" size="25" type="text" />
+	= submit_tag "Add Credit"

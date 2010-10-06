@@ -9,6 +9,8 @@ class Show
 
   mount_uploader :image, ImageUploader
 
+  embeds_many :credits
+
   references_many :reviews
 
   validates_presence_of :title

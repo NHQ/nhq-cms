@@ -11,9 +11,11 @@ Clown::Application.routes.draw do
 
   resources :shows do
     resources :reviews
+    resources :credits
   end
   
   resources :reviews
+  resources :credits
 
   resources :events do
     resources :showdates

@@ -5,6 +5,7 @@ class ShowsController < InheritedResources::Base
     @show = Show.find(params[:id])
     @reviews = @show.reviews
     @review = Review.new
+    @credit = Credit.new
   end
   
   def update

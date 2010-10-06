@@ -30,7 +30,7 @@
         \ - 
         = d.end_time.to_s(:time)
         - if user_signed_in?
-          %span.admin= link_to('Destroy', event_showdate_path(@event, d), :method => :delete)
+          %span.admin= link_to('Destroy', event_showdate_path(@event, d), :confirm => "Are you sure?", :method => :delete)
 
 - if user_signed_in?
   = render 'showdate'

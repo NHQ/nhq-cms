@@ -8,17 +8,26 @@
 .description= @show.description.html_safe
 .tags= 'tags: ' + @show.tags.gsub(/,/, ", ")
 
-%h3.reviews
-  Reviews:
-  - if user_signed_in?
-    %span.admin
-      = link_to('+ Create new review', new_show_review_path(@show))
-      = form_for @show do |r|
-        %select{:id => "review_id", :name => "review_id"}
-          - reviews_array = Review.excludes(:show_id => @show.id).map { |review| [truncate(review.title), review.id] }
-          = options_for_select(reviews_array)
-        = r.submit "Add existing review"
-      
+- unless @show.additional_info.nil?
+  %h3 Additional Info:
+  %p.additional_info= @show.additional_info.html_safe
+
+%h3.credits Credits:
+- if @show.credits.empty?
+  There are currently no credits.
+- else
+  %ul.credit_list
+    - @show.credits.each do |c|
+      %li
+        %span.title= c.title
+        \ : 
+        %span.name= c.name
+        - if user_signed_in?
+          %span.admin= link_to('Destroy', show_credit_path(@show, c), :confirm => 'Are you sure?', :method => :delete)
+- if user_signed_in?
+  = render 'credit'
+
+%h3.reviews Reviews:
 - if @show.reviews.empty?
   There are currently no reviews.
 - else
@@ -27,4 +36,12 @@
       %li
         = link_to review.title, show_review_path(@show, review)
         - if user_signed_in?
-          %span.admin= link_to('Destroy', review_path(review), :method => :delete)
+          %span.admin= link_to('Destroy', review_path(review), :confirm => 'Are you sure?', :method => :delete)
+- if user_signed_in?
+  %span.admin
+    = link_to('+ Create new review', new_show_review_path(@show))
+    = form_for @show do |r|
+      %select{:id => "review_id", :name => "review_id"}
+        - reviews_array = Review.excludes(:show_id => @show.id).map { |review| [truncate(review.title), review.id] }
+        = options_for_select(reviews_array)
+      = r.submit "Add existing review"
