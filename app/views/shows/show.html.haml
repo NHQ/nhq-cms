@@ -46,7 +46,7 @@
       - @show.reviews.each do |review|
         %li
           %span.title= truncate(review.title)
-          %span.source= ' - ' + review.description
+          %span.source= review.description.html_safe
           = link_to "read full review", show_review_path(@show, review)
           - if user_signed_in?
             %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_path(@show), :confirm => 'Are you sure?', :method => :delete, :class => "trash")
