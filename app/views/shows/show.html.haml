@@ -30,7 +30,7 @@
   - if user_signed_in?
     = render 'credit'
 
-- unless @show.additional_info.empty?
+- unless @show.additional_info.nil?
   .additional_info
     %h3 Additional Info:
     %p= @show.additional_info.html_safe
