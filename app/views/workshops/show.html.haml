@@ -1,6 +1,6 @@
 - content_for :title, @workshop.title + " - 500 Clown"
 
-%h1.title.tk-poster
+%h1.title
   = @workshop.title
   - if user_signed_in?
     %span.admin= link_to('Edit', edit_workshop_path(@workshop))
