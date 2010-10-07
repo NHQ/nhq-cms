@@ -2,13 +2,16 @@
 
 %h1
   = @event.title
-  %span.label at
-  %span.venue_name= @event.venue_name
+  - if @event.venue_name?
+    %span.label at
+    %span.venue_name= @event.venue_name
   - if user_signed_in?
     %span.admin= link_to('Edit', edit_event_path(@event))
-.event_type
-  Event Type:
-  = @event.event_type
+
+- if @event.event_type?
+  .event_type
+    Event Type:
+    = @event.event_type
 
 %p.description
   - if @event.image?
@@ -16,30 +19,31 @@
   = @event.description.html_safe
 
 .tags
-  %span.tag_title Tags:
-  = @event.tags.gsub(/,/, ", ")
+  - unless @event.tags_array.empty?
+    %span.tag_title Tags:
+    = @event.tags.gsub(/,/, ", ")
   
 .when
-%h3 When:
-%ul.date_list
-  - if @showdates.count 
-    - @showdates.each do |d|
-      %li
-        = d.start_date.to_s(:date)
-        , 
-        = d.start_time.to_s(:time)
-        \ - 
-        = d.end_time.to_s(:time)
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('edit-delete.png'), event_showdate_path(@event, d), :confirm => "Are you sure?", :method => :delete)
+  - unless @showdates.empty? 
+    %h3 When:
+    %ul.date_list
+      - @showdates.each do |d|
+        %li
+          = d.start_date.to_s(:date)
+          , 
+          = d.start_time.to_s(:time)
+          \ - 
+          = d.end_time.to_s(:time)
+          - if user_signed_in?
+            %span.admin= link_to(image_tag('edit-delete.png'), event_showdate_path(@event, d), :confirm => "Are you sure?", :method => :delete)
 
 - if user_signed_in?
   = render 'showdate'
 
 .where
-  %h3 Where:
-  .venue= @event.venue_name
-  - unless @event.street.nil?
+  - if @event.venue_name?
+    %h3 Where:
+    .venue= @event.venue_name
     .address
       %p= @event.street
       %p= @event.city.to_s + ', ' + @event.state.to_s + ' ' + @event.zip.to_s

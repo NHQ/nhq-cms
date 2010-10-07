@@ -41,15 +41,27 @@
 .workshop_list li,
 .date_list li,
 .review_list li,
-.credit_list li,
 .upcoming_events li {
 	list-style: none;
 	padding-top: 0.2em;
 	padding-bottom: 0.5em;
 	clear: both;
 }
-
-
+.credit_list li {
+	padding: 0.15em 0;
+}
+.review_list .title,
+.review_list .source {
+	font-family: "Baskerville", 'Times New Roman', Times, serif; 
+}
+.review_list .title {
+	font-style: italic;
+}
+.reviews .review_list a {
+	padding-left: 1em;
+	font-size: 0.8em;
+	text-transform: uppercase;
+}
 
 /* EVENTS */
 .event_type {
@@ -60,6 +72,7 @@
 }
 .where {
 	margin-top: 1em;
+	font-size: 0.85em;
 }
 .venue {
 	font-weight: bold;
@@ -103,13 +116,17 @@
 .reviews {
 	padding: 1em 0 0 0;
 }
-.credit_list {
+.info_title {
+	padding: 1em 0 0 0;
+}
+.credits .title,
+.credits .name {
 	font-size: 0.8em;
 }
-.credit_list .title {
+.credits .title {
 	color: #666;
 }
-.credit_list .name {
+.credits .name {
 	font-weight: bold;
 	color: #333;
 }
@@ -127,7 +144,7 @@
 	text-transform: uppercase;
 	font-weight: bold;
 }
-#review-list .url {
+.review-list .url {
 	font-size: 0.8em;
 	padding-top: 0.5em;
 }

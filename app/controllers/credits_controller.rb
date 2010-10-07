@@ -9,11 +9,11 @@ class CreditsController < InheritedResources::Base
     @credit = Credit.new(params[:credit])
     @show.credits << @credit
 
-    if @show.save
+    if @credit.save
       flash[:notice] = "Credit added."
       redirect_to parent_url
     else
-      flash[:notice] = "Credit couldn't be added."
+      flash[:error] = "Credit can't be blank."
       redirect_to parent_url
     end
   end
