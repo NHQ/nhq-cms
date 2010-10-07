@@ -13,6 +13,8 @@
     = stylesheet_link_tag "reset", "type", "application", "nhq", "admin"
     - javascript_tag do
       = yield(:jstemplates)
+    <script type="text/javascript" src="http://use.typekit.com/uyx6uqn.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   %body{:id => yield_for(:body_id, params[:controller])}
     #container	

@@ -1,76 +1,64 @@
-td,
-th {
-	padding: 4px;
-}
-th {
-	text-align: left;
-}
-.tags {
-	color: #555;
-	padding: 1em 0;
-}
+/* LAYOUT */
 #container {
 	margin-top: 1em;
 }
-#home .description {
-	font-size: 1.8em; 
-	color: rgb(7, 7, 7); 
-	font-family: Baskerville, 'Times New Roman', Times, serif; 
-	line-height: 16px;
-	font-style: italic;
+#container .description {
+		font-family: "Baskerville", 'Times New Roman', Times, serif; 
+}
+.tag_title {
+	font-weight: bold;
+}
+.tags {
+	color: #555;
+	padding: 1em 0 2em 0;
+	font-size: 0.8em;
+}
+.reference {
+	padding-bottom: 0.5em;
 }
 
-/* Floats */
-.right,
-.left {
-	padding-bottom: 10px;
+
+/* HOME */
+#home .description { 
+	font-style: italic;
+	font-size: 1.4em;
+	line-height: 1.4em;
 }
-.right {
-	float: right;
-	padding-left: 10px;
+
+/* LISTS */
+.event_list,
+.show_list,
+.workshop_list,
+.date_list,
+.review_list,
+.credit_list,
+.upcoming_events {
+	padding: 0;
+	margin: 0;
 }
-.left {
-	float: left;
-	padding-right: 10px;
+.event_list li,
+.show_list li,
+.workshop_list li,
+.date_list li,
+.review_list li,
+.credit_list li,
+.upcoming_events li {
+	list-style: none;
+	padding-top: 0.2em;
+	padding-bottom: 0.5em;
+	clear: both;
 }
+
 
 
 /* EVENTS */
-.event-list,
-.workshop-list {
-	padding: 0;
-	margin: 0;
-}
-.event-list li,
-.workshop-list li {
-	list-style: none;
-	padding-bottom: 1em;
-	clear: both;
-}
-.event-list .title,
-.workshop-list .title {
-	font-size: 1.5em;
-}
-.event_dates {
-	padding: 1em 0 0.5em 0;
-	font-weight: bold;
+.event_type {
+	padding-bottom: 0.5em;
+	font-size: 0.85em;
+	color: #888;
 	text-transform: uppercase;
-	color: #060;
 }
-.date_list,
-.review_list {
-	margin: 0;
-	padding: 0;
-}
-.date_list li,
-.review_list li {
-	list-style: none;
-	padding: 0 0 0.5em 0;
-}
-.description {
-	font-size: 1.2em;
-}
-.location {
+.where {
 	margin-top: 1em;
 }
 .venue {
@@ -90,11 +78,13 @@ th {
 .showdates {
 	clear: both;
 }
-
+.date_list {
+	font-size: 0.85em;
+}
 
 
 /* SHOWS */
-#show-list {
+.show_list {
 	margin: 1em 0 0 0;
 	padding: 0;
 }
@@ -102,52 +92,40 @@ th {
 	float: left;
 }
 .showblock .title {
-	font-size: 1.5em;
+	font-size: 1.1em;
 	font-weight: bold;
+	padding-bottom: 0.2em;
 }
-#show-list li {
+#show_list li {
 	list-style: none;
 	padding: 1em 2em 1em 0;
 }
 .reviews {
 	padding: 1em 0 0 0;
 }
+.credit_list {
+	font-size: 0.8em;
+}
 .credit_list .title {
 	color: #666;
 }
 .credit_list .name {
 	font-weight: bold;
+	color: #333;
 }
 
 
 /* WORKSHOPS */
-#workshop-list {
-	
-}
+
 
 
 
 /* PRESS */
-#review-list {
-	list-style: none;
-}
-#review-list li {
-	padding: 0.5em 0 1.5em 0;
-	clear: both;
-}
-#review-list .title {
-	font-weight: bold;
-	font-size: 1.2em;
-}
-.reference,
-.event_type {
-	font-size: 0.9em;
+.reference {
+	font-size: 0.8em;
 	color: #888;
 	text-transform: uppercase;
 	font-weight: bold;
-}
-.reference {
-	padding-bottom: 0.5em;
 }
 #review-list .url {
 	font-size: 0.8em;

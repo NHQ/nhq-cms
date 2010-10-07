@@ -1,4 +1,4 @@
-html,body,div{border:0;margin:0;padding:0;font-family:Comic-sans,sans-serif;color:#000;}
+html,body,div{border:0;margin:0;padding:0;color:#000;}
 a {text-decoration:none;color:#000;}
 a:hover{color:#DB0000;text-decoration:none;}
 #container{width:970px;padding-top:10px;margin:0 auto;}
@@ -33,21 +33,16 @@ p.grid{padding-left:10px;}
 .clearfix:after,#container:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
 .clearfix,.main{display:block;}
 
-h1 {
-	text-align:left;
-	margin-top: 0.4em;
+#menu {
+	font-size: 1.25em;
+	color:#aaa;
+	position:fixed;
+  font-family: Helvetica, Arial, sans-serif;
 }
-h2 {
-	font-size:1.6em;
-	text-align:left;
-	margin-bottom: 0.965em;
-}
-
-#menu {font-size:160%;color:#aaa;position:fixed;}
 #menu ul {list-style:none;}
 #menu li {
 	display: block;
-	padding: 0.6em 0;
+	padding: 0.4em 0;
 }
 #menu li:hover{}
 #menu li a{text-decoration:none;color:#000;}
@@ -64,16 +59,21 @@ h2 {
 #menu .admin a:visited {
 	padding: 0;
 }
+#menu .admin a {
+  font-family: Helvetica, Arial, sans-serif;
+}
+#menu .admin {
+	padding: 1em 0 0.2em 0;
+}
 .admin a,
 .admin a:visited,
 .admin a:hover
   {
 	padding: 0 0.5em;
 	color: #DB0000;
-	font-size: 0.8em;
-	text-transform: uppercase;
 	font-weight: bold;
 	text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
 }
 .admin a:hover { 
 	color: #FFF; 
@@ -86,7 +86,6 @@ h2 {
   {
 	padding: 0 0.5em;
 	color: #DB0000;
-	font-size: 0.75em;
 	text-transform: uppercase;
 	font-weight: bold;
 }

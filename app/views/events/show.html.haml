@@ -1,25 +1,26 @@
-- content_for :title, @event.title
+- content_for :title, @event.title + " - 500 Clown"
 
 %h1
   = @event.title
   %span.label at
   %span.venue_name= @event.venue_name
   - if user_signed_in?
-    %span.admin
-      = link_to('Edit', edit_event_path(@event))
-
+    %span.admin= link_to('Edit', edit_event_path(@event))
 .event_type
   Event Type:
   = @event.event_type
 
-- if @event.image?
-  = image_tag(@event.image.url(:medium), :class => "right") if @event.image?
-.description= @event.description.html_safe
+%p.description
+  - if @event.image?
+    = image_tag(@event.image.url(:medium), :class => "right")
+  = @event.description.html_safe
+
 .tags
-  tags:
+  %span.tag_title Tags:
   = @event.tags.gsub(/,/, ", ")
   
-.event_dates Event Dates:
+.when
+%h3 When:
 %ul.date_list
   - if @showdates.count 
     - @showdates.each do |d|
@@ -30,14 +31,13 @@
         \ - 
         = d.end_time.to_s(:time)
         - if user_signed_in?
-          %span.admin= link_to('Destroy', event_showdate_path(@event, d), :confirm => "Are you sure?", :method => :delete)
+          %span.admin= link_to(image_tag('edit-delete.png'), event_showdate_path(@event, d), :confirm => "Are you sure?", :method => :delete)
 
 - if user_signed_in?
   = render 'showdate'
 
-%br/
-
-.location
+.where
+  %h3 Where:
   .venue= @event.venue_name
   - unless @event.street.nil?
     .address

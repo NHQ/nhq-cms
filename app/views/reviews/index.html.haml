@@ -2,28 +2,25 @@
 
 %h1 Press Reviews
 
-/ -if user_signed_in?
-/   = link_to 'New review', new_review_path
-
-#review-list
-
+%ul.review_list
   - @reviews.each do |review|
     %li
-      - if review.image?
-        .photo.right= link_to(image_tag(review.image.url(:thumb)), review)
-      - if review.show
-        .reference
-          show: 
-          = link_to(review.show.title, review.show) 
-      - if review.workshop
-        .reference
-          workshop: 
-          = link_to(review.workshop.title, review.workshop)
       .title
         = link_to review.title, review
         - if user_signed_in?
           %span.admin
             = link_to 'Edit', edit_review_path(review)
             = link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete
-      .description= review.description.html_safe
+      .description
+        - if review.image?
+          .photo.right= link_to(image_tag(review.image.url(:thumb)), review)
+        = review.description.html_safe
       .url= link_to(review.url, review.url) if review.url?
+      - if review.show
+        %p.reference
+          show: 
+          = link_to(review.show.title, review.show) 
+      - if review.workshop
+        %p.reference
+          workshop: 
+          = link_to(review.workshop.title, review.workshop)

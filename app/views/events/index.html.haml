@@ -2,21 +2,21 @@
 
 %h1 Events
 
-%ul.event-list
+%ul.event_list
   - @events.each do |event|
     %li
-      - if event.image?
-        .left= link_to image_tag(event.image.url(:thumb)), event
-      .title
-        = link_to event.title, event 
-      .venue
-        %span.label at 
-        = event.venue_name
-      - if user_signed_in?
+      %p
+        - if event.image?
+          = link_to(image_tag(event.image.url(:thumb), :class => 'left'), event)
+        .title
+          = link_to event.title, event 
+          %span.label at 
+          = event.venue_name
+          - if user_signed_in?
+            %span.admin
+              .edit= link_to 'Edit', edit_event_path(event)
+              .destroy= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
         .timestamps
           %span.created= 'created ' + event.created_at.to_s(:short)
           , 
           %span.updated= 'updated ' + time_ago_in_words(event.updated_at) + ' ago'
-        .admin
-          .edit= link_to 'Edit', edit_event_path(event)
-          .destroy= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete

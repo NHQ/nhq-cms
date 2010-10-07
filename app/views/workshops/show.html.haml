@@ -1,11 +1,18 @@
+- content_for :title, @workshop.title + " - 500 Clown"
+
 %h1.title
   = @workshop.title
   - if user_signed_in?
     %span.admin= link_to('Edit', edit_workshop_path(@workshop))
-- if @workshop.image?
-  .right= image_tag(@workshop.image.url(:medium))
-.description= @workshop.description.html_safe
-.tags= 'tags: ' + @workshop.tags.gsub(/,/, ", ")
+
+%p.description
+  - if @workshop.image?
+    .right= image_tag(@workshop.image.url(:medium))
+  = @workshop.description.html_safe
+
+.tags
+  %span.tag_title Tags:
+  = @workshop.tags.gsub(/,/, ", ")
 
 %h3.reviews
   Reviews:
@@ -26,4 +33,4 @@
       %li
         = link_to review.title, workshop_review_path(@workshop, review)
         - if user_signed_in?
-          %span.admin= link_to('Destroy', review_path(review), :method => :delete)
+          %span.admin= link_to(image_tag('edit-delete.png', :alt => 'Destroy'), workshop_review_path(@workshop, review), :confirm => "Are you sure?", :method => :delete)
