@@ -21,10 +21,7 @@
     %p= @show.additional_info.html_safe
 
 .credits
-  - if @show.credits.empty?
-    %h3.credits_title Credits:
-    %p There are currently no credits.
-  - else
+  - unless @show.credits.empty?
     %h3.credits_title Credits:
     %ul.credit_list
       - @show.credits.each do |c|
@@ -33,14 +30,12 @@
           %span.name= c.name
           - if user_signed_in?
             %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_credit_path(@show, c), :confirm => 'Are you sure?', :method => :delete)
+
   - if user_signed_in?
     = render 'credit'
 
 .reviews
-  - if @show.reviews.empty?
-    %h3.reviews_title Press:
-    %p There are currently no reviews.
-  - else
+  - unless @show.reviews.empty?
     %h3.reviews_title Press:
     %ul.review_list
       - @show.reviews.each do |review|
@@ -49,7 +44,8 @@
           %span.source= review.description.html_safe
           = link_to "read full review", show_review_path(@show, review)
           - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_path(@show), :confirm => 'Are you sure?', :method => :delete, :class => "trash")
+            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_review_path(@show, review), :confirm => 'Are you sure?', :method => :delete, :class => "trash")
+
   - if user_signed_in?
     %span.admin
       = link_to('+ Add New Review', new_show_review_path(@show))

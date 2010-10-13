@@ -11,7 +11,7 @@
   - form.inputs do
     = form.input :title, :required => true, :label => "Review Title"
     = form.input :description, :as => :text, :input_html => { :class => 'wysiwyg' }
-    = form.input :url, :label => "LINK", :hint => '(e.g. http://herald.com/article)'
+    = form.input :url, :label => "LINK", :hint => 'e.g. http://herald.com/article'
     = image_tag(@review.image.url(:thumb)) if @review.image?
     = form.input :image
     / = form.input :show, :as => :select, :collection => Show.find(:all), @show

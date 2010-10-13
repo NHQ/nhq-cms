@@ -16,6 +16,15 @@
 .reference {
 	padding-bottom: 0.5em;
 }
+.left { 
+  float: left; 
+  margin: 0 1em 1em 0; 
+  padding: 0; 
+}
+.right { 
+  float: right; 
+  margin: 0 0 1em 1em;  
+}
 
 
 /* HOME */
@@ -61,6 +70,9 @@
 	padding-left: 1em;
 	font-size: 0.8em;
 	text-transform: uppercase;
+}
+.reviews {
+	clear: both;
 }
 
 /* EVENTS */
@@ -130,6 +142,9 @@
 	font-weight: bold;
 	color: #333;
 }
+form.credit {
+	padding-top: 1em;
+}
 
 
 /* WORKSHOPS */
@@ -143,8 +158,13 @@
 	color: #888;
 	text-transform: uppercase;
 	font-weight: bold;
+	margin: 0;
+	padding: 0;
 }
-.review-list .url {
+.review_list .url {
 	font-size: 0.8em;
 	padding-top: 0.5em;
+}
+.review_list .title {
+	font-size: 1.5em;
 }

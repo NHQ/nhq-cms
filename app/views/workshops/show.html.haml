@@ -14,23 +14,23 @@
   %span.tag_title Tags:
   = @workshop.tags.gsub(/,/, ", ")
 
-%h3.reviews
-  Reviews:
+.reviews
+  - unless @workshop.reviews.empty?
+    %h3.reviews_title Press:
+    %ul.review_list
+      - @workshop.reviews.each do |review|
+        %li
+          %span.title= truncate(review.title)
+          %span.source= review.description.html_safe
+          = link_to "read full review", workshop_review_path(@workshop, review)
+          - if user_signed_in?
+            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), workshop_review_path(@workshop, review), :confirm => 'Are you sure?', :method => :delete, :class => "trash")
+
   - if user_signed_in?
     %span.admin
-      = link_to('+ Create new review', new_workshop_review_path(@workshop))
+      = link_to('+ Add New Review', new_workshop_review_path(@workshop))
       = form_for @workshop do |r|
         %select{:id => "review_id", :name => "review_id"}
           - reviews_array = Review.excludes(:workshop_id => @workshop.id).map { |review| [truncate(review.title), review.id] }
           = options_for_select(reviews_array)
-        = r.submit "Add existing review"
-      
-- if @workshop.reviews.empty?
-  There are currently no reviews.
-- else
-  %ul.review_list
-    - @workshop.reviews.each do |review|
-      %li
-        = link_to review.title, workshop_review_path(@workshop, review)
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('edit-delete.png', :alt => 'Destroy'), workshop_review_path(@workshop, review), :confirm => "Are you sure?", :method => :delete)
+        = r.submit "Add Existing Review"
