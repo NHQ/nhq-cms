@@ -61,8 +61,7 @@
   %h3.flickrs_title Photosets:
   %ul.flickr_list
     - @show.flickrs.each do |fset|
-      %li.flickr
-        .handle
+      %li{:class => "flickr " + fset.photoset_id}
         %span.title= fset.title
         - if user_signed_in?
           %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_flickr_path(@show, fset), :confirm => 'Are you sure?', :method => :delete)
@@ -72,10 +71,4 @@
 
   - if user_signed_in?
     %span.admin
-      = form_for @flickr do |r|
-        %input{:type => "hidden", :name => "show_id", :value => @show.id}
-        %select{:id => "photoset_id", :name => "photoset_id"}
-          - photosets_list = flickr.photosets.getList(:user_id => '49951737@N02').to_a
-          - flickr_array = photosets_list.map { |photoset| [truncate(photoset.title, :length => 75), photoset.id] }
-          = options_for_select(flickr_array)
-        = r.submit "Add Photoset"
+      = render 'flickrs/flickr-form'

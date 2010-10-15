@@ -1,4 +1,4 @@
 - if user_signed_in?
-  %li.admin= link_to('Logout', destroy_user_session_path)
+  %li.admin= link_to('&larr; Logout'.html_safe, destroy_user_session_path)
 - else
-  %li.admin= link_to('Login', new_user_session_path)
+  %li.admin= link_to('Login &rarr;'.html_safe, new_user_session_path)

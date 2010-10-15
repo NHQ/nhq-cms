@@ -1,0 +1,8 @@
+%li.flickr
+  .handle
+    %span.title= fset.title
+    - if user_signed_in?
+      %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_flickr_path(@show, fset), :confirm => 'Are you sure?', :method => :delete)
+    %p
+      - fset.photos.each do |photo|
+        %img{:src => photo}

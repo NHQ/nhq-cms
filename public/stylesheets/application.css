@@ -38,6 +38,8 @@ p.grid{padding-left:10px;}
 	color:#aaa;
 	position:fixed;
   font-family: Helvetica, Arial, sans-serif;
+	font-family: Georgia, "Baskerville", 'Times New Roman', Times, serif; 
+	font-weight: bold;
 }
 #menu ul {list-style:none;}
 #menu li {
@@ -45,39 +47,29 @@ p.grid{padding-left:10px;}
 	padding: 0.4em 0;
 }
 #menu li:hover{}
-#menu li a{text-decoration:none;color:#000;}
-#menu li a:visited{color:#000}
-#menu li a:hover{color:#fff;text-shadow: #000 0 0 1em}
+#menu li a{text-decoration:none;color:#DB0000;}
+#menu li a:visited{color:#DB0000}
+#menu li a:hover {
+	color:#333;
+	text-decoration: underline;
+}
 
 #menu li.admin { font-size: 0.8em;}
 #menu li.admin a{color:#DB0000;}
 #menu li.admin a:visited{color:#DB0000}
-#menu li.admin a:hover{color:#fff;}
+#menu li.admin a:hover{color:#000;}
 
 #menu .admin a,
 #menu .admin a:hover,
 #menu .admin a:visited {
 	padding: 0;
 }
-#menu .admin a {
-  font-family: Helvetica, Arial, sans-serif;
-}
 #menu .admin {
 	padding: 1em 0 0.2em 0;
 }
-.admin a,
-.admin a:visited,
-.admin a:hover
-  {
-	padding: 0 0.5em;
-	color: #DB0000;
-	font-weight: bold;
-	text-decoration: none;
-  font-family: Helvetica, Arial, sans-serif;
-}
-.admin a:hover { 
-	color: #FFF; 
-	text-shadow: #000 0 0 1em;
+
+.admin {
+	padding: 0 0 0 1em;
 }
 
 .nav a,

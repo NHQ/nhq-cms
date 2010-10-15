@@ -9,8 +9,8 @@
   = render 'devise/menu/login_items'
   / = render 'devise/menu/registration_items'
   - if user_signed_in?
-    %li.admin= link_to 'New Event', new_event_path
-    %li.admin= link_to 'New Show', new_show_path
-    %li.admin= link_to 'New Workshop', new_workshop_path
-    %li.admin= link_to 'New Page', new_page_path
-    %li.admin= link_to 'New Review', new_review_path
+    %li.admin= link_to '+ New Event', new_event_path
+    %li.admin= link_to '+ New Show', new_show_path
+    %li.admin= link_to '+ New Workshop', new_workshop_path
+    %li.admin= link_to '+ New Page', new_page_path
+    %li.admin= link_to '+ New Review', new_review_path

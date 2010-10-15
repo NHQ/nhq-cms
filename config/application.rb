@@ -28,6 +28,8 @@ module Clown
     config.generators do |g|
       g.orm             :mongoid
     end
+    
+    config.action_view.javascript_expansions[:defaults] = %w(jquery rails application)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

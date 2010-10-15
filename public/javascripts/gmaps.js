@@ -27,7 +27,7 @@ function codeAddress() {
   });
 }
 
-$(function() {
+jQuery(function() {
 	initialize();
 	codeAddress();	
 });

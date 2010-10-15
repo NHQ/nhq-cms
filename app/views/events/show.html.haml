@@ -50,6 +50,6 @@
   - unless(@event.map_string.length < 5)
     - stylesheet "gmaps"
     - javascript "http://maps.google.com/maps/api/js?sensor=true"
-    - javascript "gmaps.js"
+    / - javascript "gmaps.js"
     %input#address{ :name => "address", :type => "hidden", :value => @event.map_string}/
     %div#map_canvas

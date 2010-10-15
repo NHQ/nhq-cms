@@ -15,6 +15,8 @@ class FlickrsController < InheritedResources::Base
   
   def create
 
+    @flickr = Flickr.new
+    
     photoset = flickr.photosets.getInfo( :photoset_id => params[:photoset_id])
 
     phs = flickr.photosets.getPhotos( :photoset_id => params[:photoset_id], 
@@ -29,23 +31,28 @@ class FlickrsController < InheritedResources::Base
                                 :id => nil
                               })
 
-    @flickr = Flickr.new(p)
+    @photoset = Flickr.new(p)
 
     # assume this is for SHOW, for now
     @show = Show.find(params[:show_id])
-    @show.flickrs << @flickr
+    @show.flickrs << @photoset
 
-    if @flickr.save
-      flash[:notice] = "Photoset added."
-      redirect_to parent_url
-    else
-      flash[:error] = "Unable to add photoset."
-      redirect_to parent_url
+    if @show.save
+      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
+      # flash[:notice] = "Photoset added."
+      # redirect_to parent_url
+    # else
+    #   flash[:error] = "Unable to add photoset."
+    #   redirect_to parent_url
     end
   end
   
   def destroy
-    destroy!(:notice => "Photoset removed.") {show_url(@show)}
+   destroy!(:notice => "Photoset removed.") {show_url(@show)}
+    # @show = Show.find(params[:show_id])
+    # @flickr = @show.flickrs.find(params[:id])
+    # @flickr.destroy
+    # render :template => "flickrs/remove.js.erb", :content_type => 'text/javascript'
   end
   
 end

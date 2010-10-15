@@ -1,6 +1,6 @@
 body { 
   font:75%/1.5em;
-  font-family: Helvetica, Arial, sans-serif;;
+	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
   font-size-adjust:none;
   font-style:normal;
   font-variant:normal;
@@ -27,14 +27,15 @@ p img.right {
 }
 
 h1,h2 {  
-  font-family: Helvetica, Arial, sans-serif;
+	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
 }
 h3,h4,h5,h6 { 
   font-weight: normal; 
-  font-family: Helvetica, Arial, sans-serif; 
+	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
   color: #999999; 
 }
 h1 { 
+  color: #DB0000;
   font-weight:normal;
   font-size: 1.9em;  
   line-height: 1em;
@@ -48,7 +49,8 @@ h2 {
   margin-bottom: 0.5em;  
 }
 h3 {
-  color: #666;
+  color: #999;
+  font-weight:bold;
   font-size: 0.85em; 
 	margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -77,11 +79,11 @@ dl { margin: 0 0 1.5em 0; }
 dl dt { font-weight: bold; }
 dl dd { margin-left: 1.5em; }
 
-a { color: #369; text-decoration: none; }
-a:hover { color: #C60; text-decoration: underline; }
+a { color: #DB0000; text-decoration: none; }
+a:hover { color: #F00; text-decoration: underline; }
 
-p a { color: #369; }
-p a:hover { color: #C60; }
+p a { color: #DB0000; }
+p a:hover { color: #F00; }
 
 
 table {  margin-bottom: 1.5em; border-collapse: collapse; }

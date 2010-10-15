@@ -1,54 +1,31 @@
-<% content_for :head do %>
-  <link rel="Stylesheet" media="screen" href="/stylesheets/ui.core.css" /> 
-  <link rel="Stylesheet" media="screen" href="/stylesheets/ui.timepickr.css" /> 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.js"></script> 
-  <script type="text/javascript" src="/javascripts/jquery.utils.js"></script> 
-  <script type="text/javascript" src="/javascripts/jquery.strings.js"></script> 
-  <script type="text/javascript" src="/javascripts/jquery.anchorHandler.js"></script> 
-  <script type="text/javascript" src="/javascripts/jquery.ui.all.js"></script> 
-  <script type="text/javascript" src="/javascripts/ui.timepickr.js"></script>
-  <script type="text/javascript"> 
-      $(function(){
-        $.datepicker.setDefaults({
-           showOn: 'both',
-           dateFormat: 'yy-mm-dd',
-           gotoCurrent: true,
-           showOtherMonths: true,
-           selectOtherMonths: true,
-           buttonImageOnly: true,
-           buttonImage: '/images/calendar.gif' });
-
-        $('#datepick').datepicker();
-        $('#showdate_start_time').timepickr().blur();
-        $('#showdate_end_time').timepickr().blur();
-        $('#showdate_start_time').mouseenter(function() {
-          $('#showdate_end_time').timepickr().blur();
-        });
-        $('#showdate_end_time').mouseenter(function() {
-          $('#showdate_start_time').timepickr().blur();
-        });
-        // temporary fix..
-        $('.ui-timepickr ol:eq(0) li:first').mouseover();
-        $('#outer').mouseleave(function() {
-          $('#log').append('<div>Handler for .mouseleave() called.</div>');
-        });
-      });
-  </script>
-<% end %>
-
-<% stylesheet("ui-darkness/jquery-ui-1.8.5.custom.css") %>
-<% #javascript("jquery-ui-timepicker-addon.js") 
-%>
-<% stylesheet("timepicker.css") %>
-
 <%= semantic_form_for :showdate, @showdate, :url => {:controller => "showdates", :action => "create"}, :html => {:multipart => true} do |f| %>
 	<%= hidden_field_tag 'event_id', @event.id %>
-	<input id="datepick" class="datepick" name="showdate[start_date]" size="12" type="text" />
-  <label style="display: inline;">start time:</label> 
-  <input id="showdate_start_time" type="text" value="12:00" name="showdate[start_time]" style="width:80px" />
-  <img src="/images/clock.png" alt="Time" border="0" />
-  <label style="display: inline;">end time:</label> 
-  <input id="showdate_end_time" type="text" value="12:00" name="showdate[end_time]" style="width:80px" />
-  <img src="/images/clock.png" alt="Time" border="0" />
+  <p>
+      <img src="/images/calendar.gif" alt="Start" border="0" />
+      <strong>From:</strong>
+      <input id="showdate_start_date" name="showdate[start_date]" type="text" />
+      <input id="showdate_start_time" name="showdate[start_time]" type="text" />
+  </p>
+  <p>
+      <img src="/images/calendar.gif" alt="End" border="0" />
+      <strong>To:</strong>
+      <input id="showdate_end_date" name="showdate[end_date]"  type="text" />
+      <input id="showdate_end_time" name="showdate[end_time]"  type="text" />
+  </p>
   <%= submit_tag "Add Date" %>
+<% end %>
+
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "calendrical" %>
+<% end %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "jquery.calendrical" %>
+<% end %>
+
+<% content_for :jstemplates do %>
+  $('#showdate_start_date, #showdate_start_time,' +
+    '#showdate_end_date,   #showdate_end_time')
+      .calendricalDateTimeRange();
 <% end %>

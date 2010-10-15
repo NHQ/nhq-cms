@@ -13,9 +13,8 @@
           %span.label at 
           = event.venue_name
           - if user_signed_in?
-            %span.admin
-              .edit= link_to 'Edit', edit_event_path(event)
-              .destroy= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+            %span.admin= link_to 'Edit', edit_event_path(event)
+            %span.admin= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
         .timestamps
           %span.created= 'created ' + event.created_at.to_s(:short)
           , 

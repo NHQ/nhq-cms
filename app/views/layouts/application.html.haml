@@ -3,13 +3,15 @@
   %head
     %title= yield_for(:title, '500 Clown')
     %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")
-    %meta(name="description"){:content => yield_for(:description, 'Life is worth the risk')}
-    %meta(name="keywords" content="")
-    %meta(name="viewport" content="initial-scale=1.0, user-scalable=no")
+    %meta{:name => "description", :content => yield_for(:description, 'Life is worth the risk')}
+    %meta{:name => "keywords", :content => yield_for(:keywords, 'Theater')}
+    %meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
     = csrf_meta_tag
     = yield(:head)
     = stylesheet_link_tag "reset", "type", "application", "nhq", "admin"
     = stylesheet_link_tag "jwysiwyg/jquery.wysiwyg"
+    / %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
+    / %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
 
   %body{:id => yield_for(:body_id, params[:controller])}
     #container	
@@ -21,9 +23,7 @@
         = yield
         
     #ajax-status
-    = javascript_include_tag "jquery-1.4.2.min", "jquery-ui-1.8.5.min", "jquery.wysiwyg", "wysiwyg"
-    = javascript_include_tag "jquery.rails", "application"
+    = javascript_include_tag "jquery.min", "jquery-ui", "jquery.strings", "jquery.utils", "ui.timepickr", "jquery.wysiwyg", "wysiwyg", "rails", "application"
+    = yield(:javascripts)
     = javascript_tag do
       = yield(:jstemplates)
-    %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
-    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}

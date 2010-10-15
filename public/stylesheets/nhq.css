@@ -2,16 +2,14 @@
 #container {
 	margin-top: 1em;
 }
-#container .description {
-		font-family: "Baskerville", 'Times New Roman', Times, serif; 
-}
 .tag_title {
 	font-weight: bold;
+	padding-right: 0.5em;
 }
 .tags {
 	color: #555;
 	padding: 1em 0 2em 0;
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 .reference {
 	padding-bottom: 0.5em;
@@ -26,10 +24,10 @@
   margin: 0 0 1em 1em;  
 }
 
-
 /* HOME */
 #home .description { 
 	font-style: italic;
+	font-weight: normal;
 	font-size: 1.4em;
 	line-height: 1.4em;
 }
@@ -72,34 +70,22 @@
 .review_list .source {
 	font-family: "Baskerville", 'Times New Roman', Times, serif; 
 }
-.review_list .title {
-	font-style: italic;
-}
-.reviews .review_list a {
-	padding-left: 1em;
-	font-size: 0.8em;
-	text-transform: uppercase;
-}
-.reviews {
-	clear: both;
-}
 
 /* EVENTS */
 .event_type {
 	padding-bottom: 0.5em;
-	font-size: 0.85em;
 	color: #888;
-	text-transform: uppercase;
 }
+.when,
 .where {
-	margin-top: 1em;
-	font-size: 0.85em;
+	margin-top: 2em;
+/*	font-size: 0.85em;*/
 }
 .venue {
 	font-weight: bold;
 }
 .address {
-	padding-bottom: 0.5em;
+	padding-bottom: 1em;
 }
 .address p {
 	margin: 0;
@@ -115,6 +101,12 @@
 .date_list {
 	font-size: 0.85em;
 }
+form.showdate p {
+	clear: both;
+}
+form.showdate {
+	padding-bottom: 2em;
+}
 
 
 /* SHOWS */
@@ -125,6 +117,7 @@
 .showblock {
 	float: left;
 	padding-right: 1em;
+	width: 200px;
 }
 .showblock .title {
 	font-size: 1.1em;
@@ -147,13 +140,13 @@
 }
 .credits .title,
 .credits .name {
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 .credits .title {
-	color: #666;
+	color: #333;
+	font-weight: bold;
 }
 .credits .name {
-	font-weight: bold;
 	color: #333;
 }
 form.credit {
@@ -179,8 +172,13 @@ form.credit {
 	font-size: 0.8em;
 	padding-top: 0.5em;
 }
-.review_list .title {
-	font-size: 1.5em;
+.reviews .review_list a {
+	padding-left: 1em;
+	font-size: 0.8em;
+	text-transform: uppercase;
+}
+.reviews {
+	clear: both;
 }
 
 

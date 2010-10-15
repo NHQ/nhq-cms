@@ -2,6 +2,20 @@
   padding: 5px 8px;
   margin: 10px 0;
 }
+#ajax-status, #flash_notice, #flash_error, #flash_alert  {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 5px 10px;
+  margin: 4px;
+  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, sans-serif;
+}
+#ajax-status {
+  position: fixed;
+  top: 0;
+  right: 0;
+	display: none;
+  background-color: #DDD;
+}
 
 #flash_notice {
   background-color: #CFC;
