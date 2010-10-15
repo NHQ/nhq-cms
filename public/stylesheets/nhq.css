@@ -41,7 +41,8 @@
 .date_list,
 .review_list,
 .credit_list,
-.upcoming_events {
+.upcoming_events,
+.flickr_list {
 	padding: 0;
 	margin: 0;
 }
@@ -50,10 +51,18 @@
 .workshop_list li,
 .date_list li,
 .review_list li,
-.upcoming_events li {
+.upcoming_events li,
+.flickr_list li {
 	list-style: none;
 	padding-top: 0.2em;
 	padding-bottom: 0.5em;
+/*	clear: both;*/
+}
+.event_list li,
+.workshop_list li,
+.date_list li,
+.review_list li,
+.upcoming_events li {
 	clear: both;
 }
 .credit_list li {
@@ -115,6 +124,7 @@
 }
 .showblock {
 	float: left;
+	padding-right: 1em;
 }
 .showblock .title {
 	font-size: 1.1em;
@@ -125,11 +135,15 @@
 	list-style: none;
 	padding: 1em 2em 1em 0;
 }
+.flickrs,
 .reviews {
-	padding: 1em 0 0 0;
+	padding-top: 2em;
 }
 .info_title {
 	padding: 1em 0 0 0;
+}
+.credits {
+	clear: both;
 }
 .credits .title,
 .credits .name {
@@ -167,4 +181,11 @@ form.credit {
 }
 .review_list .title {
 	font-size: 1.5em;
+}
+
+
+/* FLICKR */
+li.flickr {
+	display: block;
+	clear: both;
 }

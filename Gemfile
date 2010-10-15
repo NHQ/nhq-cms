@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 gem 'mongoid', :git => 'git://github.com/cherring/mongoid.git'  
+# gem 'mongoid'
 gem 'mongo', '1.0.7'
 gem 'bson_ext', '1.0.7'
 gem 'inherited_resources'
@@ -12,6 +13,7 @@ gem 'mongoid_slug'
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 gem 'devise', '1.1.2'
+gem 'flickraw'
 gem 'haml', '3.0.18'
 gem 'haml-rails', '0.2', :group => :development
  # the following gems are used to generate Devise views for Haml

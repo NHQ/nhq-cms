@@ -4,14 +4,19 @@ Clown::Application.routes.draw do
 
   resources :users, :only => :show
 
+  resources :flickrs do
+    get 'refetch', :on => :collection
+  end
 
   resources :workshops do
     resources :reviews
+    resources :flickrs
   end
 
   resources :shows do
     resources :reviews
     resources :credits
+    resources :flickrs
   end
   
   resources :reviews
@@ -19,6 +24,7 @@ Clown::Application.routes.draw do
 
   resources :events do
     resources :showdates
+    resources :flickrs
   end
 
   resources :showdates
@@ -29,7 +35,7 @@ Clown::Application.routes.draw do
   
   root :to => "pages#home"
   
-  match ':controller/:action/:id/:review_id'
+#  match ':controller/:action/:id/:review_id'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

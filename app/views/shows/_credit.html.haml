@@ -1,4 +1,4 @@
-= semantic_form_for :credit, @credit, :url => {:controller => "credits", :action => "create"} do |f|
+= semantic_form_for @credit, :as => :credit, :url => {:controller => "credits", :action => "create"}, :class => 'credit' do |f|
 	= hidden_field_tag 'show_id', @show.id
 	<label for="credit_title" style="display: inline;" class="title">Title:</label>
 	<input id="credit_title" name="credit[title]" size="12" type="text" />

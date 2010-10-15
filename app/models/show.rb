@@ -10,9 +10,11 @@ class Show
   mount_uploader :image, ImageUploader
 
   embeds_many :credits
+  embeds_many :flickrs
 
   references_many :reviews
 
   validates_presence_of :title
-  validates_presence_of :description
+  validates_presence_of :description  
+  
 end

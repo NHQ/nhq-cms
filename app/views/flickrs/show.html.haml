@@ -1,0 +1,11 @@
+- content_for :title, @flickr.title + ' - 500 Clown'
+
+%h1.title
+  = @flickr.title
+
+.photos
+  - @flickr.photos.each do |photo|
+    - info = flickr.photos.getInfo(:photo_id => photo)
+    =  image_tag FlickRaw.url_s(info)
+    
+.admin= link_to 'Back to photosets', flickrs_url

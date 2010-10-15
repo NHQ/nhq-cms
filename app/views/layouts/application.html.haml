@@ -7,14 +7,9 @@
     %meta(name="keywords" content="")
     %meta(name="viewport" content="initial-scale=1.0, user-scalable=no")
     = csrf_meta_tag
-    = javascript_include_tag "jquery-1.4.2.min", "jquery-ui-1.8.5.min"
     = yield(:head)
-    = javascript_include_tag "jquery.rails"
     = stylesheet_link_tag "reset", "type", "application", "nhq", "admin"
-    = javascript_tag do
-      = yield(:jstemplates)
-    %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
-    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
+    = stylesheet_link_tag "jwysiwyg/jquery.wysiwyg"
 
   %body{:id => yield_for(:body_id, params[:controller])}
     #container	
@@ -24,3 +19,11 @@
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         = yield
+        
+    #ajax-status
+    = javascript_include_tag "jquery-1.4.2.min", "jquery-ui-1.8.5.min", "jquery.wysiwyg", "wysiwyg"
+    = javascript_include_tag "jquery.rails", "application"
+    = javascript_tag do
+      = yield(:jstemplates)
+    %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
+    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}

@@ -4,6 +4,7 @@
   = @show.title
   - if user_signed_in?
     %span.admin= link_to('Edit', edit_show_path(@show))
+    %span.admin= link_to 'Destroy', @show, :confirm => 'Destroy ' + @show.title + '?', :method => :delete
 
 %p.description
   - if @show.image?
@@ -21,36 +22,60 @@
     %p= @show.additional_info.html_safe
 
 .credits
-  - unless @show.credits.empty?
-    %h3.credits_title Credits:
-    %ul.credit_list
-      - @show.credits.each do |c|
-        %li
-          %span.title= c.title + ': '
-          %span.name= c.name
-          - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_credit_path(@show, c), :confirm => 'Are you sure?', :method => :delete)
+  %h3.credits_title Credits:
+  %ul.credit_list
+    - @show.credits.each do |c|
+      %li.credit
+        .handle
+        %span.title= c.title + ': '
+        %span.name= c.name
+        - if user_signed_in?
+          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_credit_path(@show, c), :confirm => 'Are you sure?', :method => :delete)
 
   - if user_signed_in?
     = render 'credit'
 
 .reviews
-  - unless @show.reviews.empty?
-    %h3.reviews_title Press:
-    %ul.review_list
-      - @show.reviews.each do |review|
-        %li
-          %span.title= truncate(review.title)
-          %span.source= review.description.html_safe
-          = link_to "read full review", show_review_path(@show, review)
-          - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_review_path(@show, review), :confirm => 'Are you sure?', :method => :delete, :class => "trash")
+  %h3.reviews_title Press:
+  %ul.review_list
+    - @show.reviews.each do |review|
+      %li
+        %span.title= truncate(review.title)
+        %span.source= review.description.html_safe
+        = link_to "read full review", show_review_path(@show, review)
+        - if user_signed_in?
+            
 
   - if user_signed_in?
     %span.admin
       = link_to('+ Add New Review', new_show_review_path(@show))
-      = form_for @show do |r|
-        %select{:id => "review_id", :name => "review_id"}
-          - reviews_array = Review.excludes(:show_id => @show.id).map { |review| [truncate(review.title), review.id] }
-          = options_for_select(reviews_array)
-        = r.submit "Add Existing Review"
+      - if Review.excludes(:show_id => @show.id).count
+        = form_for @show do |r|
+          %select{:id => "review_id", :name => "review_id"}
+            - reviews_array = Review.excludes(:show_id => @show.id).map { |review| [truncate(review.title), review.id] }
+            = options_for_select(reviews_array)
+          = r.submit "Add Existing Review"
+
+
+.flickrs
+  %h3.flickrs_title Photosets:
+  %ul.flickr_list
+    - @show.flickrs.each do |fset|
+      %li.flickr
+        .handle
+        %span.title= fset.title
+        - if user_signed_in?
+          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), show_flickr_path(@show, fset), :confirm => 'Are you sure?', :method => :delete)
+        %p
+          - fset.photos.each do |photo|
+            %img{:src => photo}
+
+  - if user_signed_in?
+    %span.admin
+      = form_for @flickr do |r|
+        %input{:type => "hidden", :name => "show_id", :value => @show.id}
+        %select{:id => "photoset_id", :name => "photoset_id"}
+          - photosets_list = flickr.photosets.getList(:user_id => '49951737@N02').to_a
+          - flickr_array = photosets_list.map { |photoset| [truncate(photoset.title, :length => 75), photoset.id] }
+          = options_for_select(flickr_array)
+        = r.submit "Add Photoset"

@@ -18,6 +18,9 @@ class Event
   embeds_many :showdates
   accepts_nested_attributes_for :showdates
 
+  embeds_many :flickrs
+  accepts_nested_attributes_for :flickrs
+  
   validates_presence_of :title
   validates_presence_of :description
   

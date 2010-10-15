@@ -1,0 +1,12 @@
+- content_for :title, "Flickr Photos - 500 Clown"
+
+%h1 Flickr Photosets
+
+-if user_signed_in?
+  %p.admin= link_to 'Re-fetch photos from Flickr', refetch_flickrs_url
+
+%ul.flickrs
+  - @flickrs.each do |flickr|
+    %li.flickr
+      .g120= link_to image_tag(flickr.primary_photo_url, :class => 'left'), flickr_path(flickr)
+      = link_to flickr.title, flickr_path(flickr)

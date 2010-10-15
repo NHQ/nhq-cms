@@ -6,6 +6,7 @@ class ShowsController < InheritedResources::Base
     @reviews = @show.reviews
     @review = Review.new
     @credit = Credit.new
+    @flickr = Flickr.new
   end
   
   def update
@@ -15,6 +16,11 @@ class ShowsController < InheritedResources::Base
       @show.reviews << @review
       flash[:notice] = "Successfully added review."
       redirect_to @show      
+    elsif params[:flickr_id]
+      @flickr = Flickr.find(params[:flickr_id])
+      @show.flickrs << @flickr
+      flash[:notice] = "Successfully added photoset."
+      redirect_to @show
     elsif @show.update_attributes(params[:show])
       flash[:notice] = "Successfully updated show."
       redirect_to @show
