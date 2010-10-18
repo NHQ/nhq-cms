@@ -1,0 +1,7 @@
+%h1
+  Editing venue
+  - if @event
+    for 
+    = link_to @event.title, @event
+
+= render 'form'

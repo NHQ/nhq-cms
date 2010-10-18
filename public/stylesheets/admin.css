@@ -13,6 +13,7 @@
   position: fixed;
   top: 0;
   right: 0;
+	width: 300px;
 	display: none;
   background-color: #DDD;
 }
@@ -47,7 +48,6 @@ ol li {
 .inline-hints {
 	font-size: 0.8em;
 	color: #666;
-	font-style: italic;
 }
 label {
 	display: block;
@@ -65,10 +65,13 @@ li .edit,
 li .destroy {
 	display: inline;
 }
+.timestamps {
+	padding-bottom: .8em;
+	color: #666;
+}
 .created,
 .updated {
 	display: inline;
-	font-size: 0.9em;
 }
 .welcome {
 	text-align: right;
@@ -79,4 +82,12 @@ li .destroy {
 }
 .inline {
 	display: inline;
+}
+h1 .admin {
+	font-size: 0.5em;
+	text-transform: uppercase;
+	font-family: ;
+}
+.admin {
+	font-weight: bold;
 }

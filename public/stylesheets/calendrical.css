@@ -3,8 +3,7 @@
   border: solid 1px #999999;
   padding: 2px;
   text-align: center;
-  width: 160px; 
-	line-height: 1em;}
+  width: 160px; }
   .calendricalDatePopup table {
     border-collapse: collapse;
     width: 160px; }
@@ -13,12 +12,12 @@
       .calendricalDatePopup table .monthCell a {
         display: block;
         float: left;
-        line-height: 1em; }
+        line-height: 20px; }
       .calendricalDatePopup table .monthCell .prevMonth, .calendricalDatePopup table .monthCell .nextMonth {
         width: 24px; }
       .calendricalDatePopup table .monthCell .monthName {
-				font-size: 0.9em;
-        width: 110px; }
+        width: 110px; 
+				font-size: 0.9em;}
     .calendricalDatePopup table a {
       text-decoration: none; }
     .calendricalDatePopup table th {

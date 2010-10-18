@@ -3,5 +3,10 @@
 %h1
   = @page.title 
   %span.admin= link_to('Show', @page)
+  
+.timestamps
+  %span.created= 'created ' + @page.created_at.to_s(:short)
+  , 
+  %span.updated= 'updated ' + time_ago_in_words(@page.updated_at) + ' ago'
 
 = render 'form'

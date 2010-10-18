@@ -1,0 +1,27 @@
+%h1 Listing venues
+
+%table
+  %tr
+    %th Venue name
+    %th Street
+    %th City
+    %th State
+    %th Zip
+    %th
+    %th
+    %th
+
+  - @venues.each do |venue|
+    %tr
+      %td= venue.venue_name
+      %td= venue.street
+      %td= venue.city
+      %td= venue.state
+      %td= venue.zip
+      %td= link_to 'Show', venue
+      %td= link_to 'Edit', edit_venue_path(venue)
+      %td= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New venue', new_venue_path

@@ -1,0 +1,19 @@
+%p
+  %b Venue name:
+  = @venue.venue_name
+%p
+  %b Street:
+  = @venue.street
+%p
+  %b City:
+  = @venue.city
+%p
+  %b State:
+  = @venue.state
+%p
+  %b Zip:
+  = @venue.zip
+
+= link_to 'Edit', edit_venue_path(@venue)
+\|
+= link_to 'Back', venues_path

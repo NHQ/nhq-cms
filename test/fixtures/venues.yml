@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  venue_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+
+two:
+  venue_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString

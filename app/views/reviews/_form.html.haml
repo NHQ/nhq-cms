@@ -1,14 +1,10 @@
-- javascript "jquery.wysiwyg"
-- javascript "wysiwyg"
 - stylesheet "jwysiwyg/jquery.wysiwyg"
-/ - stylesheet "formtastic"
-/ - stylesheet "formtastic-changes"
 
 = semantic_form_for @review, :html => { :multipart => true } do |form|
 
   = form.error_messages
 
-  - form.inputs do
+  = form.inputs do
     = form.input :title, :required => true, :label => "Review Title"
     = form.input :description, :as => :text, :input_html => { :class => 'wysiwyg' }
     = form.input :url, :label => "LINK", :hint => 'e.g. http://herald.com/article'

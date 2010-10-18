@@ -2,7 +2,11 @@ class ReviewsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_show, :only => [:new, :edit, :create]
   before_filter :find_workshop, :only => [:new, :edit, :create]
+  rescue_from Mongoid::Errors::DocumentNotFound, :with => :bad_record
 
+  def bad_record
+    render 'cleanup'
+  end
 
   def create
     @review = Review.new(params[:review])

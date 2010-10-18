@@ -1,0 +1,17 @@
+= semantic_form_for(@showdate, :as => :showdate, :url => {:controller => "showdates", :action => "create"}, :html => {:multipart => true}) do |f|
+  = hidden_field_tag('event_id', @event.id)
+  .start
+    .label 
+      Start:
+      = image_tag 'calendar.gif', :alt => 'Start Date'
+    %input{:id => "showdate_start_date", :name => "showdate[start_date]", :type => "text"}/
+    %input{:id => "showdate_start_time", :name => "showdate[start_time]", :type => "text"}/
+    
+  .end
+    .label 
+      End:
+      = image_tag 'calendar.gif', :alt => 'End Date'
+    %input{:id => "showdate_end_date", :name => "showdate[end_date]", :type => "text"}/
+    %input{:id => "showdate_end_time", :name => "showdate[end_time]", :type => "text"}/
+    
+  = submit_tag "Add Date", :class => "submit"

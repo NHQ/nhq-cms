@@ -5,17 +5,10 @@
 %ul.event_list
   - @events.each do |event|
     %li
-      %p
-        - if event.image?
-          = link_to(image_tag(event.image.url(:thumb), :class => 'left'), event)
-        .title
-          = link_to event.title, event 
-          %span.label at 
-          = event.venue_name
-          - if user_signed_in?
-            %span.admin= link_to 'Edit', edit_event_path(event)
-            %span.admin= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
-        .timestamps
-          %span.created= 'created ' + event.created_at.to_s(:short)
-          , 
-          %span.updated= 'updated ' + time_ago_in_words(event.updated_at) + ' ago'
+      - if event.image?
+        = link_to(image_tag(event.image.url(:thumb), :class => 'left'), event)
+      .title
+        = link_to event.title, event 
+        - if user_signed_in?
+          %span.admin= link_to 'Edit', edit_event_path(event)
+          %span.admin= link_to 'Destroy', event, :confirm => 'Are you sure you want to delete the event "' + event.title + '"?', :method => :delete

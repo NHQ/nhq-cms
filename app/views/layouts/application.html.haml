@@ -7,11 +7,10 @@
     %meta{:name => "keywords", :content => yield_for(:keywords, 'Theater')}
     %meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
     = csrf_meta_tag
-    = yield(:head)
     = stylesheet_link_tag "reset", "type", "application", "nhq", "admin"
-    = stylesheet_link_tag "jwysiwyg/jquery.wysiwyg"
-    %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
-    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
+    / %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
+    / %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
+    = yield(:head)
 
   %body{:id => yield_for(:body_id, params[:controller])}
     #container	

@@ -54,11 +54,9 @@
 	list-style: none;
 	padding-top: 0.2em;
 	padding-bottom: 0.5em;
-/*	clear: both;*/
 }
 .event_list li,
 .workshop_list li,
-.date_list li,
 .review_list li,
 .upcoming_events li {
 	clear: both;
@@ -73,13 +71,24 @@
 
 /* EVENTS */
 .event_type {
-	padding-bottom: 0.5em;
-	color: #888;
+	padding-bottom: 0.8em;
 }
-.when,
+.event_type .label {
+	font-weight: bold;
+}
+.when form .label {
+	width: 75px;
+	float: left;
+	text-align: right;
+	padding: 0 0.3em 0.5em 0;
+	font-weight: bold;
+	color: #999;
+}
+.when form .label img {
+	vertical-align: bottom;
+}
 .where {
-	margin-top: 2em;
-/*	font-size: 0.85em;*/
+	padding-top: 2em;
 }
 .venue {
 	font-weight: bold;
@@ -96,16 +105,24 @@
 	height: 210px;
 }
 .showdates {
-	clear: both;
+/*	clear: both;*/
 }
 .date_list {
-	font-size: 0.85em;
+	padding-bottom: 0.5em;
 }
-form.showdate p {
-	clear: both;
+form.showdate .start,
+form.showdate .end {
+	clear: left;
 }
 form.showdate {
 	padding-bottom: 2em;
+}
+#add_showdate:hover {
+	color: #DB0000;
+	cursor: pointer;
+}
+#venue_state {
+	display: inline;
 }
 
 

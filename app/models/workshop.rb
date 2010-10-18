@@ -8,7 +8,7 @@ class Workshop
   mount_uploader :image, ImageUploader
 
   references_many :reviews
-  references_many :flickrs, :stored_as => :array, :inverse_of => :workshops
+  embeds_many :flickrs
 
   validates_presence_of :title
   validates_presence_of :description

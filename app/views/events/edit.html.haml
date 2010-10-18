@@ -2,10 +2,12 @@
 
 %h1
   = @event.title
-  %span.label at
-  %span.venue_name= @event.venue_name
-  - if user_signed_in?
-    %span.admin
-      = link_to 'Show', @event
+  %span.admin
+    = link_to 'Show', @event
+
+.timestamps
+  %span.created= 'created ' + @event.created_at.to_s(:short)
+  , 
+  %span.updated= 'updated ' + time_ago_in_words(@event.updated_at) + ' ago'
 
 = render 'form'

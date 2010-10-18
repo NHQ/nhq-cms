@@ -7,19 +7,13 @@ class Event
   field :description
   field :event_type
   field :event_duration
-  field :venue_name
-  field :street
-  field :city
-  field :state
-  field :zip
 
   mount_uploader :image, ImageUploader
     
   embeds_many :showdates
-  accepts_nested_attributes_for :showdates
-
   embeds_many :flickrs
-  accepts_nested_attributes_for :flickrs
+
+  references_many :venues, :stored_as => :array, :default => []
   
   validates_presence_of :title
   validates_presence_of :description

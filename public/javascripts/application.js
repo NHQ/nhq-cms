@@ -52,6 +52,16 @@ var app = {
 	},
 
 	codeAddress: function() {
+		
+	  geocoder = new google.maps.Geocoder();
+	  var latlng = new google.maps.LatLng(-34.397, 150.644);
+	  var myOptions = {
+	    zoom: 12,
+	    center: latlng,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	  }
+	  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		
 	  var address = document.getElementById("address").value;
 	  geocoder.geocode( { 'address': address}, function(results, status) {
 	    if (status == google.maps.GeocoderStatus.OK) {
@@ -64,7 +74,22 @@ var app = {
 	      alert("Geocode was not successful for the following reason: " + status);
 	    }
 	  });
-	}
+	},
+	
+	setupShowdates: function() {
+
+		$("#showdate_start_date, #showdate_start_time," +
+		  "#showdate_end_date,   #showdate_end_time")
+		    .calendricalDateTimeRange();
+
+		$("#add_showdate").click(function() {
+		  $("#new_showdate").toggle("slow");
+		});
+
+		$("#showdate_start_date").blur(function() {
+		  $("#showdate_end_date").val($("#showdate_start_date").val());
+		});
+	},
 
 };
 
@@ -75,8 +100,12 @@ jQuery(function() {
   // Focus on the first text field
   $("input[type='text']:first").focus();
 
-	app.gmapInitialize();
+//	app.gmapInitialize();
 	
-	app.codeAddress();
+//	app.codeAddress();
+	
+//	app.setupShowdates();
+
+
 
 });

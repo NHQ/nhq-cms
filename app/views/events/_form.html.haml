@@ -1,0 +1,14 @@
+- stylesheet "jwysiwyg/jquery.wysiwyg"
+
+= semantic_form_for @event, :html => { :multipart => true, :id => "eventform" } do |form|
+
+  = form.inputs do 
+    = form.input :title, :required => true, :label => "Event Title" 
+    = form.input :description, :as => :text,  :input_html => { :class => 'wysiwyg' } 
+    = form.input :event_type, :as => :select, :collection => ["Performance", "Workshop", "Fundraiser"] 
+    = form.input :tags, :hint => "(e.g. comedy, tragedy, classic)" 
+    = image_tag(@event.image.url(:thumb)) if @event.image? 
+    = form.input :image 
+
+  = form.buttons do
+    = form.commit_button

@@ -14,26 +14,39 @@ class ShowsController < InheritedResources::Base
     if params[:review_id]
       @review = Review.find(params[:review_id])
       @show.reviews << @review
-      flash[:notice] = "Successfully added review."
+      flash[:notice] = "Added review."
       redirect_to @show      
     elsif params[:flickr_id]
       @flickr = Flickr.find(params[:flickr_id])
       @show.flickrs << @flickr
-      flash[:notice] = "Successfully added photoset."
+      flash[:notice] = "Added photoset."
       redirect_to @show
     elsif @show.update_attributes(params[:show])
-      flash[:notice] = "Successfully updated show."
+      flash[:notice] = "Updated show."
       redirect_to @show
     else
       render :action => 'edit'
     end
   end
   
-  def add_review
-    @show = Show.find(params[:id])
+  # def add_review
+  #   @show = Show.find(params[:show_id])
+  #   @review = Review.find(params[:review_id])
+  #   @show.review_ids = @show.review_ids + [@review.id] 
+  #   if @show.save
+  #     flash[:notice] = "Successfully added review."
+  #     redirect_to @show
+  #   else
+  #     redirect_to @show
+  #   end
+  # end
+  
+  def remove_review
+    @show = Show.find(params[:show_id])
     @review = Review.find(params[:review_id])
-    if @show.reviews << @review
-      flash[:notice] = "Successfully added review."
+    @show.review_ids = @show.review_ids - [@review.id] 
+    if @show.save
+      flash[:notice] = "Successfully removed review."
       redirect_to @show
     else
       redirect_to @show
