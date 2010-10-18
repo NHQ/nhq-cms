@@ -8,8 +8,8 @@
     %meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
     = csrf_meta_tag
     = stylesheet_link_tag "reset", "type", "application", "nhq", "admin"
-    / %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
-    / %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
+    %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
+    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
     = yield(:head)
 
   %body{:id => yield_for(:body_id, params[:controller])}
