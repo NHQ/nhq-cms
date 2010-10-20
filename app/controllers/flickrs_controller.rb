@@ -20,11 +20,11 @@ class FlickrsController < InheritedResources::Base
     photoset = flickr.photosets.getInfo( :photoset_id => params[:photoset_id])
 
     phs = flickr.photosets.getPhotos( :photoset_id => params[:photoset_id], 
-                                      :extras => 'url_sq').to_hash["photo"]
+                                      :extras => "url_m").to_hash["photo"]
 
     # get photo urls
-    photos = phs.map {|photo| photo["url_sq"]}
-
+    photos = phs.map {|photo| photo["url_m"].gsub(".jpg", "")}
+    
     p = photoset.to_hash.merge({:type => "flickr photoset",
                                 :photos => photos,
                                 :photoset_id => params[:photoset_id],

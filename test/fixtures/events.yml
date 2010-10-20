@@ -4,8 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
+<% showdates = [{"start_date" : "Fri Nov 05 2010 00:00:00 GMT+0000 (UTC)", "start_time" : "Tue Oct 19 2010 20:00:00 GMT+0000 (UTC)", "end_date" : "Fri Nov 05 2010 00:00:00 GMT+0000 (UTC)",
+		"end_time" : "Tue Oct 19 2010 22:00:00 GMT+0000 (UTC)", "_id" : ObjectId("4cbd03e5c45c247ebe000016") }] %>
+one:
+  _id: ObjectId("4cbd037cc45c247ebe000014")
+  created_at: "Tue Oct 19 2010 02:33:32 GMT+0000 (UTC)"
+  description: "500 Clown is coming to old St. Louis! <br><br>Look out!"
+  event_type: "Performance"
+  showdates: <%= showdates %>
+  tags_array: []
+  title: "500 Clown Frankenstein"
+  updated_at: "Tue Oct 19 2010 02:37:04 GMT+0000 (UTC)"
+  venue_ids: [ ObjectId("4cbd0450c45c247ebe000019") ]
 #
 two: {}
 #  column: value

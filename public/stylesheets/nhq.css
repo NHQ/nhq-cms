@@ -131,19 +131,19 @@ form.showdate {
 	margin: 1em 0 0 0;
 	padding: 0;
 }
-.showblock {
+.show_list .showblock {
 	float: left;
-	padding-right: 1em;
+	padding: 5px;
 	width: 200px;
+	height: 245px;
 }
 .showblock .title {
 	font-size: 1.1em;
 	font-weight: bold;
 	padding-bottom: 0.2em;
 }
-#show_list li {
-	list-style: none;
-	padding: 1em 2em 1em 0;
+.showblock.hover {
+	background-color: #E6E6E6;
 }
 .flickrs,
 .reviews {

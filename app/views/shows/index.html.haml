@@ -1,11 +1,14 @@
 - content_for :title, "Shows - 500 Clown"
 
+- content_for :jstemplates do
+  jQuery(function() { app.setupShowList(); });
+
 %h1 Shows
 
 %ul.show_list
   - @shows.each do |show|
     %li.showblock
-      .title
-        = link_to show.title, show
       - if show.image?
         .photo= link_to image_tag(show.image.url(:boxy)), show
+      .title
+        = link_to show.title, show

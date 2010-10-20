@@ -1,5 +1,10 @@
 - content_for :title, @show.title + " - 500 Clown"
-
+- content_for :head do
+  = stylesheet_link_tag "colorbox"
+- content_for :head do
+  = javascript_include_tag "jquery.colorbox"
+  
+  
 %h1.title
   = @show.title
   - if user_signed_in?
@@ -11,66 +16,66 @@
     = image_tag(@show.image.url(:medium), :class => "right")
   = @show.description.html_safe
 
-.tags
-  - unless @show.tags_array.empty?
+- unless @show.tags_array.empty?
+  .tags
     %span.tag_title Tags:
     = @show.tags.gsub(/,/, ", ")
-  
-.additional_info
-  - if @show.additional_info?
+
+- if @show.additional_info?  
+  .additional_info
     %h3.info_title Additional Info:
     %p= @show.additional_info.html_safe
 
-.credits
-  %h3.credits_title Credits:
-  %ul.credit_list
-    - @show.credits.each do |c|
-      %li.credit
-        .handle
-        %span.title= c.title + ': '
-        %span.name= c.name
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Credit'), show_credit_path(@show, c), :confirm => 'Are you sure you want to delete this Credit?', :method => :delete)
+- if @show.credits.first
+  .credits
+    %h3.credits_title Credits:
+    %ul.credit_list
+      - @show.credits.each do |c|
+        %li.credit
+          .handle
+          %span.title= c.title + ': '
+          %span.name= c.name
+          - if user_signed_in?
+            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Credit'), show_credit_path(@show, c), :confirm => 'Are you sure you want to delete this Credit?', :method => :delete)
 
-  - if user_signed_in?
+- if user_signed_in?
+  %span.add
     = render 'credit'
 
-.reviews
-  %h3.reviews_title Press:
-  %ul.review_list
-    - @show.reviews.each do |review|
-      %li
-        %span.title= truncate(review.title)
-        %span.source= review.description.html_safe
-        = link_to "read full review", show_review_path(@show, review)
-        - if user_signed_in?
-          %span.admin= link_to(link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Review'), "/shows/#{@show.id}/reviews/#{review.id}/remove"), :confirm => 'Are you sure you want to remove this Review?')
+- if @show.reviews.first
+  .reviews
+    %h3.reviews_title Press:
+    %ul.review_list
+      - @show.reviews.each do |review|
+        %li
+          %span.title= truncate(review.title)
+          %span.source= review.description.html_safe
+          = link_to "read full review", show_review_path(@show, review)
+          - if user_signed_in?
+            %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Review'), "/shows/#{@show.id}/reviews/#{review.id}/remove", :confirm => 'Are you sure you want to remove this Review?')
             
 
-  - if user_signed_in?
-    %span.admin
-      = link_to('+ Add New Review', new_show_review_path(@show))
-      - available_reviews = Review.not_in(:_id => @show.review_ids)
-      - if available_reviews.count
-        = form_for @show do |r|
-          %select{:id => "review_id", :name => "review_id"}
-            - reviews_array = available_reviews.map { |review| [truncate(review.title), review.id] }
-            = options_for_select(reviews_array)
-          = r.submit "Add Existing Review"
+- if user_signed_in?
+  %span.add
+    = link_to('+ Add New Review', new_show_review_path(@show))
+    - available_reviews = Review.not_in(:_id => @show.review_ids)
+    - if available_reviews.count
+      = form_for @show do |r|
+        %select{:id => "review_id", :name => "review_id"}
+          - reviews_array = available_reviews.map { |review| [truncate(review.title), review.id] }
+          = options_for_select(reviews_array)
+        = r.submit "Add Existing Review"
 
 
 .flickrs
-  %h3.flickrs_title Photosets:
-  %ul.flickr_list
+  - if @show.flickrs.first
+    %h3.flickrs_title Photos:
+    %ul.flickr_list
     - @show.flickrs.each do |fset|
-      %li{:class => "flickr " + fset.photoset_id}
-        %span.title= fset.title
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), show_flickr_path(@show, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
-        %p
-          - fset.photos.each do |photo|
-            %img{:src => photo}
+      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+  - else
+    %ul.flickr_list
 
-  - if user_signed_in?
-    %span.admin
-      = render 'flickrs/flickr-form'
+- if user_signed_in?
+  %span.add
+    = render 'flickrs/flickr-form'

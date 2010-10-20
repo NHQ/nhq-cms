@@ -13,9 +13,10 @@
   position: fixed;
   top: 0;
   right: 0;
-	width: 300px;
+	width: 500px;
 	display: none;
   background-color: #DDD;
+	font-size: 2em;
 }
 
 #flash_notice {
@@ -90,4 +91,8 @@ h1 .admin {
 }
 .admin {
 	font-weight: bold;
+}
+span.add {
+	display: block;
+	padding-bottom: 2em;
 }

@@ -90,6 +90,18 @@ var app = {
 		  $("#showdate_end_date").val($("#showdate_start_date").val());
 		});
 	},
+	
+	setupShowList: function() {
+
+		$(".showblock").hover(
+		  function () {
+		    $(this).addClass("hover");
+		  },
+		  function () {
+		    $(this).removeClass("hover");
+		  }
+		);
+	}
 
 };
 

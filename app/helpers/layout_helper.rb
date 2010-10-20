@@ -23,4 +23,12 @@ module LayoutHelper
     content_for(:javascripts) { javascript_include_tag(*args) }
   end
 
+  def flickr_src(base_url, size)
+    if size=='m'
+      return base_url + '.jpg'
+    else
+      return base_url + '_' + size + '.jpg'
+    end
+  end
+
 end
