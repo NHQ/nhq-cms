@@ -14,7 +14,8 @@ gem 'jquery-rails'
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 # gem 'devise', '1.1.2'
-gem 'devise', :git => "http://github.com/plataformatec/devise.git"
+# gem 'devise', :git => "http://github.com/plataformatec/devise.git"
+gem 'devise', :git => "git://github.com/plataformatec/devise.git"
 gem 'oauth2'
 gem 'flickraw'
 # gem 'fgraph'

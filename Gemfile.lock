@@ -17,20 +17,20 @@ GIT
       activesupport (~> 3.0)
 
 GIT
-  remote: git://github.com/probablycorey/mini_magick.git
-  revision: 1324ef7ff6e595ee7594ca9e29d6ed0e7ef7496b
-  specs:
-    mini_magick (2.3)
-      subexec (~> 0.0.4)
-
-GIT
-  remote: http://github.com/plataformatec/devise.git
+  remote: git://github.com/plataformatec/devise.git
   revision: bca72ddf59ee1f26a2d12427272990d84ee69a3a
   specs:
     devise (1.2.rc)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.2)
       warden (~> 1.0.0)
+
+GIT
+  remote: git://github.com/probablycorey/mini_magick.git
+  revision: 1324ef7ff6e595ee7594ca9e29d6ed0e7ef7496b
+  specs:
+    mini_magick (2.3)
+      subexec (~> 0.0.4)
 
 GEM
   remote: http://rubygems.org/
