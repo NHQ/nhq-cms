@@ -23,6 +23,15 @@ GIT
     mini_magick (2.3)
       subexec (~> 0.0.4)
 
+GIT
+  remote: http://github.com/plataformatec/devise.git
+  revision: bca72ddf59ee1f26a2d12427272990d84ee69a3a
+  specs:
+    devise (1.2.rc)
+      bcrypt-ruby (~> 2.1.2)
+      orm_adapter (~> 0.0.2)
+      warden (~> 1.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -53,17 +62,19 @@ GEM
       activemodel (= 3.0.0)
       activesupport (= 3.0.0)
     activesupport (3.0.0)
+    addressable (2.2.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     bcrypt-ruby (2.1.2)
     bson (1.0.7)
     bson_ext (1.0.7)
     builder (2.1.2)
-    devise (1.1.2)
-      bcrypt-ruby (~> 2.1.2)
-      warden (~> 0.10.7)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    faraday (0.5.1)
+      addressable (~> 2.2.2)
+      multipart-post (~> 1.0.1)
+      rack (~> 1.2.1)
     flickraw (0.8.3)
       json (>= 1.1.1)
     formtastic (1.1.0)
@@ -93,6 +104,12 @@ GEM
     mongoid_slug (0.4.6)
       mongoid (~> 2.0.0.beta)
     mongoid_taggable (0.1.1)
+    multi_json (0.0.4)
+    multipart-post (1.0.1)
+    oauth2 (0.1.0)
+      faraday (~> 0.5.0)
+      multi_json (~> 0.0.4)
+    orm_adapter (0.0.3)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -122,7 +139,7 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    warden (0.10.7)
+    warden (1.0.1)
       rack (>= 1.0.0)
     will_paginate (3.0.pre2)
 
@@ -132,7 +149,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext (= 1.0.7)
   carrierwave!
-  devise (= 1.1.2)
+  devise!
   flickraw
   formtastic (~> 1.1.0)
   haml (= 3.0.18)
@@ -146,5 +163,6 @@ DEPENDENCIES
   mongoid!
   mongoid_slug
   mongoid_taggable
+  oauth2
   rails (= 3.0.0)
   ruby_parser (= 2.0.5)

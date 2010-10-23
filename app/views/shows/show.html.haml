@@ -21,11 +21,6 @@
     %span.tag_title Tags:
     = @show.tags.gsub(/,/, ", ")
 
-- if @show.additional_info?  
-  .additional_info
-    %h3.info_title Additional Info:
-    %p= @show.additional_info.html_safe
-
 - if @show.credits.first
   .credits
     %h3.credits_title Credits:
@@ -42,6 +37,25 @@
   %span.add
     = render 'credit'
 
+
+- if user_signed_in?
+  %span.add
+    = render 'flickrs/flickr-form'
+        
+.flickrs
+  - if @show.flickrs.first
+    %h3.flickrs_title Photos:
+    %ul.flickr_list
+    - @show.flickrs.each do |fset|
+      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+  - else
+    %ul.flickr_list
+
+- if @show.additional_info?  
+  .additional_info
+    %h3.info_title Additional Info:
+    %p= @show.additional_info.html_safe
+
 - if @show.reviews.first
   .reviews
     %h3.reviews_title Press:
@@ -57,7 +71,6 @@
 
 - if user_signed_in?
   %span.add
-    = link_to('+ Add New Review', new_show_review_path(@show))
     - available_reviews = Review.not_in(:_id => @show.review_ids)
     - if available_reviews.count
       = form_for @show do |r|
@@ -65,17 +78,4 @@
           - reviews_array = available_reviews.map { |review| [truncate(review.title), review.id] }
           = options_for_select(reviews_array)
         = r.submit "Add Existing Review"
-
-
-.flickrs
-  - if @show.flickrs.first
-    %h3.flickrs_title Photos:
-    %ul.flickr_list
-    - @show.flickrs.each do |fset|
-      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
-  - else
-    %ul.flickr_list
-
-- if user_signed_in?
-  %span.add
-    = render 'flickrs/flickr-form'
+    = link_to('+ Add New Review', new_show_review_path(@show))

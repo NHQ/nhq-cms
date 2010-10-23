@@ -101,7 +101,55 @@ var app = {
 		    $(this).removeClass("hover");
 		  }
 		);
-	}
+	},
+	
+  getFeed: function () {
+		//Set Url of JSON data from the facebook graph api. make sure callback is set with a '?' to overcome the cross domain problems with JSON
+		var url = "http://graph.facebook.com/73447773916/feed?limit=22&callback=?";
+	
+		//Use jQuery getJSON method to fetch the data from the url and then create our unordered list with the relevant data.
+		$.getJSON(url,function(json){
+
+			var html = "<ul>";
+			var photos = "<li>";
+			
+			//loop through and within data array's retrieve the message variable.
+			$.each(json.data,function(i,fb){
+				switch (fb.type) {
+										
+					case "status":
+						html += "<li>";
+						html += fb.message;
+						html += "<span class='date'>" + fb.created_time + "</span>";
+						html += "</li>";
+						break;
+						
+					case "photo":
+						photos += "<a href='" + fb.link + "'><img src='" + fb.picture + "' /> </a>";
+						break;
+						
+					case "video":
+						html += "<li>";
+						html += "<a href='" + fb.link + "' class='left'><img src='" + fb.picture + "' /></a>";
+						html += fb.message;
+						html += "<span class='date'>" + fb.created_time + "</span>";
+						html += "</li>";
+						break;
+
+				}
+			});
+			
+			photos += "</li>";
+			html += photos;
+			html += "</ul>";
+
+			//A little animation once fetched
+			$('.facebookfeed').animate({opacity:0}, 700, function(){
+					$('.facebookfeed').html(html);
+			});
+			$('.facebookfeed').animate({opacity:1}, 700);
+		});
+  }
 
 };
 

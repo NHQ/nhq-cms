@@ -2,14 +2,14 @@
 %html
   %head
     %title= yield_for(:title, '500 Clown')
-    %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")
-    %meta{:name => "description", :content => yield_for(:description, 'Life is worth the risk')}
-    %meta{:name => "keywords", :content => yield_for(:keywords, 'Theater')}
-    %meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="description" content="#{yield_for(:description, 'Life is worth the risk')}" />
+    <meta name="keywords" content="#{yield_for(:keywords, 'audience, risk, action, humor, chicago, theater')}" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     = csrf_meta_tag
     = stylesheet_link_tag "reset", "type", "application", "nhq", "admin"
-    %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
-    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
+    / %script{:type => "text/javascript", :src => "http://use.typekit.com/uyx6uqn.js"}
+    / %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = yield(:head)
 

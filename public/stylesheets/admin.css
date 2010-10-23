@@ -11,12 +11,11 @@
 }
 #ajax-status {
   position: fixed;
-  top: 0;
-  right: 0;
-	width: 500px;
+  bottom: 0;
+  right: 100px;
 	display: none;
   background-color: #DDD;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 #flash_notice {
@@ -94,5 +93,8 @@ h1 .admin {
 }
 span.add {
 	display: block;
-	padding-bottom: 2em;
+	padding-top: 2em;
+}
+.add {
+	font-weight: bold;
 }

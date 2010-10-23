@@ -25,11 +25,38 @@
 }
 
 /* HOME */
+h1.home {
+	font-size: 3em;
+}
+h3.home {
+	padding-bottom: 1em;
+}
 #home .description { 
 	font-style: italic;
 	font-weight: normal;
 	font-size: 1.4em;
 	line-height: 1.4em;
+}
+.facebookfeed,
+.facebookfeed ul {
+	padding: 0;
+	margin: 0;
+}
+.facebookfeed li {
+	padding: 0 0 0.5em 0;
+	margin: 0;
+	clear: left;
+}
+.facebookfeed .name {
+	font-weight: bold;
+	clear: both;
+}
+.facebookfeed .date {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 0.7em;
+	padding: 0.5em 0;
+	color: #999;
+	display: block;
 }
 
 /* LISTS */
@@ -143,17 +170,17 @@ form.showdate {
 	padding-bottom: 0.2em;
 }
 .showblock.hover {
-	background-color: #E6E6E6;
+	background-color: #E98E75;
 }
 .flickrs,
-.reviews {
+.reviews,
+.credits,
+.additional_info {
 	padding-top: 2em;
+	clear: both;
 }
 .info_title {
 	padding: 1em 0 0 0;
-}
-.credits {
-	clear: both;
 }
 .credits .title,
 .credits .name {

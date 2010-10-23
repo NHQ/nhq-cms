@@ -13,8 +13,11 @@ gem 'mongoid_slug'
 gem 'jquery-rails'
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
-gem 'devise', '1.1.2'
+# gem 'devise', '1.1.2'
+gem 'devise', :git => "http://github.com/plataformatec/devise.git"
+gem 'oauth2'
 gem 'flickraw'
+# gem 'fgraph'
 gem 'haml', '3.0.18'
 gem 'haml-rails', '0.2', :group => :development
  # the following gems are used to generate Devise views for Haml

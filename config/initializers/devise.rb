@@ -13,6 +13,13 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/mongoid'
+  
+  # Configure for Facebook Graph API oAuth
+  config.oauth :facebook, '134544866593654', '44a4054588a1bf60cbe0c07fa253aa57', 
+    :site => 'https://graph.facebook.com/',
+    :authorize_path => '/oauth/authorize',
+    :access_token_path => '/oauth/access_token',
+    :scope => %w(email)
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating an user. By default is
@@ -43,7 +50,7 @@ Devise.setup do |config|
   # from others authentication tools as :clearance_sha1, :authlogic_sha512 (then
   # you should set stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  config.encryptor = :bcrypt
+  # config.encryptor = :bcrypt
 
   # Setup a pepper to generate the encrypted password.
   config.pepper = "d42f4fc7ae4f5f332e30344b46a9a3a674d203f4ee542beebefac094997004f034179babbadee9fac0b5e5b79eac59993bcb88b5f82f864aa05788796d6c2f22"
