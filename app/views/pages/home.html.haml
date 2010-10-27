@@ -1,6 +1,7 @@
 %h1.home 500 Clown
 #home
-  .upcoming.right.g320
+  .description Life is worth the risk.
+  .upcoming
     %h3 Upcoming events:
     %ul.upcoming_events
       - @upcoming_events.each do |event|
@@ -9,11 +10,9 @@
             = link_to "#{event.title} at #{event.venues[0].venue_name}", event
           - else
             = link_to "#{event.title}", event
-  .description Life is worth the risk.
-  = image_tag 'ear.gif'
 
-%h3.home Feed:
-.facebookfeed.g560
+  %h3.home Feed:
+  .facebookfeed.g560
 
 - content_for :jstemplates do
   jQuery(function() { app.getFeed(); });

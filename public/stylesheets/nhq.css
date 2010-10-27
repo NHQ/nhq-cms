@@ -28,9 +28,6 @@
 h1.home {
 	font-size: 3em;
 }
-h3.home {
-	padding-bottom: 1em;
-}
 #home .description { 
 	font-style: italic;
 	font-weight: normal;
@@ -58,6 +55,10 @@ h3.home {
 	color: #999;
 	display: block;
 }
+#home h3 {
+	margin-top: 3em;
+}
+
 
 /* LISTS */
 .event_list,
