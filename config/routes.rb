@@ -32,7 +32,9 @@ Clown::Application.routes.draw do
 
   resources :showdates
 
-  resources :pages
+  resources :pages do
+    resources :flickrs
+  end
 
   match '/:slug' => 'pages#show'
   

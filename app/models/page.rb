@@ -7,6 +7,8 @@ class Page
   field :hide_title, :type => Boolean
   field :body
   slug  :title
+  
+  embeds_many :flickrs
 
   validates_presence_of :title
   validates_presence_of :body

@@ -8,6 +8,9 @@ class PagesController < InheritedResources::Base
   end
 
   def show
+    if user_signed_in?
+      @flickr = Flickr.new
+    end
   end
   
   def edit

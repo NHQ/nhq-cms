@@ -9,3 +9,16 @@
         = link_to 'Destroy', @page, :confirm => 'Are you sure?', :method => :delete 
 
 .body= @page.body.html_safe
+
+- if user_signed_in?
+  %span.add
+    = render 'flickrs/flickr-form'
+
+.flickrs
+  - if @page.flickrs.first
+    %h3.flickrs_title Photos:
+    %ul.flickr_list
+    - @page.flickrs.each do |fset|
+      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+  - else
+    %ul.flickr_list

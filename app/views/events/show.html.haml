@@ -63,13 +63,25 @@
     - if @venue
       = link_to('+ Edit Venue', edit_event_venue_path(@event, @venue))
       %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue'), "/events/#{@event.id}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
+    - else
+      = link_to('+ Add New Venue', new_event_venue_path(@event))
+      - available_venues = Venue.not_in(:_id => @event.venue_ids)
+      - if available_venues.count
+        = form_for @event do |f|
+          %select{:id => "venue_id", :name => "venue_id"}
+            - venues_array = available_venues.map { |venue| [truncate(venue.venue_name), venue.id] }
+            = options_for_select(venues_array)
+          = f.submit "Add Existing Venue"
 
-      - else
-        = link_to('+ Add New Venue', new_event_venue_path(@event))
-        - available_venues = Venue.not_in(:_id => @event.venue_ids)
-        - if available_venues.count
-          = form_for @event do |f|
-            %select{:id => "venue_id", :name => "venue_id"}
-              - venues_array = available_venues.map { |venue| [truncate(venue.venue_name), venue.id] }
-              = options_for_select(venues_array)
-            = f.submit "Add Existing Venue"
+- if user_signed_in?
+  %span.add
+    = render 'flickrs/flickr-form'
+
+.flickrs
+  - if @event.flickrs.first
+    %h3.flickrs_title Photos:
+    %ul.flickr_list
+    - @event.flickrs.each do |fset|
+      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+  - else
+    %ul.flickr_list

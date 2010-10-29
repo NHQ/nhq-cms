@@ -4,6 +4,9 @@ class WorkshopsController < InheritedResources::Base
   def show
     @workshop = Workshop.find(params[:id])
     @reviews = @workshop.reviews
+    if user_signed_in?
+      @flickr = Flickr.new
+    end
   end
 
   def update

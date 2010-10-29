@@ -1,5 +1,13 @@
 = form_for @flickr, :remote => true do |r|
-  %input{:type => "hidden", :name => "show_id", :value => @show.id}
+  - if @show
+    %input{:type => "hidden", :name => "show_id", :value => @show.id}
+  - elsif @workshop
+    %input{:type => "hidden", :name => "workshop_id", :value => @workshop.id}
+  - elsif @event
+    %input{:type => "hidden", :name => "event_id", :value => @event.id}
+  - elsif @page
+    %input{:type => "hidden", :name => "page_id", :value => @page.id}
+
   %select{:id => "photoset_id", :name => "photoset_id"}
     - photosets_list = flickr.photosets.getList(:user_id => '49951737@N02').to_a
     - flickr_array = photosets_list.map { |photoset| [truncate(photoset.title, :length => 75), photoset.id] }

@@ -34,3 +34,16 @@
           - reviews_array = Review.excludes(:workshop_id => @workshop.id).map { |review| [truncate(review.title), review.id] }
           = options_for_select(reviews_array)
         = r.submit "Add Existing Review"
+
+- if user_signed_in?
+  %span.add
+    = render 'flickrs/flickr-form'
+
+.flickrs
+  - if @workshop.flickrs.first
+    %h3.flickrs_title Photos:
+    %ul.flickr_list
+    - @workshop.flickrs.each do |fset|
+      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+  - else
+    %ul.flickr_list

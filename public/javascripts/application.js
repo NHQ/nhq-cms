@@ -1,6 +1,3 @@
-var geocoder;
-var map;
-
 var app = {
 
 	setupCreditForms: function() {
@@ -29,26 +26,8 @@ var app = {
 			$('#ajax-status').fadeOut();
 		});
 		$('body').ajaxError(function (event, xhr, ajaxOptions, thrownError) {
-			if (xhr.status === 401) {
-				if ($('#login').is(":hidden")) {
-					app.showLoginForm();
-				}
-				alert("Sorry, " + xhr.responseText.toLowerCase());
-				$("#login input[type='text']:first").focus();
-			}
 			console.log("XHR Response: " + JSON.stringify(xhr));
 		});	
-	},
-
-	gmapInitialize: function() {
-	  geocoder = new google.maps.Geocoder();
-	  var latlng = new google.maps.LatLng(-34.397, 150.644);
-	  var myOptions = {
-	    zoom: 12,
-	    center: latlng,
-	    mapTypeId: google.maps.MapTypeId.ROADMAP
-	  }
-	  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	},
 
 	codeAddress: function() {
@@ -160,13 +139,6 @@ jQuery(function() {
 
   // Focus on the first text field
   $("input[type='text']:first").focus();
-
-//	app.gmapInitialize();
-	
-//	app.codeAddress();
-	
-//	app.setupShowdates();
-
 
 
 });

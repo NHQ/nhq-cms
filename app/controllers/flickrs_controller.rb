@@ -1,7 +1,5 @@
 class FlickrsController < InheritedResources::Base
-  belongs_to :show
   actions :index, :show, :refetch, :create, :destroy
-  
   
   def index
     @flickrs = Flickr.desc(:photoset_id)
@@ -33,26 +31,45 @@ class FlickrsController < InheritedResources::Base
 
     @photoset = Flickr.new(p)
 
-    # assume this is for SHOW, for now
-    @show = Show.find(params[:show_id])
-    @show.flickrs << @photoset
-
-    if @show.save
-      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
-      # flash[:notice] = "Photoset added."
-      # redirect_to parent_url
-    # else
-    #   flash[:error] = "Unable to add photoset."
-    #   redirect_to parent_url
+    # adding to Show, Event, Workshop, or Page
+    if (params[:show_id])
+      @show = Show.find(params[:show_id])
+      @show.flickrs << @photoset
+      @show.save
+    elsif (params[:workshop_id])
+      @workshop = Workshop.find(params[:workshop_id])
+      @workshop.flickrs << @photoset
+      @workshop.save
+    elsif (params[:event_id])
+      @event = Event.find(params[:event_id])
+      @event.flickrs << @photoset
+      @event.save
+    elsif (params[:page_id])
+      @page = Page.find(params[:page_id])
+      @page.flickrs << @photoset
+      @page.save
     end
+    render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
   end
   
   def destroy
-   destroy!(:notice => "Photoset removed.") {show_url(@show)}
-    # @show = Show.find(params[:show_id])
-    # @flickr = @show.flickrs.find(params[:id])
-    # @flickr.destroy
-    # render :template => "flickrs/remove.js.erb", :content_type => 'text/javascript'
+    if (params[:show_id])
+      @parent = Show.find(params[:show_id])
+      redirection = show_url(@parent)
+    elsif (params[:workshop_id])
+      @parent = Workshop.find(params[:workshop_id])
+      redirection = workshop_url(@parent)
+    elsif (params[:event_id])
+      @parent = Event.find(params[:event_id])
+      redirection = event_url(@parent)
+    elsif (params[:page_id])
+      @parent = Page.find(params[:page_id])
+      redirection = page_url(@parent)
+    end
+    @flickr = @parent.flickrs.criteria.id(params[:id]).first
+    @flickr.destroy
+    flash[:notice] = "Photoset removed."
+    redirect_to redirection
   end
   
 end

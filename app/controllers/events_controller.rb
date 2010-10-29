@@ -3,9 +3,12 @@ class EventsController < InheritedResources::Base
   
   def show
     @event = Event.find(params[:id])
-    @showdates = @event.showdates
-    @showdate = Showdate.new
     @venue = @event.venues.first
+    @showdates = @event.showdates
+    if user_signed_in?
+      @showdate = Showdate.new
+      @flickr = Flickr.new
+    end
   end
 
 
@@ -23,19 +26,7 @@ class EventsController < InheritedResources::Base
       render :action => 'edit'
     end
   end
-
   
-  # def add_venue
-  #   @event = Event.find(params[:event_id])
-  #   @venue = Venue.find(params[:venue_id])
-  #   @event.venue_ids = @event.venue_ids + [@venue.id] 
-  #   if @event.save
-  #     flash[:notice] = "Successfully added venue."
-  #     redirect_to @event
-  #   else
-  #     redirect_to @event
-  #   end
-  # end
   
   def remove_venue
     @event = Event.find(params[:event_id])
