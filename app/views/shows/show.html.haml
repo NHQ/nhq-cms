@@ -1,8 +1,6 @@
 - content_for :title, @show.title + " - 500 Clown"
 - content_for :head do
-  = stylesheet_link_tag "colorbox"
-- content_for :head do
-  = javascript_include_tag "jquery.colorbox"
+  = javascript_include_tag "jquery.faded"
   
   
 %h1.title
@@ -45,11 +43,11 @@
 .flickrs
   - if @show.flickrs.first
     %h3.flickrs_title Photos:
-    %ul.flickr_list
+    .flickr_list
     - @show.flickrs.each do |fset|
       = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
   - else
-    %ul.flickr_list
+    .flickr_list
 
 - if @show.additional_info?  
   .additional_info

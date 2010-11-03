@@ -7,7 +7,9 @@
     = form.input :description, :as => :text, :input_html => { :class => 'wysiwyg' }
     = form.input :tags, :hint => "I.e. people, places and things"
     = form.input :additional_info, :as => :text, :input_html => { :class => 'wysiwyg' }
-    = image_tag(@show.image.url(:thumb)) if @show.image?
+    - if @show.image?
+      = image_tag(@show.image.url(:thumb))
+      = form.input :remove_image, :as => :boolean
     = form.input :image
 
   = form.buttons do

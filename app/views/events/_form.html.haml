@@ -7,7 +7,9 @@
     = form.input :description, :as => :text,  :input_html => { :class => 'wysiwyg' } 
     = form.input :event_type, :as => :select, :collection => ["Performance", "Workshop", "Fundraiser"] 
     = form.input :tags, :hint => "(e.g. comedy, tragedy, classic)" 
-    = image_tag(@event.image.url(:thumb)) if @event.image? 
+    - if @event.image?
+      = image_tag(@event.image.url(:thumb))
+      = form.input :remove_image, :as => :boolean
     = form.input :image 
 
   = form.buttons do

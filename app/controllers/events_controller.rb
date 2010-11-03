@@ -40,5 +40,4 @@ class EventsController < InheritedResources::Base
     end
   end
   
-  
 end

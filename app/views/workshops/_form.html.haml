@@ -6,7 +6,9 @@
     = form.input :title, :required => true, :label => "Workshop Title"
     = form.input :description, :as => :text,  :input_html => { :class => 'wysiwyg' } 
     = form.input :tags, :hint => "Example: performance, improv, dance"
-    = image_tag(@workshop.image.url(:thumb)) if @workshop.image?
+    - if @workshop.image?
+      = image_tag(@workshop.image.url(:thumb))
+      = form.input :remove_image, :as => :boolean
     = form.input :image
 
   = form.buttons do

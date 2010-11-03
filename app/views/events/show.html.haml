@@ -3,6 +3,7 @@
 - content_for :head do
   = stylesheet_link_tag "calendrical"
   = stylesheet_link_tag "gmaps"
+  = javascript_include_tag "jquery.faded"
 - content_for :javascripts do
   = javascript_include_tag "jquery.calendrical"
   = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
@@ -40,8 +41,8 @@
           %span.time= d.start_time.to_s(:time)
           \ - 
           = d.end_time.to_s(:time)
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
+          - if user_signed_in?
+            %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
 
 - if user_signed_in?
   #add_showdate.admin + Add a Date
@@ -57,7 +58,7 @@
         %br
         %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
         %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
-        %div#map_canvas
+      %div#map_canvas
 - if user_signed_in?
   %span.admin
     - if @venue
@@ -80,8 +81,8 @@
 .flickrs
   - if @event.flickrs.first
     %h3.flickrs_title Photos:
-    %ul.flickr_list
+    .flickr_list
     - @event.flickrs.each do |fset|
       = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
   - else
-    %ul.flickr_list
+    .flickr_list
