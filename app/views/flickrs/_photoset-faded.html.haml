@@ -1,0 +1,23 @@
+%li{:class => "flickr faded " + fset.photoset_id}
+  - if user_signed_in?
+    .title
+      = fset.title
+      - if @show
+        = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), show_flickr_path(@show, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
+      - elsif @workshop
+        = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), workshop_flickr_path(@workshop, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
+      - elsif @event
+        = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), event_flickr_path(@event, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
+      - elsif @page
+        = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), page_flickr_path(@page.id, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
+
+  %div{:id => 'fset-' + fset.photoset_id, :class => 'slideshow'}
+    .photos
+      - fset.photos.each do |photo|
+        = image_tag(flickr_src(photo, 'm'))
+    <a href="#" class="prev">prev</a> 
+    <a href="#" class="next">next</a>
+
+= javascript_tag do
+  $('.flickr_list').delay(700).fadeTo('slow', 1.0);
+  jQuery(function() { $("#fset-#{fset.photoset_id}").faded({ speed: 400, loading: true, bigtarget: true, loadingimg: "/images/loading.gif", autoheight: true, pagination: "pagination", autopagination: true, autorestart: 5000 }); });
