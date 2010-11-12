@@ -36,20 +36,23 @@ class FlickrsController < InheritedResources::Base
       @show = Show.find(params[:show_id])
       @show.flickrs << @photoset
       @show.save
+      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
     elsif (params[:workshop_id])
       @workshop = Workshop.find(params[:workshop_id])
       @workshop.flickrs << @photoset
       @workshop.save
+      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
     elsif (params[:event_id])
       @event = Event.find(params[:event_id])
       @event.flickrs << @photoset
       @event.save
+      render :template => "flickrs/create.faded.js.erb", :content_type => 'text/javascript'
     elsif (params[:page_id])
       @page = Page.find(params[:page_id])
       @page.flickrs << @photoset
       @page.save
+      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
     end
-    render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
   end
   
   def destroy

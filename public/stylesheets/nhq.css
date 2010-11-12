@@ -229,6 +229,7 @@ form.credit {
 /* FLICKR */
 li.flickr {
 	display: block;
+	padding: 1em 0;
 }
 .flickrs .title {
 	display: block;
@@ -241,7 +242,7 @@ li.flickr {
 .flickrs .slideshow {
 	clear: left;
 }
-ul.pagination { list-style:none; padding:0; margin: 0; }
+ul.pagination { list-style:none; padding:0; margin: 0 0 2em 0; }
 ul.pagination li { float:left; line-height: 1.3em;}
 ul.pagination li a { padding:2px 4px; }
 ul.pagination li.current a { background:#DB0000; color:white; }

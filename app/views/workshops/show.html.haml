@@ -1,4 +1,7 @@
 - content_for :title, @workshop.title + " - 500 Clown"
+- content_for :head do
+  = stylesheet_link_tag "colorbox"
+  = javascript_include_tag "jquery.colorbox"
 
 %h1.title
   = @workshop.title

@@ -81,8 +81,11 @@
 .flickrs
   - if @event.flickrs.first
     %h3.flickrs_title Photos:
-    .flickr_list
-    - @event.flickrs.each do |fset|
-      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+    %div{:class => 'flickr_list', :style => 'display: none;'}
+      - @event.flickrs.each do |fset|
+        = render(:partial => "flickrs/photoset-faded", :locals => {:fset => fset})
   - else
     .flickr_list
+
+- content_for :jstemplates do
+  jQuery(function() { app.loadSlideshow(); });
