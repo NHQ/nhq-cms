@@ -1,27 +1,21 @@
-%h1 Listing venues
+- content_for :title, "500 Clown - Venues"
 
-%table
-  %tr
-    %th Venue name
-    %th Street
-    %th City
-    %th State
-    %th Zip
-    %th
-    %th
-    %th
+%h1 500 Clown's Favorite Venues
 
+%ul.venue_list
   - @venues.each do |venue|
-    %tr
-      %td= venue.venue_name
-      %td= venue.street
-      %td= venue.city
-      %td= venue.state
-      %td= venue.zip
-      %td= link_to 'Show', venue
-      %td= link_to 'Edit', edit_venue_path(venue)
-      %td= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New venue', new_venue_path
+    %li.venue
+      .title
+        = link_to venue.venue_name, venue
+        - if user_signed_in?
+          %span.admin= link_to 'Edit', edit_venue_path(venue)
+          %span.admin= link_to 'Destroy', venue, :confirm => 'Are you sure you want to delete the venue "' + venue.venue_name + '"?', :method => :delete
+      - if venue.street?
+        .address
+          #{venue.street}
+          %br
+          #{venue.city}, #{venue.state} #{venue.zip}
+          .phone
+            = venue.phone
+      
+.title= link_to '+ New venue', new_venue_path

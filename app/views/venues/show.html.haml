@@ -1,19 +1,41 @@
-%p
-  %b Venue name:
-  = @venue.venue_name
-%p
-  %b Street:
-  = @venue.street
-%p
-  %b City:
-  = @venue.city
-%p
-  %b State:
-  = @venue.state
-%p
-  %b Zip:
-  = @venue.zip
+- content_for :title, "500 Clown @ " + @venue.venue_name
 
-= link_to 'Edit', edit_venue_path(@venue)
-\|
-= link_to 'Back', venues_path
+- content_for :head do
+  = stylesheet_link_tag "gmaps"
+- content_for :javascripts do
+  = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
+- content_for :jstemplates do
+  jQuery(function() { app.codeAddress(); });
+
+%h1
+  = @venue.venue_name
+  -if user_signed_in?
+    %span.admin
+      = link_to 'Edit', edit_venue_path(@venue)
+    
+.address
+  %span= @venue.street
+  - if @venue.city?
+    %br
+    %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
+  %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
+.phone
+  = @venue.phone
+
+- unless(@venue.map_string.length < 5)
+  %div#map_canvas
+
+- flag = 0
+- @events = Event.any_in(:venue_ids => [@venue.id])
+- if @events
+  %h3 500 Clown shows at #{@venue.venue_name}:
+  %ul.event_list
+  - @events.each do |event|
+    - unless event.showdates.empty? 
+      - flag = 1
+      - event.showdates.each do |d|
+        %li
+          %span.date= d.start_date.to_s(:long)
+          = link_to event.title, event
+- if flag == 0
+  .notice There are no upcoming shows at this venue, yet!

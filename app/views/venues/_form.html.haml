@@ -10,6 +10,7 @@
     = form.input :city
     = form.input :state, :as => :select, :collection => states
     = form.input :zip
+    = form.input :phone, :label => "Phone #", :hint => "Venue / Box Office"
     - if @event
       <input type="hidden" name="event_id" value="#{params[:event_id]}" />
     

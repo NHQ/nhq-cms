@@ -2,6 +2,8 @@ class Workshop
   include Mongoid::Document
   include Mongoid::Taggable
   include Mongoid::Timestamps
+  
+  disable_tags_index! # will disable index creation
 
   field :title
   field :description

@@ -7,6 +7,10 @@ class Event
   field :description
   field :event_type
   field :event_duration
+  field :ticket_url
+  field :ticket_price
+
+  disable_tags_index! # will disable index creation
 
   mount_uploader :image, ImageUploader
     

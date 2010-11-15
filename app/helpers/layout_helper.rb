@@ -30,5 +30,8 @@ module LayoutHelper
       return base_url + '_' + size + '.jpg'
     end
   end
-
+  
+  def pretty_url(url)
+    url.gsub("http://", "")
+  end
 end

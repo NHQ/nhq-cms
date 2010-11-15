@@ -3,6 +3,8 @@ class Show
   include Mongoid::Taggable
   include Mongoid::Timestamps
 
+  disable_tags_index! # will disable index creation
+
   field :title
   field :description
   field :additional_info

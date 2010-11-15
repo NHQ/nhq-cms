@@ -5,8 +5,7 @@ if File.exist? configfile
     FlickRawOptions = {
       "api_key" => config["flickr_key"],
       "shared_secret" => config["flickr_secret"],
-      "auth_token" => config["flickr_auth"],
-      "lazyload" => true
+      "auth_token" => config["flickr_auth"]
     }
   end
 end

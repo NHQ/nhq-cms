@@ -98,7 +98,8 @@ h1.home {
 
 /* EVENTS */
 .event_type {
-	padding-bottom: 0.8em;
+	padding-bottom: 0.175em;
+	text-transform: uppercase;
 }
 .event_type .label {
 	font-weight: bold;
@@ -114,28 +115,8 @@ h1.home {
 .when form .label img {
 	vertical-align: bottom;
 }
-.where {
-	padding-top: 2em;
-}
-.venue {
-	font-weight: bold;
-}
-.address {
-	padding-bottom: 1em;
-}
-.address p {
-	margin: 0;
-	padding: 0;
-}
-#map_canvas {
-	width: 240px; 
-	height: 210px;
-}
-.showdates {
-/*	clear: both;*/
-}
-.date_list {
-	padding-bottom: 0.5em;
+.date_list li {
+	padding: 0.1em 0;
 }
 form.showdate .start,
 form.showdate .end {
@@ -144,14 +125,44 @@ form.showdate .end {
 form.showdate {
 	padding-bottom: 2em;
 }
+#add_showdate {
+	margin: 0.5em 0;
+}
 #add_showdate:hover {
 	color: #DB0000;
 	cursor: pointer;
 }
+.description {
+	margin-top: 0.4em;
+}
+
+/* VENUE */
+.where {
+	padding-top: 1em;
+}
+.venue_title {
+	font-weight: bold;
+}
+.address p {
+	margin: 0;
+	padding: 0;
+}
+#map_canvas {
+	margin: 0.7em 0;
+	width: 240px; 
+	height: 210px;
+}
 #venue_state {
 	display: inline;
 }
-
+.venue_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.venue_list li {
+	padding: 1em 0;
+}
 
 /* SHOWS */
 .show_list {
@@ -176,7 +187,7 @@ form.showdate {
 .reviews,
 .credits,
 .additional_info {
-	padding-top: 2em;
+	padding-top: 1em;
 	clear: both;
 }
 .info_title {

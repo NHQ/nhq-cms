@@ -8,6 +8,7 @@ class Venue
   field :city, :type => String
   field :state, :type => String
   field :zip, :type => String
+  field :phone, :type => String
   
   def map_string
     [self.street, self.city, self.state, self.zip].join(" ").split(' ').join("+")

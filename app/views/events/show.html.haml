@@ -17,9 +17,60 @@
     %span.admin= link_to 'Destroy', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete
 
 - if @event.event_type?
-  .event_type
-    %span.label Event Type:
-    = @event.event_type
+  .event_type= @event.event_type
+
+- unless @showdates.empty? 
+  .when
+    %ul.date_list
+      - @showdates.each do |d|
+        %li
+          %span.date= d.start_date.to_s(:long)
+          %span.time= d.start_time.to_s(:time_short)
+          / \ - 
+          / = d.end_time.to_s(:time)
+          - if user_signed_in?
+            %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
+
+- if user_signed_in?
+  #add_showdate.admin + Add a Date
+  #new_showdate{:style => "display: none;"}= render 'showdate'
+
+- if @event.ticket_price
+  .price Tickets #{@event.ticket_price}
+    
+- if @venue
+  .where
+    .venue_title
+      = link_to @venue.venue_name, @venue
+      - if user_signed_in?
+        %span.admin
+          = link_to("&#8658; Edit Venue".html_safe, edit_event_venue_path(@event, @venue))
+          %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue'), "/events/#{@event.id}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
+    .address
+      %span= @venue.street
+      %br
+      - if @venue.city?
+        %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
+        %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
+      - if @venue.phone?
+        .phone Box Office: #{@venue.phone}
+      - if @event.ticket_url?
+        .ticket_url
+          eTickets
+          = link_to(pretty_url(@event.ticket_url), @event.ticket_url)
+    - unless(@venue.map_string.length < 5)
+      %div#map_canvas
+- elsif user_signed_in?
+  .where
+    = link_to('+ Add New Venue', new_event_venue_path(@event))
+    - available_venues = Venue.not_in(:_id => @event.venue_ids)
+    - if available_venues.count
+      = form_for @event do |f|
+        %select{:id => "venue_id", :name => "venue_id"}
+          - venues_array = available_venues.map { |venue| [truncate(venue.venue_name), venue.id] }
+          = options_for_select(venues_array)
+        = f.submit "Add Existing Venue"
+
 
 %p.description
   - if @event.image?
@@ -31,48 +82,6 @@
     %span.tag_title Tags:
     = @event.tags.gsub(/,/, ", ")
 
-- unless @showdates.empty? 
-  .when
-    %h3 When:
-    %ul.date_list
-      - @showdates.each do |d|
-        %li
-          %span.date= d.start_date.to_s(:long)
-          %span.time= d.start_time.to_s(:time)
-          \ - 
-          = d.end_time.to_s(:time)
-          - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
-
-- if user_signed_in?
-  #add_showdate.admin + Add a Date
-  #new_showdate{:style => "display: none;"}= render 'showdate'
-    
-- if @venue
-  .where
-    %h3 Where:
-    .venue= @venue.venue_name
-    - unless(@venue.map_string.length < 5)
-      .address
-        %span= @venue.street
-        %br
-        %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
-        %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
-      %div#map_canvas
-- if user_signed_in?
-  %span.admin
-    - if @venue
-      = link_to('+ Edit Venue', edit_event_venue_path(@event, @venue))
-      %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue'), "/events/#{@event.id}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
-    - else
-      = link_to('+ Add New Venue', new_event_venue_path(@event))
-      - available_venues = Venue.not_in(:_id => @event.venue_ids)
-      - if available_venues.count
-        = form_for @event do |f|
-          %select{:id => "venue_id", :name => "venue_id"}
-            - venues_array = available_venues.map { |venue| [truncate(venue.venue_name), venue.id] }
-            = options_for_select(venues_array)
-          = f.submit "Add Existing Venue"
 
 - if user_signed_in?
   %span.add
@@ -80,7 +89,6 @@
 
 .flickrs
   - if @event.flickrs.first
-    %h3.flickrs_title Photos:
     %div{:class => 'flickr_list', :style => 'display: none;'}
       - @event.flickrs.each do |fset|
         = render(:partial => "flickrs/photoset-faded", :locals => {:fset => fset})

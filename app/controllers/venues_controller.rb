@@ -1,6 +1,6 @@
 class VenuesController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :event]
-  before_filter :find_event, :only => [:new, :edit, :create]
+  before_filter :find_event, :only => [:new, :edit, :create, :update]
 
   def create
     @venue = Venue.new(params[:venue])
@@ -19,6 +19,20 @@ class VenuesController < InheritedResources::Base
       else
         redirect_to @venue
       end
+    end
+  end
+  
+  def update
+    @venue = Venue.find(params[:id])
+    if @venue.update_attributes(params[:venue])
+      flash[:notice] = "Successfully updated venue."
+      if @event
+        redirect_to @event
+      else
+        redirect_to @venue
+      end
+    else
+      render :action => 'edit'
     end
   end
 
