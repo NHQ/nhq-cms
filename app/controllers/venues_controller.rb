@@ -1,5 +1,5 @@
 class VenuesController < InheritedResources::Base
-  before_filter :authenticate_user!, :except => [:index, :event]
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_event, :only => [:new, :edit, :create, :update]
 
   def create
