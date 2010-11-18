@@ -57,14 +57,19 @@ var app = {
 	
 	setupShowdates: function() {
 
+		var options = { usa : true, isoTime : false, defaultHour : 20};
+
+    // initialize date form
 		$("#showdate_start_date, #showdate_start_time," +
 		  "#showdate_end_date,   #showdate_end_time")
-		    .calendricalDateTimeRange();
+		    .calendricalDateTimeRange(options);
 
+    // show form
 		$("#add_showdate").click(function() {
 		  $("#new_showdate").toggle("slow");
 		});
 
+		// auto-fill end_date with start_date value
 		$("#showdate_start_date").blur(function() {
 		  $("#showdate_end_date").val($("#showdate_start_date").val());
 		});

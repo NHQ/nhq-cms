@@ -28,7 +28,7 @@
 - flag = 0
 - @events = Event.any_in(:venue_ids => [@venue.id])
 - if @events
-  %h3 500 Clown shows at #{@venue.venue_name}:
+  %h3 Events at #{@venue.venue_name}:
   %ul.event_list
   - @events.each do |event|
     - unless event.showdates.empty? 

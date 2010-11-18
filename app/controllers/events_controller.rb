@@ -4,7 +4,7 @@ class EventsController < InheritedResources::Base
   def show
     @event = Event.find(params[:id])
     @venue = @event.venues.first
-    @showdates = @event.showdates
+    @showdates = @event.showdates.ascending(:start_date)
     if user_signed_in?
       @showdate = Showdate.new
       @flickr = Flickr.new

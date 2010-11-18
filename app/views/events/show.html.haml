@@ -20,12 +20,20 @@
   .event_type= @event.event_type
 
 - unless @showdates.empty? 
+  - require 'date'
+  - require 'date/format.rb'
+  - date_fmt = '%a, %b %d, %Y'
+  - date_parse_fmt = '%Y-%m-%d'
+  - time_fmt = '%I:%M%P'
+  - time_parse_fmt = '%H:%M:00'
   .when
     %ul.date_list
       - @showdates.each do |d|
         %li
-          %span.date= d.start_date.to_s(:long)
-          %span.time= d.start_time.to_s(:time_short)
+          %span.date= Date.strptime(d.start_date, date_parse_fmt).strftime(date_fmt)
+          %span.time= Time.strptime(d.start_time, time_parse_fmt).strftime(time_fmt)
+          / %span.date= d.start_date.to_s(:long)
+          / %span.time= d.start_time.to_s(:time_short)
           / \ - 
           / = d.end_time.to_s(:time)
           - if user_signed_in?
