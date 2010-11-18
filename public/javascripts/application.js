@@ -89,7 +89,7 @@ var app = {
 	
   getFeed: function () {
 		//Set Url of JSON data from the facebook graph api. make sure callback is set with a '?' to overcome the cross domain problems with JSON
-		var url = "http://graph.facebook.com/73447773916/posts?limit=22&callback=?";
+		var url = "http://graph.facebook.com/73447773916/posts?limit=10&callback=?";
 	
 		//Use jQuery getJSON method to fetch the data from the url and then create our unordered list with the relevant data.
 		$.getJSON(url,function(json){
@@ -100,6 +100,10 @@ var app = {
 			$.each(json.data,function(i,fb){
 
 				html += "<li>";
+				
+				// datestamp
+				var d = new Date(fb.created_time.slice(0,19).replace('T',' ')+' GMT');				
+				html += "<span class='date'>" + String(d).substr(0,15) + " " + "</span>";
 
 				switch (fb.type) {
 
@@ -119,9 +123,9 @@ var app = {
 				if (fb.message === undefined) {
 					// no message
 				} else {
-					html += fb.message;	
-				}
-				html += "<span class='date'>" + fb.created_time + "</span>";
+					html += "<p>" + fb.message + "</p>";	
+				}				
+				
 				html += "</li>";
 				
 			});
