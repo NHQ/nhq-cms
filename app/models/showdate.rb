@@ -10,4 +10,8 @@ class Showdate
   embedded_in :event, :inverse_of => :showdates
 
   validates_presence_of :start_date
+  validates_presence_of :end_date
+  validates_presence_of :start_time
+  validates_presence_of :end_time
+  
 end
