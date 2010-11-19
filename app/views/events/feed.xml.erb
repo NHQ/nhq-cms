@@ -31,6 +31,9 @@ xmlns:c="http://base.google.com/cns/1.0">
 	<% if event.image? -%>
 	<g:image_link>http://<%= request.env["HTTP_HOST"] + event.image.url(:large) %></g:image_link>
 	<% end -%>
+	<% unless event.tags_array.empty? -%>
+	<c:tags type="string"><%= event.tags.gsub(/,/, ", ") %></c:tags>
+	<% end -%>
 </entry>
 <% end %>
 </feed>
