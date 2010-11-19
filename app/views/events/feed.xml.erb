@@ -25,7 +25,7 @@ xmlns:c="http://base.google.com/cns/1.0">
 	<g:venue_name><%= event.venues.first.venue_name %></g:venue_name>
   <% end -%>
 	<% if event.ticket_price? -%>
-	<c:ticket_price:string><%= event.ticket_price %></c:ticket_price>
+	<c:ticket_price type="string"><%= event.ticket_price %></c:ticket_price>
   <% end -%>
 	<g:expiration_date><%= event.showdates.last.end_date %></g:expiration_date>
 	<% if event.image? -%>
