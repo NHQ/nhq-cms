@@ -42,7 +42,8 @@ ol li {
 	list-style: none;
 	padding: 10px 0;
 }
-.inline-errors {
+.inline-errors,
+.error_messages {
 	color: #900;
 }
 .inline-hints {

@@ -1,5 +1,5 @@
 class EventsController < InheritedResources::Base
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :feed]
   
   def show
     @event = Event.find(params[:id])
@@ -9,6 +9,9 @@ class EventsController < InheritedResources::Base
       @showdate = Showdate.new
       @flickr = Flickr.new
     end
+  end
+  
+  def feed
   end
 
 

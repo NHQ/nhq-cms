@@ -16,12 +16,13 @@
     %span.admin= link_to('Edit', edit_event_path(@event))
     %span.admin= link_to 'Destroy', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete
 
+- if @event.image?
+  = image_tag(@event.image.url(:medium), :class => "right")
+
 - if @event.event_type?
   .event_type= @event.event_type
 
 - unless @showdates.empty? 
-  - require 'date'
-  - require 'date/format.rb'
   - date_fmt = '%a, %b %d, %Y'
   - date_parse_fmt = '%Y-%m-%d'
   - time_fmt = '%I:%M%P'
@@ -79,8 +80,6 @@
 
 
 %p.description
-  - if @event.image?
-    = image_tag(@event.image.url(:medium), :class => "right")
   = @event.description.html_safe
 
 - unless @event.tags_array.empty?

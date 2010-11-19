@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+xmlns:g="http://base.google.com/ns/1.0"
+xmlns:c="http://base.google.com/cns/1.0">
+<title>500 Clown</title>
+<link href="http://500clown.com/" rel="alternate" type="text/html" />
+<author>
+<name>500 Clown</name>
+</author>
+<% Event.all.each do |event| %>
+
+<entry>
+	<title><%= event.title %></title>
+	<description><%= event.description %></description>
+	<g:event_date_range>
+    	<g:start><%= event.showdates.first.g_start %></g:start>
+    	<g:end><%= event.showdates.last.g_end %></g:end>
+	</g:event_date_range>
+	<g:location><%= event.venues.first.street %>, <%= event.venues.first.city %>, <%= event.venues.first.state %> <%= event.venues.first.zip %></g:location>
+	<link><%= event_url(event) %></link>
+	<% if event.event_type? -%>
+	<g:event_type><%= event.event_type %></g:event_type>
+  <% end -%>
+	<% if event.venues.first.venue_name? -%>
+	<g:venue_name><%= event.venues.first.venue_name %></g:venue_name>
+  <% end -%>
+	<% if event.ticket_price? -%>
+	<c:ticket_price:string><%= event.ticket_price %></c:ticket_price>
+  <% end -%>
+	<g:expiration_date><%= event.showdates.last.end_date %></g:expiration_date>
+	<% if event.image? -%>
+	<g:image_link>http://<%= request.env["HTTP_HOST"] + event.image.url(:large) %></g:image_link>
+	<% end -%>
+</entry>
+<% end %>
+</feed>

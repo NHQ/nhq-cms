@@ -24,6 +24,8 @@ Clown::Application.routes.draw do
   resources :reviews
   resources :credits
 
+  match '/events/feed', :as => "feed", :to => "events#feed"
+
   resources :events do
     resources :venues
     resources :showdates

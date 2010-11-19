@@ -15,5 +15,9 @@ class Venue
   end
     
   validates_presence_of :venue_name
+  validates_presence_of :street
+  validates_presence_of :city
+  validates_presence_of :state
+  validates_presence_of :zip
 
 end

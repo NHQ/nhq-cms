@@ -28,14 +28,19 @@
 - flag = 0
 - @events = Event.any_in(:venue_ids => [@venue.id])
 - if @events
-  %h3 Events at #{@venue.venue_name}:
+  %h3 Upcoming Events at #{@venue.venue_name}:
   %ul.event_list
-  - @events.each do |event|
-    - unless event.showdates.empty? 
-      - flag = 1
-      - event.showdates.each do |d|
-        %li
-          %span.date= d.start_date.to_s(:long)
-          = link_to event.title, event
+    - date_fmt = '%a, %b %d, %Y'
+    - date_parse_fmt = '%Y-%m-%d'
+    - time_fmt = '%I:%M%P'
+    - time_parse_fmt = '%H:%M:00'
+    - @events.each do |event|
+      - unless event.showdates.empty? 
+        - flag = 1
+        - event.showdates.each do |d|
+          %li
+            %span.title= link_to event.title, event
+            %span.date= Date.strptime(d.start_date, date_parse_fmt).strftime(date_fmt)
+            %span.time= Time.strptime(d.start_time, time_parse_fmt).strftime(time_fmt)
 - if flag == 0
-  .notice There are no upcoming shows at this venue, yet!
+  .notice We have no upcoming events at this venue, yet!
