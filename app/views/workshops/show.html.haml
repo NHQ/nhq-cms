@@ -2,6 +2,8 @@
 - content_for :head do
   = stylesheet_link_tag "colorbox"
   = javascript_include_tag "jquery.colorbox"
+- content_for :jstemplates do
+  jQuery(function() { app.setupVideos(); });
 
 %h1.title
   = @workshop.title
@@ -37,6 +39,19 @@
           - reviews_array = Review.excludes(:workshop_id => @workshop.id).map { |review| [truncate(review.title), review.id] }
           = options_for_select(reviews_array)
         = r.submit "Add Existing Review"
+
+- if user_signed_in?
+  #add_video.admin + Add a Video
+  #new_video{:style => "display: none;"}= render '/videos/video-form'
+
+.videos
+  - if @workshop.videos.first
+    %ul{:class => 'video_list'}
+      - @workshop.videos.each do |video|
+        = render(:partial => "videos/video", :locals => {:video => video})
+  - else
+    %ul.video_list
+
 
 - if user_signed_in?
   %span.add

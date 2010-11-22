@@ -8,6 +8,7 @@ class ShowsController < InheritedResources::Base
       @review = Review.new
       @credit = Credit.new
       @flickr = Flickr.new
+      @video = Video.new
     end
   end
   

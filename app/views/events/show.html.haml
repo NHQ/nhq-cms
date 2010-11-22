@@ -8,7 +8,7 @@
   = javascript_include_tag "jquery.calendrical"
   = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
 - content_for :jstemplates do
-  jQuery(function() { app.setupShowdates(); app.codeAddress(); });
+  jQuery(function() { app.setupShowdates(); app.codeAddress(); app.setupVideos(); });
 
 %h1
   = @event.title
@@ -89,6 +89,19 @@
 
 
 - if user_signed_in?
+  #add_video.admin + Add a Video
+  #new_video{:style => "display: none;"}= render '/videos/video-form'
+
+.videos
+  - if @event.videos.first
+    %ul{:class => 'video_list'}
+      - @event.videos.each do |video|
+        = render(:partial => "videos/video", :locals => {:video => video})
+  - else
+    %ul.video_list
+
+
+- if user_signed_in?
   %span.add
     = render 'flickrs/flickr-form'
 
@@ -99,6 +112,7 @@
         = render(:partial => "flickrs/photoset-faded", :locals => {:fset => fset})
   - else
     .flickr_list
+
 
 - content_for :jstemplates do
   jQuery(function() { app.loadSlideshow(); });

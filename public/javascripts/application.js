@@ -87,6 +87,27 @@ var app = {
 		);
 	},
 	
+	setupVideos: function() {
+
+    // show form
+		$("#add_video").click(function() {
+		  $("#new_video").toggle("slow");
+		});
+
+	},
+	
+	setupShowList: function() {
+
+		$(".showblock").hover(
+		  function () {
+		    $(this).addClass("hover");
+		  },
+		  function () {
+		    $(this).removeClass("hover");
+		  }
+		);
+	},
+	
   getFeed: function () {
 		//Set Url of JSON data from the facebook graph api. make sure callback is set with a '?' to overcome the cross domain problems with JSON
 		var url = "http://graph.facebook.com/73447773916/posts?limit=10&callback=?";

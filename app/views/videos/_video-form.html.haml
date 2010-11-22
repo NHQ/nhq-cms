@@ -1,0 +1,14 @@
+= form_for @video, :remote => true do |r|
+  - if @show
+    %input{:type => "hidden", :name => "show_id", :value => @show.id}
+  - elsif @workshop
+    %input{:type => "hidden", :name => "workshop_id", :value => @workshop.id}
+  - elsif @event
+    %input{:type => "hidden", :name => "event_id", :value => @event.id}
+  - elsif @page
+    %input{:type => "hidden", :name => "page_id", :value => @page.id}
+
+  = r.label :code, "Embed Code"
+  = r.text_area :code, :cols => 20, :rows => 5
+
+  = r.submit "Add Video"

@@ -2,6 +2,8 @@
 - content_for :head do
   = stylesheet_link_tag "colorbox"
   = javascript_include_tag "jquery.colorbox"
+- content_for :jstemplates do
+  jQuery(function() { app.setupVideos(); });
 
 - unless @page.hide_title
   %h1.title
@@ -12,6 +14,20 @@
         = link_to 'Destroy', @page, :confirm => 'Are you sure?', :method => :delete 
 
 .body= @page.body.html_safe
+
+
+- if user_signed_in?
+  #add_video.admin + Add a Video
+  #new_video{:style => "display: none;"}= render '/videos/video-form'
+
+.videos
+  - if @page.videos.first
+    %ul{:class => 'video_list'}
+      - @page.videos.each do |video|
+        = render(:partial => "videos/video", :locals => {:video => video})
+  - else
+    %ul.video_list
+
 
 - if user_signed_in?
   %span.add

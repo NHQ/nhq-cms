@@ -8,6 +8,7 @@ class EventsController < InheritedResources::Base
     if user_signed_in?
       @showdate = Showdate.new
       @flickr = Flickr.new
+      @video = Video.new
     end
   end
   

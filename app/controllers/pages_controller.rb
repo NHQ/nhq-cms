@@ -10,6 +10,7 @@ class PagesController < InheritedResources::Base
   def show
     if user_signed_in?
       @flickr = Flickr.new
+      @video = Video.new
     end
   end
   

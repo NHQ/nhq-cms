@@ -13,6 +13,7 @@ class Show
 
   embeds_many :credits
   embeds_many :flickrs
+  embeds_many :videos
 
   references_many :reviews, :stored_as => :array, :default => []
 

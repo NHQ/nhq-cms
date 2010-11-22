@@ -6,6 +6,7 @@ class WorkshopsController < InheritedResources::Base
     @reviews = @workshop.reviews
     if user_signed_in?
       @flickr = Flickr.new
+      @video = Video.new
     end
   end
 

@@ -15,16 +15,19 @@ Clown::Application.routes.draw do
   resources :workshops do
     resources :reviews
     resources :flickrs
+    resources :videos
   end
 
   resources :shows do
     resources :reviews
     resources :credits
     resources :flickrs
+    resources :videos
   end
   
   resources :reviews
   resources :credits
+  resources :videos
 
   match '/events/feed', :as => "feed", :to => "events#feed"
 
@@ -32,12 +35,14 @@ Clown::Application.routes.draw do
     resources :venues
     resources :showdates
     resources :flickrs
+    resources :videos
   end
 
   resources :showdates
 
   resources :pages do
     resources :flickrs
+    resources :videos
   end
   
   match '/shows/:show_id/add_review', :as => "add_review", :to => "shows#add_review"

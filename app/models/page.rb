@@ -9,6 +9,7 @@ class Page
   slug  :title
   
   embeds_many :flickrs
+  embeds_many :videos
 
   validates_presence_of :title
   validates_presence_of :body

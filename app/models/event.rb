@@ -16,6 +16,7 @@ class Event
     
   embeds_many :showdates
   embeds_many :flickrs
+  embeds_many :videos
 
   references_many :venues, :stored_as => :array, :default => []
   

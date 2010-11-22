@@ -68,7 +68,8 @@ h1.home {
 .review_list,
 .credit_list,
 .upcoming_events,
-.flickr_list {
+.flickr_list,
+.video_list {
 	padding: 0;
 	margin: 0;
 }
@@ -125,10 +126,12 @@ form.showdate .end {
 form.showdate {
 	padding-bottom: 2em;
 }
-#add_showdate {
+#add_showdate,
+#add_video {
 	margin: 0.5em 0;
 }
-#add_showdate:hover {
+#add_showdate:hover,
+#add_video:hover {
 	color: #DB0000;
 	cursor: pointer;
 }
