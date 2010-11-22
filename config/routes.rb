@@ -2,7 +2,9 @@ Clown::Application.routes.draw do
 
   resources :venues
 
-  devise_for :users
+  devise_for :users do
+    get "login", :to => "devise/sessions#new"
+  end
 
   resources :users, :only => :show
 
@@ -37,8 +39,6 @@ Clown::Application.routes.draw do
   resources :pages do
     resources :flickrs
   end
-
-  match '/:slug' => 'pages#show'
   
   match '/shows/:show_id/add_review', :as => "add_review", :to => "shows#add_review"
   match '/shows/:show_id/reviews/:review_id/remove', :as => "remove_review", :to => "shows#remove_review"
@@ -48,6 +48,8 @@ Clown::Application.routes.draw do
 
   match '/events/:event_id/add_venue', :as => "add_venue", :to => "events#add_venue"
   match '/events/:event_id/venues/:venue_id/remove', :as => "remove_venue", :to => "events#remove_venue"
+  
+  match '/:slug' => 'pages#show'
   
   root :to => "pages#home"
   
