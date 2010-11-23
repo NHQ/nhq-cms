@@ -17,7 +17,7 @@
     #container	
       .g240= render 'navigation/menu'
 
-      .ml240.g720
+      .ml240
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         = yield

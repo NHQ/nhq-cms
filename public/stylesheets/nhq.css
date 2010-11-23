@@ -28,21 +28,43 @@
 h1.home {
 	font-size: 3em;
 }
-#home .description { 
+.home .description { 
 	font-style: italic;
 	font-weight: normal;
 	font-size: 1.4em;
 	line-height: 1.4em;
+	display:block;
 }
-.facebookfeed,
-.facebookfeed ul {
+.upcoming {
+	width:480px;
+	margin:3em 0 2em 0;
+	padding:.2em 1em ;
+	display:block;
+	clear:both;
+	border-left: 11px double #000;
+}
+#feedTitle{
+	font-size:150%;
+	margin-top: 5px;
+	padding:3px 0 7px 0;
+	clear:left;
+}
+
+#feedTitle a{color:red};
+
+.facebookfeed {
 	padding: 0;
 	margin: 0;
 }
 .facebookfeed li {
+	width:480px;
 	padding: 0 0 0.5em 0;
 	margin: 0;
 	clear: left;
+	border-top: 1px solid #eee;
+}
+.facebookfeed a{
+	color:red;
 }
 .facebookfeed .name {
 	font-weight: bold;
@@ -56,7 +78,6 @@ h1.home {
 	display: block;
 }
 #home h3 {
-	margin-top: 3em;
 }
 
 
@@ -101,13 +122,14 @@ h1.home {
 .event_type {
 	padding-bottom: 0.175em;
 	text-transform: uppercase;
+	border-bottom:1px solid #333;
+	text-align:center;
 }
 .event_type .label {
 	font-weight: bold;
 }
 .when form .label {
 	width: 75px;
-	float: left;
 	text-align: right;
 	padding: 0 0.3em 0.5em 0;
 	font-weight: bold;
@@ -139,6 +161,10 @@ form.showdate {
 	margin-top: 0.4em;
 }
 
+.price {
+	font-size: 125%;
+	text-align:center;
+}
 /* VENUE */
 .where {
 	padding-top: 1em;
@@ -151,8 +177,8 @@ form.showdate {
 	padding: 0;
 }
 #map_canvas {
-	margin: 0.7em 0;
-	width: 240px; 
+	margin: 10px 0 0 0;
+	width: 550px; 
 	height: 210px;
 }
 #venue_state {

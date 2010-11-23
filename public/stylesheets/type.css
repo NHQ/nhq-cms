@@ -27,7 +27,7 @@ p img.right {
 }
 
 h1,h2 {  
-	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
+	font-family: "Helvetica", Georgia, 'Times New Roman', Times, serif; 
 }
 h3,h4,h5,h6 { 
   font-weight: normal; 
@@ -37,24 +37,24 @@ h3,h4,h5,h6 {
 h1 { 
   color: #DB0000;
   font-weight:normal;
-  font-size: 1.9em;  
+  font-size: 5em;  
   line-height: 1em;
-  margin-bottom: 0.482em;
+  margin-bottom: 0;
   text-align: left;
 }
 h2 {
   font-weight:bold;
   color: #333;
   font-size: 1.6em;  
-  margin-bottom: 0.5em;  
 }
 h3 {
-  color: #999;
-  font-weight:bold;
-  font-size: 0.85em; 
-	margin-top: 0.5em;
-  margin-bottom: 0.5em;
-	text-transform: uppercase;
+  color: #333;
+  font-size: 1.25em; 
+}
+
+h3 a {
+	color:red;
+	text-decoration:underline;
 }
 h4 {
   font-size: 1.2em;  
@@ -70,9 +70,7 @@ h5 {
   margin-bottom: 0.5em;
 }
 
-li ul, 
-li ol  { margin:0 1.5em; }
-ul, ol { margin: 0 1.5em 1.5em 1.5em; }
+
 
 
 dl { margin: 0 0 1.5em 0; }

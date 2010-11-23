@@ -1,7 +1,7 @@
 html,body,div{border:0;margin:0;padding:0;color:#000;}
 a {text-decoration:none;color:#000;}
 a:hover{color:#DB0000;text-decoration:none;}
-#container{width:970px;padding-top:10px;margin:0 auto;}
+#container{width:1200px;padding-top:10px;margin:0 auto;}
 .g160,.g320,.g480,.g640,.g800,.g960,.g80,.g240,.g400,.g560,.g720,.g880,.g960{float:left;display:inline;margin-left:10px;}
 .g160{width:150px;}
 .g320{width:310px;}
@@ -34,9 +34,10 @@ p.grid{padding-left:10px;}
 .clearfix,.main{display:block;}
 
 #menu {
-	font-size: 1.25em;
+	font-size: 50%;
 	color:#aaa;
 	position:fixed;
+	margin-top:22px;
   font-family: Helvetica, Arial, sans-serif;
 	font-family: Georgia, "Baskerville", 'Times New Roman', Times, serif; 
 	font-weight: bold;
@@ -65,6 +66,7 @@ p.grid{padding-left:10px;}
 	padding: 0;
 }
 #menu .admin {
+	font-size:200%;
 	padding: 1em 0 0.2em 0;
 }
 
@@ -85,3 +87,20 @@ p.grid{padding-left:10px;}
 
 .hmenu {float: right;position:fixed;padding: 0;}
 .hmenu li {list-style: none;}
+.dates{
+	float:right;
+	display:inline-block;
+	margin-top:10px;
+	border:7px double black;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	padding:1em;
+}
+.when ul li{
+	margin: .5em 0 .5em 1em;
+	list-style-type:circle;
+}
+.videos, iframe {
+	margin: 10px 0 10px 5px;
+	max-width:550px;
+}

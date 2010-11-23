@@ -1,21 +1,23 @@
 - content_for :head do
   = javascript_include_tag "date"
 
-%h1.home 500 Clown
+%h1 500 Clown
 #home
-  .description Life is worth the risk.
+  %h2.description Life is worth the risk.
   .upcoming
-    %h3 Upcoming events:
     %ul.upcoming_events
       - @upcoming_events.each do |event|
+        %h3 Upcoming event:
         %li.title
           - if event.venues.first
-            = link_to "#{event.title} at #{event.venues[0].venue_name}", event
+            = link_to "#{event.title} @ #{event.venues[0].venue_name}", event
           - else
             = link_to "#{event.title}", event
 
-  %h3.home Feed:
-  .facebookfeed.g560
+#feedTitle            
+  %a{:href=>"/http://facebook.com/pages/500-Clown/73447773916"} Fanpage Updates
+
+.facebookfeed 
 
 - content_for :jstemplates do
   jQuery(function() { app.getFeed(); });

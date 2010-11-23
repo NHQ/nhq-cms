@@ -10,52 +10,48 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupShowdates(); app.codeAddress(); app.setupVideos(); });
 
-%h1
+%h1.g560
   = @event.title
   - if user_signed_in?
-    %span.admin= link_to('Edit', edit_event_path(@event))
-    %span.admin= link_to 'Destroy', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete
+    %h2.admin= link_to('Edit', edit_event_path(@event))
+    %h2.admin= link_to 'Destroy', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete
 
-- if @event.image?
-  = image_tag(@event.image.url(:medium), :class => "right")
+.g320.dates
+  - if @event.event_type?
+  .event_type #{@event.event_type} Date(s)
 
-- if @event.event_type?
-  .event_type= @event.event_type
-
-- unless @showdates.empty? 
-  - date_fmt = '%a, %b %d, %Y'
-  - date_parse_fmt = '%Y-%m-%d'
-  - time_fmt = '%I:%M%P'
-  - time_parse_fmt = '%H:%M:00'
-  .when
-    %ul.date_list
-      - @showdates.each do |d|
-        %li
-          %span.date= Date.strptime(d.start_date, date_parse_fmt).strftime(date_fmt)
-          %span.time= Time.strptime(d.start_time, time_parse_fmt).strftime(time_fmt)
-          / %span.date= d.start_date.to_s(:long)
-          / %span.time= d.start_time.to_s(:time_short)
-          / \ - 
-          / = d.end_time.to_s(:time)
-          - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
-
-- if user_signed_in?
-  #add_showdate.admin + Add a Date
-  #new_showdate{:style => "display: none;"}= render 'showdate'
-
-- if @event.ticket_price
-  .price Tickets #{@event.ticket_price}
-    
+  - unless @showdates.empty? 
+    - date_fmt = '%a, %b %d, %Y'
+    - date_parse_fmt = '%Y-%m-%d'
+    - time_fmt = '%I:%M%P'
+    - time_parse_fmt = '%H:%M:00'
+    .when
+      %ul.date_list
+        - @showdates.each do |d|
+          %li
+            %span.date= Date.strptime(d.start_date, date_parse_fmt).strftime(date_fmt)
+            %span.time= Time.strptime(d.start_time, time_parse_fmt).strftime(time_fmt)
+            / %span.date= d.start_date.to_s(:long)
+            / %span.time= d.start_time.to_s(:time_short)
+            / \ - 
+            / = d.end_time.to_s(:time)
+            - if user_signed_in?
+              %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
+      - if @event.ticket_price
+        .price Admisssion: $#{@event.ticket_price}
+      - if user_signed_in?
+        #add_showdate.admin + Add a Date
+        #new_showdate{:style => "display: none;"}= render 'showdate'
+  
 - if @venue
-  .where
-    .venue_title
+  .where.g560
+    %h2.venue_title
       = link_to @venue.venue_name, @venue
       - if user_signed_in?
         %span.admin
           = link_to("&#8658; Edit Venue".html_safe, edit_event_venue_path(@event, @venue))
           %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue'), "/events/#{@event.id}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
-    .address
+    %h3.address
       %span= @venue.street
       %br
       - if @venue.city?
@@ -66,7 +62,7 @@
       - if @event.ticket_url?
         .ticket_url= link_to("Buy Tickets", @event.ticket_url)
     - unless(@venue.map_string.length < 5)
-      %div#map_canvas
+      %div#map_canvas   
 - elsif user_signed_in?
   .where
     = link_to('+ Add New Venue', new_event_venue_path(@event))
@@ -79,19 +75,6 @@
         = f.submit "Add Existing Venue"
 
 
-%p.description
-  = @event.description.html_safe
-
-- unless @event.tags_array.empty?
-  .tags
-    %span.tag_title Tags:
-    = @event.tags.gsub(/,/, ", ")
-
-
-- if user_signed_in?
-  #add_video.admin + Add a Video
-  #new_video{:style => "display: none;"}= render '/videos/video-form'
-
 .videos
   - if @event.videos.first
     %ul{:class => 'video_list'}
@@ -99,7 +82,19 @@
         = render(:partial => "videos/video", :locals => {:video => video})
   - else
     %ul.video_list
+    
+- if user_signed_in?
+  #add_video.admin + Add a Video
+  #new_video{:style => "display: none;"}= render '/videos/video-form'
 
+%p.g560.description
+  = @event.description.html_safe
+
+.g560
+  - unless @event.tags_array.empty?
+    .tags
+      %span.tag_title Tags:
+      = @event.tags.gsub(/,/, ", ")
 
 - if user_signed_in?
   %span.add
