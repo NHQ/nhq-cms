@@ -16,7 +16,7 @@
     %h2.admin= link_to('Edit', edit_event_path(@event))
     %h2.admin= link_to 'Destroy', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete
 
-.dates
+.g240.dates
   - if @event.event_type?
   .event_type #{@event.event_type} Date(s)
 
@@ -25,8 +25,8 @@
     - date_parse_fmt = '%Y-%m-%d'
     - time_fmt = '%I:%M%P'
     - time_parse_fmt = '%H:%M:00'
-    .when
-      %ul.date_list
+    .date_list
+      %ul
         - @showdates.each do |d|
           %li
             %span.date= Date.strptime(d.start_date, date_parse_fmt).strftime(date_fmt)
@@ -44,7 +44,7 @@
         #new_showdate{:style => "display: none;"}= render 'showdate'
   
 - if @venue
-  .where.g560
+  .where.g480
     %h2.venue_title
       = link_to @venue.venue_name, @venue
       - if user_signed_in?
@@ -75,7 +75,7 @@
         = f.submit "Add Existing Venue"
 
 
-.videos
+.videos.g480
   - if @event.videos.first
     %ul{:class => 'video_list'}
       - @event.videos.each do |video|
@@ -87,10 +87,10 @@
   #add_video.admin + Add a Video
   #new_video{:style => "display: none;"}= render '/videos/video-form'
 
-%p.g560.description
+%p.g480.description
   = @event.description.html_safe
 
-.g560
+.g480
   - unless @event.tags_array.empty?
     .tags
       %span.tag_title Tags:

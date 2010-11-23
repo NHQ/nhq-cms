@@ -14,13 +14,13 @@
     = yield(:head)
 
   %body{:id => yield_for(:body_id, params[:controller])}
-    #container	
-      .g240= render 'navigation/menu'
+    #menu	
+      = render 'navigation/menu'
 
-      .ml240.g880
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
-        = yield
+    .ml160.g880
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+      = yield
         
     #ajax-status
     = javascript_include_tag "jquery-ui", "jquery.strings", "jquery.utils", "ui.timepickr", "jquery.wysiwyg", "wysiwyg", "rails", "application"

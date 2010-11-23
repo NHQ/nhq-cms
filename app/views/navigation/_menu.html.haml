@@ -1,15 +1,15 @@
-%ul#menu
-  %h1= link_to 'Home', '/'
-  %h1= link_to 'Shows', :shows
-  %h1= link_to 'Events', :events
-  %h1= link_to 'Workshops', :workshops
-  %h1= link_to 'Reviews', :reviews
+%ul#menu.g160
+  %li= link_to 'Home', '/'
+  %li= link_to 'Shows', :shows
+  %li= link_to 'Events', :events
+  %li= link_to 'Workshops', :workshops
+  %li= link_to 'Reviews', :reviews
   - Page.all.each do |page|
-    %h1= link_to(page.title.titleize, '/pages/' + page.slug)  
+    %li= link_to(page.title.titleize, '/pages/' + page.slug)  
   %h2.admin= render 'devise/menu/login_items'
   - if user_signed_in?
-    %h2.admin= link_to '+ New Event', new_event_path
-    %h2.admin= link_to '+ New Show', new_show_path
-    %h2.admin= link_to '+ New Workshop', new_workshop_path
-    %h2.admin= link_to '+ New Page', new_page_path
-    %h2.admin= link_to '+ New Review', new_review_path
+    %li.admin= link_to '+ New Event', new_event_path
+    %li.admin= link_to '+ New Show', new_show_path
+    %li.admin= link_to '+ New Workshop', new_workshop_path
+    %li.admin= link_to '+ New Page', new_page_path
+    %li.admin= link_to '+ New Review', new_review_path

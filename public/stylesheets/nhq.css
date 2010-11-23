@@ -85,7 +85,6 @@ h1.home {
 .event_list,
 .show_list,
 .workshop_list,
-.date_list,
 .review_list,
 .credit_list,
 .upcoming_events,
@@ -97,7 +96,6 @@ h1.home {
 .event_list li,
 .show_list li,
 .workshop_list li,
-.date_list li,
 .review_list li,
 .upcoming_events li {
 	list-style: none;
@@ -122,7 +120,6 @@ h1.home {
 .event_type {
 	padding-bottom: 0.175em;
 	text-transform: uppercase;
-	border-bottom:1px solid #333;
 	text-align:center;
 }
 .event_type .label {
@@ -137,9 +134,6 @@ h1.home {
 }
 .when form .label img {
 	vertical-align: bottom;
-}
-.date_list li {
-	padding: 0.1em 0;
 }
 form.showdate .start,
 form.showdate .end {
@@ -162,6 +156,7 @@ form.showdate {
 }
 
 .price {
+	margin:10px 0;
 	font-size: 125%;
 	text-align:center;
 }
@@ -178,7 +173,7 @@ form.showdate {
 }
 #map_canvas {
 	margin: 10px 0 0 0;
-	width: 550px; 
+	width: 480px; 
 	height: 210px;
 }
 #venue_state {
