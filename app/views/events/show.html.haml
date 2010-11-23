@@ -16,7 +16,7 @@
     %h2.admin= link_to('Edit', edit_event_path(@event))
     %h2.admin= link_to 'Destroy', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete
 
-.g320.dates
+.dates
   - if @event.event_type?
   .event_type #{@event.event_type} Date(s)
 
