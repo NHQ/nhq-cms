@@ -87,11 +87,12 @@ p.grid{padding-left:10px;}
 .hmenu {float: right;position:fixed;padding: 0;}
 .hmenu li {list-style: none;}
 .dates{
-	margin: 25px 0;
+	margin-top: 25px;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	text-align:center;
-	border-left:1px solid #ccc;
+	float:right;
+	border-left:1px solid #ccc;	
 }
 .date_list li{
 	padding-top:7px;
