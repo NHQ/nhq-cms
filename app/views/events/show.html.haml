@@ -10,7 +10,7 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupShowdates(); app.codeAddress(); app.setupVideos(); });
 
-%h1.g560
+%h1.g880
   = @event.title
   - if user_signed_in?
     %h2.admin= link_to('Edit', edit_event_path(@event))
@@ -42,6 +42,14 @@
       - if user_signed_in?
         #add_showdate.admin + Add a Date
         #new_showdate{:style => "display: none;"}= render 'showdate'
+
+    .flickrs.g240
+      - if @event.flickrs.first
+        %div{:class => 'flickr_list', :style => 'display: none;'}
+          - @event.flickrs.each do |fset|
+            = render(:partial => "flickrs/photoset-faded", :locals => {:fset => fset})
+      - else
+        .flickr_list
   
 - if @venue
   .where.g480
@@ -74,21 +82,21 @@
           = options_for_select(venues_array)
         = f.submit "Add Existing Venue"
 
-
-.videos.g480
-  - if @event.videos.first
-    %ul{:class => 'video_list'}
-      - @event.videos.each do |video|
-        = render(:partial => "videos/video", :locals => {:video => video})
-  - else
-    %ul.video_list
-    
-- if user_signed_in?
-  #add_video.admin + Add a Video
-  #new_video{:style => "display: none;"}= render '/videos/video-form'
-
 %p.g480.description
   = @event.description.html_safe
+
+  .videos.g480
+    - if @event.videos.first
+      %ul{:class => 'video_list'}
+        - @event.videos.each do |video|
+          = render(:partial => "videos/video", :locals => {:video => video})
+    - else
+      %ul.video_list
+
+  - if user_signed_in?
+    #add_video.admin + Add a Video
+    #new_video{:style => "display: none;"}= render '/videos/video-form'
+
 
 .g480
   - unless @event.tags_array.empty?
@@ -99,15 +107,6 @@
 - if user_signed_in?
   %span.add
     = render 'flickrs/flickr-form'
-
-.flickrs
-  - if @event.flickrs.first
-    %div{:class => 'flickr_list', :style => 'display: none;'}
-      - @event.flickrs.each do |fset|
-        = render(:partial => "flickrs/photoset-faded", :locals => {:fset => fset})
-  - else
-    .flickr_list
-
 
 - content_for :jstemplates do
   jQuery(function() { app.loadSlideshow(); });

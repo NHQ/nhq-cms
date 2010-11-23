@@ -105,3 +105,10 @@ p.grid{padding-left:10px;}
 	margin: 10px 0 10px 5px;
 	max-width:480px;
 }
+.flickrs{
+	float:right;
+	margin-right:80px;
+}
+.photos img {
+	width:320px;
+}

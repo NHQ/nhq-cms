@@ -173,8 +173,8 @@ form.showdate {
 }
 #map_canvas {
 	margin: 10px 0 0 0;
-	width: 480px; 
-	height: 210px;
+	width: 450px; 
+	height: 250px;
 }
 #venue_state {
 	display: inline;
@@ -212,7 +212,7 @@ form.showdate {
 .credits,
 .additional_info {
 	padding-top: 1em;
-	clear: both;
+	clear: right;
 }
 .info_title {
 	padding: 1em 0 0 0;
@@ -269,7 +269,6 @@ li.flickr {
 .flickrs .title {
 	display: block;
 	padding-bottom: 0.5em;
-	clear: left;
 }
 .flickrs .title img {
 	vertical-align: middle;
