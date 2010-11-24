@@ -15,7 +15,7 @@
   = @event.title
   - if user_signed_in?
     %span.admin= link_to('Edit Event', edit_event_path(@event))
-    %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + ' Delete', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete)
+    %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + 'Delete Event', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete)
 
 #sidebar.g240
   .dates
@@ -59,7 +59,7 @@
         - if user_signed_in?
           %span.admin.venue-admin
             %span.tk-poster= link_to("Edit Venue".html_safe, edit_event_venue_path(@event, @venue))
-            %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue') + "remove", "/events/#{@event.id}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
+            %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue') + "remove venue", "/events/#{@event.id}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
       %h3.address
         %span= @venue.street
         %br
@@ -83,8 +83,8 @@
             = options_for_select(venues_array)
           = f.submit "Add Existing Venue"
 
-  %p.description
-    = @event.description.html_safe
+  .description.redcloth
+    = RedCloth.new(@event.description).to_html.html_safe
 
   - unless @event.tags_array.empty?
     .tags
@@ -111,6 +111,7 @@
 
   - if user_signed_in?
     %span.add
+      .tk-poster + Add a Photoset
       = render 'flickrs/flickr-form'
 
 

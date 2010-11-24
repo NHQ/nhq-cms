@@ -97,7 +97,7 @@ address { margin-top: 1.5em; font-style: italic; }
 del { color: #000; }
 
 
-blockquote { padding-left:1.5em; margin: 1.5em; border-left:3px solid #ccc; font-style:italic;  }
+blockquote { font-size: 1.1em; padding-left:1.5em; margin: 1.5em 1.5em 0.5em 1.5em; border-left:3px solid #ccc; font-style:italic;  }
 strong { font-weight: bold; }
 em, dfn { font-style: italic; }
 dfn { font-weight: bold; }

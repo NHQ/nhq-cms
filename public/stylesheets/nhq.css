@@ -237,25 +237,11 @@ form.credit {
 
 
 /* PRESS */
-.reference {
+.review_list span {
 	font-size: 0.8em;
-	color: #888;
-	text-transform: uppercase;
-	font-weight: bold;
-	margin: 0;
-	padding: 0;
 }
-.review_list .url {
-	font-size: 0.8em;
-	padding-top: 0.5em;
-}
-.reviews .review_list a {
-	padding-left: 1em;
-	font-size: 0.8em;
-	text-transform: uppercase;
-}
-.reviews {
-	clear: both;
+.review_list .source {
+	text-align: center;
 }
 
 
@@ -286,3 +272,18 @@ ul.pagination { list-style:none; padding:0; margin: 0 0 2em 0; }
 ul.pagination li { float:left; line-height: 1.3em;}
 ul.pagination li a { padding:2px 4px; }
 ul.pagination li.current a { background:#DB0000; color:white; }
+
+/* redcloth basic formatting */
+.redcloth ul {
+	list-style: disc inside none;
+}
+.redcloth ol li {
+	list-style: decimal inside none;
+}
+.redcloth li {
+	padding: 0.2em 0;
+}
+.redcloth ul,
+.redcloth ol {
+	margin: 0.2em 0 0.3em 1em;
+}

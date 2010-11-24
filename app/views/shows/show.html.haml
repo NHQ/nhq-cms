@@ -9,86 +9,79 @@
 %h1.title
   = @show.title
   - if user_signed_in?
-    %span.admin= link_to('Edit', edit_show_path(@show))
-    %span.admin= link_to 'Destroy', @show, :confirm => 'Destroy ' + @show.title + '?', :method => :delete
+    %span.admin= link_to('Edit Show', edit_show_path(@show))
+    %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Show') + 'Delete Show', @show, :confirm => 'Are you sure you want to delete the show "' + @show.title + '"?', :method => :delete)
 
-%p.description
-  / - if @show.image?
-  /   = image_tag(@show.image.url(:medium), :class => "right")
-  = @show.description.html_safe
+#sidebar.g240
+  .flickrs
+    - if @show.flickrs.first
+      %h3.tk-poster Photos:
+      %ul.flickr_list
+        - @show.flickrs.each do |fset|
+          = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+    - else
+      %ul.flickr_list
 
-- unless @show.tags_array.empty?
-  .tags
-    %span.tag_title Tags:
-    = @show.tags.gsub(/,/, ", ")
 
-- if user_signed_in?
-  %span.add
-    = render 'credit'
+#main-content.g560    
+  .description.redcloth
+    = RedCloth.new(@show.description).to_html.html_safe
 
-- if @show.credits.first
-  .credits
-    %h3.tk-poster Credits:
-    %ul.credit_list
-      - @show.credits.each do |c|
-        %li
-          %span.credit= c.title + ': '
-          %span.name= c.name
+  - unless @show.tags_array.empty?
+    .tags
+      %span.tag_title Tags:
+      = @show.tags.gsub(/,/, ", ")
+
+  - if @show.credits.first
+    .credits
+      %h3.tk-poster Credits:
+      %ul.credit_list
+        - @show.credits.each do |c|
+          %li
+            %span.credit= c.title + ': '
+            %span.name= c.name
+            - if user_signed_in?
+              %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Credit'), show_credit_path(@show, c), :confirm => 'Are you sure you want to delete this Credit?', :method => :delete)
+
+  - if @show.additional_info?  
+    .additional_info.redcloth
+      %h3.tk-poster Additional Info:
+      = RedCloth.new(@show.additional_info).to_html.html_safe
+
+  .videos
+    - if @show.videos.first
+      %ul{:class => 'video_list'}
+        - @show.videos.each do |video|
+          = render(:partial => "videos/video", :locals => {:video => video})
+    - else
+      %ul.video_list
+
+  - if user_signed_in?
+    %span.add
+      .tk-poster + Add a Credit
+      = render 'credit'
+
+    #add_video.tk-poster + Add a Video
+    #new_video{:style => "display: none;"}= render '/videos/video-form'
+
+    #add_flickr
+      .tk-poster + Add a Photoset
+      = render 'flickrs/flickr-form'
+    #add_review
+      .tk-poster= link_to('+ Add New Review', new_show_review_path(@show))
+      - available_reviews = Review.not_in(:_id => @show.review_ids)
+      - if available_reviews.count
+        = form_for @show do |r|
+          %select{:id => "review_id", :name => "review_id"}
+            - reviews_array = available_reviews.map { |review| [truncate(review.title), review.id] }
+            = options_for_select(reviews_array)
+          = r.submit "Add Existing Review"
+
+  - if @show.reviews.first
+    .reviews
+      %h3.tk-poster Press:
+      %ul.review_list
+        - @show.reviews.each do |review|
+          = render(:partial => "reviews/review", :locals => {:review => review})
           - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Credit'), show_credit_path(@show, c), :confirm => 'Are you sure you want to delete this Credit?', :method => :delete)
-
-
-- if user_signed_in?
-  #add_video.tk-poster + Add a Video
-  #new_video{:style => "display: none;"}= render '/videos/video-form'
-
-.videos
-  - if @show.videos.first
-    %ul{:class => 'video_list'}
-      - @show.videos.each do |video|
-        = render(:partial => "videos/video", :locals => {:video => video})
-  - else
-    %ul.video_list
-
-
-- if user_signed_in?
-  #add_flickr
-    = render 'flickrs/flickr-form'
-        
-.flickrs
-  - if @show.flickrs.first
-    %h3.tk-poster Photos:
-    %ul.flickr_list
-      - @show.flickrs.each do |fset|
-        = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
-  - else
-    %ul.flickr_list
-
-- if @show.additional_info?  
-  .additional_info
-    %h3.tk-poster Additional Info:
-    %p= @show.additional_info.html_safe
-
-
-- if user_signed_in?
-  #add_review
-    .tk-poster= link_to('+ Add New Review', new_show_review_path(@show))
-    - available_reviews = Review.not_in(:_id => @show.review_ids)
-    - if available_reviews.count
-      = form_for @show do |r|
-        %select{:id => "review_id", :name => "review_id"}
-          - reviews_array = available_reviews.map { |review| [truncate(review.title), review.id] }
-          = options_for_select(reviews_array)
-        = r.submit "Add Existing Review"
-
-- if @show.reviews.first
-  .reviews
-    %h3.tk-poster Press:
-    %ul.review_list
-      - @show.reviews.each do |review|
-        %li
-          %span.title= truncate(review.title)
-          %span.source= review.description.html_safe
-          = link_to "read full review", show_review_path(@show, review)
-          - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Review'), "/shows/#{@show.id}/reviews/#{review.id}/remove", :confirm => 'Are you sure you want to remove this Review?')
+            %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Review') + "remove review", "/shows/#{@show.id}/reviews/#{review.id}/remove", :confirm => 'Are you sure you want to remove this Review?')

@@ -10,10 +10,8 @@
   - if user_signed_in?
     %span.admin= link_to('Edit', edit_workshop_path(@workshop))
 
-%p.description
-  - if @workshop.image?
-    .right= image_tag(@workshop.image.url(:medium))
-  = @workshop.description.html_safe
+.description.redcloth
+  = RedCloth.new(@workshop.description).to_html.html_safe
 
 .tags
   %span.tk-poster Tags:

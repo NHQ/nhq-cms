@@ -13,8 +13,7 @@
         = link_to('Edit', edit_page_path(@page))
         = link_to 'Destroy', @page, :confirm => 'Are you sure?', :method => :delete 
 
-.body= @page.body.html_safe
-
+.body= RedCloth.new(@page.body).to_html.html_safe
 
 - if user_signed_in?
   #add_video.tk-poster + Add a Video

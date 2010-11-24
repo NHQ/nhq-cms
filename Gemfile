@@ -25,6 +25,7 @@ gem 'haml-rails', '0.2', :group => :development
 gem 'hpricot', '0.8.2', :group => :development
 gem 'ruby_parser', '2.0.5', :group => :development
 gem 'RedCloth'
+gem 'htmlentities'
 
 
 # Bundle edge Rails instead:
