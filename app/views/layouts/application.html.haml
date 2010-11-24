@@ -22,10 +22,15 @@
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         = yield
+        #footer
+          %hr
+          #credit
+            500CLOWN gets by with a little help from
+            = link_to("their friends", "http://nationalheadquarters.org/")
         
       #ajax-status
-      = javascript_include_tag "jquery-ui", "jquery.strings", "jquery.utils", "ui.timepickr", "jquery.wysiwyg", "wysiwyg", "rails", "application"
-    
+
+    = javascript_include_tag "jquery-ui", "jquery.strings", "jquery.utils", "ui.timepickr", "jquery.wysiwyg", "wysiwyg", "rails", "application"
     = yield(:javascripts)
     = javascript_tag do
       = yield(:jstemplates)
