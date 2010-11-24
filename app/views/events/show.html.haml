@@ -39,7 +39,7 @@
               / \ - 
               / = d.end_time.to_s(:time)
               - if user_signed_in?
-                %span.admin= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
+                %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
         - if @event.ticket_price
           .price Admisssion: $#{@event.ticket_price}
 
@@ -51,7 +51,7 @@
     - else
       .flickr_list
 
-#main-content.g480  
+#main-content.g560  
   - if @venue
     .where
       %h2.title
@@ -74,7 +74,7 @@
         %div#map_canvas   
   - elsif user_signed_in?
     .where
-      = link_to('+ Add New Venue', new_event_venue_path(@event))
+      .tk-poster= link_to('+ Add New Venue', new_event_venue_path(@event))
       - available_venues = Venue.not_in(:_id => @event.venue_ids)
       - if available_venues.count
         = form_for @event do |f|
@@ -113,7 +113,3 @@
     %span.add
       .tk-poster + Add a Photoset
       = render 'flickrs/flickr-form'
-
-
-- content_for :jstemplates do
-  jQuery(function() { app.loadSlideshow(); });

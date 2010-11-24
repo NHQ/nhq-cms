@@ -31,6 +31,12 @@
           - if user_signed_in?
             %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Credit'), show_credit_path(@show, c), :confirm => 'Are you sure you want to delete this Credit?', :method => :delete)
 
+- if user_signed_in?
+  %span.add
+    .tk-poster + Add a Credit
+    = render 'credit'
+
+
 - if @show.additional_info?  
   .additional_info.redcloth
     %h3.tk-poster Additional Info:
@@ -43,35 +49,7 @@
     %ul.review_list
       - @show.reviews.each do |review|
         = render(:partial => "reviews/review", :locals => {:review => review})
-
-.flickrs
-  - if @show.flickrs.first
-    %h3.tk-poster Photos:
-    %ul.flickr_list
-      - @show.flickrs.each do |fset|
-        = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
-  - else
-    %ul.flickr_list
-
-.videos
-  - if @show.videos.first
-    %ul{:class => 'video_list'}
-      - @show.videos.each do |video|
-        = render(:partial => "videos/video", :locals => {:video => video})
-  - else
-    %ul.video_list
-
 - if user_signed_in?
-  %span.add
-    .tk-poster + Add a Credit
-    = render 'credit'
-
-  #add_video.tk-poster + Add a Video
-  #new_video{:style => "display: none;"}= render '/videos/video-form'
-
-  #add_flickr
-    .tk-poster + Add a Photoset
-    = render 'flickrs/flickr-form'
   #add_review
     .tk-poster= link_to('+ Add New Review', new_show_review_path(@show))
     - available_reviews = Review.not_in(:_id => @show.review_ids)
@@ -81,3 +59,28 @@
           - reviews_array = available_reviews.map { |review| [truncate(review.description), review.id] }
           = options_for_select(reviews_array)
         = r.submit "Add Existing Review"
+
+
+.flickrs
+  - if @show.flickrs.first
+    %h3.tk-poster Photos:
+    %ul.flickr_list
+      - @show.flickrs.each do |fset|
+        = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+  - else
+    %ul.flickr_list
+- if user_signed_in?
+  #add_flickr
+    .tk-poster + Add a Photoset
+    = render 'flickrs/flickr-form'
+
+.videos
+  - if @show.videos.first
+    %ul{:class => 'video_list'}
+      - @show.videos.each do |video|
+        = render(:partial => "videos/video", :locals => {:video => video})
+  - else
+    %ul.video_list
+- if user_signed_in?
+  #add_video.tk-poster + Add a Video
+  #new_video{:style => "display: none;"}= render '/videos/video-form'

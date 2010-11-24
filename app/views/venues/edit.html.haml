@@ -3,10 +3,8 @@
   - if @event
     for 
     = link_to @event.title, @event
-    %span.admin
-      = link_to 'Show', @event
   - else
     %span.admin
-      = link_to 'Show', @venue
+      = link_to 'View Venue', @venue
 
 = render 'form'
