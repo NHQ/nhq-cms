@@ -1,10 +1,8 @@
-- stylesheet "jwysiwyg/jquery.wysiwyg"
-
 = semantic_form_for @workshop, :html => { :multipart => true } do |form|
 
   = form.inputs do
     = form.input :title, :required => true, :label => "Workshop Title"
-    = form.input :description, :as => :text,  :input_html => { :class => 'wysiwyg' } 
+    = form.input :description, :as => :text
     = form.input :tags, :hint => "Example: performance, improv, dance"
     - if @workshop.image?
       = image_tag(@workshop.image.url(:thumb))

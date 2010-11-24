@@ -1,4 +1,4 @@
-%ul#menu.g160
+%ul
   %li= link_to 'Home', '/'
   %li= link_to 'Shows', :shows
   %li= link_to 'Events', :events
@@ -6,7 +6,7 @@
   %li= link_to 'Reviews', :reviews
   - Page.all.each do |page|
     %li= link_to(page.title.titleize, '/pages/' + page.slug)  
-  %h2.admin= render 'devise/menu/login_items'
+  %li.admin= render 'devise/menu/login_items'
   - if user_signed_in?
     %li.admin= link_to '+ New Event', new_event_path
     %li.admin= link_to '+ New Show', new_show_path

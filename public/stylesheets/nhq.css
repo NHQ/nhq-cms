@@ -25,10 +25,10 @@
 }
 
 /* HOME */
-h1.home {
-	font-size: 3em;
+#home h1 {
+	font-size: 4em;
 }
-.home .description { 
+#home .description { 
 	font-style: italic;
 	font-weight: normal;
 	font-size: 1.4em;
@@ -125,6 +125,9 @@ h1.home {
 .event_type .label {
 	font-weight: bold;
 }
+.event_list {
+	padding-top: 1em;
+}
 .when form .label {
 	width: 75px;
 	text-align: right;
@@ -143,8 +146,10 @@ form.showdate {
 	padding-bottom: 2em;
 }
 #add_showdate,
-#add_video {
-	margin: 0.5em 0;
+#add_video,
+#add_review,
+#add_flickr {
+	margin: 2em 0 0 0;
 }
 #add_showdate:hover,
 #add_video:hover {
@@ -163,6 +168,7 @@ form.showdate {
 /* VENUE */
 .where {
 	padding-top: 1em;
+	font-size: .8em;
 }
 .venue_title {
 	font-weight: bold;
@@ -217,19 +223,11 @@ form.showdate {
 .info_title {
 	padding: 1em 0 0 0;
 }
-.credits .title,
-.credits .name {
-	font-size: 0.9em;
-}
-.credits .title {
-	color: #333;
-	font-weight: bold;
-}
-.credits .name {
-	color: #333;
-}
 form.credit {
 	padding-top: 1em;
+}
+.credit {
+	color: #666;
 }
 
 
@@ -262,20 +260,28 @@ form.credit {
 
 
 /* FLICKR */
-li.flickr {
+.flickrs li {
 	display: block;
 	padding: 1em 0;
+	margin: 0;
+	list-style: none;
+}
+.flickrs li .title {
+	text-align: center;
+	padding-left: 0.5em;
 }
 .flickrs .title {
 	display: block;
 	padding-bottom: 0.5em;
 }
-.flickrs .title img {
-	vertical-align: middle;
-}
 .flickrs .slideshow {
 	clear: left;
 }
+.flickrs .flickr_list li.flickr {
+	text-align: center;
+}
+
+/* jquery faded pagination */
 ul.pagination { list-style:none; padding:0; margin: 0 0 2em 0; }
 ul.pagination li { float:left; line-height: 1.3em;}
 ul.pagination li a { padding:2px 4px; }

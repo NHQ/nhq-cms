@@ -99,3 +99,10 @@ span.add {
 .add {
 	font-weight: bold;
 }
+.venue-admin {
+	font-size: 0.7em;
+}
+.tk-poster img,
+.date_list img {
+	vertical-align: middle;
+}

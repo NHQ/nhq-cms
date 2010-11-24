@@ -1,16 +1,8 @@
-- stylesheet "jwysiwyg/jquery.wysiwyg"
-
-= form_for @event, :remote => true do |r|
-  %select{:id => "show_id", :name => "show_id", :onchange => "update_fields();"}
-    %option{:value => ""} Generate from existing Show
-    - shows_array = Show.all.map { |show| [truncate(show.title, :length => 75), show.id] }
-    = options_for_select(shows_array)
-
 = semantic_form_for @event, :html => { :multipart => true, :id => "eventform" } do |form|
 
   = form.inputs do 
     = form.input :title, :required => true, :label => "Event Title" 
-    = form.input :description, :as => :text,  :input_html => { :class => 'wysiwyg' } 
+    = form.input :description, :as => :text
     = form.input :event_type, :as => :select, :collection => ["Performance", "Workshop", "Fundraiser"] 
     = form.input :tags, :hint => "(e.g. comedy, tragedy, classic)" 
     - if @event.image?

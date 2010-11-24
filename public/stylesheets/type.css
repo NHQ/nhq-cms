@@ -16,7 +16,7 @@ p {
   letter-spacing:0.01em; 
 	line-height: 1.5em;
 }
-p img { 
+p img.left { 
   float: left; 
   margin: 0 1em 1em 0; 
   padding: 0; 
@@ -28,6 +28,7 @@ p img.right {
 
 h1,h2 {  
 	font-family: "Helvetica", Georgia, 'Times New Roman', Times, serif; 
+	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
 }
 h3,h4,h5,h6 { 
   font-weight: normal; 
@@ -37,7 +38,7 @@ h3,h4,h5,h6 {
 h1 { 
   color: #DB0000;
   font-weight:normal;
-  font-size: 5em;  
+  font-size: 3em;  
   line-height: 1em;
   margin-bottom: 0;
   text-align: left;
@@ -54,7 +55,7 @@ h3 {
 
 h3 a {
 	color:red;
-	text-decoration:underline;
+/*	text-decoration:underline;*/
 }
 h4 {
   font-size: 1.2em;  

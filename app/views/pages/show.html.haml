@@ -17,7 +17,7 @@
 
 
 - if user_signed_in?
-  #add_video.admin + Add a Video
+  #add_video.tk-poster + Add a Video
   #new_video{:style => "display: none;"}= render '/videos/video-form'
 
 .videos
@@ -35,7 +35,7 @@
 
 .flickrs
   - if @page.flickrs.first
-    %h3.flickrs_title Photos:
+    %h3.tk-poster Photos:
     %ul.flickr_list
     - @page.flickrs.each do |fset|
       = render(:partial => "flickrs/photoset", :locals => {:fset => fset})

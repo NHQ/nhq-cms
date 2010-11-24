@@ -54,7 +54,7 @@ p.grid{padding-left:10px;}
 	text-decoration: none;
 }
 
-#menu li.admin { font-size: 0.8em;}
+#menu li.admin { font-size: 1em;}
 #menu li.admin a{color:#DB0000;}
 #menu li.admin a:visited{color:#DB0000}
 #menu li.admin a:hover{color:#000;}
@@ -65,12 +65,12 @@ p.grid{padding-left:10px;}
 	padding: 0;
 }
 #menu .admin {
-	font-size:200%;
 	padding: 1em 0 0.2em 0;
 }
 
 .admin {
 	padding: 0 0 0 1em;
+	font-size: 0.9em;
 }
 
 .nav a,
@@ -86,12 +86,15 @@ p.grid{padding-left:10px;}
 
 .hmenu {float: right;position:fixed;padding: 0;}
 .hmenu li {list-style: none;}
-.dates{
+
+#sidebar {
 	margin-top: 25px;
+	float:right;
+	text-align:center;
+}
+.dates {
 	border-radius: 10px;
 	-moz-border-radius: 10px;
-	text-align:center;
-	float:right;
 	border-left:1px solid #ccc;	
 }
 .date_list li{
@@ -102,13 +105,6 @@ p.grid{padding-left:10px;}
 }
 .time {color:red	;}
 .videos, iframe {
-	margin: 10px 0 10px 5px;
+	margin: 10px 0;
 	max-width:480px;
-}
-.flickrs{
-	float:right;
-	margin-right:80px;
-}
-.photos img {
-	width:320px;
 }

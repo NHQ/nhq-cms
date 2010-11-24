@@ -35,6 +35,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.3)
     abstract (1.0.0)
     actionmailer (3.0.0)
       actionpack (= 3.0.0)
@@ -147,6 +148,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   bson_ext (= 1.0.7)
   carrierwave!
   devise!
