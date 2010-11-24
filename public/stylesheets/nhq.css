@@ -252,7 +252,7 @@ form.credit {
 	margin: 0;
 	list-style: none;
 }
-.flickrs li .title {
+#events .flickrs li .title {
 	text-align: center;
 	padding-left: 0.5em;
 }
@@ -263,7 +263,7 @@ form.credit {
 .flickrs .slideshow {
 	clear: left;
 }
-.flickrs .flickr_list li.flickr {
+#events .flickrs .flickr_list li.flickr {
 	text-align: center;
 }
 
