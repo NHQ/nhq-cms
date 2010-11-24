@@ -1,0 +1,13 @@
+= content_for :title, "Editing Promo " + @promotion.title
+
+%h1
+  Editing Promo
+  = @promotion.title
+  %span.admin= link_to 'Show All Promotions', promotions_path
+
+.timestamps
+  %span.created= 'created ' + @promotion.created_at.to_s(:short)
+  , 
+  %span.updated= 'updated ' + time_ago_in_words(@promotion.updated_at) + ' ago'
+
+= render 'form'

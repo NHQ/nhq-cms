@@ -24,6 +24,18 @@ class WorkshopsController < InheritedResources::Base
       render :action => 'edit'
     end
   end
+  
+  def remove_review
+    @workshop = Workshop.find(params[:workshop_id])
+    @review = Review.find(params[:review_id])
+    @workshop.review_ids = @workshop.review_ids - [@review.id] 
+    if @workshop.save
+      flash[:notice] = "Successfully removed review."
+      redirect_to @workshop
+    else
+      redirect_to @workshop
+    end
+  end
 
 
 end

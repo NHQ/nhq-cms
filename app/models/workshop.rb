@@ -9,7 +9,8 @@ class Workshop
   field :description
   mount_uploader :image, ImageUploader
 
-  references_many :reviews
+  references_many :reviews, :stored_as => :array, :default => []
+  
   embeds_many :flickrs
   embeds_many :videos
 

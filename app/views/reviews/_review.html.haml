@@ -8,7 +8,7 @@
     - if review.url?
       .tk-poster
         = coder.decode('&mdash;')
-        = link_to(review.title, review.url)
+        = link_to(review.title, review.url, :target => "_blank")
     - else
       .tk-poster
         = coder.decode('&mdash;')

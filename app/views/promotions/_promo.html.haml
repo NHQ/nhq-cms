@@ -1,0 +1,10 @@
+- if promotion.title?
+  .title= promotion.title
+= RedCloth.new(promotion.body).to_html.html_safe
+- if promotion.image?
+  = image_tag(promotion.image.url(:large))
+- if user_signed_in?
+  .title
+    %span.admin= link_to 'Edit Promo', edit_promotion_path(promotion)
+    %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Promo') + 'Delete Promo', promotion, :confirm => 'Are you sure you want to delete this Promo?', :method => :delete)
+    

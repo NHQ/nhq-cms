@@ -17,6 +17,9 @@
               = link_to "#{event.title} @ #{event.venues[0].venue_name}", event
             - else
               = link_to "#{event.title}", event
+  .promotions
+    - @promotions.each do |promo|
+      = render(:partial => 'promotions/promo', :locals => {:promotion => promo})
 
 #feedTitle            
   %a{:href=>"http://facebook.com/pages/500-Clown/73447773916", :target => "_blank"} Fanpage Updates
