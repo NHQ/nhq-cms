@@ -73,7 +73,7 @@
       - if available_reviews.count
         = form_for @show do |r|
           %select{:id => "review_id", :name => "review_id"}
-            - reviews_array = available_reviews.map { |review| [truncate(review.title), review.id] }
+            - reviews_array = available_reviews.map { |review| [truncate(review.description), review.id] }
             = options_for_select(reviews_array)
           = r.submit "Add Existing Review"
 
@@ -83,5 +83,3 @@
       %ul.review_list
         - @show.reviews.each do |review|
           = render(:partial => "reviews/review", :locals => {:review => review})
-          - if user_signed_in?
-            %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Review') + "remove review", "/shows/#{@show.id}/reviews/#{review.id}/remove", :confirm => 'Are you sure you want to remove this Review?')

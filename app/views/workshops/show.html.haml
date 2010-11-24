@@ -18,16 +18,12 @@
   = @workshop.tags.gsub(/,/, ", ")
 
 .reviews
-  - unless @workshop.reviews.empty?
-    %h3.tk-poster Press:
-    %ul.review_list
-      - @workshop.reviews.each do |review|
-        %li
-          %span.title= truncate(review.title)
-          %span.source= review.description.html_safe
-          = link_to "read full review", workshop_review_path(@workshop, review)
-          - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), workshop_review_path(@workshop, review), :confirm => 'Are you sure?', :method => :delete, :class => "trash")
+  - if @workshop.reviews.first
+    .reviews
+      %h3.tk-poster Press:
+      %ul.review_list
+        - @workshop.reviews.each do |review|
+          = render(:partial => "reviews/review", :locals => {:review => review})
 
   - if user_signed_in?
     %span.tk-poster

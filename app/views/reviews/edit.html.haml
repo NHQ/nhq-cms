@@ -1,6 +1,8 @@
 %h1
   Editing review
-  %span.admin= link_to 'Show All', reviews_path
+  - if @show
+    %span.admin= link_to 'View Show', show_path(@show)
+  %span.admin= link_to 'Show All Reviews', reviews_path
 
 .timestamps
   %span.created= 'created ' + @review.created_at.to_s(:short)

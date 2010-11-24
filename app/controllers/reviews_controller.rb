@@ -34,7 +34,13 @@ class ReviewsController < InheritedResources::Base
   end
 
   def update
-    update!(:notice => "Successfully updated Review.") { reviews_url }
+    if params[:show_id]
+      update!(:notice => "Successfully updated Review.") { show_url(params[:show_id]) }
+    elsif params[:workshop_id]
+      update!(:notice => "Successfully updated Review.") { workshop_url(params[:workshop_id]) }
+    else
+      update!(:notice => "Successfully updated Review.") { reviews_url }
+    end
   end
 
 
