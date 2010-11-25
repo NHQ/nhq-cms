@@ -1,0 +1,10 @@
+- content_for :title, "Promotions - 500 Clown"
+
+%h1 Promotions
+
+%ul.event_list
+  - if Promotion.all.count
+    - Promotion.all.each do |promotion|
+      %li
+        = link_to('created ' + promotion.created_at.to_s(:short), promotion_path(promotion))
+        = render(:partial => 'promotions/promo', :locals => {:promotion => promotion})

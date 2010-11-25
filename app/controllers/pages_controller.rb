@@ -5,6 +5,7 @@ class PagesController < InheritedResources::Base
   def home
 #    @upcoming_events = Event.where(:title => /^F/)
     @upcoming_events = Event.limit(2)
+    @promotions = Promotion.all
   end
 
   def show

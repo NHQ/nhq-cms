@@ -1,19 +1,17 @@
 %li{:class => "flickr " + fset.photoset_id}
   %span.title
     = fset.title
-    - if user_signed_in?
-      - if @show
-        %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), show_flickr_path(@show, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
-      - elsif @workshop
-        %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), workshop_flickr_path(@workshop, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
-      - elsif @event
-        %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), event_flickr_path(@event, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
-      - elsif @page
-        %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset'), page_flickr_path(@page.id, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
-
-  %p
-    - fset.photos.each do |photo|
-      %a{:href => flickr_src(photo, 'z'), :rel => 'photoset_' + fset.photoset_id, }= image_tag(flickr_src(photo, 's'))
+  - fset.photos.each do |photo|
+    %a{:href => flickr_src(photo, 'z'), :rel => 'photoset_' + fset.photoset_id, }= image_tag(flickr_src(photo, 's'))
+  - if user_signed_in?
+    - if @show
+      .tk-poster.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset') + "Remove Photoset", show_flickr_path(@show, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
+    - elsif @workshop
+      .tk-poster.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset') + "Remove Photoset", workshop_flickr_path(@workshop, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
+    - elsif @event
+      .tk-poster.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset') + "Remove Photoset", event_flickr_path(@event, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
+    - elsif @page
+      .tk-poster.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Photoset') + "Remove Photoset", page_flickr_path(@page.id, fset), :confirm => 'Are you sure you want to remove this Photoset?', :method => :delete)
 
 = javascript_tag do
   $("a[rel='photoset_#{fset.photoset_id}']").colorbox({slideshow:true});

@@ -3,7 +3,7 @@
 %h1
   = @event.title
   %span.admin
-    = link_to 'Show', @event
+    = link_to 'View Event', @event
 
 .timestamps
   %span.created= 'created ' + @event.created_at.to_s(:short)

@@ -10,29 +10,23 @@
   - if user_signed_in?
     %span.admin= link_to('Edit', edit_workshop_path(@workshop))
 
-%p.description
-  - if @workshop.image?
-    .right= image_tag(@workshop.image.url(:medium))
-  = @workshop.description.html_safe
+.description.redcloth
+  = RedCloth.new(@workshop.description).to_html.html_safe
 
 .tags
-  %span.tag_title Tags:
+  %span.tk-poster Tags:
   = @workshop.tags.gsub(/,/, ", ")
 
 .reviews
-  - unless @workshop.reviews.empty?
-    %h3.reviews_title Press:
-    %ul.review_list
-      - @workshop.reviews.each do |review|
-        %li
-          %span.title= truncate(review.title)
-          %span.source= review.description.html_safe
-          = link_to "read full review", workshop_review_path(@workshop, review)
-          - if user_signed_in?
-            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy'), workshop_review_path(@workshop, review), :confirm => 'Are you sure?', :method => :delete, :class => "trash")
+  - if @workshop.reviews.first
+    .reviews
+      %h3.tk-poster Press:
+      %ul.review_list
+        - @workshop.reviews.each do |review|
+          = render(:partial => "reviews/review", :locals => {:review => review})
 
   - if user_signed_in?
-    %span.admin
+    %span.tk-poster
       = link_to('+ Add New Review', new_workshop_review_path(@workshop))
       = form_for @workshop do |r|
         %select{:id => "review_id", :name => "review_id"}
@@ -41,7 +35,7 @@
         = r.submit "Add Existing Review"
 
 - if user_signed_in?
-  #add_video.admin + Add a Video
+  #add_video.tk-poster + Add a Video
   #new_video{:style => "display: none;"}= render '/videos/video-form'
 
 .videos
@@ -59,7 +53,7 @@
 
 .flickrs
   - if @workshop.flickrs.first
-    %h3.flickrs_title Photos:
+    %h3.tk-poster Photos:
     %ul.flickr_list
     - @workshop.flickrs.each do |fset|
       = render(:partial => "flickrs/photoset", :locals => {:fset => fset})

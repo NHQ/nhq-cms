@@ -1,22 +1,17 @@
-- stylesheet "jwysiwyg/jquery.wysiwyg"
-
 = semantic_form_for @review, :html => { :multipart => true } do |form|
 
   = form.error_messages
 
   = form.inputs do
-    = form.input :title, :required => true, :label => "Review Title"
-    = form.input :description, :as => :text, :input_html => { :class => 'wysiwyg' }
+    = form.input :title, :required => true, :label => "Source"
+    = form.input :description, :required => true, :as => :text, :label => "Quote"
     = form.input :url, :label => "LINK", :hint => 'e.g. http://herald.com/article'
     = image_tag(@review.image.url(:thumb)) if @review.image?
     = form.input :image
-    / = form.input :show, :as => :select, :collection => Show.find(:all), @show
-    / = form.input :workshop, :as => :select, :collection => Workshop.find(:all), @workshop
     - if @show
       <input type="hidden" name="show_id" value="#{params[:show_id]}" />
     - if @workshop
       <input type="hidden" name="workshop_id" value="#{params[:workshop_id]}" />
-
 
   = form.buttons do
     = form.commit_button

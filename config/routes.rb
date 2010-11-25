@@ -29,6 +29,10 @@ Clown::Application.routes.draw do
   resources :credits
   resources :videos
 
+  resources :promotions do
+    resources :videos
+  end
+
   match '/events/feed', :as => "feed", :to => "events#feed"
 
   resources :events do

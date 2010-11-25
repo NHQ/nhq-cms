@@ -1,5 +1,12 @@
 %h1
   Editing review
-  %span.admin= link_to 'Show', @review
+  - if @show
+    %span.admin= link_to 'View Show', show_path(@show)
+  %span.admin= link_to 'Show All Reviews', reviews_path
+
+.timestamps
+  %span.created= 'created ' + @review.created_at.to_s(:short)
+  , 
+  %span.updated= 'updated ' + time_ago_in_words(@review.updated_at) + ' ago'
 
 = render 'form'

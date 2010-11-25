@@ -1,21 +1,28 @@
 - content_for :head do
   = javascript_include_tag "date"
 
-%h1 500 Clown
 #home
-  %h2.description Life is worth the risk.
+  %h1 500 Clown
+  .description Life is worth the risk.
   .upcoming
-    %ul.upcoming_events
-      - @upcoming_events.each do |event|
+    - unless @upcoming_events.count < 1
+      - if  @upcoming_events.count == 1 
         %h3 Upcoming event:
-        %li.title
-          - if event.venues.first
-            = link_to "#{event.title} @ #{event.venues[0].venue_name}", event
-          - else
-            = link_to "#{event.title}", event
+      - elsif @upcoming_events.count > 1
+        %h3 Upcoming events:        
+      %ul.event_list
+        - @upcoming_events.each do |event|
+          %li.title
+            - if event.venues.first
+              = link_to "#{event.title} @ #{event.venues[0].venue_name}", event
+            - else
+              = link_to "#{event.title}", event
+  .promotions
+    - @promotions.each do |promo|
+      = render(:partial => 'promotions/promo', :locals => {:promotion => promo})
 
 #feedTitle            
-  %a{:href=>"/http://facebook.com/pages/500-Clown/73447773916"} Fanpage Updates
+  %a{:href=>"http://facebook.com/pages/500-Clown/73447773916", :target => "_blank"} Fanpage Updates
 
 .facebookfeed 
 

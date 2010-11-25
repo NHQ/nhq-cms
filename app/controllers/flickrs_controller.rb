@@ -46,7 +46,7 @@ class FlickrsController < InheritedResources::Base
       @event = Event.find(params[:event_id])
       @event.flickrs << @photoset
       @event.save
-      render :template => "flickrs/create.faded.js.erb", :content_type => 'text/javascript'
+      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
     elsif (params[:page_id])
       @page = Page.find(params[:page_id])
       @page.flickrs << @photoset

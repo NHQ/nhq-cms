@@ -19,7 +19,7 @@ class ReviewsController < InheritedResources::Base
         @workshop.reviews << @review
         redirect_to @workshop
       else
-        redirect_to @review
+        redirect_to reviews_url
       end
     else
       flash[:error] = "Review must have a title."
@@ -28,8 +28,18 @@ class ReviewsController < InheritedResources::Base
       elsif @workshop
         redirect_to @workshop
       else
-        redirect_to @review
+        redirect_to reviews_url
       end
+    end
+  end
+
+  def update
+    if params[:show_id]
+      update!(:notice => "Successfully updated Review.") { show_url(params[:show_id]) }
+    elsif params[:workshop_id]
+      update!(:notice => "Successfully updated Review.") { workshop_url(params[:workshop_id]) }
+    else
+      update!(:notice => "Successfully updated Review.") { reviews_url }
     end
   end
 

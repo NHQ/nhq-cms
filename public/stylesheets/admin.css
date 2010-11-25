@@ -85,17 +85,26 @@ li .destroy {
 	display: inline;
 }
 h1 .admin {
-	font-size: 0.5em;
 	text-transform: uppercase;
-	font-family: ;
 }
 .admin {
-	font-weight: bold;
+	font-weight: normal;
+	font-size: 14px;
 }
 span.add {
 	display: block;
 	padding-top: 1em;
 }
-.add {
-	font-weight: bold;
+.venue-admin {
+	font-size: 0.7em;
+}
+.tk-poster img,
+.date_list img,
+.admin img {
+	vertical-align: middle;
+}
+#redcloth {
+	position: absolute;
+	top: 150px;
+	right: 10px;
 }
