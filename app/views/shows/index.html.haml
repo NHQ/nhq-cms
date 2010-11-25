@@ -9,6 +9,6 @@
   - @shows.each do |show|
     %li.showblock
       - if show.image?
-        .photo= link_to image_tag(show.image.url(:boxy)), show
+        .photo.left= link_to image_tag(show.image.url(:boxy)), show
       .title
         = link_to show.title, show

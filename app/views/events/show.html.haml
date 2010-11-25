@@ -54,7 +54,7 @@
 #main-content.g560  
   - if @venue
     .where
-      %h2.title
+      %h2.venue_title
         = link_to @venue.venue_name, @venue
         - if user_signed_in?
           %span.admin.venue-admin
@@ -86,11 +86,6 @@
   .description.redcloth
     = RedCloth.new(@event.description).to_html.html_safe
 
-  - unless @event.tags_array.empty?
-    .tags
-      %span.tk-poster Tags:
-      = @event.tags.gsub(/,/, ", ")
-
 
   - if user_signed_in?
     #add_showdate.tk-poster + Add a Date
@@ -108,6 +103,11 @@
           = render(:partial => "videos/video", :locals => {:video => video})
     - else
       %ul.video_list
+
+  - unless @event.tags_array.empty?
+    .tags
+      %span.tk-poster Tags:
+      = @event.tags.gsub(/,/, ", ")
 
   - if user_signed_in?
     %span.add

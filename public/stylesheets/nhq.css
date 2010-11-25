@@ -8,7 +8,8 @@
 }
 .tags {
 	color: #555;
-	padding: 1em 0 2em 0;
+	padding:0;
+	margin-top:25px;
 	font-size: 0.9em;
 }
 .reference {
@@ -86,13 +87,16 @@
 .show_list,
 .workshop_list,
 .review_list,
-.credit_list,
 .upcoming_events,
 .flickr_list,
 .video_list {
 	padding: 0;
 	margin: 0;
 }
+.credit_list {
+	margin:1em 0;
+}
+
 .event_list li,
 .show_list li,
 .workshop_list li,
@@ -157,7 +161,9 @@ form.showdate {
 	cursor: pointer;
 }
 .description {
-	margin-top: 0.4em;
+	width:525px;
+	margin-top: 25px;
+	text-align:justify;
 }
 
 .price {
@@ -171,15 +177,17 @@ form.showdate {
 	font-size: .8em;
 }
 .venue_title {
+	font-family:helvetica;
 	font-weight: bold;
 }
-.address p {
+.address {
+	font-family:helvetica;
 	margin: 0;
 	padding: 0;
 }
 #map_canvas {
-	margin: 10px 0 0 0;
-	width: 450px; 
+	margin: 25px 0 0 0;
+	width: 525px; 
 	height: 250px;
 }
 #venue_state {
@@ -206,12 +214,9 @@ form.showdate {
 	height: 245px;
 }
 .showblock .title {
-	font-size: 1.1em;
+	font-size: 1.5em;
 	font-weight: bold;
 	padding-bottom: 0.2em;
-}
-.showblock.hover {
-	background-color: #E2E2E2;
 }
 .flickrs,
 .reviews,
@@ -219,6 +224,10 @@ form.showdate {
 .additional_info {
 	padding-top: 1em;
 	clear: right;
+}
+.credits li{
+	text-align:left;
+	padding:6px;
 }
 .info_title {
 	padding: 1em 0 0 0;
@@ -246,6 +255,9 @@ form.credit {
 
 
 /* FLICKR */
+.flickrs li .title {
+	display:none;
+}
 .flickrs li {
 	display: block;
 	padding: 1em 0;
@@ -267,7 +279,7 @@ form.credit {
 	text-align: center;
 }
 
-.flickr_list li img {padding:7px;background:#ccc;}
+.flickr_list li img {padding:5px;}
 
 /* jquery faded pagination */
 ul.pagination { list-style:none; padding:0; margin: 0 0 2em 0; }

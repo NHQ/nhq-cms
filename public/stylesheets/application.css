@@ -90,9 +90,13 @@ p.grid{padding-left:10px;}
 .hmenu li {list-style: none;}
 
 #sidebar {
-	margin-top: 25px;
+	margin-top:10px;
 	float:right;
 	text-align:center;
+}
+#sidebar h3 {
+	text-align:left;
+sidebar
 }
 .dates {
 	border-radius: 10px;
@@ -107,8 +111,8 @@ p.grid{padding-left:10px;}
 }
 .time {color:red	;}
 .videos, iframe {
-	margin: 10px 0;
-	max-width:480px;
+	max-width:525px;
+	padding:0;
 }
 #footer {
 	padding: 40px 0;

@@ -12,22 +12,22 @@
     %span.admin= link_to('Edit Show', edit_show_path(@show))
     %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Show') + 'Delete Show', @show, :confirm => 'Are you sure you want to delete the show "' + @show.title + '"?', :method => :delete)
  
-.description.redcloth
+.description.redcloth.g560
   = RedCloth.new(@show.description).to_html.html_safe
 
 - unless @show.tags_array.empty?
   .tags
     %span.tag_title Tags:
     = @show.tags.gsub(/,/, ", ")
-
+    
 - if @show.credits.first
-  .credits
-    %h3.tk-poster Credits:
+  .credits#sidebar.g240
+    %h3.tk-poster Credits
     %ul.credit_list
       - @show.credits.each do |c|
         %li
-          %span.credit= c.title + ': '
-          %span.name= c.name
+          %span.name= c.name + ' : '
+          %span.credit= c.title
           - if user_signed_in?
             %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Credit'), show_credit_path(@show, c), :confirm => 'Are you sure you want to delete this Credit?', :method => :delete)
 
@@ -61,7 +61,7 @@
         = r.submit "Add Existing Review"
 
 
-.flickrs
+.flickrs.g560
   - if @show.flickrs.first
     %h3.tk-poster Photos:
     %ul.flickr_list
@@ -74,7 +74,7 @@
     .tk-poster + Add a Photoset
     = render 'flickrs/flickr-form'
 
-.videos
+.videos.g560
   - if @show.videos.first
     %ul{:class => 'video_list'}
       - @show.videos.each do |video|

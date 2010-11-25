@@ -2,11 +2,11 @@
 
 %h1 Events
 
-%ul.event_list
+%ul.show_list
   - @events.each do |event|
-    %li
+    %li.showblock
       - if event.image?
-        = link_to(image_tag(event.image.url(:thumb), :class => 'left'), event)
+        .photo.left= link_to(image_tag(event.image.url(:boxy)), event)
       .title
         = link_to event.title, event 
         - if user_signed_in?

@@ -1,4 +1,4 @@
-body { 
+	body { 
   font:75%/1.5em;
 	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
   font-size-adjust:none;
@@ -38,7 +38,7 @@ h3,h4,h5,h6 {
 h1 { 
   color: #DB0000;
   font-weight:normal;
-  font-size: 3em;  
+  font-size: 4em;  
   line-height: 1em;
   margin-bottom: 0;
   text-align: left;
@@ -50,7 +50,7 @@ h2 {
 }
 h3 {
   color: #333;
-  font-size: 1.25em; 
+  font-size: 1.66em; 
 }
 
 h3 a {

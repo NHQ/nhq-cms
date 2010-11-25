@@ -5,11 +5,11 @@
 / -if user_signed_in?
 /   = link_to 'New workshop', new_workshop_path
 
-%ul.workshop_list
+%ul.show_list
   - @workshops.each do |workshop|
-    %li.workshopblock
+    %li.showblock
       - if workshop.image?
-        %span.left= link_to image_tag(workshop.image.url(:thumb)), workshop
+        %span.left= link_to image_tag(workshop.image.url(:boxy)), workshop
       .title
         = link_to workshop.title, workshop
         - if user_signed_in?
