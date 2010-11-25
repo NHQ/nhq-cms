@@ -123,8 +123,21 @@ var app = {
 				html += "<li>";
 				
 				// datestamp
-				var d = new Date(fb.created_time.slice(0,19).replace('T',' ')+' GMT');				
-				html += "<span class='date'>" + String(d).substr(0,15) + " " + "</span>";
+				// var d = new Date(fb.created_time.slice(0,19).replace('T',' ')+' GMT');				
+				// html += "<span class='date'>" + String(d).substr(0,15) + " " + "</span>";
+				
+				// convert facebook created_time to valid Javascript Date
+		    // var arrDateTime = fb.created_time.split("T"); 
+		    // var strTimeCode = arrDateTime[1].substring(0, arrDateTime[1].indexOf("+")); 
+		    // var valid_date = new Date(arrDateTime[0]);
+		    // var arrTimeCode = strTimeCode.split(":"); 
+		    // valid_date.setHours(arrTimeCode[0]);     
+		    // valid_date.setMinutes(arrTimeCode[1]);
+		    // valid_date.setSeconds(arrTimeCode[2]);
+		
+				var created_time = fb.created_time.slice(0,19).replace('T',' ') + ' GMT';
+
+				html += "<span class='date'>" + created_time + " " + "</span>";
 
 				switch (fb.type) {
 
