@@ -14,7 +14,7 @@ a:hover{color:#900;text-decoration:none;}
 .g400{width:390px;}
 .g560{width:550px;}
 .g720{width:710px;}
-.g880{width:800px;}
+.g880{width:800px;float:right;}
 .ml80{margin-left:90px;}
 .ml160{margin-left:170px;}
 .ml240{margin-left:250px;}
@@ -35,8 +35,10 @@ p.grid{padding-left:10px;}
 
 #menu {
 	position:fixed;
+	float:left;
 	margin-top:22px; 
 	font-weight: bold;
+	clear:none;
 }
 #menu ul {list-style:none;}
 #menu li {

@@ -13,12 +13,12 @@
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = yield(:head)
 
-  %body{:id => yield_for(:body_id, params[:controller])}
+  %body
     #container
       #menu.g160
         = render 'navigation/menu'
 
-      .ml160.g880
+      .g880
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         = yield
