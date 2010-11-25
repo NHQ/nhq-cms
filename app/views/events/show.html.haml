@@ -47,7 +47,7 @@
       - if @event.flickrs.first
         %div{:class => 'flickr_list', :style => 'display: none;'}
           - @event.flickrs.each do |fset|
-            = render(:partial => "flickrs/photoset-faded", :locals => {:fset => fset})
+            = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
       - else
         .flickr_list
   
