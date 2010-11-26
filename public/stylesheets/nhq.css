@@ -89,7 +89,7 @@
 .review_list,
 .upcoming_events,
 .flickr_list,
-.video_list {
+.video_list ul li{
 	padding: 0;
 	margin: 0;
 }
@@ -124,7 +124,8 @@
 .event_type {
 	padding-bottom: 0.175em;
 	text-transform: uppercase;
-	text-align:center;
+	text-align:left;
+	font-weight:900;
 }
 .event_type .label {
 	font-weight: bold;
@@ -177,11 +178,9 @@ form.showdate {
 	font-size: .8em;
 }
 .venue_title {
-	font-family:helvetica;
 	font-weight: bold;
 }
 .address {
-	font-family:helvetica;
 	margin: 0;
 	padding: 0;
 }
@@ -250,7 +249,7 @@ form.credit {
 	font-size: 0.8em;
 }
 .review_list .source {
-	text-align: center;
+	text-align: left;
 }
 
 

@@ -1,6 +1,6 @@
 	body { 
   font:75%/1.5em;
-	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
+	font-family: "Times New Roman", Georgia, 'Times New Roman', Times, serif; 
   font-size-adjust:none;
   font-style:normal;
   font-variant:normal;
@@ -27,12 +27,11 @@ p img.right {
 }
 
 h1,h2 {  
-	font-family: "Helvetica", Georgia, 'Times New Roman', Times, serif; 
-	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
+	font-family: "Times New Roman", Georgia, 'Times New Roman', Times, serif; 
 }
 h3,h4,h5,h6 { 
   font-weight: normal; 
-	font-family: "Baskerville", Georgia, 'Times New Roman', Times, serif; 
+	font-family: "Times New Roman", Georgia, 'Times New Roman', Times, serif; 
   color: #999999; 
 }
 h1 { 
@@ -97,7 +96,7 @@ address { margin-top: 1.5em; font-style: italic; }
 del { color: #000; }
 
 
-blockquote { font-size: 1.1em; padding-left:1.5em; margin: 1.5em 1.5em 0.5em 1.5em; border-left:3px solid #ccc; font-style:italic;  }
+blockquote { font-size: 1.1em;; margin: 1.5em 1.5em 0.5em 0; font-style:italic;}
 strong { font-weight: bold; }
 em, dfn { font-style: italic; }
 dfn { font-weight: bold; }

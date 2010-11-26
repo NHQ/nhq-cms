@@ -92,16 +92,14 @@ p.grid{padding-left:10px;}
 #sidebar {
 	margin-top:10px;
 	float:right;
-	text-align:center;
+	text-align:left;
 }
 #sidebar h3 {
 	text-align:left;
 sidebar
 }
 .dates {
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-left:1px solid #ccc;	
+
 }
 .date_list li{
 	padding-top:7px;
@@ -110,10 +108,14 @@ sidebar
 	font-size: 16px;
 }
 .time {color:red	;}
-.videos, iframe {
-	max-width:525px;
+.videos {
 	padding:0;
 }
+iframe {
+	max-width:525px;
+	margin-top:25px;
+}
+
 #footer {
 	padding: 40px 0;
 	margin: 0 auto;
@@ -130,3 +132,4 @@ sidebar
 #credit {
 	font-style: italic;
 }
+.page {margin-top:25px;}
