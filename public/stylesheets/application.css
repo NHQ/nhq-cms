@@ -111,7 +111,7 @@ sidebar
 .videos {
 	padding:0;
 }
-iframe {
+iframe, object {
 	max-width:525px;
 	margin-top:25px;
 }
