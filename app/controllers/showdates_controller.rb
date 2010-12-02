@@ -1,9 +1,9 @@
 class ShowdatesController < InheritedResources::Base
   belongs_to :event
   actions :index, :new, :create, :destroy
+  before_filter :find_event, :except => [:index]
   
   def create
-    @event = Event.find(params[:event_id])
 
     begin
       require 'date'
@@ -53,5 +53,11 @@ class ShowdatesController < InheritedResources::Base
     destroy!(:notice => "Date removed.") {event_url(@event)}
   end
 
+  private
+  
+  def find_event
+    @event = Event.first(:conditions => { :slug => params[:event_id] })  
+  end
+  
   
 end

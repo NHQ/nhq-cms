@@ -9,7 +9,7 @@
   = javascript_include_tag "jquery.calendrical"
   = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
 - content_for :jstemplates do
-  jQuery(function() { app.setupShowdates(); app.codeAddress(); app.setupVideos(); });
+  jQuery(function() { app.setupShowdates();  app.setupVideos(); app.codeAddress(); });
 
 %h1
   = @event.title
@@ -53,6 +53,8 @@
 
 #main-content.g560  
   - if @venue
+    - content_for :jstemplates do
+      jQuery(function() { app.codeAddress(); });
     .where
       %h2.venue_title
         = link_to @venue.venue_name, @venue

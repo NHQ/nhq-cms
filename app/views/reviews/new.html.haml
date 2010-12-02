@@ -2,12 +2,14 @@
 
 %h1
   New review
-  - if @show
+- if @show
+  .admin
     for 
-    = @show.title
-  - if @workshop
+    = link_to @show.title, @show
+- if @workshop
+  .admin
     for 
-    = @workshop.title
+    = link_to @workshop.title, @workshop
 
 
 = render 'form'

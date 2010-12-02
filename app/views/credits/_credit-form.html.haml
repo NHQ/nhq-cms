@@ -1,0 +1,8 @@
+#credit_new
+  = form_for @credit, :remote => true do |f|
+    = hidden_field_tag 'show_id', @show.slug
+    %label(for="credit_title" class="role") Role:
+    %input(id="credit_title" name="credit[title]" size="30" type="text")
+    %label(for="credit_name" class="name") Name:
+    %input(id="credit_name" name="credit[name]" size="30" type="text")
+    = submit_tag "Add New Credit", :class => 'admin'

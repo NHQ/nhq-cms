@@ -58,7 +58,7 @@ Clown::Application.routes.draw do
   match '/events/:event_id/add_venue', :as => "add_venue", :to => "events#add_venue"
   match '/events/:event_id/venues/:venue_id/remove', :as => "remove_venue", :to => "events#remove_venue"
   
-  match '/:slug' => 'pages#show'
+  # match '/:slug' => 'pages#show'
   
   root :to => "pages#home"
   

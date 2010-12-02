@@ -1,8 +1,8 @@
 class ShowsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :find_show, :except => [ :index, :new, :create, :remove_review]
   
   def show
-    @show = Show.find(params[:id])
     @reviews = @show.reviews
     if user_signed_in?
       @review = Review.new
@@ -13,7 +13,6 @@ class ShowsController < InheritedResources::Base
   end
   
   def update
-    @show = Show.find(params[:id])
     if params[:review_id]
       @review = Review.find(params[:review_id])
       @show.reviews << @review
@@ -40,7 +39,7 @@ class ShowsController < InheritedResources::Base
   # end
   
   def remove_review
-    @show = Show.find(params[:show_id])
+    @show = Show.where(:slug => params[:show_id]).first
     @review = Review.find(params[:review_id])
     @show.review_ids = @show.review_ids - [@review.id] 
     if @show.save
@@ -49,6 +48,12 @@ class ShowsController < InheritedResources::Base
     else
       redirect_to @show
     end
+  end
+  
+  private 
+  
+  def find_show
+    @show = Show.where(:slug => params[:id]).first
   end
   
 end

@@ -1,8 +1,8 @@
 class WorkshopsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :find_workshop, :except => [ :index, :new, :create, :remove_review ]
 
   def show
-    @workshop = Workshop.find(params[:id])
     @reviews = @workshop.reviews
     if user_signed_in?
       @flickr = Flickr.new
@@ -11,7 +11,6 @@ class WorkshopsController < InheritedResources::Base
   end
 
   def update
-    @workshop = Workshop.find(params[:id])
     if params[:review_id]
       @review = Review.find(params[:review_id])
       @workshop.reviews << @review
@@ -26,7 +25,7 @@ class WorkshopsController < InheritedResources::Base
   end
   
   def remove_review
-    @workshop = Workshop.find(params[:workshop_id])
+    @workshop = Workshop.where(:slug => params[:workshop_id]).first
     @review = Review.find(params[:review_id])
     @workshop.review_ids = @workshop.review_ids - [@review.id] 
     if @workshop.save
@@ -36,6 +35,13 @@ class WorkshopsController < InheritedResources::Base
       redirect_to @workshop
     end
   end
-
+  
+  
+  
+  private 
+  
+  def find_workshop
+    @workshop = Workshop.where(:slug => params[:id]).first
+  end
 
 end

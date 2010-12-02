@@ -133,34 +133,6 @@
 .event_list {
 	padding-top: 1em;
 }
-.when form .label {
-	width: 75px;
-	text-align: right;
-	padding: 0 0.3em 0.5em 0;
-	font-weight: bold;
-	color: #999;
-}
-.when form .label img {
-	vertical-align: bottom;
-}
-form.showdate .start,
-form.showdate .end {
-	clear: left;
-}
-form.showdate {
-	padding-bottom: 2em;
-}
-#add_showdate,
-#add_video,
-#add_review,
-#add_flickr {
-	margin: 2em 0 0 0;
-}
-#add_showdate:hover,
-#add_video:hover {
-	color: #DB0000;
-	cursor: pointer;
-}
 .description {
 	width:525px;
 	margin-top: 25px;

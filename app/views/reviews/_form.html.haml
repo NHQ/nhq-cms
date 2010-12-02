@@ -9,9 +9,9 @@
     = image_tag(@review.image.url(:thumb)) if @review.image?
     = form.input :image
     - if @show
-      <input type="hidden" name="show_id" value="#{params[:show_id]}" />
+      %input(type="hidden" name="show_id" value="#{@show.slug}")
     - if @workshop
-      <input type="hidden" name="workshop_id" value="#{params[:workshop_id]}" />
+      %input(type="hidden" name="workshop_id" value="#{@workshop.slug}")
 
   = form.buttons do
     = form.commit_button

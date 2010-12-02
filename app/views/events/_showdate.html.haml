@@ -1,5 +1,5 @@
 = semantic_form_for(@showdate, :as => :showdate, :url => {:controller => "showdates", :action => "create"}, :html => {:multipart => true}) do |f|
-  = hidden_field_tag('event_id', @event.id)
+  = hidden_field_tag('event_id', @event.slug)
   .start
     .label 
       Start:

@@ -1,1 +1,4 @@
 $('.video_list').append('<%= escape_javascript(render(:partial => "videos/video", :locals => {:video => @video}))%>');
+$('#video_code').val('');
+$('#video_code').focus();
+$('#flash_notice').text('Video added.');

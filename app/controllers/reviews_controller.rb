@@ -2,7 +2,8 @@ class ReviewsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_show, :only => [:new, :edit, :create]
   before_filter :find_workshop, :only => [:new, :edit, :create]
-  rescue_from Mongoid::Errors::DocumentNotFound, :with => :bad_record
+#  rescue_from Mongoid::Errors::DocumentNotFound, :with => :bad_record
+
 
   def bad_record
     render 'cleanup'
@@ -47,11 +48,11 @@ class ReviewsController < InheritedResources::Base
   private
   
   def find_show
-    @show = Show.criteria.id(params[:show_id]).first
+    @show = Show.first(:conditions => { :slug => params[:show_id] })
   end
 
   def find_workshop
-    @workshop = Workshop.criteria.id(params[:workshop_id]).first
+    @workshop = Workshop.first(:conditions => { :slug => params[:workshop_id] })
   end
 
 

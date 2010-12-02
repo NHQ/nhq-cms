@@ -1,7 +1,8 @@
 = content_for :title, "Editing " + @show.title
 
+%span.admin= link_to 'View Show', @show
+
 %h1
   = @show.title
-  %span.admin= link_to 'View Show', @show
 
 = render 'form'

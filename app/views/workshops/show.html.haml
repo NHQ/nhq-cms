@@ -5,21 +5,24 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupVideos(); });
 
+
+- if user_signed_in?
+  .admin
+    = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit Workshop', edit_workshop_path(@workshop))
+    = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Workshop') + 'Delete Workshop', @workshop, :confirm => 'Are you sure you want to delete this workshop?', :method => :delete)
+
+
 %h1.title
   = @workshop.title
-  - if user_signed_in?
-    %span.admin= link_to('Edit Workshop', edit_workshop_path(@workshop))
-    %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Workshop') + 'Delete Workshop', @workshop, :confirm => 'Are you sure you want to delete this workshop?', :method => :delete)
 
+.g560
+  .description.redcloth
+    = RedCloth.new(@workshop.description).to_html.html_safe
 
-.description.redcloth
-  = RedCloth.new(@workshop.description).to_html.html_safe
+  .tags
+    %span.tk-poster Tags:
+    = @workshop.tags.gsub(/,/, ", ")
 
-.tags
-  %span.tk-poster Tags:
-  = @workshop.tags.gsub(/,/, ", ")
-
-.reviews
   - if @workshop.reviews.first
     .reviews
       %h3.tk-poster Press:
@@ -28,36 +31,38 @@
           = render(:partial => "reviews/review", :locals => {:review => review})
 
   - if user_signed_in?
-    %span.tk-poster
-      = link_to('+ Add New Review', new_workshop_review_path(@workshop))
-      = form_for @workshop do |r|
-        %select{:id => "review_id", :name => "review_id"}
-          - reviews_array = Review.excludes(:workshop_id => @workshop.id).map { |review| [truncate(review.title), review.id] }
-          = options_for_select(reviews_array)
-        = r.submit "Add Existing Review"
+    #add_review
+      .tk-poster= link_to('+ Add New Review', new_show_review_path(@workshop))
+      - available_reviews = Review.not_in(:_id => @workshop.review_ids)
+      - if available_reviews.count
+        = form_for @workshop do |r|
+          %select{:id => "review_id", :name => "review_id"}
+            - reviews_array = available_reviews.map { |review| [truncate(review.description), review.id] }
+            = options_for_select(reviews_array)
+          = r.submit "Add Existing Review"
 
-- if user_signed_in?
-  #add_video.tk-poster + Add a Video
-  #new_video{:style => "display: none;"}= render '/videos/video-form'
+  - if user_signed_in?
+    #add_video.tk-poster + Add a Video
+    #new_video{:style => "display: none;"}= render '/videos/video-form'
 
-.videos
-  - if @workshop.videos.first
-    %ul{:class => 'video_list'}
-      - @workshop.videos.each do |video|
-        = render(:partial => "videos/video", :locals => {:video => video})
-  - else
-    %ul.video_list
+  .videos
+    - if @workshop.videos.first
+      %ul{:class => 'video_list'}
+        - @workshop.videos.each do |video|
+          = render(:partial => "videos/video", :locals => {:video => video})
+    - else
+      %ul.video_list
 
 
-- if user_signed_in?
-  %span.add
-    = render 'flickrs/flickr-form'
+  - if user_signed_in?
+    %span.add
+      = render 'flickrs/flickr-form'
 
-.flickrs
-  - if @workshop.flickrs.first
-    %h3.tk-poster Photos:
-    %ul.flickr_list
-    - @workshop.flickrs.each do |fset|
-      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
-  - else
-    %ul.flickr_list
+  .flickrs
+    - if @workshop.flickrs.first
+      %h3.tk-poster Photos:
+      %ul.flickr_list
+      - @workshop.flickrs.each do |fset|
+        = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+    - else
+      %ul.flickr_list

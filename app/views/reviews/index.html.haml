@@ -5,11 +5,3 @@
 %ul.review_list
   - @reviews.each do |review|
     = render(:partial => "reviews/review", :locals => {:review => review})
-    - if review.show
-      %p.reference
-        show: 
-        = link_to(review.show.title, review.show) 
-    - if review.workshop
-      %p.reference
-        workshop: 
-        = link_to(review.workshop.title, review.workshop)

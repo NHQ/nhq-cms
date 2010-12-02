@@ -77,19 +77,17 @@ li .destroy {
 .welcome {
 	text-align: right;
 }
-#show_credits_input label,
-#show_credits_input input {
-	display: inline;
-}
 .inline {
 	display: inline;
-}
-h1 .admin {
-	text-transform: uppercase;
 }
 .admin {
 	font-weight: normal;
 	font-size: 14px;
+	float: right;
+}
+#menu .admin {
+	padding-right: 15px;
+	float: none;
 }
 span.add {
 	display: block;
@@ -102,9 +100,54 @@ span.add {
 .date_list img,
 .admin img {
 	vertical-align: middle;
+	padding: 0 4px;
 }
 #redcloth {
 	position: absolute;
 	top: 150px;
 	right: 10px;
+}
+
+#credit_new .role,
+#credit_new .name {
+	float: left;
+	width: 50px;	
+}
+#credit_new input {
+	float: right;
+}
+#credit_new .name {
+	clear: both;
+}
+
+
+
+.when form .label {
+	width: 75px;
+	text-align: right;
+	padding: 0 0.3em 0.5em 0;
+	font-weight: bold;
+	color: #999;
+}
+.when form .label img {
+	vertical-align: bottom;
+}
+form.showdate .start,
+form.showdate .end {
+	clear: left;
+}
+form.showdate {
+	padding-bottom: 2em;
+}
+#add_showdate,
+#add_video,
+#add_review,
+#add_flickr {
+	margin: 2em 0 0 0;
+}
+#add_showdate:hover,
+#add_video:hover,
+#add_credit:hover {
+	color: #DB0000;
+	cursor: pointer;
 }

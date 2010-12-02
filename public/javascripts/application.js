@@ -1,23 +1,5 @@
 var app = {
-
-	setupCreditForms: function() {
-		// Make credit list sortable
-	  $('#credits ul').sortable({handle:".handle"}).disableSelection();
-
-	  // Wire up the add credit button
-	  $('#add').click(function(e) {
-	    e.preventDefault();
-	    var creditItem = $('#credits ul li:first').clone();
-	    creditItem.find('form')[0].reset();
-	    $('#credits ul').append(creditItem);
-	    creditItem.find("input[type='text']:first").focus();
-	  });
-
-	  // Create two extra credit fields
-	  $('#add').click().click();
-	},
 	
-
 	setupAjaxCallbacks: function() {
 		$('body').ajaxStart(function() {
 			$('#ajax-status').show().text("Loading...");
@@ -75,23 +57,41 @@ var app = {
 		});
 	},
 	
-	setupShowList: function() {
-
-		$(".showblock").hover(
-		  function () {
-		    $(this).addClass("hover");
-		  },
-		  function () {
-		    $(this).removeClass("hover");
-		  }
-		);
+	
+	setupCredits: function() {
+		
+    // show form
+		$("#add_credit").click(function() {
+			$("#credit_title").empty();
+		  $("#new_credit").toggle("slow", function() {
+				$("#credit_title").focus();
+			});
+		});
+		
+		// // Make credit list sortable
+		// 	  $('#credits ul').sortable({handle:".handle"}).disableSelection();
+		// 
+		// 	  // Wire up the add credit button
+		// 	  $('#add').click(function(e) {
+		// 	    e.preventDefault();
+		// 	    var creditItem = $('#credits ul li:first').clone();
+		// 	    creditItem.find('form')[0].reset();
+		// 	    $('#credits ul').append(creditItem);
+		// 	    creditItem.find("input[type='text']:first").focus();
+		// 	  });
+		// 
+		// 	  // Create two extra credit fields
+		// 	  $('#add').click().click();
 	},
+	
 	
 	setupVideos: function() {
 
     // show form
 		$("#add_video").click(function() {
-		  $("#new_video").toggle("slow");
+		  $("#new_video").toggle("slow", function() {
+				$("#video_code").focus();
+			});
 		});
 
 	},

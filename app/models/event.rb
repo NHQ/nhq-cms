@@ -2,6 +2,7 @@ class Event
   include Mongoid::Document
   include Mongoid::Taggable
   include Mongoid::Timestamps
+  include Mongoid::Slug
 
   field :title
   field :description
@@ -9,6 +10,7 @@ class Event
   field :event_duration
   field :ticket_url
   field :ticket_price
+  slug  :title
 
   disable_tags_index! # will disable index creation
 

@@ -33,40 +33,37 @@ class FlickrsController < InheritedResources::Base
 
     # adding to Show, Event, Workshop, or Page
     if (params[:show_id])
-      @show = Show.find(params[:show_id])
+      @show = Show.first(:conditions => { :slug => params[:show_id] })
       @show.flickrs << @photoset
       @show.save
-      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
     elsif (params[:workshop_id])
-      @workshop = Workshop.find(params[:workshop_id])
+      @workshop = Workshop.first(:conditions => { :slug => params[:workshop_id] })
       @workshop.flickrs << @photoset
       @workshop.save
-      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
     elsif (params[:event_id])
-      @event = Event.find(params[:event_id])
+      @event = Event.first(:conditions => { :slug => params[:event_id] })
       @event.flickrs << @photoset
-      @event.save
-      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
+      @event.save      
     elsif (params[:page_id])
-      @page = Page.find(params[:page_id])
+      @page = Page.first(:conditions => { :slug => params[:page_id] })
       @page.flickrs << @photoset
       @page.save
-      render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
     end
+    render :template => "flickrs/create.js.erb", :content_type => 'text/javascript'
   end
   
   def destroy
     if (params[:show_id])
-      @parent = Show.find(params[:show_id])
+      @parent = Show.first(:conditions => { :slug => params[:show_id] })
       redirection = show_url(@parent)
     elsif (params[:workshop_id])
-      @parent = Workshop.find(params[:workshop_id])
+      @parent = Workshop.first(:conditions => { :slug => params[:workshop_id] })
       redirection = workshop_url(@parent)
     elsif (params[:event_id])
-      @parent = Event.find(params[:event_id])
+      @parent = Event.first(:conditions => { :slug => params[:event_id] })
       redirection = event_url(@parent)
     elsif (params[:page_id])
-      @parent = Page.find(params[:page_id])
+      @parent = Page.first(:conditions => { :slug => params[:page_id] })
       redirection = page_url(@parent)
     end
     @flickr = @parent.flickrs.criteria.id(params[:id]).first

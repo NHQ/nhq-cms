@@ -1,1 +1,2 @@
 $('.flickr_list').append('<%= escape_javascript(render(:partial => "flickrs/photoset", :locals => {:fset => @photoset}))%>');
+$('#flash_notice').text('Photoset added.');

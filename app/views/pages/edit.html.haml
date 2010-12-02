@@ -1,8 +1,9 @@
 = content_for :title, "Editing " + @page.title + " Page"
 
+.admin= link_to('View Page', @page)
+
 %h1
   = @page.title 
-  %span.admin= link_to('View Page', @page)
   
 .timestamps
   %span.created= 'created ' + @page.created_at.to_s(:short)

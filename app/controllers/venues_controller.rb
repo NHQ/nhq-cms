@@ -40,7 +40,7 @@ class VenuesController < InheritedResources::Base
   private
   
   def find_event
-    @event = Event.criteria.id(params[:event_id]).first
+    @event = Event.first(:conditions => { :slug => params[:event_id] } )
   end
 
 end

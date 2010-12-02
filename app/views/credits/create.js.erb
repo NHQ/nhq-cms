@@ -1,0 +1,5 @@
+$('.credit_list').append('<%= escape_javascript(render(:partial => "credits/credit", :locals => {:credit => @credit}))%>');
+$('#credit_title').val('');
+$('#credit_name').val('');
+$('#credit_title').focus();
+$('#flash_notice').text('Credit added.');

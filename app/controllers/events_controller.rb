@@ -1,8 +1,8 @@
 class EventsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show, :feed]
+  before_filter :find_event, :except => [ :index, :new, :create, :feed ]
   
   def show
-    @event = Event.find(params[:id])
     @venue = @event.venues.first
     @showdates = @event.showdates.ascending(:start_date)
     if user_signed_in?
@@ -17,7 +17,6 @@ class EventsController < InheritedResources::Base
 
 
   def update
-    @event = Event.find(params[:id])
     if params[:venue_id]
       @venue = Venue.find(params[:venue_id])
       @event.venues << @venue
@@ -33,7 +32,6 @@ class EventsController < InheritedResources::Base
   
   
   def remove_venue
-    @event = Event.find(params[:event_id])
     @venue = Venue.find(params[:venue_id])
     @event.venue_ids = @event.venue_ids - [@venue.id] 
     if @event.save
@@ -42,6 +40,12 @@ class EventsController < InheritedResources::Base
     else
       redirect_to @event
     end
+  end
+  
+  private 
+  
+  def find_event
+    @event = Event.where(:slug => params[:id]).first
   end
   
 end

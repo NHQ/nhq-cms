@@ -1,7 +1,0 @@
-= semantic_form_for @credit, :as => :credit, :url => {:controller => "credits", :action => "create"}, :class => 'credit' do |f|
-	= hidden_field_tag 'show_id', @show.id
-	<label for="credit_title" style="display: inline;" class="credit">Credit:</label>
-	<input id="credit_title" name="credit[title]" size="12" type="text" />
-	<label for="credit_name" style="display: inline;" class="name">Name:</label> 
-	<input id="credit_name" name="credit[name]" size="25" type="text" />
-	= submit_tag "Add New Credit"
