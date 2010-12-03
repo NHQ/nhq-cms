@@ -1,4 +1,7 @@
 - content_for :title, "Events - 500 Clown"
+- body_id('events')
+- content_for :jstemplates do
+  jQuery(function() { app.setupShowList(); });
 
 %h1 Events
 
@@ -8,7 +11,7 @@
       - if event.image?
         .photo.left= link_to(image_tag(event.image.url(:boxy)), event)
       .title
-        = link_to event.title, event 
+        .show= link_to event.title, event 
         - if user_signed_in?
-          %span.admin= link_to 'Edit', edit_event_path(event)
-          %span.admin= link_to 'Destroy', event, :confirm => 'Are you sure you want to delete the event "' + event.title + '"?', :method => :delete
+          %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit', edit_event_path(event))
+          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + 'Destroy', event, :confirm => 'Are you sure you want to delete the event "' + event.title + '"?', :method => :delete)

@@ -6,5 +6,8 @@
   - if Promotion.all.count
     - Promotion.all.each do |promotion|
       %li
-        = link_to('created ' + promotion.created_at.to_s(:short), promotion_path(promotion))
+        .timestamps
+          %span.created= 'created ' + promotion.created_at.to_s(:short)
+          , 
+          %span.updated= 'updated ' + time_ago_in_words(promotion.updated_at) + ' ago'
         = render(:partial => 'promotions/promo', :locals => {:promotion => promotion})

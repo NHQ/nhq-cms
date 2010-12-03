@@ -4,7 +4,7 @@
   = javascript_include_tag "jquery.colorbox"
 - content_for :jstemplates do
   jQuery(function() { app.setupVideos(); });
-
+- body_id('workshops')
 
 - if user_signed_in?
   .admin

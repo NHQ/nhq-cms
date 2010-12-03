@@ -14,7 +14,7 @@
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = yield(:head)
 
-  %body
+  %body{:id => yield_for(:body_id, 'home')}
     #container
       #menu.g160
         = render 'navigation/menu'

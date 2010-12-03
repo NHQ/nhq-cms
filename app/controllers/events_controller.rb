@@ -32,6 +32,7 @@ class EventsController < InheritedResources::Base
   
   
   def remove_venue
+    @event = Event.where(:slug => params[:event_id]).first
     @venue = Venue.find(params[:venue_id])
     @event.venue_ids = @event.venue_ids - [@venue.id] 
     if @event.save

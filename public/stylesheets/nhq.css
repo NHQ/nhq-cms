@@ -29,12 +29,13 @@
 #home h1 {
 	font-size: 6em;
 }
-#home .description { 
+.home_description { 
 	font-style: italic;
 	font-weight: normal;
 	font-size: 1.4em;
 	line-height: 1.4em;
 	display:block;
+	padding-top: 0.5em;
 }
 .upcoming {
 	width:480px;
@@ -148,6 +149,7 @@
 .where {
 	padding-top: 1em;
 	font-size: .8em;
+	width: 420px;
 }
 .venue_title {
 	font-weight: bold;
@@ -222,6 +224,14 @@ form.credit {
 }
 .review_list .source {
 	text-align: left;
+	padding-left: 2em;
+}
+.review_list .odd {
+	background: #F3F3E3;
+}
+.review_list li {
+	padding: 0.1em 2em 1em 1em;
+	margin: 0;
 }
 
 
@@ -270,5 +280,6 @@ ul.pagination li.current a { background:#DB0000; color:white; }
 }
 .redcloth ul,
 .redcloth ol {
-	margin: 0.2em 0 0.3em 1em;
+	margin: 0.2em 0 0.9em 1.5em;
+	color: #900;
 }

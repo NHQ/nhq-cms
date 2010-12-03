@@ -1,15 +1,16 @@
 %ul
-  %li= link_to 'Home', '/'
-  %li= link_to 'Shows', :shows
-  %li= link_to 'Events', :events
-  %li= link_to 'Workshops', :workshops
-  %li= link_to 'Reviews', :reviews
+  %li
+    %a(href="/" class="home") Home
+  %li= link_to 'Shows', :shows, :class => 'shows'
+  %li= link_to 'Events', :events, :class => 'events'
+  %li= link_to 'Workshops', :workshops, :class => 'workshops'
+  %li= link_to 'Reviews', :reviews, :class => 'reviews'
   - Page.all.each do |page|
-    %li= link_to(page.title.titleize, '/pages/' + page.slug)  
+    %li= link_to page.title.titleize, '/pages/' + page.slug,:class => page.slug
   %li.admin= render 'devise/menu/login_items'
   - if user_signed_in?
-    %li.admin= link_to '+ New Event', new_event_path
     %li.admin= link_to '+ New Show', new_show_path
+    %li.admin= link_to '+ New Event', new_event_path
     %li.admin= link_to '+ New Workshop', new_workshop_path
     %li.admin= link_to '+ New Page', new_page_path
     %li.admin= link_to '+ New Review', new_review_path

@@ -10,7 +10,6 @@
       = image_tag(@workshop.image.url(:thumb))
       = form.input :remove_image, :as => :boolean
     = form.input :image
-    = form.input :slug, :hint => "Created automatically if left blank"
 
   = form.buttons do
     = form.commit_button

@@ -1,6 +1,7 @@
 html,body,div{border:0;margin:0;padding:0;color:#000;}
 a {text-decoration:none;color:#DB0000;}
 a:hover{color:#900;text-decoration:none;}
+.hover .show a {color:#900;text-decoration:none;}
 #container{width:960px;padding-top:10px;margin:0 auto;}
 .g160,.g320,.g480,.g640,.g800,.g960,.g80,.g240,.g400,.g560,.g720,.g880,.g960{float:left;display:inline; margin-left:10px;}
 .g160{width:150px;}
@@ -48,18 +49,33 @@ p.grid{padding-left:10px;}
 	display: block;
 	padding: 0.4em 0;
 }
-#menu li:hover{}
-#menu li a{text-decoration:none;font-color:#000;}
-#menu li a:visited{color:#000}
+#menu li a {
+	color:	#000;
+}
 #menu li a:hover {
-	color:#red;
-	text-decoration: none;
+	color:	#900;
 }
 
-#menu li.admin { font-size: 1em;}
-#menu li.admin a{color:#DB0000;}
-#menu li.admin a:visited{color:#DB0000}
-#menu li.admin a:hover{color:#000;}
+#menu li.admin {
+	font-size: 1em;
+}
+#menu li.admin a {
+	color:#DB0000;
+}
+#menu li.admin a:visited {
+	color:#DB0000
+}
+#menu li.admin a:hover,
+#home a.home,
+#shows a.shows,
+#events a.events,
+#workshops a.workshops,
+#reviews a.reviews,
+#about a.about,
+#contact a.contact
+ {
+	color:#900;
+}
 
 #menu .admin a,
 #menu .admin a:hover,
@@ -107,7 +123,7 @@ sidebar
 .date, .time{
 	font-size: 16px;
 }
-.time {color:red	;}
+.time {color:#DB0000;}
 .videos {
 	padding:0;
 }
