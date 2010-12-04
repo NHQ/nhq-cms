@@ -52,8 +52,6 @@
 	clear:left;
 }
 
-#feedTitle a{color:red};
-
 .facebookfeed {
 	padding: 0;
 	margin: 0;
@@ -200,7 +198,7 @@
 }
 .credits li{
 	text-align:left;
-	padding:6px;
+	padding: 6px 0;
 }
 .info_title {
 	padding: 1em 0 0 0;
