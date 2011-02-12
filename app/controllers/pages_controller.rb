@@ -4,21 +4,18 @@ class PagesController < InheritedResources::Base
 
   def home
     # @upcoming_events = Event.where(:title => /^F/)
-    @upcoming_events = Event.limit(2)
-    # @all_events = Event.all
-    # @upcoming_events = []
-    # @all_events.each do |event|
-    #   flag = 1
-    #   event.showdates.each do |showdate|
-    #     if (showdate.mongo_start_time > Time.now.to_i)
-    #       if flag
-    #         @upcoming_events << event
-    #       end
-    #       flag = 0
-    #     end
-    #   end
-    # end
+    # @upcoming_events = Event.limit(2)
     # @upcoming_events = Event.where(:start_date.gte => Time.now.to_i)
+    @all_events = Event.all
+    @upcoming_events = []
+    @all_events.each do |event|
+      event.showdates.each do |showdate|
+        if (showdate.mongo_start_time > Time.now.to_i)
+          @upcoming_events << event
+          break
+        end
+      end
+    end
     @promotions = Promotion.all
   end
 
