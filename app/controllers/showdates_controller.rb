@@ -59,5 +59,4 @@ class ShowdatesController < InheritedResources::Base
     @event = Event.first(:conditions => { :slug => params[:event_id] })  
   end
   
-  
 end

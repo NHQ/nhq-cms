@@ -14,4 +14,18 @@ class Showdate
   validates_presence_of :start_time
   validates_presence_of :end_time
   
+  
+  def mongo_start_time
+    Time.parse([self.start_date, self.start_time].join(" ")).to_i
+  end
+  # 
+  # class << self
+  #   def future
+  #     criteria.where(:end_date.gte => Time.now) 
+  #   end
+  #   def past
+  #     criteria.where(:end_date.lte => Time.now)
+  #   end
+  # end
+  
 end
