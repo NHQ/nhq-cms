@@ -23,15 +23,6 @@
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         = yield
-      #footer
-        %hr
-        #credit
-          %b 500 Clown 
-          %br
-          Website & CMS designed by 
-          = link_to("NATIONAL HEADQUARTERS, LLC", "http://nationalheadquarters.org/")
-          %br With a grant from the
-          = link_to("Arts Work fund", "http://www.artsworkfund.org/")
         
       #ajax-status
 

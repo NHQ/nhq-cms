@@ -1,10 +1,8 @@
 #home
+  #eventsTab
+    = image_tag("images/upcomingtab.gif")
   .upcoming
     - unless @upcoming_events.count < 1
-      - if  @upcoming_events.count == 1 
-        %h3 Upcoming event:
-      - elsif @upcoming_events.count > 1
-        %h3 Upcoming events:        
       %ul.event_list
         - @upcoming_events.each do |event|
           %li.title

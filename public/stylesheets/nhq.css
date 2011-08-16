@@ -1,4 +1,9 @@
 /* LAYOUT */
+#eventsTab{
+	position:fixed;
+	top:0px;
+	right:-60px;
+}
 #container {
 	margin-top: 1em;
 }
@@ -7,9 +12,11 @@
 	padding-right: 0.5em;
 }
 .tags {
-	color: #555;
+	width:400px;
+	background:#fff;
+	color: #000;
 	padding:0;
-	margin-top:25px;
+	margin:25px 0 0 45px;
 	font-size: 0.9em;
 }
 .reference {
@@ -40,9 +47,9 @@ display:none;
 }
 .upcoming {
 	position:fixed;
-	top: 0;
-	width:200px;
-	margin:3em 0 2em 605px;
+	top: 120px;
+	width:250px;
+	margin:3em 0 2em 603px;
 	padding:.2em 1em ;
 	display:block;
 	clear:both;
@@ -54,7 +61,9 @@ display:none;
 	padding: 3px;
 	margin: 5px 0;
 }
-.upcoming li.title a {;
+.upcoming li.title a {
+	color:#000;
+	font-size:125%;
 	background:#fff;
 }
 .promotions {
@@ -102,9 +111,6 @@ display:none;
 	color: #999;
 	display: block;
 }
-#home h3 {
-}
-
 
 /* LISTS */
 .event_list,
@@ -119,7 +125,10 @@ display:none;
 .credit_list {
 	margin:1em 0;
 }
-
+.show_list li .title a
+{
+	color:#fff;
+}
 .event_list li,
 .show_list li,
 .workshop_list li,
@@ -170,6 +179,11 @@ display:none;
 }
 .description p {
 	padding:1em;
+}
+.SB_credits{
+	padding:0;
+	background:#fff;
+	width:100px;
 }
 .SB_ticket_url {
 	font-size:26px;
@@ -232,7 +246,7 @@ display:none;
 }
 
 /* SHOWS */
-#shows .videos {margin-top:205px;}
+#shows .videos, #workshops .videos {margin-top:225px;}
 .show_list {
 	width: 575px;
 	margin: 215px 28px;
@@ -312,21 +326,18 @@ form.credit {
 	text-align: left;
 	padding-left: 2em;
 }
-.review_list .odd {
-	background: #F3F3E3;
-}
-.review_list .even {
+.review_list {
 	background: #fff;
+	padding-bottom:1em;
 }
 .review_list li {
 	padding: 0.1em 2em 1em 1em;
-	margin:2px 0;
 }
 
 
 /* FLICKR */
 .tk-poster{background:#fff;}
-.flickrs {margin-left:50px;width:500px;}
+.flickrs {margin-left:40px;width:525px;}
 .flickrs .title {
 	background:#fff;
 	display: block;
@@ -339,8 +350,8 @@ form.credit {
 .flickrs li {
 	background:#fff;
 	display: block;
-	padding: 1em 0;
-	margin: 0;
+	padding: 1em;
+	margin-left:0 auto;
 	list-style: none;
 }
 .flickrs a {
@@ -349,7 +360,7 @@ form.credit {
 .flickrs img {
 	padding:0;
 	margin:0px;
-	border:7px solid #fff;
+	border:5px solid #fff;
 }
 #sidebar .flickrs {margin-left:0;}
 #sidebar .flickrs a {

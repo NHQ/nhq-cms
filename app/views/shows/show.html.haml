@@ -37,7 +37,7 @@
 
   .flickrs
     - if @show.flickrs.first
-      %h3.tk-poster Photos:
+      %h3.tk-poster Photos
       %ul.flickr_list
         - @show.flickrs.each do |fset|
           = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
@@ -51,7 +51,7 @@
 
   - if @show.reviews.first
     .reviews
-      %h3.tk-poster Press:
+      %h3.tk-poster Press
       %ul.review_list
         - @show.reviews.each do |review|
           = render(:partial => "reviews/review", :locals => {:review => review})
@@ -75,7 +75,7 @@
 #sidebar.g240
   .credits
     - if @show.credits.first
-      %h3.tk-poster Credits
+      %p.tk-poster Credits
       %ul.credit_list
         - @show.credits.each do |credit|
           = render(:partial => 'credits/credit', :locals => {:credit => credit})
