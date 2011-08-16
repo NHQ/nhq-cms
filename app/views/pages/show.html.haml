@@ -11,34 +11,31 @@
     = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Page') + 'Delete Page', @page, :confirm => 'Are you sure you want to delete this page?', :method => :delete)
     = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Page') + 'Edit Page', edit_page_path(@page))
 
-- unless @page.hide_title
-  %h1.title
-    = @page.title
-    
-.page= RedCloth.new(@page.body).to_html.html_safe
+.g560    
+  .page= RedCloth.new(@page.body).to_html.html_safe
 
-- if user_signed_in?
-  #add_video.tk-poster + Add a Video
-  #new_video{:style => "display: none;"}= render '/videos/video-form'
+  - if user_signed_in?
+    #add_video.tk-poster + Add a Video
+    #new_video{:style => "display: none;"}= render '/videos/video-form'
 
-.videos
-  - if @page.videos.first
-    %ul{:class => 'video_list'}
-      - @page.videos.each do |video|
-        = render(:partial => "videos/video", :locals => {:video => video})
-  - else
-    %ul.video_list
+  .videos
+    - if @page.videos.first
+      %ul{:class => 'video_list'}
+        - @page.videos.each do |video|
+          = render(:partial => "videos/video", :locals => {:video => video})
+    - else
+      %ul.video_list
 
 
-- if user_signed_in?
-  %span.add
-    = render 'flickrs/flickr-form'
+  - if user_signed_in?
+    %span.add
+      = render 'flickrs/flickr-form'
 
-.flickrs
-  - if @page.flickrs.first
-    %h3.tk-poster Photos:
-    %ul.flickr_list
-    - @page.flickrs.each do |fset|
-      = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
-  - else
-    %ul.flickr_list
+  .flickrs
+    - if @page.flickrs.first
+      %h3.tk-poster Photos:
+      %ul.flickr_list
+      - @page.flickrs.each do |fset|
+        = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+    - else
+      %ul.flickr_list

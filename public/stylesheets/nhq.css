@@ -26,24 +26,49 @@
 }
 
 /* HOME */
-#home h1 {
+div#home {
+
+	width:620px;
+}
+.g880 h1 {
+	display:none;
 	font-size: 6em;
 }
-.home_description { 
-	font-style: italic;
-	font-weight: normal;
-	font-size: 1.4em;
-	line-height: 1.4em;
-	display:block;
-	padding-top: 0.5em;
+
+#home .home_description { 
+display:none;
 }
 .upcoming {
-	width:480px;
-	margin:3em 0 2em 0;
+	position:fixed;
+	top: 0;
+	width:200px;
+	margin:3em 0 2em 605px;
 	padding:.2em 1em ;
 	display:block;
 	clear:both;
-	border-left: 11px double #000;
+}
+.upcoming h3 {
+	background:#Fff;
+}
+.upcoming li {
+	padding: 3px;
+	margin: 5px 0;
+}
+.upcoming li.title a {;
+	background:#fff;
+}
+.promotions {
+	padding: 215px 0 30px
+}
+.promotions p{
+	background:#fff;
+	width:550px;
+	margin: 0 auto;
+	padding:12px 16px;
+}
+.promotions div.title {
+	margin: 15px 0;
+	text-align:center;
 }
 #feedTitle{
 	font-size:150%;
@@ -87,8 +112,7 @@
 .workshop_list,
 .review_list,
 .upcoming_events,
-.flickr_list,
-.video_list ul li{
+{
 	padding: 0;
 	margin: 0;
 }
@@ -121,6 +145,7 @@
 
 /* EVENTS */
 .event_type {
+	background:#fff;
 	padding-bottom: 0.175em;
 	text-transform: uppercase;
 	text-align:left;
@@ -132,22 +157,54 @@
 .event_list {
 	padding-top: 1em;
 }
-.description {
+.description
+{
+	background:#fff;
 	width:525px;
+	margin-left:40px;
 	margin-top: 25px;
-	text-align:justify;
+	text-align:left;
 }
-
-.price {
-	margin:10px 0;
-	font-size: 125%;
+.description h2{
+	padding:1ex 0 0 1ex;
+}
+.description p {
+	padding:1em;
+}
+.SB_ticket_url {
+	font-size:26px;
+	background:#fff;
+	width:175px;
+	margin-left:0;
+	margin-top: 15px;
+	margin-bottom:;
 	text-align:center;
+}
+.ticket_url {
+	font-size:45px;
+	background:#fff;
+	width:250px;
+	margin-left:35px;
+	margin-top: 15px;
+	margin-bottom:25px;
+	text-align:center;
+}
+.price {
+	width:180px;
+	background:#fff;
+	margin:10px 0;
+	padding:0;
+	font-size: 80%;
+	text-align:left;
 }
 /* VENUE */
 .where {
-	padding-top: 1em;
+	background:#fff;
+	margin-top:25px	;
+	padding:5px 6px;
+	margin-left:300px;
 	font-size: .8em;
-	width: 420px;
+	width: 250px;
 }
 .venue_title {
 	font-weight: bold;
@@ -157,9 +214,10 @@
 	padding: 0;
 }
 #map_canvas {
-	margin: 25px 0 0 0;
+	margin: 225px 0 0  45px;
 	width: 525px; 
 	height: 250px;
+	box-shadow:0 0 3px #333;
 }
 #venue_state {
 	display: inline;
@@ -174,27 +232,50 @@
 }
 
 /* SHOWS */
+#shows .videos {margin-top:205px;}
 .show_list {
-	margin: 1em 0 0 0;
-	padding: 0;
+	width: 575px;
+	margin: 215px 28px;
 }
 .show_list .showblock {
+	background:#000;
+	padding:0;
 	float: left;
-	padding: 5px;
-	width: 200px;
-	height: 300px;
+	width: 175px;
+	height: 175px;
+	border: 5px solid #fff;
 }
-.showblock .title {
+.showblock img {
+	padding:0;
+	width: 175px;
+	height: 175px;
+}
+.showblock {
 	font-size: 1.5em;
 	font-weight: bold;
 	padding-bottom: 0.2em;
 }
+.showblock .title {display:none;}
 .flickrs,
 .reviews,
 .credits,
 .additional_info {
 	padding-top: 1em;
 	clear: right;
+}
+.reviews{
+	width:500px;
+	margin-left:50px;
+}
+.showblock .title .show{padding:0;
+width: 175px;
+height: 175px;
+font-size:18px;}
+.showblock .title .show a {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	padding: 25px;
 }
 .credits li{
 	text-align:left;
@@ -207,7 +288,14 @@ form.credit {
 	padding-top: 1em;
 }
 .credit {
-	color: #666;
+	font-size: 16px	;
+	color: #000;
+	background:#fff;
+}
+.name{
+	font-size: 20px	;
+	color: #000;
+	background:#fff;
 }
 
 
@@ -227,38 +315,86 @@ form.credit {
 .review_list .odd {
 	background: #F3F3E3;
 }
+.review_list .even {
+	background: #fff;
+}
 .review_list li {
 	padding: 0.1em 2em 1em 1em;
-	margin: 0;
+	margin:2px 0;
 }
 
 
 /* FLICKR */
-.flickrs li .title {
-	display:none;
+.tk-poster{background:#fff;}
+.flickrs {margin-left:50px;width:500px;}
+.flickrs .title {
+	background:#fff;
+	display: block;
+	padding: 1em;
+	margin:1ex 0;
+}
+.flickrs .slideshow {
+	clear: left;
 }
 .flickrs li {
+	background:#fff;
 	display: block;
 	padding: 1em 0;
 	margin: 0;
 	list-style: none;
 }
+.flickrs a {
+	padding:0;
+}
+.flickrs img {
+	padding:0;
+	margin:0px;
+	border:7px solid #fff;
+}
+#sidebar .flickrs {margin-left:0;}
+#sidebar .flickrs a {
+	padding:0;
+}
+#sidebar .flickrs img {
+	border:none;
+}
+#sidebar .flickrs li .title {
+	display:none;
+}
+#sidebar .flickrs li {
+	width:190px;
+	background:#fff;
+	display: block;
+	padding: 1em 0;
+	margin: 0;
+	list-style: none;
+}
+#sidebar .flickrs a {
+	padding:0;
+}
+#sidebar .flickrs img {
+	padding:0;
+	margin:6px 0px 6px 12px;
+	background:#fff;
+}
+
+.flickrs li .title {
+	display:block;
+}
+
 #events .flickrs li .title {
 	text-align: center;
 	padding-left: 0.5em;
 }
-.flickrs .title {
-	display: block;
-	padding-bottom: 0.5em;
-}
-.flickrs .slideshow {
-	clear: left;
-}
-#events .flickrs .flickr_list li.flickr {
-	text-align: center;
-}
 
-.flickr_list li img {padding:5px;}
+#events .flickrs .flickr_list li.flickr {
+
+}
+#johnnyShim{
+	width:750px;
+	display:block; margin-left:10px;
+	
+}
 
 /* jquery faded pagination */
 ul.pagination { list-style:none; padding:0; margin: 0 0 2em 0; }

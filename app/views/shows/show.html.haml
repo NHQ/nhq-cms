@@ -12,18 +12,7 @@
     = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Show') + 'Delete Show', @show, :confirm => 'Are you sure you want to delete the show "' + @show.title + '"?', :method => :delete)
     = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit Show', edit_show_path(@show))
 
-
-%h1.title
-  = @show.title 
-
 .g560
-  .description.redcloth
-    = RedCloth.new(@show.description).to_html.html_safe
-
-    - unless @show.tags_array.empty?
-      .tags
-        %span.tag_title Tags:
-        = @show.tags.gsub(/,/, ", ")
   .videos
     - if @show.videos.first
       %ul{:class => 'video_list'}
@@ -35,6 +24,16 @@
     - if user_signed_in?
       #add_video.tk-poster + Add a Video
       #new_video{:style => "display: none;"}= render '/videos/video-form'
+      
+  .description.redcloth
+    %h3.title
+      = @show.title
+    = RedCloth.new(@show.description).to_html.html_safe
+
+    - unless @show.tags_array.empty?
+      .tags
+        %span.tag_title Tags:
+        = @show.tags.gsub(/,/, ", ")
 
   .flickrs
     - if @show.flickrs.first

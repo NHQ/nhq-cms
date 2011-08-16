@@ -110,7 +110,7 @@ var app = {
 	
   getFeed: function () {
 		//Set Url of JSON data from the facebook graph api. make sure callback is set with a '?' to overcome the cross domain problems with JSON
-		var url = "http://graph.facebook.com/73447773916/posts?limit=10&callback=?";
+		var url = "http://graph.facebook.com/500clown/posts?limit=10&callback=?";
 	
 		//Use jQuery getJSON method to fetch the data from the url and then create our unordered list with the relevant data.
 		$.getJSON(url,function(json){

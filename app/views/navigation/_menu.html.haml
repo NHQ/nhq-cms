@@ -4,7 +4,7 @@
   %li= link_to 'Shows', :shows, :class => 'shows'
   %li= link_to 'Events', :events, :class => 'events'
   %li= link_to 'Workshops', :workshops, :class => 'workshops'
-  %li= link_to 'Reviews', :reviews, :class => 'reviews'
+  %li= link_to 'Reviews', :reviews, :class => 'mreviews'
   - Page.all.each do |page|
     %li= link_to page.title.titleize, '/pages/' + page.slug,:class => page.slug
   %li.admin= render 'devise/menu/login_items'

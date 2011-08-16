@@ -1,12 +1,13 @@
 - content_for :title, @review.title + " - 500 Clown"
 
-%h1.title
-  = @review.title
-  - if user_signed_in?
-    %span.admin= link_to 'Edit', edit_review_path(@review)
-.description= @review.description.html_safe
-- unless @review.url.empty?
-  .url= link_to @review.url
+.g560
+  %h1.title
+    = @review.title
+    - if user_signed_in?
+      %span.admin= link_to 'Edit', edit_review_path(@review)
+  .description= @review.description.html_safe
+  - unless @review.url.empty?
+    .url= link_to @review.url
   
-%p
-  = image_tag @review.image.url(:medium) if @review.image?
+  %p
+    = image_tag @review.image.url(:medium) if @review.image?

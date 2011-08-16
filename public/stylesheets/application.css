@@ -1,4 +1,5 @@
 html,body,div{border:0;margin:0;padding:0;color:#000;}
+body {background: url(images/background.jpg) repeat;};
 a {text-decoration:none;color:#DB0000;}
 a:hover{color:#900;text-decoration:none;}
 .hover .show a {color:#900;text-decoration:none;}
@@ -13,9 +14,13 @@ a:hover{color:#900;text-decoration:none;}
 .g80{width:70px;}
 .g240{width:230px;}
 .g400{width:390px;}
-.g560{width:550px;}
+.g560{width:550px;margin-top:225px;margin-bottom:150px;}
 .g720{width:710px;}
-.g880{width:800px;float:right;}
+.g880{width:800px;float:right;background-color;transparent;
+background:url(images/main_div.jpg) repeat-y;
+background-position: 0 -20px;
+min-height:919px;
+}
 .ml80{margin-left:90px;}
 .ml160{margin-left:170px;}
 .ml240{margin-left:250px;}
@@ -60,21 +65,21 @@ p.grid{padding-left:10px;}
 	font-size: 1em;
 }
 #menu li.admin a {
-	color:#DB0000;
+	color:#000;
 }
 #menu li.admin a:visited {
-	color:#DB0000
+	color:#000
 }
 #menu li.admin a:hover,
 #home a.home,
 #shows a.shows,
 #events a.events,
 #workshops a.workshops,
-#reviews a.reviews,
+#reviews a.mreviews,
 #about a.about,
 #contact a.contact
  {
-	color:#900;
+	color:#000;
 }
 
 #menu .admin a,
@@ -106,26 +111,34 @@ p.grid{padding-left:10px;}
 .hmenu li {list-style: none;}
 
 #sidebar {
+	font-size:24px;
+	position:absolute;
+	top:50px;
+	margin-left:780px;
 	margin-top:10px;
-	float:right;
 	text-align:left;
 }
+
 #sidebar h3 {
 	text-align:left;
-sidebar
 }
-.dates {
+#date_list{
 
 }
-.date_list li{
+
+#sidebar ul li{
 	padding-top:7px;
 }
 .date, .time{
+	background-color:#fff;
 	font-size: 16px;
 }
-.time {color:#DB0000;}
+.time {color:#000;}
 .videos {
 	padding:0;
+}
+.video_list{
+	margin-left:55px;
 }
 .video_list li {
 		margin-top:25px;
@@ -135,19 +148,22 @@ iframe, object {
 }
 
 #footer {
-	padding: 40px 0;
-	margin: 0 auto;
+	font-size:17px;
+	text-shadow:1px 1px 3px #fff;
+	margin: 0 auto 50px;
 	width: 500px;
 	text-align: center;
 	clear: both;
 }
 #footer hr {
-	color:#DDD;
-	background-color:#DDD;
+	color:#111;
+	background-color:#111;
 	height:1px;
 	border:none;
 }
 #credit {
+	
+	padding: 3px;
 	font-style: italic;
 }
 .page {margin-top:25px;}

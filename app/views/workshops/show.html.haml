@@ -11,12 +11,18 @@
     = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit Workshop', edit_workshop_path(@workshop))
     = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Workshop') + 'Delete Workshop', @workshop, :confirm => 'Are you sure you want to delete this workshop?', :method => :delete)
 
-
-%h1.title
-  = @workshop.title
-
 .g560
+  .videos
+    - if @workshop.videos.first
+      %ul{:class => 'video_list'}
+        - @workshop.videos.each do |video|
+          = render(:partial => "videos/video", :locals => {:video => video})
+    - else
+      %ul.video_list
+      
   .description.redcloth
+    %h3.title
+      = @workshop.title
     = RedCloth.new(@workshop.description).to_html.html_safe
 
   .tags
@@ -44,15 +50,6 @@
   - if user_signed_in?
     #add_video.tk-poster + Add a Video
     #new_video{:style => "display: none;"}= render '/videos/video-form'
-
-  .videos
-    - if @workshop.videos.first
-      %ul{:class => 'video_list'}
-        - @workshop.videos.each do |video|
-          = render(:partial => "videos/video", :locals => {:video => video})
-    - else
-      %ul.video_list
-
 
   - if user_signed_in?
     %span.add
