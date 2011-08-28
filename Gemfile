@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.7'
 gem 'mongoid', :git => 'git://github.com/cherring/mongoid.git'  
+# gem "mongoid", :git => "git@github.com:durran/mongoid.git"
 # gem 'mongoid'
 gem 'mongo', '1.0.7'
 gem 'bson_ext', '1.0.7'
