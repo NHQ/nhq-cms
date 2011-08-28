@@ -1,5 +1,5 @@
 html,body,div{border:0;margin:0;padding:0;color:#000;}
-body {background:url(background.jpg) left top repeat;}
+body {background:url(../images/background.jpg) left top repeat;}
 a {text-decoration:none;color:#DB0000;}
 a:hover{color:#900;text-decoration:none;}
 .hover .show a {color:#900;text-decoration:none;}
@@ -14,12 +14,15 @@ a:hover{color:#900;text-decoration:none;}
 .g80{width:70px;}
 .g240{width:230px;}
 .g400{width:390px;}
-.g560{width:550px;margin-top:225px;margin-bottom:150px;}
+.g560{width:550px;margin: 225px 70px 150px 0;}
 .g720{width:710px;}
-.g880{width:800px;float:right;background-color;transparent;
-background:url(main_div.jpg) repeat-y;
-background-position: 0 -20px;
-min-height:919px;
+.g880{
+  width: 800px;
+  float: right;
+  background-color: transparent;
+  background: url(../images/main_div.jpg) repeat-y;
+  background-position: 0 -20px;
+  min-height:919px;
 }
 .ml80{margin-left:90px;}
 .ml160{margin-left:170px;}
@@ -44,10 +47,12 @@ h3 {
 }
 
 #menu {
-	background: url(images/sidebar.gif) left top no-repeat;
+	background: url(../images/sidebar.gif) left top no-repeat;
 	background-size:100% 100%;
 	position:fixed;
 	float:left;
+	width: 150px;
+	height: 313px;
 	overflow:visible;
 	margin-top:22px; 
 	font-weight: bold;
@@ -56,7 +61,7 @@ h3 {
 #menu ul {list-style:none;}
 #menu li {
 	margin-left:7px;
-	font-size:24px;
+	font-size:22px;
 	color: #000;
 	font-family: 	;
 	display: block;
@@ -120,10 +125,10 @@ h3 {
 
 #sidebar {
 	font-size:24px;
-	position:absolute;
-	top:50px;
-	margin-left:780px;
-	margin-top:10px;
+	float: right;
+	width: 180px;
+	padding-left:0px;
+  margin: 10px 0 0 0;
 	text-align:left;
 }
 

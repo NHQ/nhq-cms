@@ -22,7 +22,7 @@
       %ul.video_list
 
     - if user_signed_in?
-      #add_video.tk-poster + Add a Video
+      #add_video + Add a Video
       #new_video{:style => "display: none;"}= render '/videos/video-form'
       
   .description.redcloth
@@ -37,7 +37,7 @@
 
   .flickrs
     - if @show.flickrs.first
-      %h3.tk-poster Photos
+      %h3 Photos
       %ul.flickr_list
         - @show.flickrs.each do |fset|
           = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
@@ -45,20 +45,20 @@
       %ul.flickr_list
 
     - if user_signed_in?
-      #add_flickr
-        .tk-poster + Add a Photoset
+      #add_flickr 
+        + Add a Photoset
         = render 'flickrs/flickr-form'
 
   - if @show.reviews.first
     .reviews
-      %h3.tk-poster Press
+      %h3 Press
       %ul.review_list
         - @show.reviews.each do |review|
           = render(:partial => "reviews/review", :locals => {:review => review})
 
   - if user_signed_in?
     #add_review
-      .tk-poster= link_to('+ Add New Review', new_show_review_path(@show))
+      = link_to('+ Add New Review', new_show_review_path(@show))
       - available_reviews = Review.not_in(:_id => @show.review_ids)
       - if available_reviews.count
         = form_for @show do |r|
@@ -68,14 +68,14 @@
           = r.submit "Add Existing Review"
 
   - if @show.additional_info?  
-    .additional_info.redcloth.g560
-      %h3.tk-poster Additional Info:
+    .additional_info.redcloth
+      %h3 Additional Info:
       = RedCloth.new(@show.additional_info).to_html.html_safe
     
-#sidebar.g240
+#sidebar
   .credits
     - if @show.credits.first
-      %p.tk-poster Credits
+      %p.SB_credits Credits
       %ul.credit_list
         - @show.credits.each do |credit|
           = render(:partial => 'credits/credit', :locals => {:credit => credit})
