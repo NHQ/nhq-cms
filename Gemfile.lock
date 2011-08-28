@@ -1,15 +1,4 @@
 GIT
-  remote: git://github.com/cherring/mongoid.git
-  revision: d6b23c24ac0e3a91212afa1673d5efee4127d96f
-  specs:
-    mongoid (2.0.0.beta.16)
-      activemodel (~> 3.0.0)
-      bson (= 1.0.7)
-      mongo (= 1.0.7)
-      tzinfo (~> 0.3.22)
-      will_paginate (~> 3.0.pre)
-
-GIT
   remote: git://github.com/jnicklas/carrierwave.git
   revision: c6d17f2f455f9817fde31fee40625a7fcbcbf877
   specs:
@@ -66,8 +55,8 @@ GEM
     addressable (2.2.2)
     arel (2.0.10)
     bcrypt-ruby (2.1.2)
-    bson (1.0.7)
-    bson_ext (1.0.7)
+    bson (1.3.1)
+    bson_ext (1.3.1)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -101,8 +90,12 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mongo (1.0.7)
-      bson (>= 1.0.4)
+    mongo (1.3.1)
+      bson (>= 1.3.1)
+    mongoid (2.0.2)
+      activemodel (~> 3.0)
+      mongo (~> 1.3)
+      tzinfo (~> 0.3.22)
     mongoid_slug (0.4.6)
       mongoid (~> 2.0.0.beta)
     mongoid_taggable (0.1.1)
@@ -144,14 +137,13 @@ GEM
     tzinfo (0.3.29)
     warden (1.0.1)
       rack (>= 1.0.0)
-    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   RedCloth
-  bson_ext (= 1.0.7)
+  bson_ext (= 1.3.1)
   carrierwave!
   devise!
   flickraw
@@ -164,8 +156,8 @@ DEPENDENCIES
   inherited_resources
   jquery-rails
   mini_magick!
-  mongo (= 1.0.7)
-  mongoid!
+  mongo (= 1.3.1)
+  mongoid
   mongoid_slug
   mongoid_taggable
   oauth2
