@@ -1,0 +1,18 @@
+defaults: &defaults
+  host: localhost
+
+development:
+  <<: *defaults
+  database: clown_development
+
+test:
+  <<: *defaults
+  database: clown_test
+
+# set these environment variables on your prod server
+production:
+  host: flame.mongohq.com
+  port: 27054
+  username: wakingweb
+  password: m0gw41
+  database: clown

@@ -1,0 +1,13 @@
+development:
+  flickr_key: "55a54f52d494c1988df4f0535745632c"
+  flickr_secret: "c6a56bf03537c239"
+  flickr_auth: "72157624289074467-c3f2ba20a5a7abba"
+
+test:
+  flickr_key: "17256c53cc5d64bb38abf82b32757d51"
+  flickr_secret: "e199a6c9faa06e50"
+
+production:
+  flickr_key: "55a54f52d494c1988df4f0535745632c"
+  flickr_secret: "c6a56bf03537c239"
+  flickr_auth: "72157624289074467-c3f2ba20a5a7abba"
