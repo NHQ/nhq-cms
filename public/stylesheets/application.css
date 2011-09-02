@@ -23,6 +23,7 @@ a:hover{color:#900;text-decoration:none;}
   background: url(../images/main_div.jpg) repeat-y;
   background-position: 0 -20px;
   min-height:919px;
+  padding: 215px 0 0 28px;
 }
 .ml80{margin-left:90px;}
 .ml160{margin-left:170px;}
@@ -60,10 +61,10 @@ h3 {
 }
 #menu ul {list-style:none;}
 #menu li {
-	margin-left:7px;
-	font-size:22px;
+	margin-left: 7px;
+	font-size: 22px;
 	color: #000;
-	font-family: 	;
+  font-weight: normal;
 	display: block;
 	padding: 0.4em 0;
 }
@@ -159,7 +160,9 @@ h3 {
 iframe, object {
 	max-width:525px;
 }
-
+.page {
+  margin-top:25px;
+}
 #footer {
 	font-size:17px;
 	text-shadow:1px 1px 3px #fff;
@@ -175,8 +178,6 @@ iframe, object {
 	border:none;
 }
 #credit {
-	
 	padding: 3px;
 	font-style: italic;
 }
-.page {margin-top:25px;}

@@ -1,22 +1,27 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.10'
 # gem 'mongoid', :git => 'git://github.com/cherring/mongoid.git'  
-gem "mongoid"
-# gem 'mongoid'
-gem 'mongo', '1.3.1'
-gem 'bson_ext', '1.3.1'
+gem "mongoid", "~> 2.2.0"
+gem "bson_ext", "~> 1.3"
+# gem 'bson_ext', '1.0.7'
+# gem 'mongo', '1.3.1'
+# gem 'bson_ext', '1.0.7'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'formtastic', '~> 1.1.0'
+gem 'formtastic', '~> 1.2.4'
 gem 'mongoid_taggable'
 gem 'mongoid_slug'
 gem 'jquery-rails'
-gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
+# gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
+# gem "carrierwave", "~> 0.5.6"
+# gem "carrierwave", "~> 0.5.7"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 # gem 'devise', '1.1.2'
-# gem 'devise', :git => "http://github.com/plataformatec/devise.git"
-gem 'devise', :git => "git://github.com/plataformatec/devise.git"
+gem 'devise', :git => "http://github.com/plataformatec/devise.git", :branch => 'v1.2.oauth'
+# gem 'devise', :git => "git://github.com/plataformatec/devise.git"
+# gem "devise", ">= 1.4.2"
 gem 'oauth2'
 gem 'flickraw'
 # gem 'fgraph'

@@ -13,7 +13,9 @@ class Show
 
   mount_uploader :image, ImageUploader
 
-  references_many :reviews, :stored_as => :array, :default => []
+  # references_many :reviews, :stored_as => :array, :default => []
+  references_many :reviews
+
 
   embeds_many :credits
   embeds_many :flickrs

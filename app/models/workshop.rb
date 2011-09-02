@@ -11,7 +11,8 @@ class Workshop
   slug :title
   mount_uploader :image, ImageUploader
 
-  references_many :reviews, :stored_as => :array, :default => []
+#  references_many :reviews, :stored_as => :array, :default => []
+  references_many :reviews
   
   embeds_many :flickrs
   embeds_many :videos

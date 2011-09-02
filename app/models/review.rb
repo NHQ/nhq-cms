@@ -5,7 +5,7 @@ class Review
   field :title
   field :description
   field :url
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
   
   referenced_in :show
   referenced_in :workshop

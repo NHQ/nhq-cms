@@ -3,8 +3,10 @@ Clown::Application.routes.draw do
   resources :venues
 
   devise_for :users do
-    get "login", :to => "devise/sessions#new"
+    get "login", to: "devise/sessions#new"
   end
+
+  # devise_for :users
 
   resources :users, :only => :show
 

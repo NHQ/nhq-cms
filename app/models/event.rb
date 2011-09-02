@@ -20,7 +20,8 @@ class Event
   embeds_many :flickrs
   embeds_many :videos
 
-  references_many :venues, :stored_as => :array, :default => []
+  # references_many :venues, :stored_as => :array, :default => []
+  references_many :venues
   
   validates_presence_of :title
   validates_presence_of :description
