@@ -17,10 +17,10 @@
 
   %body{:id => yield_for(:body_id, 'home')}
     #container
-      #menu.160
+      #menu
         = render 'navigation/menu'
 
-      .g880
+      #main-content
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         = yield

@@ -17,7 +17,16 @@
     = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + 'Delete Event', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete)
     = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit Event', edit_event_path(@event))
 
-.g560  
+
+.videos
+  - if @event.videos.first
+    %ul{:class => 'video_list'}
+      - @event.videos.each do |video|
+        = render(:partial => "videos/video", :locals => {:video => video})
+  - else
+    %ul.video_list
+
+#main
   - if user_signed_in?
     #add_showdate.tk-poster + Add a Date
     #new_showdate{:style => "display: none;"}= render 'showdate'
@@ -66,13 +75,6 @@
     #add_video.tk-poster + Add a Video
     #new_video{:style => "display: none;"}= render '/videos/video-form'
 
-  .videos
-    - if @event.videos.first
-      %ul{:class => 'video_list'}
-        - @event.videos.each do |video|
-          = render(:partial => "videos/video", :locals => {:video => video})
-    - else
-      %ul.video_list
 
   - unless @event.tags_array.empty?
     .tags
@@ -84,10 +86,10 @@
       .tk-poster + Add a Photoset
       = render 'flickrs/flickr-form'
 
-#sidebar.g240
+#sidebar
   - if @event.event_type?
-    %span.event_type #{@event.event_type}
-    Date(s)
+    %span.event_type 
+      #{@event.event_type} Date(s)
 
   - unless @showdates.empty? 
     - date_fmt = '%a, %b %d, %Y'

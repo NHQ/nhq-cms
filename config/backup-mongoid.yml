@@ -15,4 +15,4 @@ production:
   port: 27054
   username: wakingweb
   password: m0gw41
-  database: clown
+  database: lucid-clown

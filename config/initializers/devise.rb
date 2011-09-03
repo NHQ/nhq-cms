@@ -15,11 +15,11 @@ Devise.setup do |config|
   require 'devise/orm/mongoid'
   
   # Configure for Facebook Graph API oAuth
-  config.oauth :facebook, '134544866593654', '44a4054588a1bf60cbe0c07fa253aa57', 
-    :site => 'https://graph.facebook.com/',
-    :authorize_path => '/oauth/authorize',
-    :access_token_path => '/oauth/access_token',
-    :scope => %w(email)
+  # config.oauth :facebook, '134544866593654', '44a4054588a1bf60cbe0c07fa253aa57', 
+  #   :site => 'https://graph.facebook.com/',
+  #   :authorize_path => '/oauth/authorize',
+  #   :access_token_path => '/oauth/access_token',
+  #   :scope => %w(email)
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating an user. By default is

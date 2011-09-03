@@ -1,11 +1,12 @@
 /* LAYOUT */
-#eventsTab{
-	position:fixed;
-	top:0px;
-	right:-60px;
-}
-#container {
-	margin-top: 1em;
+#home #eventsTab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 280px;
+	background: transparent url(../images/upcoming-events.png) no-repeat top right;
+	overflow: none;
 }
 .tag_title {
 	font-weight: bold;
@@ -33,84 +34,71 @@
 }
 
 /* HOME */
-div#home {
-
-	width:620px;
-}
-.g880 h1 {
-	display:none;
-	font-size: 6em;
-}
-
 #home .home_description { 
 display:none;
 }
 .upcoming {
-	position:fixed;
-	top: 120px;
-	width:250px;
-	margin:3em 0 2em 603px;
-	padding:.2em 1em ;
-	display:block;
-	clear:both;
+  padding: .2em 0;
+  display: block;
 }
 .upcoming h3 {
-	background:#Fff;
+  background:#FFF;
 }
 .upcoming li {
-	padding: 3px;
-	margin: 5px 0;
+  margin: 5px 0;
 }
 .upcoming li.title a {
-	color:#000;
-	font-size:125%;
-	background:#fff;
+  color:#000;
+  font-size:125%;
+  background:#fff;
 }
-.promotions {
-	padding: 215px 0 30px
+/*.promotions {
+  padding: 215px 0 30px
 }
-.promotions p{
-	background:#fff;
-	width:550px;
-	margin: 0 auto;
-	padding:12px 16px;
-}
+*/
+/*.promotions p{
+  background:#fff;
+  width:550px;
+  margin: 0 auto;
+  padding:12px 16px;
+}*/
 .promotions div.title {
+  font-size: 1.2em;
 	margin: 15px 0;
 	text-align:center;
 }
-#feedTitle{
-	font-size:150%;
-	margin-top: 5px;
-	padding:3px 0 7px 0;
-	clear:left;
+/*#feedTitle{
+  font-size:150%;
+  margin-top: 5px;
+  padding:3px 0 7px 0;
+  clear:left;
 }
 
 .facebookfeed {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .facebookfeed li {
-	width:480px;
-	padding: 0 0 0.5em 0;
-	margin: 0;
-	clear: left;
-	border-top: 1px solid #eee;
+  width:480px;
+  padding: 0 0 0.5em 0;
+  margin: 0;
+  clear: left;
+  border-top: 1px solid #eee;
 }
 .facebookfeed a{
-	color:red;
+  color:red;
 }
 .facebookfeed .name {
-	font-weight: bold;
-	clear: both;
+  font-weight: bold;
+  clear: both;
 }
 .facebookfeed .date {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 0.7em;
-	padding: 0.5em 0;
-	color: #999;
-	display: block;
-}
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  padding: 0.5em 0;
+  color: #999;
+  display: block;
+}*/
 
 /* LISTS */
 .event_list,
@@ -169,10 +157,10 @@ display:none;
 .description
 {
 	background:#fff;
-	width:525px;
-	margin-left:40px;
-	margin-top: 25px;
-	text-align:left;
+/*  width:525px;
+  margin-left:40px;
+  margin-top: 25px;
+  text-align:left;*/
 }
 .description h2{
 	padding:1ex 0 0 1ex;
@@ -180,9 +168,10 @@ display:none;
 .description p {
 	padding:1em;
 }
-.SB_credits{
+.SB_credits {
 	padding:0;
 	background:#fff;
+	width: 100px;
 }
 .SB_ticket_url {
 	font-size:26px;
@@ -245,10 +234,9 @@ display:none;
 }
 
 /* SHOWS */
-#shows .videos, #workshops .videos {margin-top:225px;}
+/*#shows .videos, #workshops .videos {margin-top:225px;}*/
 .show_list {
-	width: 575px;
-	margin: 215px 28px;
+  width: 575px;
 }
 .show_list .showblock {
 	background:#000;
@@ -268,7 +256,7 @@ display:none;
 	font-weight: bold;
 	padding-bottom: 0.2em;
 }
-.showblock .title {display:none;}
+/*.showblock .title {display:none;}*/
 .flickrs,
 .reviews,
 .credits,
@@ -280,10 +268,13 @@ display:none;
 	width:500px;
 	margin-left:50px;
 }
-.showblock .title .show{padding:0;
-width: 175px;
-height: 175px;
-font-size:18px;}
+.showblock .title .show {
+  position: relative;
+  padding:0;
+  width: 175px;
+  height: 175px;
+  font-size:18px;
+}
 .showblock .title .show a {
 	position: absolute;
 	left: 0;
@@ -336,7 +327,8 @@ form.credit {
 
 /* FLICKR */
 .tk-poster{background:#fff;}
-.flickrs {margin-left:40px;width:525px;}
+/*.flickrs {margin-left:40px;width:525px;}
+*/
 .flickrs .title {
 	background:#fff;
 	display: block;

@@ -1,8 +1,9 @@
 - content_for :title, "Reviews - 500 Clown"
 - body_id('reviews')
 
-%h1 Press Reviews
+/ %h1 Press Reviews
 
-%ul.review_list
-  - @reviews.each do |review|
-    = render(:partial => "reviews/review", :locals => {:review => review})
+#main
+  %ul.review_list
+    - @reviews.each do |review|
+      = render(:partial => "reviews/review", :locals => {:review => review})

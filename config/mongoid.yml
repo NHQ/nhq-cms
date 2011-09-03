@@ -8,8 +8,9 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  host: localhost
-  database: clown_development
+  uri: mongodb://heroku:m0gw41@flame.mongohq.com:27073/lucid-clown
+  # host: localhost
+  # database: clown_development
 
 test:
   <<: *defaults

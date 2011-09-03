@@ -3,8 +3,6 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupShowList(); });
 
-%h1 Shows
-
 %ul.show_list
   - @shows.each do |show|
     %li.showblock

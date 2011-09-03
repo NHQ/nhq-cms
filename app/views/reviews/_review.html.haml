@@ -6,13 +6,11 @@
       = coder.decode('&ldquo;') + review.description.html_safe + coder.decode('&rdquo;')
   .source
     - if review.url?
-      .tk-poster
-        = coder.decode('&mdash;')
-        = link_to(review.title, review.url, :target => "_blank")
+      = coder.decode('&mdash;')
+      = link_to(review.title, review.url, :target => "_blank")
     - else
-      .tk-poster
-        = coder.decode('&mdash;')
-        = review.title
+      = coder.decode('&mdash;')
+      = review.title
     - if user_signed_in?
       %span.tk-poster
         - if @show

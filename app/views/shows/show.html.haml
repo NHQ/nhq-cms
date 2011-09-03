@@ -12,7 +12,9 @@
     = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Show') + 'Delete Show', @show, :confirm => 'Are you sure you want to delete the show "' + @show.title + '"?', :method => :delete)
     = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit Show', edit_show_path(@show))
 
-.g560
+
+#main    
+
   .videos
     - if @show.videos.first
       %ul{:class => 'video_list'}
@@ -24,7 +26,8 @@
     - if user_signed_in?
       #add_video + Add a Video
       #new_video{:style => "display: none;"}= render '/videos/video-form'
-      
+
+
   .description.redcloth
     %h3.title
       = @show.title
@@ -71,7 +74,7 @@
     .additional_info.redcloth
       %h3 Additional Info:
       = RedCloth.new(@show.additional_info).to_html.html_safe
-    
+  
 #sidebar
   .credits
     - if @show.credits.first
