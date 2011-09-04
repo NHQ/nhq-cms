@@ -1,6 +1,7 @@
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
+  width: 500px;
 }
 #ajax-status, #flash_notice, #flash_error, #flash_alert  {
   -webkit-border-radius: 5px;

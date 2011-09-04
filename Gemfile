@@ -21,6 +21,10 @@ gem 'oauth2'
 gem 'flickraw'
 gem 'haml', '3.0.18'
 gem 'haml-rails', '0.2', :group => :development
+
+# memcaching
+gem 'dalli'
+
  # the following gems are used to generate Devise views for Haml
 gem 'hpricot', '0.8.2', :group => :development
 gem 'ruby_parser', '2.0.5', :group => :development
