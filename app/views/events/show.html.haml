@@ -12,12 +12,6 @@
   jQuery(function() { app.setupShowdates();  app.setupVideos(); });
 
 
-- if user_signed_in?
-  .admin
-    = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + 'Delete Event', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete)
-    = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit Event', edit_event_path(@event))
-
-
 .videos
   - if @event.videos.first
     %ul{:class => 'video_list'}
@@ -28,8 +22,13 @@
 
 #main
   - if user_signed_in?
-    #add_showdate.tk-poster + Add a Date
-    #new_showdate{:style => "display: none;"}= render 'showdate'
+    .admin-bar
+      %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + 'Delete Event', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete)
+      %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit Event', edit_event_path(@event))
+
+    .admin-bar
+      #add_showdate.admin + Add a Date
+      #new_showdate{:style => "display: none;"}= render 'showdate'
 
   - if @venue
     - content_for :jstemplates do

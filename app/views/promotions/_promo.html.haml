@@ -4,7 +4,7 @@
 - if promotion.title?
   .title= promotion.title
 - if user_signed_in?
-  .title
-    %span.admin= link_to 'Edit Promo', edit_promotion_path(promotion)
+  .admin-bar
+    %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit Promo', edit_promotion_path(promotion))
     %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Promo') + 'Delete Promo', promotion, :confirm => 'Are you sure you want to delete this Promo?', :method => :delete)
     

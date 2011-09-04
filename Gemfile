@@ -11,6 +11,7 @@ gem 'mongoid_slug'
 gem 'jquery-rails'
 # gem "carrierwave", "~> 0.5.7"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem "fog", "~> 0.11.0"
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 # gem 'devise', '1.1.2'
 # gem 'devise', :git => "http://github.com/plataformatec/devise.git", :branch => 'v1.2.oauth'

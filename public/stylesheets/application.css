@@ -86,7 +86,7 @@ h3 {
 }
 #main-content .videos {
   text-align: center;
-  padding-right: 260px;
+/*  padding-right: 260px;*/
 }
 #main-content #main {
   float: left;
@@ -98,11 +98,6 @@ h3 {
   padding: 10px;
   background-color: #fff;
 }
-.admin {
-	padding: 0 0 0 1em;
-	font-size: 0.9em;
-}
-
 .nav a,
 .nav a:visited,
 .nav a:hover

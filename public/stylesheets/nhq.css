@@ -246,15 +246,41 @@ display:none;
 	height: 175px;
 	border: 5px solid #fff;
 }
-.showblock img {
+.showblock .show img {
 	padding:0;
 	width: 175px;
 	height: 175px;
+}
+.showblock .admin {
+  margin-top: -30px;
+  height: 10px;
+  width: 90px;
+  padding: 5px;
+  float: none;
+  display: block;
 }
 .showblock {
 	font-size: 1.5em;
 	font-weight: bold;
 	padding-bottom: 0.2em;
+}
+/* jQuery hover */
+.showblock.hover .photo img {
+  display: none;
+}
+.showblock .show {
+  display: none;
+} 
+.showblock.hover .show {
+  display: block;
+}
+.showblock .title {
+  position: relative; 
+  top: 0px; 
+  left: 0px; 
+  text-transform: uppercase; 
+  text-align: center;
+  text-indent: 0px; 
 }
 /*.showblock .title {display:none;}*/
 .flickrs,

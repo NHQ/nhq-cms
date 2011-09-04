@@ -6,25 +6,25 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupVideos(); app.setupCredits(); });
   
-  
-- if user_signed_in?
-  .admin
-    = link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Show') + 'Delete Show', @show, :confirm => 'Are you sure you want to delete the show "' + @show.title + '"?', :method => :delete)
-    = link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit Show', edit_show_path(@show))
 
 
 #main    
+  - if user_signed_in?
+    .admin-bar
+      %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Show') + 'Delete Show', @show, :confirm => 'Are you sure you want to delete the show "' + @show.title + '"?', :method => :delete)
+      %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit Show', edit_show_path(@show))
 
   .videos
     - if @show.videos.first
       %ul{:class => 'video_list'}
         - @show.videos.each do |video|
-          = render(:partial => "videos/video", :locals => {:video => video})
+          %li= render(:partial => "videos/video", :locals => {:video => video})
     - else
       %ul.video_list
 
     - if user_signed_in?
-      #add_video + Add a Video
+      #add_video.admin-bar
+        .admin + Add a Video
       #new_video{:style => "display: none;"}= render '/videos/video-form'
 
 

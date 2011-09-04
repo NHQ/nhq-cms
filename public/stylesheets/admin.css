@@ -36,7 +36,7 @@ fieldset, ol {
 	padding: 0;
 }
 textarea {
-	width: 520px;
+	width: 500px;
 }
 ol li {
 	list-style: none;
@@ -48,7 +48,7 @@ ol li {
 }
 .inline-hints {
 	font-size: 0.8em;
-	color: #666;
+	color: #333;
 }
 label {
 	display: block;
@@ -84,7 +84,12 @@ li .destroy {
 	font-weight: normal;
 	font-size: 14px;
 	float: right;
+	padding: 0 0 0 1em;
 }
+.admin-bar {
+  height: 18px;
+}
+
 #menu .admin {
 	padding-right: 15px;
 	float: none;
@@ -120,7 +125,9 @@ span.add {
 	clear: both;
 }
 
-
+#promotion_title_input input {
+  width: 100%;
+}
 
 .when form .label {
 	width: 75px;

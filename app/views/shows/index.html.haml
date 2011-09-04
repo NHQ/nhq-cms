@@ -10,6 +10,3 @@
         .photo.left= link_to image_tag(show.image.url(:boxy)), show
       .title
         .show= link_to show.title, show
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit', edit_show_path(show))
-          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Show') + 'Destroy', show, :confirm => 'Are you sure you want to delete the show "' + show.title + '"?', :method => :delete)
