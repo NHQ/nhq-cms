@@ -188,7 +188,7 @@ display:none;
 	text-align:center;
 }
 .ticket_url {
-	font-size: 38px;
+	font-size: 30px;
 	background: #fff;
 	width: 200px;
 	margin: 1em 0 0 0;
@@ -418,10 +418,21 @@ form.credit {
 #events .flickrs .flickr_list li.flickr {
 
 }
-#johnnyShim{
-	width:750px;
-	display:block; margin-left:10px;
-	
+
+#venues h1 {
+  font-size: 28px;
+  color: #333;
+}
+#venues .event_list {
+  margin-left: 1em;
+}
+#venues .event_list li {
+  background-color: #fff;
+  padding-left: 0.5em;
+  margin-bottom: 1em;
+}
+.event_list .title {
+  padding-right: 1em;
 }
 
 /* jquery faded pagination */

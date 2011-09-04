@@ -1,4 +1,5 @@
 - content_for :title, "500 Clown @ " + @venue.venue_name
+- body_id('venues')
 
 - content_for :head do
   = stylesheet_link_tag "gmaps"
@@ -7,40 +8,43 @@
 - content_for :jstemplates do
   jQuery(function() { app.codeAddress(); });
 
-%h1
-  = @venue.venue_name
-  -if user_signed_in?
-    %span.admin
-      = link_to 'Edit', edit_venue_path(@venue)
-    
-.address
-  %span= @venue.street
-  - if @venue.city?
-    %br
-    %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
-  %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
-.phone
-  = @venue.phone
-
 - unless(@venue.map_string.length < 5)
   %div#map_canvas
 
-- flag = 0
-- @events = Event.any_in(:venue_ids => [@venue.id])
-- if @events
-  %h3 Upcoming Events at #{@venue.venue_name}:
-  %ul.event_list
-    - date_fmt = '%a, %b %d, %Y'
-    - date_parse_fmt = '%Y-%m-%d'
-    - time_fmt = '%I:%M%P'
-    - time_parse_fmt = '%H:%M:00'
-    - @events.each do |event|
-      - unless event.showdates.empty? 
-        - flag = 1
-        - event.showdates.each do |d|
-          %li
-            %span.title= link_to event.title, event
-            %span.date= Date.strptime(d.start_date, date_parse_fmt).strftime(date_fmt)
-            %span.time= Time.strptime(d.start_time, time_parse_fmt).strftime(time_fmt)
-- if flag == 0
-  .notice We have no upcoming events at this venue, yet!
+#main
+  %h1
+    = @venue.venue_name
+    -if user_signed_in?
+      %span.admin
+        = link_to 'Edit', edit_venue_path(@venue)
+    
+  .address
+    %span= @venue.street
+    - if @venue.city?
+      %br
+      %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
+    %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
+  .phone
+    = @venue.phone
+
+
+
+  - flag = 0
+  - @events = Event.any_in(:venue_ids => [@venue.id])
+  - if @events
+    %h3 Upcoming Events:
+    %ul.event_list
+      - date_fmt = '%a, %b %d, %Y'
+      - date_parse_fmt = '%Y-%m-%d'
+      - time_fmt = '%I:%M%P'
+      - time_parse_fmt = '%H:%M:00'
+      - @events.each do |event|
+        - unless event.showdates.empty? 
+          - flag = 1
+          - event.showdates.each do |d|
+            %li
+              %span.title= link_to event.title, event
+              %span.date= Date.strptime(d.start_date, date_parse_fmt).strftime(date_fmt)
+              %span.time= Time.strptime(d.start_time, time_parse_fmt).strftime(time_fmt)
+  - if flag == 0
+    .notice We have no upcoming events at this venue, yet!
