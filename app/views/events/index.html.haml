@@ -9,7 +9,7 @@
   - @events.each do |event|
     %li.showblock
       - if event.image?
-        .photo.left= link_to(image_tag(event.image.url(:boxy)), event)
+        .photo.left= link_to(image_tag(event.image.url(:showblock)), event)
       .title
         .show= link_to event.title, event 
         - if user_signed_in?
