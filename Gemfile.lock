@@ -47,6 +47,7 @@ GEM
     carrierwave-mongoid (0.1.2)
       carrierwave (>= 0.5.6)
       mongoid (~> 2.1)
+    dalli (1.0.3)
     devise (1.4.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -160,6 +161,7 @@ DEPENDENCIES
   RedCloth
   bson_ext (~> 1.3)
   carrierwave-mongoid
+  dalli
   devise (~> 1.4.4)
   flickraw
   fog (~> 0.11.0)
