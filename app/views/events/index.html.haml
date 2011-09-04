@@ -12,6 +12,3 @@
         .photo.left= link_to(image_tag(event.image.url(:showblock)), event)
       .title
         .show= link_to event.title, event 
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit', edit_event_path(event))
-          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + 'Destroy', event, :confirm => 'Are you sure you want to delete the event "' + event.title + '"?', :method => :delete)

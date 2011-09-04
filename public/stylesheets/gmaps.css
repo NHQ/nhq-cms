@@ -1,3 +1,9 @@
  html { height: 100% }
  body { height: 100%; margin: 0px; padding: 0px }
-/* #map_canvas { height: 100% }*/
+ #map_canvas { height: 100% }
+ 
+ #map_canvas {
+ 	width: 560px; 
+ 	height: 250px;
+ 	box-shadow:0 0 3px #333;
+}

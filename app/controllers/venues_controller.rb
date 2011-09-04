@@ -1,6 +1,7 @@
 class VenuesController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_event, :only => [:new, :edit, :create, :update]
+  before_filter :find_venue, :except => [ :index, :new, :create, :feed ]
 
   def create
     @venue = Venue.new(params[:venue])
@@ -41,6 +42,10 @@ class VenuesController < InheritedResources::Base
   
   def find_event
     @event = Event.first(:conditions => { :slug => params[:event_id] } )
+  end
+  
+  def find_venue
+    @venue = Venue.first(:conditions => { :slug => params[:id] } )
   end
 
 end

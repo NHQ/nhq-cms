@@ -162,6 +162,11 @@ display:none;
   margin-top: 25px;
   text-align:left;*/
 }
+.description h1 {
+  font-size: 24px;
+  color: #333;
+  padding: 0.5em 0 0 0.5em;
+}
 .description h2{
 	padding:1ex 0 0 1ex;
 }
@@ -183,13 +188,13 @@ display:none;
 	text-align:center;
 }
 .ticket_url {
-	font-size:45px;
-	background:#fff;
-	width:250px;
-	margin-left:35px;
-	margin-top: 15px;
-	margin-bottom:25px;
+	font-size: 38px;
+	background: #fff;
+	width: 200px;
+	margin: 1em 0 0 0;
+	padding: 0.2em 0;
 	text-align:center;
+	text-transform: uppercase;
 }
 .price {
 	width:180px;
@@ -215,12 +220,7 @@ display:none;
 	margin: 0;
 	padding: 0;
 }
-#map_canvas {
-	margin: 225px 0 0  45px;
-	width: 525px; 
-	height: 250px;
-	box-shadow:0 0 3px #333;
-}
+
 #venue_state {
 	display: inline;
 }

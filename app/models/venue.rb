@@ -1,7 +1,9 @@
 class Venue
   include Mongoid::Document
-  
-  referenced_in :event
+  include Mongoid::Slug
+
+  # referenced_in :event
+  has_and_belongs_to_many :events
   
   field :venue_name, :type => String
   field :street, :type => String
@@ -9,6 +11,7 @@ class Venue
   field :state, :type => String
   field :zip, :type => String
   field :phone, :type => String
+  slug  :venue_name
   
   def map_string
     [self.street, self.city, self.state, self.zip].join(" ").split(' ').join("+")
