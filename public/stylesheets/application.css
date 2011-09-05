@@ -15,6 +15,7 @@ a:hover{color:#900;text-decoration:none;}
 
 h3 {
   padding: 0.5em 0 0 0.6em;
+  background-color: #FFF;
 }
 
 #menu {
@@ -118,10 +119,10 @@ h3 {
 .hmenu li {list-style: none;}
 
 #sidebar {
-	font-size:24px;
+	font-size: 1.25em;
 	float: right;
 	width: 229px;
-	padding-left:0px;
+	padding:0px;
   margin: 10px 0 0 0;
 	text-align:left;
 }
@@ -152,10 +153,10 @@ h3 {
   margin-left:60px;
 }
 */
-/*.video_list li {
-    margin-top:25px;
+.video_list li {
+  padding: 0.5em 0;
 }
-*/iframe, object {
+iframe, object {
 	max-width:525px;
 }
 .page {

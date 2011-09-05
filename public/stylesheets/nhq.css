@@ -49,7 +49,7 @@ display:none;
 }
 .upcoming li.title a {
   color:#000;
-  font-size:125%;
+/*  font-size:125%;*/
   background:#fff;
 }
 /*.promotions {
@@ -355,8 +355,8 @@ form.credit {
 .flickrs .title {
 	background:#fff;
 	display: block;
-	padding: 1em;
-	margin:1ex 0;
+	padding: 0 0 0.5em 0.2em;
+	margin: 0;
 }
 .flickrs .slideshow {
 	clear: left;

@@ -16,7 +16,7 @@
     - if @workshop.videos.first
       %ul{:class => 'video_list'}
         - @workshop.videos.each do |video|
-          = render(:partial => "videos/video", :locals => {:video => video})
+          %li= render(:partial => "videos/video", :locals => {:video => video})
     - else
       %ul.video_list
       
