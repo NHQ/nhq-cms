@@ -34,9 +34,7 @@
           - if user_signed_in?
             %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Date'), event_showdate_path(@event, d), :confirm => "Are you sure you want to remove this date?", :method => :delete)
     - if @event.ticket_price
-      .price Admisssion: $#{@event.ticket_price}
-    - if @event.ticket_url?
-      .SB_ticket_url= link_to("Buy Tickets", @event.ticket_url)
+      .price Admission: $#{@event.ticket_price}
   .flickrs
     - if @event.flickrs.first
       %ul{:class => 'flickr_list'}
@@ -58,14 +56,14 @@
     jQuery(function() { app.codeAddress(); });
   - unless(@venue.map_string.length < 5)
     %div#map_canvas
-    .where
-      %h2.venue_title
+    %span.where
+      %span.venue_title
         = link_to @venue.venue_name, @venue
         - if user_signed_in?
           %span.admin.venue-admin
             %span.tk-poster= link_to("Edit Venue".html_safe, edit_event_venue_path(@event, @venue))
             %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue') + "remove venue", "/events/#{@event.slug}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
-      %h3.address
+      %span.address
         %span= @venue.street
         %br
         - if @venue.city?
@@ -94,7 +92,7 @@
       #add_showdate.admin + Add a Date
       #new_showdate{:style => "display: none;"}= render 'showdate'
 
-  .description.redcloth
+  %span.description.redcloth
     %h1= @event.title
     = RedCloth.new(@event.description).to_html.html_safe
   - if @event.ticket_url?

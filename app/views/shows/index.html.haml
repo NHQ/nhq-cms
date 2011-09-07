@@ -3,6 +3,7 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupShowList(); });
 
+
 %ul.show_list
   - @shows.each do |show|
     %li.showblock
@@ -10,3 +11,7 @@
         .photo.left= link_to image_tag(show.image.url(:showblock)), show
       .title
         .show= link_to show.title, show
+
+#main
+  %h1 500 Clown Shows
+  %p Since 2000, 500 CLOWN has created six original performances, and is currently working to develop many more to come. Click on the images above to learn about our performance history.

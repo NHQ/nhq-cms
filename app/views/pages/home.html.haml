@@ -7,9 +7,9 @@
         - @upcoming_events.each do |event|
           %li.title
             - if event.venues.first
-              = link_to "#{event.title} @ #{event.venues[0].venue_name}", event
+              = link_to "<span class='event_title'>#{event.title}</span><br /> @#{event.venues[0].venue_name}".html_safe, event
             - else
-              = link_to "#{event.title}", event
+              = link_to "<span class='event_title'>#{event.title}</span>".html_safe, event
 
 
 #main

@@ -2,8 +2,7 @@
 - body_id('events')
 - content_for :jstemplates do
   jQuery(function() { app.setupShowList(); });
-
-%h1 Events
+  
 
 %ul.show_list
   - @events.each do |event|
@@ -12,3 +11,8 @@
         .photo.left= link_to(image_tag(event.image.url(:showblock)), event)
       .title
         .show= link_to event.title, event 
+        
+        
+#main
+  %h1 Events
+  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

@@ -1,8 +1,8 @@
+- if promotion.title?
+  .title= promotion.title
 = RedCloth.new(promotion.body).to_html.html_safe
 - if promotion.image?
   = image_tag(promotion.image.url(:large))
-- if promotion.title?
-  .title= promotion.title
 - if user_signed_in?
   .admin-bar
     %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit Promo', edit_promotion_path(promotion))
