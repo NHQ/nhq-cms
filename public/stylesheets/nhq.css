@@ -87,7 +87,7 @@ h3 {
   background-color: transparent;
   background: url(../images/main_div.jpg) repeat-y;
   background-position: 0 -20px;
-  min-height:919px;
+/*  min-height:919px;*/
   padding: 15px 0 0 20px;
   margin-top: 1em;
 }
@@ -103,6 +103,7 @@ h3 {
 #home #main-content #main {
   padding-top: 215px;
 }
+
 #home #sidebar {
   padding-top: 50px;
 }
@@ -110,7 +111,8 @@ h3 {
 #events #main-content,
 #workshops #main-content,
 #contact #main-content,
-#about #main-content {
+#about #main-content,
+#reviews #main-content {
   padding-top: 215px;
 }
 #main-content #main h1,
@@ -183,6 +185,12 @@ h3 {
 */
 .video_list li {
   padding: 0.5em 0;
+  width: 520px;
+  text-align: center;
+}
+.video_list li object {
+  display: block;
+  margin: 0 auto;
 }
 iframe, object {
 	max-width:525px;
@@ -455,6 +463,10 @@ display:none;
 }
 .venue_list li {
 	padding: 1em 0;
+}
+
+#workshops #main-content {
+  min-height: 400px;
 }
 
 /* SHOWS */

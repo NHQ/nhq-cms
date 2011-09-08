@@ -55,7 +55,7 @@ label {
 	display: block;
 }
 .label {
-	color: #666;
+	color: #333;
 }
 .inputs input {
 	display: inline;
@@ -74,6 +74,7 @@ li .destroy {
 .created,
 .updated {
 	display: inline;
+	color: #333;
 }
 .welcome {
 	text-align: right;
@@ -129,7 +130,9 @@ span.add {
 #promotion_title_input input {
   width: 100%;
 }
-
+form {
+  background-color: #fff;
+}
 .when form .label {
 	width: 75px;
 	text-align: right;

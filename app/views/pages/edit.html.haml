@@ -1,13 +1,13 @@
 = content_for :title, "Editing " + @page.title + " Page"
 
-.admin= link_to('View Page', @page)
+#main
+  .admin= link_to('View Page', @page)
 
-%h1
-  = @page.title 
+  %h1 Editing Page
   
-.timestamps
-  %span.created= 'created ' + @page.created_at.to_s(:short)
-  , 
-  %span.updated= 'updated ' + time_ago_in_words(@page.updated_at) + ' ago'
+  .timestamps
+    %span.created= 'created ' + @page.created_at.to_s(:short)
+    , 
+    %span.updated= 'updated ' + time_ago_in_words(@page.updated_at) + ' ago'
 
-= render 'form'
+  = render 'form'
