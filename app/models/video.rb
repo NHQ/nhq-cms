@@ -4,9 +4,9 @@ class Video
   field :code
   
   embedded_in :show
-  embedded_in :workshop, :inverse_of => :videos
-  embedded_in :event, :inverse_of => :videos
-  embedded_in :promos, :inverse_of => :videos
+  embedded_in :workshop
+  embedded_in :event
+  embedded_in :promos
 
   validates_presence_of :code
   

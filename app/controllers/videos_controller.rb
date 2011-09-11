@@ -33,21 +33,19 @@ class VideosController < InheritedResources::Base
       @parent = Show.where(slug: params[:show_id]).first
       redirection = show_url(@parent)      
     elsif (params[:workshop_id])
-      @parent = Workshop.first(:conditions => { :slug => params[:workshop_id] } )
+      @parent = Workshop.where(slug: params[:show_id]).first
       redirection = workshop_url(@parent)
     elsif (params[:event_id])
-      @parent = Event.first(:conditions => { :slug => params[:event_id] } )
+      @parent = Event.where(slug: params[:show_id]).first
       redirection = event_url(@parent)
     elsif (params[:page_id])
-      @parent = Page.first(:conditions => { :slug => params[:page_id] } )
+      @parent = Page.where(slug: params[:show_id]).first
       redirection = page_url(@parent)
     elsif (params[:promotion_id])
       @parent = Promotion.find(params[:promotion_id])
       redirection = promotion_url(@parent)
     end
     @parent.videos.where(_id: params[:id]).delete_all
-    # @video = @parent.videos.where(id: "params[:id]").first
-    # @video.destroy
     flash[:notice] = "Video removed."
     redirect_to redirection
   end
