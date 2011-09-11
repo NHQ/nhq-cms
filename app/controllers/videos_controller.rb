@@ -29,8 +29,9 @@ class VideosController < InheritedResources::Base
   
   def destroy
     if (params[:show_id])
-      @parent = Show.first(:conditions => { :slug => params[:show_id] } )
-      redirection = show_url(@parent)
+      # @parent = Show.first(:conditions => { :slug => params[:show_id] } )
+      @parent = Show.where(slug: params[:show_id]).first
+      redirection = show_url(@parent)      
     elsif (params[:workshop_id])
       @parent = Workshop.first(:conditions => { :slug => params[:workshop_id] } )
       redirection = workshop_url(@parent)
@@ -44,8 +45,9 @@ class VideosController < InheritedResources::Base
       @parent = Promotion.find(params[:promotion_id])
       redirection = promotion_url(@parent)
     end
-    @video = @parent.videos.criteria.id(params[:id]).first
-    @video.destroy
+    @parent.videos.where(_id: params[:id]).delete_all
+    # @video = @parent.videos.where(id: "params[:id]").first
+    # @video.destroy
     flash[:notice] = "Video removed."
     redirect_to redirection
   end

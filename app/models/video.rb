@@ -3,7 +3,7 @@ class Video
 
   field :code
   
-  embedded_in :show, :inverse_of => :videos
+  embedded_in :show
   embedded_in :workshop, :inverse_of => :videos
   embedded_in :event, :inverse_of => :videos
   embedded_in :promos, :inverse_of => :videos

@@ -133,6 +133,9 @@ span.add {
 form {
   background-color: #fff;
 }
+form#user_new  {
+  background-color: transparent;
+}
 .when form .label {
 	width: 75px;
 	text-align: right;
@@ -150,8 +153,19 @@ form.showdate .end {
 form.showdate {
 	padding-bottom: 2em;
 }
+#add_video {
+  padding: 0;
+  width: 500px;
+  overflow: auto;
+  margin: 2em 0 1em 0;
+}
+#add_video .admin {
+  display: inline;
+}
+#new_video {
+  width: 500px;
+}
 #add_showdate,
-#add_video,
 #add_review,
 #add_flickr {
 	margin: 2em 0 0 0;

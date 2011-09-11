@@ -5,6 +5,7 @@
   %li= link_to 'Events', :events, :class => 'events'
   %li= link_to 'Workshops', :workshops, :class => 'workshops'
   %li= link_to 'Reviews', :reviews, :class => 'mreviews'
+  %li= link_to 'Facebook', 'http://www.facebook.com/500clown'
   - Page.all.each do |page|
     %li= link_to page.title.titleize, '/pages/' + page.slug,:class => page.slug
   %li.admin= render 'devise/menu/login_items'
