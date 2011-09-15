@@ -1,14 +1,15 @@
 = content_for :title, "Editing " + @event.title
 - body_id('events')
 
-%h1
-  Editing Event
-  %span.admin
-    = link_to 'View Event', @event
+#main
+  %h1
+    Editing Event
+    %span.admin
+      = link_to 'View Event', @event
 
-.timestamps
-  %span.created= 'created ' + @event.created_at.to_s(:short)
-  , 
-  %span.updated= 'updated ' + time_ago_in_words(@event.updated_at) + ' ago'
+  .timestamps
+    %span.created= 'created ' + @event.created_at.to_s(:short)
+    , 
+    %span.updated= 'updated ' + time_ago_in_words(@event.updated_at) + ' ago'
 
-= render 'form'
+  = render 'form'

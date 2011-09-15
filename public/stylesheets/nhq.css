@@ -80,16 +80,23 @@ h3 {
 #menu .admin {
 	padding: 1em 0 0.2em 0;
 }
-
+#main form,
+#main .timestamps
+{
+  padding-left: 10px;
+}
 #main-content{
   width: 868px;
   float: right;
   background-color: transparent;
-  background: url(../images/main_div.jpg) repeat-y;
+  background: url(../images/bg.jpg) no-repeat;
   background-position: 0 -20px;
 /*  min-height:919px;*/
   padding: 15px 0 0 20px;
   margin-top: 1em;
+}
+#reviews #main-content {
+  background: url(../images/bg.jpg) repeat-y;
 }
 #main-content .videos {
   text-align: center;
