@@ -126,8 +126,26 @@ h3 {
   margin-left: 30px;
 }
 #main .flickrs,
-#main .review_list {
+#main .review_list,
+#main ol,
+#main ul {
   margin-left: 20px;
+  padding-left: 20px;
+  background-color: #fff;
+}
+#main ol,
+#main ul {
+  padding-left: 30px;
+}
+#main li {
+  margin-left: 20px;
+}
+#main ol li {
+  list-style-type: decimal;
+}
+#main ul li {
+  list-style-type: disc;
+  padding: 0.5em 0;
 }
 #reviews #main-content {
 /*  background: url(../images/bg.jpg) repeat-y;*/
