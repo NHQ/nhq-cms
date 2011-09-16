@@ -5,5 +5,6 @@
  #map_canvas {
  	width: 560px; 
  	height: 250px;
+ 	margin-left: 20px;
  	box-shadow:0 0 3px #333;
 }

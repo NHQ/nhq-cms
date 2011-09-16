@@ -3,15 +3,13 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupShowList(); });
 
-
-%ul.show_list
-  - @shows.each do |show|
-    %li.showblock
-      - if show.image?
-        .photo.left= link_to image_tag(show.image.url(:showblock)), show
-      .title
-        .show= link_to show.title, show
-
 #main
+  %ul.show_list
+    - @shows.each do |show|
+      %li.showblock
+        - if show.image?
+          .photo.left= link_to image_tag(show.image.url(:showblock)), show
+        .title
+          .show= link_to show.title, show
   %h1 500 Clown Productions
   %p Since 2000, 500 Clown has created 500 Clown Macbeth, 500 Clown Frankenstein, 500 Clown Christmas, 500 Clown and the Elephant Deal, 500 Clown Get Happy, and 500 Clown Trapped.  Click on the images for more information, visit our ABOUT page to see where they've played, and go to UPCOMING to see where they're happening next.

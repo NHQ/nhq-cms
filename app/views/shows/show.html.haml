@@ -28,15 +28,14 @@
       #new_video{:style => "display: none;"}= render '/videos/video-form'
 
 
-  .description.redcloth
-    %h3.title
-      = @show.title
-    = RedCloth.new(@show.description).to_html.html_safe
+  %h1.title
+    = @show.title
+  = RedCloth.new(@show.description).to_html.html_safe
 
-    - unless @show.tags_array.empty?
-      .tags
-        %span.tag_title Tags:
-        = @show.tags.gsub(/,/, ", ")
+  - unless @show.tags_array.empty?
+    .tags
+      %span.tag_title Tags:
+      = @show.tags.gsub(/,/, ", ")
 
   .flickrs
     - if @show.flickrs.first

@@ -20,10 +20,9 @@
     - else
       %ul.video_list
       
-  .description.redcloth
-    %h3.title
-      = @workshop.title
-    = RedCloth.new(@workshop.description).to_html.html_safe
+  %h1.title
+    = @workshop.title
+  = RedCloth.new(@workshop.description).to_html.html_safe
 
   .tags
     %span.tk-poster Tags:

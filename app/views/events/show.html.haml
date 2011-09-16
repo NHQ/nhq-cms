@@ -43,46 +43,47 @@
     - else
       .flickr_list
 
-.videos
-  - if @event.videos.first
-    %ul{:class => 'video_list'}
-      - @event.videos.each do |video|
-        = render(:partial => "videos/video", :locals => {:video => video})
-  - else
-    %ul.video_list
-
-- if @venue
-  - content_for :jstemplates do
-    jQuery(function() { app.codeAddress(); });
-  - unless(@venue.map_string.length < 5)
-    %div#map_canvas
-    %span.where
-      %span.venue_title
-        = link_to @venue.venue_name, @venue
-        - if user_signed_in?
-          %span.admin.venue-admin
-            %span.tk-poster= link_to("Edit Venue".html_safe, edit_event_venue_path(@event, @venue))
-            %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue') + "remove venue", "/events/#{@event.slug}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
-      %span.address
-        %span= @venue.street
-        %br
-        - if @venue.city?
-          %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
-          %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
-        - if @venue.phone?
-          .phone Box Office: #{@venue.phone}
-- elsif user_signed_in?
-  .where
-    .admin-bar= link_to('+ Add New Venue', new_event_venue_path(@event))
-    - available_venues = Venue.not_in(:_id => @event.venue_ids)
-    - if available_venues.count
-      = form_for @event do |f|
-        %select{:id => "venue_id", :name => "venue_id"}
-          - venues_array = available_venues.map { |venue| [truncate(venue.venue_name), venue.id] }
-          = options_for_select(venues_array)
-        = f.submit "Add Existing Venue"
-
 #main
+  .videos
+    - if @event.videos.first
+      %ul{:class => 'video_list'}
+        - @event.videos.each do |video|
+          = render(:partial => "videos/video", :locals => {:video => video})
+    - else
+      %ul.video_list
+
+
+  - if @venue
+    - content_for :jstemplates do
+      jQuery(function() { app.codeAddress(); });
+    - unless(@venue.map_string.length < 5)
+      %div#map_canvas
+      %span.where
+        %span.venue_title
+          = link_to @venue.venue_name, @venue
+          - if user_signed_in?
+            %span.admin.venue-admin
+              %span.tk-poster= link_to("Edit Venue".html_safe, edit_event_venue_path(@event, @venue))
+              %span.tk-poster= link_to(image_tag('trash.png', :alt => 'Remove', :title => 'Remove Venue') + "remove venue", "/events/#{@event.slug}/venues/#{@venue.id}/remove", :confirm => 'Are you sure you want to remove this Venue?')
+        %span.address
+          %span= @venue.street
+          %br
+          - if @venue.city?
+            %span= @venue.city.to_s + ', ' + @venue.state.to_s + ' ' + @venue.zip.to_s
+            %input#address{ :name => "address", :type => "hidden", :value => @venue.map_string}/
+          - if @venue.phone?
+            .phone Box Office: #{@venue.phone}
+  - elsif user_signed_in?
+    .where
+      .admin-bar= link_to('+ Add New Venue', new_event_venue_path(@event))
+      - available_venues = Venue.not_in(:_id => @event.venue_ids)
+      - if available_venues.count
+        = form_for @event do |f|
+          %select{:id => "venue_id", :name => "venue_id"}
+            - venues_array = available_venues.map { |venue| [truncate(venue.venue_name), venue.id] }
+            = options_for_select(venues_array)
+          = f.submit "Add Existing Venue"
+        
   - if user_signed_in?
     .admin-bar
       %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Event') + 'Delete Event', @event, :confirm => 'Are you sure you want to delete the event "' + @event.title + '"?', :method => :delete)

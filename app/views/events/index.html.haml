@@ -3,16 +3,13 @@
 - content_for :jstemplates do
   jQuery(function() { app.setupShowList(); });
   
-
-%ul.show_list
-  - @events.each do |event|
-    %li.showblock
-      - if event.image?
-        .photo.left= link_to(image_tag(event.image.url(:showblock)), event)
-      .title
-        .show= link_to event.title, event 
-        
-        
 #main
+  %ul.show_list
+    - @events.each do |event|
+      %li.showblock
+        - if event.image?
+          .photo.left= link_to(image_tag(event.image.url(:showblock)), event)
+        .title
+          .show= link_to event.title, event 
   %h1 Upcoming Events
   %p Check out what's coming up!

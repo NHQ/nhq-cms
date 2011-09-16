@@ -12,8 +12,11 @@ a:hover{color:#900;text-decoration:none;}
 
 h1 {
   font-size: 32px;
+  clear: both;
 }
-
+h2 {
+  font-weight: normal;
+}
 h3 {
   padding: 0.5em 0 0 0.6em;
   background-color: #FFF;
@@ -80,33 +83,56 @@ h3 {
 #menu .admin {
 	padding: 1em 0 0.2em 0;
 }
+
+#main-content{
+  width: 888px;
+  float: right;
+  background-color: transparent;
+/*  min-height:919px;*/
+  padding: 15px 0 0 0;
+  margin-top: 1em;
+}
+#main-content #main {
+  float: left;
+/*  padding: 15px 20px 15px 20px;*/
+  padding-right: 44px;
+  width: 575px;
+}
+#main-content #main p {
+  padding-bottom: 2em;
+}
 #main form,
 #main .timestamps
 {
   padding-left: 10px;
 }
-#main-content{
-  width: 868px;
-  float: right;
-  background-color: transparent;
-  background: url(../images/bg.jpg) no-repeat;
+#main {
+  background: url(../images/bg.jpg) repeat-y;
   background-position: 0 -20px;
-/*  min-height:919px;*/
-  padding: 15px 0 0 20px;
-  margin-top: 1em;
+}
+#main-content #main h1,
+#main-content #main h2,
+#main-content #main p,
+#main-content #main div p {
+  padding: 15px 20px 0 20px;
+  margin-left: 20px;
+  background-color: #fff;
+}
+#main-content #main h1 {
+  padding-bottom: 0;
+  margin-top: 20px;
+}
+#main .videos {
+  margin-left: 30px;
+}
+#main .flickrs,
+#main .review_list {
+  margin-left: 20px;
 }
 #reviews #main-content {
-  background: url(../images/bg.jpg) repeat-y;
+/*  background: url(../images/bg.jpg) repeat-y;*/
 }
-#main-content .videos {
-  text-align: center;
-  padding-right: 260px;
-}
-#main-content #main {
-  float: left;
-  padding: 15px 20px 15px 20px;
-  width: 520px;
-}
+
 #home #main-content #main {
   padding-top: 215px;
 }
@@ -114,24 +140,15 @@ h3 {
 #home #sidebar {
   padding-top: 50px;
 }
-#shows #main-content,
-#events #main-content,
-#workshops #main-content,
-#contact #main-content,
-#about #main-content,
-#reviews #main-content {
+#shows #main,
+#events #main,
+#workshops #main,
+#contact #main,
+#about #main,
+#reviews #main {
   padding-top: 215px;
 }
-#main-content #main h1,
-#main-content #main p,
-#main-content #main div p,
-#main-content #main div div {
-  padding: 10px;
-  background-color: #fff;
-}
-#main-content #main h1 {
-  padding-bottom: 0;
-}
+
 .nav a,
 .nav a:visited,
 .nav a:hover
@@ -343,12 +360,15 @@ display:none;
 {
 	padding: 0;
 	margin: 0;
+	overflow: auto;
 }
 .credit_list {
 	margin:1em 0;
 }
-.show_list li .title a
-{
+.show_list {
+  padding-left: 20px;
+}
+.show_list li .title a {
 	color:#fff;
 }
 .event_list li,
@@ -426,9 +446,8 @@ display:none;
 .ticket_url {
 	font-size: 36px;
 	background: #fff;
-/*  width: 200px;*/
-	margin: 15px 0 0 0;
-	padding: 0.2em;
+	margin: 20px;
+	padding: 0 0.2em;
 	text-align:center;
 	text-transform: uppercase;
 	display: inline;
@@ -443,9 +462,8 @@ display:none;
 /* VENUE */
 .where {
 	background:#fff;
-	margin-top:25px	;
+	margin: 25px	0;
 	padding:5px 6px;
-	margin-right:60px;
 	font-size: 1em;
 	width: 250px;
 	height: 90px;
@@ -678,9 +696,6 @@ form.credit {
   padding-right: 1em;
 }
 
-.show_list {
-  padding-left: 20px;
-}
 
 
 
