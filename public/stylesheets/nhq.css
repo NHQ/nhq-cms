@@ -97,6 +97,8 @@ h3 {
 /*  padding: 15px 20px 15px 20px;*/
   padding-right: 44px;
   width: 575px;
+  padding-bottom: 35px;
+  margin-bottom: 25px;
 }
 #main-content #main p {
   padding-bottom: 2em;
@@ -109,43 +111,69 @@ h3 {
 #main {
   background: url(../images/bg.jpg) repeat-y;
   background-position: 0 -20px;
+  min-height: 645px;
 }
 #main-content #main h1,
 #main-content #main h2,
 #main-content #main p,
 #main-content #main div p {
-  padding: 15px 20px 0 20px;
+  padding: 10px 15px 0 15px;
   margin-left: 20px;
   background-color: #fff;
+  display: block;
 }
 #main-content #main h1 {
   padding-bottom: 0;
   margin-top: 20px;
 }
+#main-content #main #wrapper p {
+  padding-bottom: 1em;
+}
+#main-content #main #wrapper form {
+  margin-left: 20px;
+}
+#main-content #main #wrapper form li {
+  list-style-type: none;
+}
+#main-content #main #wrapper .created {
+  margin-left: 25px;
+}
 #main .videos {
-  margin-left: 30px;
+/*  margin-left: 20px;*/
+/*  padding-left: 25px;*/
 }
 #main .flickrs,
-#main .review_list,
-#main ol,
-#main ul {
+#main .review_list {
   margin-left: 20px;
-  padding-left: 20px;
+/*  padding-left: 20px;
   background-color: #fff;
-}
+*/}
 #main ol,
 #main ul {
-  padding-left: 30px;
+/*  padding-left: 30px;*/
 }
 #main li {
-  margin-left: 20px;
+/*  margin-left: 20px;*/
 }
 #main ol li {
   list-style-type: decimal;
 }
-#main ul li {
+#main p ul li {
   list-style-type: disc;
   padding: 0.5em 0;
+}
+#main .show_list {
+  overflow: auto;
+  padding-bottom: 2em;
+}
+#events #main .show_list {
+  padding-bottom: 15em;
+}
+#main #wrapper {
+  margin: 0 1.5em;
+}
+#reviews #main li {
+  list-style-type: none;
 }
 #reviews #main-content {
 /*  background: url(../images/bg.jpg) repeat-y;*/
@@ -186,7 +214,7 @@ h3 {
 	float: right;
 	width: 269px;
 	padding:0px;
-  margin: 10px 0 0 0;
+  margin: 100px 0 0 0;
 	text-align:left;
 	z-index: 5;
 }
@@ -218,17 +246,29 @@ h3 {
 	background-color:#fff;
 }
 .time {color:#000;}
-.videos {
-	padding:0;
-}
+
 /*.video_list{
   margin-left:60px;
 }
 */
 .video_list li {
-  padding: 0.5em 0;
+  padding: 0.5em 0 0.5em 0;
   width: 520px;
+  width: 100%;
+  margin: 0 auto;
   text-align: center;
+}
+#workshops #main #wrapper  ul {
+  padding-left: 50px;
+  margin-left: 20px;
+  padding-bottom: 0.5em;
+  background-color: #fff;
+}
+#workshops #main #wrapper li {
+  padding: 0.5em 0;
+}
+#workshops #main #wrapper li {
+  list-style-type: disc;
 }
 .video_list li object {
   display: block;
@@ -667,10 +707,10 @@ form.credit {
 	display:none;
 }
 #sidebar .flickrs li {
-	width:190px;
+	width:182px;
 	background:#fff;
 	display: block;
-	padding: 1em 0;
+	padding: 0.5em 0 0.5em 0.3em;
 	margin: 0;
 	list-style: none;
 }
@@ -679,7 +719,7 @@ form.credit {
 }
 #sidebar .flickrs img {
 	padding:0;
-	margin:6px 0px 6px 12px;
+	margin:6px 0px 6px 7px;
 	background:#fff;
 }
 

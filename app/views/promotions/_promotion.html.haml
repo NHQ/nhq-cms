@@ -1,3 +1,14 @@
+.videos
+  - if promotion.videos.first
+    %ul{:class => 'video_list'}
+      - promotion.videos.each do |video|
+        %li= video.code.html_safe
+
+  - if user_signed_in?
+    #add_video
+      %span.admin + Add a Video
+    #new_video{:style => "display: none;"}= render '/videos/video-form'
+
 - if promotion.title?
   %h2.title= promotion.title
 = RedCloth.new(promotion.body).to_html.html_safe

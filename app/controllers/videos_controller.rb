@@ -17,12 +17,14 @@ class VideosController < InheritedResources::Base
       @event = Event.first(:conditions => { :slug => params[:event_id] } )
       @event.videos << @video
       @event.save
+    elsif (params[:promotion_id])
+      @promotion = Promotion.find(params[:promotion_id])
+      @promotion.videos << @video
+      @promotion.save
     elsif (params[:page_id])
       @page = Page.first(:conditions => { :slug => params[:page_id] } )
       @page.videos << @video
       @page.save
-    elsif (params[:promotion_id])
-      @promotion = Promotion.find(params[:promotion_id])
     end
     render :template => "videos/create.js.erb", :content_type => 'text/javascript'
   end
@@ -43,7 +45,7 @@ class VideosController < InheritedResources::Base
       redirection = page_url(@parent)
     elsif (params[:promotion_id])
       @parent = Promotion.find(params[:promotion_id])
-      redirection = promotion_url(@parent)
+      redirection = root_url
     end
     @parent.videos.where(_id: params[:id]).delete_all
     flash[:notice] = "Video removed."

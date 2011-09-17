@@ -37,7 +37,7 @@ fieldset, ol {
 	padding: 0;
 }
 textarea {
-	width: 500px;
+	width: 480px;
 }
 ol li {
 	list-style: none;
@@ -128,7 +128,7 @@ span.add {
 }
 
 #promotion_title_input input {
-  width: 100%;
+  width: 90%;
 }
 form {
   background-color: #fff;

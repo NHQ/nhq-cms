@@ -13,52 +13,51 @@
 
 #main
   .videos
-    - if @workshop.videos.first
-      %ul{:class => 'video_list'}
+    %ul.video_list
+      - if @workshop.videos.first
         - @workshop.videos.each do |video|
           %li= render(:partial => "videos/video", :locals => {:video => video})
-    - else
-      %ul.video_list
       
-  %h1.title
-    = @workshop.title
-  = RedCloth.new(@workshop.description).to_html.html_safe
+  #wrapper
+    %h1.title
+      = @workshop.title
+    = RedCloth.new(@workshop.description).to_html.html_safe
 
-  .tags
-    %span.tk-poster Tags:
-    = @workshop.tags.gsub(/,/, ", ")
+    .tags
+      %span.tk-poster Tags:
+      = @workshop.tags.gsub(/,/, ", ")
 
-  - if @workshop.reviews.first
-    .reviews
-      %h3.tk-poster Press:
-      %ul.review_list
-        - @workshop.reviews.each do |review|
-          = render(:partial => "reviews/review", :locals => {:review => review})
+    - if @workshop.reviews.first
+      .reviews
+        %h3.tk-poster Press:
+        %ul.review_list
+          - @workshop.reviews.each do |review|
+            = render(:partial => "reviews/review", :locals => {:review => review})
 
-  - if user_signed_in?
-    #add_review
-      .tk-poster= link_to('+ Add New Review', new_show_review_path(@workshop))
-      - available_reviews = Review.not_in(:_id => @workshop.review_ids)
-      - if available_reviews.count
-        = form_for @workshop do |r|
-          %select{:id => "review_id", :name => "review_id"}
-            - reviews_array = available_reviews.map { |review| [truncate(review.description), review.id] }
-            = options_for_select(reviews_array)
-          = r.submit "Add Existing Review"
+    - if user_signed_in?
+      #add_review
+        .tk-poster= link_to('+ Add New Review', new_show_review_path(@workshop))
+        - available_reviews = Review.not_in(:_id => @workshop.review_ids)
+        - if available_reviews.count
+          = form_for @workshop do |r|
+            %select{:id => "review_id", :name => "review_id"}
+              - reviews_array = available_reviews.map { |review| [truncate(review.description), review.id] }
+              = options_for_select(reviews_array)
+            = r.submit "Add Existing Review"
 
-  - if user_signed_in?
-    #add_video.tk-poster + Add a Video
-    #new_video{:style => "display: none;"}= render '/videos/video-form'
+    - if user_signed_in?
+      #add_video.tk-poster + Add a Video
+      #new_video{:style => "display: none;"}= render '/videos/video-form'
 
-  - if user_signed_in?
-    %span.add
-      = render 'flickrs/flickr-form'
+    - if user_signed_in?
+      %span.add
+        = render 'flickrs/flickr-form'
 
-  .flickrs
-    - if @workshop.flickrs.first
-      %h3.tk-poster Photos:
-      %ul.flickr_list
-      - @workshop.flickrs.each do |fset|
-        = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
-    - else
-      %ul.flickr_list
+    .flickrs
+      - if @workshop.flickrs.first
+        %h3.tk-poster Photos:
+        %ul.flickr_list
+        - @workshop.flickrs.each do |fset|
+          = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+      - else
+        %ul.flickr_list

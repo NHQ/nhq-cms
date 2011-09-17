@@ -93,25 +93,26 @@
       #add_showdate.admin + Add a Date
       #new_showdate{:style => "display: none;"}= render 'showdate'
 
-  %span.description.redcloth
-    %h1= @event.title
-    = RedCloth.new(@event.description).to_html.html_safe
-  - if @event.ticket_url?
-    .ticket_url= link_to("Buy Tickets", @event.ticket_url)
+  #wrapper
+    %span.description.redcloth
+      %h1= @event.title
+      = RedCloth.new(@event.description).to_html.html_safe
+    - if @event.ticket_url?
+      .ticket_url= link_to("Buy Tickets", @event.ticket_url)
 
 
-  - if user_signed_in?
-    #add_video.tk-poster + Add a Video
-    #new_video{:style => "display: none;"}= render '/videos/video-form'
+    - if user_signed_in?
+      #add_video.tk-poster + Add a Video
+      #new_video{:style => "display: none;"}= render '/videos/video-form'
 
 
-  - unless @event.tags_array.empty?
-    .tags
-      %span.tk-poster Tags:
-      = @event.tags.gsub(/,/, ", ")
+    - unless @event.tags_array.empty?
+      .tags
+        %span.tk-poster Tags:
+        = @event.tags.gsub(/,/, ", ")
 
-  - if user_signed_in?
-    %span.add
-      .tk-poster + Add a Photoset
-      = render 'flickrs/flickr-form'
+    - if user_signed_in?
+      %span.add
+        .tk-poster + Add a Photoset
+        = render 'flickrs/flickr-form'
 

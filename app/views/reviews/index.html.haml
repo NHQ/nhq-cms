@@ -4,6 +4,8 @@
 / %h1 Press Reviews
 
 #main
-  %ul.review_list
-    - @reviews.each do |review|
-      = render(:partial => "reviews/review", :locals => {:review => review})
+  #wrapper
+    %h1 Reviews
+    %ul.review_list
+      - @reviews.each do |review|
+        = render(:partial => "reviews/review", :locals => {:review => review})

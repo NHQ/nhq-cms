@@ -6,6 +6,9 @@ class PagesController < InheritedResources::Base
     # @upcoming_events = Event.where(:title => /^F/)
     # @upcoming_events = Event.limit(2)
     # @upcoming_events = Event.where(:start_date.gte => Time.now.to_i)
+    if user_signed_in?
+      @video = Video.new
+    end
     @all_events = Event.all
     @upcoming_events = []
     @all_events.each do |event|

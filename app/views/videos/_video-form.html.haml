@@ -5,6 +5,8 @@
     %input{:type => "hidden", :name => "workshop_id", :value => @workshop.slug}
   - elsif @event
     %input{:type => "hidden", :name => "event_id", :value => @event.slug}
+  - elsif @promotion
+    %input{:type => "hidden", :name => "promotion_id", :value => @promotion.id}
   - elsif @page
     %input{:type => "hidden", :name => "page_id", :value => @page.slug}
 

@@ -1,3 +1,6 @@
+- content_for :jstemplates do
+  jQuery(function() { app.setupVideos();});
+
 #eventsTab
 
 #sidebar
@@ -13,10 +16,35 @@
 
 
 #main
-  .promotions
-    - @promotions.each do |promo|
-      = render(:partial => 'promotions/promo', :locals => {:promotion => promo})
+  - @promotions.each do |promotion|
+    .videos
+      %ul{:class => 'video_list'}
+        - if promotion.videos.first
+          - promotion.videos.each do |video|
+            %li
+              = video.code.html_safe
+              - if user_signed_in?
+                .admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Remove Video') + " remove video", promotion_video_path(promotion.id, video), :confirm => 'Are you sure you want to remove this Video?', :method => :delete)
 
+      - if user_signed_in?
+        #add_video
+          .admin + Add a Video
+        #new_video{:style => "display: none;"}
+          = form_for @video, :remote => true do |r|
+            %input{:type => "hidden", :name => "promotion_id", :value => promotion.id}
 
-/ #feedTitle            
-/   %a{:href=>"http://facebook.com/pages/500-Clown/73447773916", :target => "_blank"} Fanpage Updates
+            = r.label :code, "Embed Code"
+            = r.text_area :code, :cols => 20, :rows => 5
+
+            = r.submit "Add Video"
+
+    #wrapper
+      - if promotion.title?
+        %h2.title= promotion.title
+      = RedCloth.new(promotion.body).to_html.html_safe
+      - if promotion.image?
+        = image_tag(promotion.image.url(:large))
+      - if user_signed_in?
+        .admin-bar
+          %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Event') + 'Edit Promo', edit_promotion_path(promotion))
+          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Promo') + 'Delete Promo', promotion, :confirm => 'Are you sure you want to delete this Promo?', :method => :delete)

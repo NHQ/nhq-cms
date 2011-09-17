@@ -15,64 +15,62 @@
       %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Show') + 'Edit Show', edit_show_path(@show))
 
   .videos
-    - if @show.videos.first
-      %ul{:class => 'video_list'}
+    %ul{:class => 'video_list'}
+      - if @show.videos.first
         - @show.videos.each do |video|
           %li= render(:partial => "videos/video", :locals => {:video => video})
-    - else
-      %ul.video_list
 
+  #wrapper
     - if user_signed_in?
       #add_video
-        %span.admin + Add a Video
+        .admin + Add a Video
       #new_video{:style => "display: none;"}= render '/videos/video-form'
+  
+    %h1.title
+      = @show.title
+    = RedCloth.new(@show.description).to_html.html_safe
 
+    - unless @show.tags_array.empty?
+      .tags
+        %span.tag_title Tags:
+        = @show.tags.gsub(/,/, ", ")
 
-  %h1.title
-    = @show.title
-  = RedCloth.new(@show.description).to_html.html_safe
+    .flickrs
+      - if @show.flickrs.first
+        %h3 Photos
+        %ul.flickr_list
+          - @show.flickrs.each do |fset|
+            = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
+      - else
+        %ul.flickr_list
 
-  - unless @show.tags_array.empty?
-    .tags
-      %span.tag_title Tags:
-      = @show.tags.gsub(/,/, ", ")
+      - if user_signed_in?
+        #add_flickr 
+          + Add a Photoset
+          = render 'flickrs/flickr-form'
 
-  .flickrs
-    - if @show.flickrs.first
-      %h3 Photos
-      %ul.flickr_list
-        - @show.flickrs.each do |fset|
-          = render(:partial => "flickrs/photoset", :locals => {:fset => fset})
-    - else
-      %ul.flickr_list
+    - if @show.reviews.first
+      .reviews
+        %h3 Press
+        %ul.review_list
+          - @show.reviews.each do |review|
+            = render(:partial => "reviews/review", :locals => {:review => review})
 
     - if user_signed_in?
-      #add_flickr 
-        + Add a Photoset
-        = render 'flickrs/flickr-form'
+      #add_review
+        = link_to('+ Add New Review', new_show_review_path(@show))
+        - available_reviews = Review.not_in(:_id => @show.review_ids)
+        - if available_reviews.count
+          = form_for @show do |r|
+            %select{:id => "review_id", :name => "review_id"}
+              - reviews_array = available_reviews.map { |review| [truncate(review.description), review.id] }
+              = options_for_select(reviews_array)
+            = r.submit "Add Existing Review"
 
-  - if @show.reviews.first
-    .reviews
-      %h3 Press
-      %ul.review_list
-        - @show.reviews.each do |review|
-          = render(:partial => "reviews/review", :locals => {:review => review})
-
-  - if user_signed_in?
-    #add_review
-      = link_to('+ Add New Review', new_show_review_path(@show))
-      - available_reviews = Review.not_in(:_id => @show.review_ids)
-      - if available_reviews.count
-        = form_for @show do |r|
-          %select{:id => "review_id", :name => "review_id"}
-            - reviews_array = available_reviews.map { |review| [truncate(review.description), review.id] }
-            = options_for_select(reviews_array)
-          = r.submit "Add Existing Review"
-
-  - if @show.additional_info?  
-    .additional_info.redcloth
-      %h3 Additional Info:
-      = RedCloth.new(@show.additional_info).to_html.html_safe
+    - if @show.additional_info?  
+      .additional_info.redcloth
+        %h3 Additional Info:
+        = RedCloth.new(@show.additional_info).to_html.html_safe
   
 #sidebar
   .credits

@@ -1,15 +1,12 @@
-#sidebar= render(:partial => "layouts/redcloth")
+= semantic_form_for @promotion, :html => { :multipart => true } do |form|
 
-#main
-  = semantic_form_for @promotion, :html => { :multipart => true } do |form|
+  = form.inputs do
+    = form.input :title
+    = form.input :body, :as => :text, :hint => "also accepts video embed code"
+    - if @promotion.image?
+      = image_tag(@promotion.image.url(:thumb))
+      = form.input :remove_image, :as => :boolean
+    = form.input :image
 
-    = form.inputs do
-      = form.input :title
-      = form.input :body, :as => :text, :hint => "also accepts video embed code"
-      - if @promotion.image?
-        = image_tag(@promotion.image.url(:thumb))
-        = form.input :remove_image, :as => :boolean
-      = form.input :image
-
-    = form.buttons do
-      = form.commit_button
+  = form.buttons do
+    = form.commit_button

@@ -6,4 +6,6 @@ class Promotion
   field :body
 
   mount_uploader :image, ImageUploader
+  
+  embeds_many :videos
 end
