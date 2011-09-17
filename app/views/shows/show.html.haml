@@ -32,8 +32,8 @@
 
     - unless @show.tags_array.empty?
       .tags
-        %span.tag_title Tags:
-        = @show.tags.gsub(/,/, ", ")
+        %h3 Tags:
+        = ('<span>' + @show.tags.gsub(/,/, "</span><span>") + '</span>').html_safe
 
     .flickrs
       - if @show.flickrs.first

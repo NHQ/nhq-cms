@@ -108,8 +108,8 @@
 
     - unless @event.tags_array.empty?
       .tags
-        %span.tk-poster Tags:
-        = @event.tags.gsub(/,/, ", ")
+        %h3 Tags:
+        = ('<span>' + @event.tags.gsub(/,/, "</span><span>") + '</span>').html_safe
 
     - if user_signed_in?
       %span.add

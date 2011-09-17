@@ -258,7 +258,8 @@ h3 {
   margin: 0 auto;
   text-align: center;
 }
-#workshops #main #wrapper  ul {
+#workshops #main #wrapper ul,
+#workshops #main #wrapper ol {
   padding-left: 50px;
   margin-left: 20px;
   padding-bottom: 0.5em;
@@ -267,10 +268,13 @@ h3 {
 #workshops #main #wrapper li {
   padding: 0.5em 0;
 }
-#workshops #main #wrapper li {
+#workshops #main #wrapper ul li {
   list-style-type: disc;
 }
-.video_list li object {
+/*#workshops #main #wrapper ol li {
+  list-style-type: disc;
+}
+*/.video_list li object {
   display: block;
   margin: 0 auto;
 }
@@ -327,12 +331,33 @@ iframe, object {
   background: #FFF;*/
 }
 .tags {
-	width:400px;
+/*  width:400px;*/
 	background:#fff;
 	color: #000;
-	padding:0;
-	margin:25px 0 0 45px;
-	font-size: 0.9em;
+	margin-left: 20px;
+	overflow: auto;
+/*  padding:0;
+  margin:25px 0 0 45px;
+*/	font-size: 0.9em;
+}
+.tags h3 {
+  font-size: 1.2em;
+  float: left;
+  padding-right: 1em;
+}
+.tags span {
+  display: block;
+  float: left;
+  padding: 0.5em 1em;
+  margin: 0 1em 0.5em 0;
+  font-size: 9px;
+  text-transform: uppercase;
+  font-family: Verdana, Helvetica, sans-serif;
+  background-color: #666;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 .reference {
 	padding-bottom: 0.5em;
