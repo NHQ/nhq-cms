@@ -167,7 +167,7 @@ h3 {
   padding-bottom: 2em;
 }
 #events #main .show_list {
-  padding-bottom: 15em;
+/*  padding-bottom: 15em;*/
 }
 #main #wrapper {
   margin: 0 1.5em;
@@ -186,6 +186,7 @@ h3 {
 #home #sidebar {
   padding-top: 50px;
 }
+#main,
 #shows #main,
 #events #main,
 #workshops #main,
@@ -549,7 +550,6 @@ display:none;
 	padding:5px 6px;
 	font-size: 1em;
 	width: 250px;
-	height: 90px;
 	float: right;
 	line-height: 22px;
 }

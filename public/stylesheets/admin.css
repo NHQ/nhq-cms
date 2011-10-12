@@ -89,9 +89,21 @@ li .destroy {
 	padding: 0 0 0 1em;
 }
 .admin-bar {
-  height: 18px;
+  position: absolute;
+  top: 10px;
+  width: 500px;
+  background: white;
 }
-
+#add_review,
+#add_flickr {
+	margin: 2em 0 0 0;
+}
+#add_showdate:hover,
+#add_video:hover,
+#add_credit:hover {
+	color: #DB0000;
+	cursor: pointer;
+}
 #menu .admin {
 	padding-right: 15px;
 	float: none;
@@ -164,15 +176,4 @@ form.showdate {
 }
 #new_video {
   width: 500px;
-}
-#add_showdate,
-#add_review,
-#add_flickr {
-	margin: 2em 0 0 0;
-}
-#add_showdate:hover,
-#add_video:hover,
-#add_credit:hover {
-	color: #DB0000;
-	cursor: pointer;
 }

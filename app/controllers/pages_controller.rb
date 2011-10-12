@@ -1,5 +1,5 @@
 class PagesController < InheritedResources::Base
-  before_filter :authenticate_user!, :only => [:edit, :update, :new, :create, :destroy]
+  before_filter :authenticate_user!, :except => [:show]
   before_filter :find_page, :except => [ :index, :new, :create ]
 
   def home
