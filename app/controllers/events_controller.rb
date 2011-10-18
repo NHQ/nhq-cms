@@ -15,6 +15,10 @@ class EventsController < InheritedResources::Base
   def feed
   end
 
+  def index
+    @upcoming_page = Page.where(title: "Upcoming").first
+    index!
+  end
 
   def update
     if params[:venue_id]

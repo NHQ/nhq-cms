@@ -12,5 +12,4 @@
         .title
           .show= link_to event.title, event 
   #wrapper
-    %h1 Upcoming Events
-    %p Check out what's coming up!
+    = RedCloth.new(@upcoming_page.body).to_html.html_safe

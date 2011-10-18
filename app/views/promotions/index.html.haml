@@ -1,13 +1,13 @@
 - content_for :title, "Promotions - 500 Clown"
 
-%h1 Promotions
-
-%ul.event_list
-  - if Promotion.all.count
-    - Promotion.all.each do |promotion|
-      %li
-        .timestamps
-          %span.created= 'created ' + promotion.created_at.to_s(:short)
-          , 
-          %span.updated= 'updated ' + time_ago_in_words(promotion.updated_at) + ' ago'
-        = render(:partial => 'promotions/promo', :locals => {:promotion => promotion})
+#main
+  %h1 Promotions
+  %ul.event_list
+    - if @promotions.count
+      - @promotions.all.each do |promotion|
+        %li
+          .timestamps
+            %span.created= 'created ' + promotion.created_at.to_s(:short)
+            , 
+            %span.updated= 'updated ' + time_ago_in_words(promotion.updated_at) + ' ago'
+          = render(:partial => 'promotions/promotion', :locals => {:promotion => promotion})

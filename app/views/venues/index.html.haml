@@ -1,21 +1,23 @@
 - content_for :title, "500 Clown - Venues"
 
-%h1 500 Clown's Favorite Venues
+#main
+  %h1 500 Clown's Favorite Venues
 
-%ul.venue_list
-  - @venues.each do |venue|
-    %li.venue
-      .title
-        = link_to venue.venue_name, venue
-        - if user_signed_in?
-          %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Page') + 'Edit', edit_venue_path(venue))
-          %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Page') + 'Destroy', venue, :confirm => 'Are you sure you want to delete the venue "' + venue.venue_name + '"?', :method => :delete)
-      - if venue.street?
-        .address
-          #{venue.street}
-          %br
-          #{venue.city}, #{venue.state} #{venue.zip}
-          .phone
-            = venue.phone
+  #paper
+    %ul.venue_list
+      - @venues.each do |venue|
+        %li.venue
+          .title
+            = link_to venue.venue_name, venue
+            - if user_signed_in?
+              %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Page') + 'Edit', edit_venue_path(venue))
+              %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Page') + 'Destroy', venue, :confirm => 'Are you sure you want to delete the venue "' + venue.venue_name + '"?', :method => :delete)
+          - if venue.street?
+            .address
+              #{venue.street}
+              %br
+              #{venue.city}, #{venue.state} #{venue.zip}
+              .phone
+                = venue.phone
       
-.title= link_to '+ New venue', new_venue_path
+    .title= link_to '+ New venue', new_venue_path

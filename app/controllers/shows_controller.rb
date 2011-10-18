@@ -2,6 +2,12 @@ class ShowsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_show, :except => [ :index, :new, :create, :remove_review]
   
+  
+  def index
+    @show_page = Page.where(title: "Shows").first
+    index!
+  end
+  
   def show
     @reviews = @show.reviews
     if user_signed_in?

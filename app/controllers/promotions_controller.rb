@@ -6,6 +6,11 @@ class PromotionsController < InheritedResources::Base
     new! { root_url }
   end 
   
+  def index
+    @promotions = Promotion.all
+    @video = Video.new
+  end
+  
   def create
     create! { root_url }
   end

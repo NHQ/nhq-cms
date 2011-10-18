@@ -10,6 +10,11 @@ class WorkshopsController < InheritedResources::Base
     end
   end
 
+  def index
+    @workshops_page = Page.where(title: "Workshops").first
+    index!
+  end
+
   def update
     if params[:review_id]
       @review = Review.find(params[:review_id])
