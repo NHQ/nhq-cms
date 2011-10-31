@@ -29,6 +29,20 @@
   border: solid 1px #C66;
 }
 
+li.page {
+  margin-top: 0;
+  padding-top: 25px;
+}
+#main form ol li {
+  list-style: none;
+}
+#main.edit form {
+  padding-left: 0;
+}
+#main-content #main.edit {
+  padding-right: 36px;
+  width: 553px;
+}
 fieldset {
 	border: none;
 }
@@ -97,6 +111,7 @@ li .destroy {
 #add_review,
 #add_flickr {
 	margin: 2em 0 0 0;
+	background: white;
 }
 #add_showdate:hover,
 #add_video:hover,
@@ -122,9 +137,9 @@ span.add {
 	padding: 0 4px;
 }
 #redcloth {
-	position: absolute;
-	top: 150px;
-	right: 10px;
+	position: fixed;
+	top: 290px;
+	right: 0;
 }
 
 #credit_new .role,

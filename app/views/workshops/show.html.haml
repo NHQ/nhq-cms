@@ -50,7 +50,8 @@
       #new_video{:style => "display: none;"}= render '/videos/video-form'
 
     - if user_signed_in?
-      %span.add
+      #add_flickr 
+        + Add a Photoset
         = render 'flickrs/flickr-form'
 
     .flickrs

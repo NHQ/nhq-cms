@@ -1,19 +1,18 @@
 - content_for :title, "Pages - 500 Clown"
 
-#main
+#main.edit
   %h1.title Pages
-  #paper
-    %ul.page_list
-      - @pages.each do |page|
-        %li.page
-          .title
-            = link_to page.title, page
-            - if user_signed_in?
-              %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Page') + 'Edit', edit_page_path(page))
-              %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Page') + 'Destroy', page, :confirm => 'Are you sure you want to delete the page "' + page.title + '"?', :method => :delete)
-          %span= "Created " + page.created_at.to_s(:date) 
-          %span= ", modified " + time_ago_in_words(page.updated_at) + ' ago'
+  %ul.page_list
+    - @pages.each do |page|
+      %li.page
+        .title
+          = link_to page.title, page
+          - if user_signed_in?
+            %span.admin= link_to(image_tag('pencil.gif', :alt => 'Edit', :title => 'Edit Page') + 'Edit', edit_page_path(page))
+            %span.admin= link_to(image_tag('trash.png', :alt => 'Destroy', :title => 'Delete Page') + 'Destroy', page, :confirm => 'Are you sure you want to delete the page "' + page.title + '"?', :method => :delete)
+        %span= "Created " + page.created_at.to_s(:date) 
+        %span= ", modified " + time_ago_in_words(page.updated_at) + ' ago'
 
-    %br
+  %br
 
   %p= link_to '+ New Page', new_page_path

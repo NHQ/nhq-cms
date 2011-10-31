@@ -118,9 +118,8 @@ h3 {
 #main-content #main {
   float: left;
 /*  padding: 15px 20px 15px 20px;*/
-  padding-right: 44px;
+  padding: 0 14px 35px 30px;
   width: 575px;
-  padding-bottom: 35px;
   margin-bottom: 25px;
 }
 #main-content #main p {
@@ -141,7 +140,6 @@ h3 {
 #main-content #main p,
 #main-content #main div p {
   padding: 10px 15px 0 15px;
-  margin-left: 20px;
   background-color: #fff;
   display: block;
 }
@@ -152,32 +150,19 @@ h3 {
 #main-content #main #wrapper p {
   padding-bottom: 1em;
 }
-#main-content #main #wrapper form {
+/*#main-content #main #wrapper form {
   margin-left: 20px;
-}
+}*/
 #main-content #main #wrapper form li {
   list-style-type: none;
 }
 #main-content #main #wrapper .created {
   margin-left: 25px;
 }
-#main .videos {
-/*  margin-left: 20px;*/
-/*  padding-left: 25px;*/
-}
-#main .flickrs,
-#main .review_list {
+/*#main .flickrs{
   margin-left: 20px;
-/*  padding-left: 20px;
-  background-color: #fff;
-*/}
-#main ol,
-#main ul {
-/*  padding-left: 30px;*/
 }
-#main li {
-/*  margin-left: 20px;*/
-}
+*/
 #main ol li {
   list-style-type: decimal;
 }
@@ -189,19 +174,12 @@ h3 {
   overflow: auto;
   padding-bottom: 2em;
 }
-#events #main .show_list {
-/*  padding-bottom: 15em;*/
-}
 #main #wrapper {
-  margin: 0 1.5em;
+  margin: 0 24px 0 3px;
 }
 #reviews #main li {
   list-style-type: none;
 }
-#reviews #main-content {
-/*  background: url(../images/bg.jpg) repeat-y;*/
-}
-
 #home #main-content #main {
   padding-top: 215px;
 }
@@ -215,7 +193,8 @@ h3 {
 #workshops #main,
 #contact #main,
 #about #main,
-#reviews #main {
+#reviews #main,
+#pages #main {
   padding-top: 215px;
 }
 
@@ -295,12 +274,9 @@ h3 {
 #workshops #main #wrapper ul li {
   list-style-type: disc;
 }
-/*#workshops #main #wrapper ol li {
-  list-style-type: disc;
-}
-*/.video_list li object {
+.video_list li object {
   display: block;
-  margin: 0 auto;
+  margin: 0 5px;
 }
 iframe, object {
 	max-width:525px;
@@ -351,18 +327,13 @@ iframe, object {
 }
 .event_title {
   text-transform: uppercase;
-/*  display: block;
-  background: #FFF;*/
 }
 .tags {
-/*  width:400px;*/
 	background:#fff;
 	color: #000;
-	margin-left: 20px;
 	overflow: auto;
-/*  padding:0;
-  margin:25px 0 0 45px;
-*/	font-size: 0.9em;
+	font-size: 0.9em;
+	padding-bottom: 0.6em;
 }
 .tags h3 {
   font-size: 1.2em;
@@ -459,6 +430,11 @@ display:none;
 }*/
 
 /* LISTS */
+.page_list, .venue_list {
+  padding-left: 18px;
+  background: white;
+}
+
 .event_list,
 .show_list,
 .workshop_list,
@@ -471,9 +447,6 @@ display:none;
 }
 .credit_list {
 	margin:1em 0;
-}
-.show_list {
-  padding-left: 20px;
 }
 .show_list li .title a {
 	color:#fff;
@@ -533,9 +506,6 @@ display:none;
 .description p {
 	padding:1em;
 }
-.description.redcloth p {
-  margin-bottom: 26px;
-}
 .SB_credits {
 	padding:0;
 	background:#fff;
@@ -569,7 +539,7 @@ display:none;
 /* VENUE */
 .where {
 	background:#fff;
-	margin: 25px	0;
+	margin: 25px 24px;
 	padding:5px 6px;
 	font-size: 1em;
 	width: 250px;
@@ -825,6 +795,8 @@ ul.pagination li.current a { background:#DB0000; color:white; }
 }
 .redcloth ul,
 .redcloth ol {
-	margin: 0.2em 0 0.9em 1.5em;
+	padding: 0.2em 0 0.9em 1.5em;
+	margin: 0;
 	color: #900;
+	background: white;
 }
